@@ -1,0 +1,29 @@
+{
+  "name": "noia-governance",
+  "version": "0.0.1",
+  "description": "NOIA network governance rules",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "help": "^3.0.2",
+    "truffle": "^4.1.3",
+    "webpack": "^4.1.1"
+  },
+  "devDependencies": {
+    "ganache-cli": "^6.1.0"
+  },
+  "scripts": {
+    "build": "truffle build --network ${TRUFFLE_NETWORK:-local}",
+    "test": "truffle test --network ${TRUFFLE_NETWORK:-local}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/wunjo/noia-governance.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/wunjo/noia-governance#readme"
+}

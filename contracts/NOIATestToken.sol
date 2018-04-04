@@ -1,13 +1,17 @@
 pragma solidity ^0.4.11;
 
-import "../abstracts/ERC223_interface.sol";
-import "../abstracts/ERC223_receiving_contract.sol";
-import "../lib/SafeMath.sol";
+import "./abstracts/ERC223_interface.sol";
+import "./abstracts/ERC223_receiving_contract.sol";
+import "./lib/SafeMath.sol";
 
 contract NOIATestToken is ERC223Interface {
     using SafeMath for uint;
 
     mapping(address => uint) balances; // List of user balances.
+
+    function name() constant public returns (string) { return "NOIA Test Token"; }
+    function symbol() constant public returns (string) { return "NOIA_TEST"; }
+    function decimals() constant public returns (uint) { return 0; }
 
     /**
     * @dev Transfer the specified amount of tokens to the specified address.
@@ -27,6 +31,7 @@ contract NOIATestToken is ERC223Interface {
             ERC223ReceivingContract receiver = ERC223ReceivingContract(_to);
             receiver.tokenFallback(msg.sender, _value, _data);
         }
+        Transfer(msg.sender, _to, _value);
         Transfer(msg.sender, _to, _value, _data);
     }
 
@@ -59,6 +64,7 @@ contract NOIATestToken is ERC223Interface {
         bytes memory empty;
         balances[beneficiary] += amount;               // Give the creator all initial tokens
         totalSupply += amount;                        // Update total supply
+        Transfer(0, beneficiary, amount);
         Transfer(0, beneficiary, amount, empty);
     }
 

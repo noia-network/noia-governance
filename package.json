@@ -7,16 +7,18 @@
     "test": "test"
   },
   "dependencies": {
+    "ganache-cli": "^6.1.0",
     "help": "^3.0.2",
     "truffle": "^4.1.3",
+    "truffle-contract": "^3.0.4",
+    "truffle-hdwallet-provider": "git+https://github.com/trufflesuite/truffle-hdwallet-provider.git",
     "webpack": "^4.1.1"
   },
-  "devDependencies": {
-    "ganache-cli": "^6.1.0"
-  },
   "scripts": {
+    "truffle": "truffle --network ${TRUFFLE_NETWORK:-local}",
     "build": "truffle build --network ${TRUFFLE_NETWORK:-local}",
-    "test": "truffle test --network ${TRUFFLE_NETWORK:-local}"
+    "test": "truffle test --network ${TRUFFLE_NETWORK:-local}",
+    "migrate": "truffle migrate --network ${TRUFFLE_NETWORK:-local}"
   },
   "repository": {
     "type": "git",

@@ -3,6 +3,8 @@ var ERC223NoFallback = artifacts.require('ERC223NoFallback');
 var ERC223WithFallback = artifacts.require('ERC223WithFallback');
 var NoiaNetwork = artifacts.require('NoiaNetwork');
 
+const should = require('should');
+
 contract('ERC223 Compliance Test', function (accounts) {
     let tokenContract;
     let acc0 = accounts[0];
@@ -24,12 +26,7 @@ contract('ERC223 Compliance Test', function (accounts) {
 
     it('transfer 100 sample tokens to a contract without tokenFallback', async () => {
         let badContract = await ERC223NoFallback.new({from: acc2});
-        try {
-            await tokenContract.transfer(badContract.address, 100, { from: acc0 });
-            assert.true(false);
-        } catch (error) {
-            // good!
-        }
+        await tokenContract.transfer(badContract.address, 100, { from: acc0 }).should.be.rejected()
     });
 
     it('transfer 100 sample tokens to a contract with tokenFallback', async () => {

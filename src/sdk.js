@@ -13,6 +13,8 @@ var tokenContract;
 module.exports = {
     init: async (provider) => {
         NoiaNetwork.setProvider(provider);
+        ERC223Interface.setProvider(provider);
+
         web3 = new Web3(provider);
         await new Promise((resolve, reject) => {
             web3.eth.getAccounts((error, result) => {
@@ -25,11 +27,14 @@ module.exports = {
         tokenContract = ERC223Interface.at(await noia.tokenContract.call());
     },
 
-    balanceOf: async owner => {
-        return 0;
+    uninit: () => {
     },
 
-    createTokens: async (to, num) => {
+    balanceOf: async owner => {
+        return (await tokenContract.balanceOf.call(owner)).toNumber();
+    },
 
+    transfer: async (from, to, value) => {
+        await tokenContract.transfer(to, value, { from : from, gas: 200000 });
     }
 };

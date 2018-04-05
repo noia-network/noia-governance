@@ -17,8 +17,7 @@
   },
   "scripts": {
     "truffle": "truffle --network ${TRUFFLE_NETWORK:-local}",
-    "build": "truffle build --network ${TRUFFLE_NETWORK:-local}",
-    "test": "truffle test --network ${TRUFFLE_NETWORK:-local}",
+    "test": "make test",
     "migrate": "truffle migrate --network ${TRUFFLE_NETWORK:-local}"
   },
   "repository": {

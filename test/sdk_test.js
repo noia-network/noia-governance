@@ -1,5 +1,5 @@
 const sdk = require('../src/sdk.js');
-const config = require('../config.js');
+const truffleConfig = require('../truffle.js');
 
 const Web3 = require('web3');
 const should = require('should');
@@ -7,10 +7,11 @@ const should = require('should');
 contract('NOIA Governance SDK Test', (accounts) => {
     let acc0 = accounts[0];
     let acc1 = accounts[1];
-    let provider = new Web3.providers.HttpProvider("http://localhost:7545");
+    let provider = new Web3.providers.HttpProvider(`http://${truffleConfig.networks.local.host}:${truffleConfig.networks.local.port}`);
 
     before(async () => {
-        await sdk.init(provider);
+        noia = await artifacts.require('NoiaNetwork').deployed();
+        await sdk.init(provider, noia);
     })
 
     after(() => {
@@ -26,6 +27,6 @@ contract('NOIA Governance SDK Test', (accounts) => {
 
     it("Transfer too many tokens", async () => {
         let maxBalance = await sdk.balanceOf(acc0);
-        sdk.transfer(acc0, acc1, maxBalance + 1).should.be.rejected();
+        await sdk.transfer(acc0, acc1, maxBalance + 1).should.be.rejected();
     })
 });

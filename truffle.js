@@ -10,5 +10,7 @@ module.exports = {
             network_id: "*" // Match any network id
         }
     }, config.networks),
+
+    contracts_build_directory: './src/contracts',
     build: "webpack --mode development"
 };

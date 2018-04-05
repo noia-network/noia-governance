@@ -1,0 +1,428 @@
+{
+  "contractName": "NoiaNetwork",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "tokenContract",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_tokenContract",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b60405160208061016183398101604052808051906020019091905050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060e78061007a6000396000f300606060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806355a373d6146044575b600080fd5b3415604e57600080fd5b60546096565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820febf8ead805d2d044f8493517f6052debc89cffea10f9edf8a51b97ca3a2d7020029",
+  "deployedBytecode": "0x606060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806355a373d6146044575b600080fd5b3415604e57600080fd5b60546096565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820febf8ead805d2d044f8493517f6052debc89cffea10f9edf8a51b97ca3a2d7020029",
+  "sourceMap": "70:179:3:-;;;140:107;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;226:14;210:13;;:30;;;;;;;;;;;;;;;;;;140:107;70:179;;;;;;",
+  "deployedSourceMap": "70:179:3:-;;;;;;;;;;;;;;;;;;;;;;;;97:36;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.11;\n\nimport \"./abstracts/ERC223_interface.sol\";\n\ncontract NoiaNetwork {\n    ERC223Interface public tokenContract;\n\n    function NoiaNetwork(ERC223Interface _tokenContract) public {\n        tokenContract = _tokenContract;\n    }\n}\n",
+  "sourcePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/NoiaNetwork.sol",
+  "ast": {
+    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/NoiaNetwork.sol",
+    "exportedSymbols": {
+      "NoiaNetwork": [
+        262
+      ]
+    },
+    "id": 263,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 248,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".11"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:3"
+      },
+      {
+        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/abstracts/ERC223_interface.sol",
+        "file": "./abstracts/ERC223_interface.sol",
+        "id": 249,
+        "nodeType": "ImportDirective",
+        "scope": 263,
+        "sourceUnit": 339,
+        "src": "26:42:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 262,
+        "linearizedBaseContracts": [
+          262
+        ],
+        "name": "NoiaNetwork",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 251,
+            "name": "tokenContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 262,
+            "src": "97:36:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_ERC223Interface_$338",
+              "typeString": "contract ERC223Interface"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 250,
+              "name": "ERC223Interface",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 338,
+              "src": "97:15:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ERC223Interface_$338",
+                "typeString": "contract ERC223Interface"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 260,
+              "nodeType": "Block",
+              "src": "200:47:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 258,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 256,
+                      "name": "tokenContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 251,
+                      "src": "210:13:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ERC223Interface_$338",
+                        "typeString": "contract ERC223Interface"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 257,
+                      "name": "_tokenContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 253,
+                      "src": "226:14:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ERC223Interface_$338",
+                        "typeString": "contract ERC223Interface"
+                      }
+                    },
+                    "src": "210:30:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC223Interface_$338",
+                      "typeString": "contract ERC223Interface"
+                    }
+                  },
+                  "id": 259,
+                  "nodeType": "ExpressionStatement",
+                  "src": "210:30:3"
+                }
+              ]
+            },
+            "id": 261,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "NoiaNetwork",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 254,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 253,
+                  "name": "_tokenContract",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 261,
+                  "src": "161:30:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC223Interface_$338",
+                    "typeString": "contract ERC223Interface"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 252,
+                    "name": "ERC223Interface",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 338,
+                    "src": "161:15:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC223Interface_$338",
+                      "typeString": "contract ERC223Interface"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "160:32:3"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 255,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "200:0:3"
+            },
+            "scope": 262,
+            "src": "140:107:3",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 263,
+        "src": "70:179:3"
+      }
+    ],
+    "src": "0:250:3"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/NoiaNetwork.sol",
+    "exportedSymbols": {
+      "NoiaNetwork": [
+        262
+      ]
+    },
+    "id": 263,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 248,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".11"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:3"
+      },
+      {
+        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/abstracts/ERC223_interface.sol",
+        "file": "./abstracts/ERC223_interface.sol",
+        "id": 249,
+        "nodeType": "ImportDirective",
+        "scope": 263,
+        "sourceUnit": 339,
+        "src": "26:42:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 262,
+        "linearizedBaseContracts": [
+          262
+        ],
+        "name": "NoiaNetwork",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 251,
+            "name": "tokenContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 262,
+            "src": "97:36:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_ERC223Interface_$338",
+              "typeString": "contract ERC223Interface"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 250,
+              "name": "ERC223Interface",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 338,
+              "src": "97:15:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ERC223Interface_$338",
+                "typeString": "contract ERC223Interface"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 260,
+              "nodeType": "Block",
+              "src": "200:47:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 258,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 256,
+                      "name": "tokenContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 251,
+                      "src": "210:13:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ERC223Interface_$338",
+                        "typeString": "contract ERC223Interface"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 257,
+                      "name": "_tokenContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 253,
+                      "src": "226:14:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ERC223Interface_$338",
+                        "typeString": "contract ERC223Interface"
+                      }
+                    },
+                    "src": "210:30:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC223Interface_$338",
+                      "typeString": "contract ERC223Interface"
+                    }
+                  },
+                  "id": 259,
+                  "nodeType": "ExpressionStatement",
+                  "src": "210:30:3"
+                }
+              ]
+            },
+            "id": 261,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "NoiaNetwork",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 254,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 253,
+                  "name": "_tokenContract",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 261,
+                  "src": "161:30:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC223Interface_$338",
+                    "typeString": "contract ERC223Interface"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 252,
+                    "name": "ERC223Interface",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 338,
+                    "src": "161:15:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC223Interface_$338",
+                      "typeString": "contract ERC223Interface"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "160:32:3"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 255,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "200:0:3"
+            },
+            "scope": 262,
+            "src": "140:107:3",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 263,
+        "src": "70:179:3"
+      }
+    ],
+    "src": "0:250:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.19+commit.c4cbbb05.Emscripten.clang"
+  },
+  "networks": {
+    "3": {
+      "events": {},
+      "links": {},
+      "address": "0xd968c3bc28aad317379753e2f0cb253b4cfbc039",
+      "transactionHash": "0xb37c58de5550c0c5880fa2166adff8b50a23d06a031f4887f64f9fd358864740"
+    }
+  },
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-04-05T07:27:39.947Z"
+}

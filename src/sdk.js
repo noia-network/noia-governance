@@ -1,29 +1,19 @@
 const contract = require("truffle-contract");
-const Web3 = require('web3');
 
-const NoiaNetwork = contract(require("../build/contracts/NoiaNetwork.json"));
-const ERC223Interface = contract(require("../build/contracts/ERC223Interface.json"));
+const NoiaNetwork = contract(require("./contracts/NoiaNetwork.json"));
+const ERC223Interface = contract(require("./contracts/ERC223Interface.json"));
 
-
-var web3;
-var accounts;
 var noia;
 var tokenContract;
 
 module.exports = {
-    init: async (provider) => {
+    init: async (provider, noia) => {
         NoiaNetwork.setProvider(provider);
         ERC223Interface.setProvider(provider);
 
-        web3 = new Web3(provider);
-        await new Promise((resolve, reject) => {
-            web3.eth.getAccounts((error, result) => {
-                if (error) reject(error);
-                accounts = result;
-                resolve();
-            });
-        });
-        noia = await NoiaNetwork.deployed();
+        if (typeof noia === 'undefined') {
+            noia = await NoiaNetwork.deployed();
+        }
         tokenContract = ERC223Interface.at(await noia.tokenContract.call());
     },
 

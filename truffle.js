@@ -12,5 +12,5 @@ module.exports = {
     }, config.networks),
 
     contracts_build_directory: './src/contracts',
-    build: "webpack --mode development"
+    build: "make build"
 };

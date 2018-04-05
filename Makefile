@@ -1,4 +1,5 @@
 NETWORK=local
+MODE=development
 
 build: build-sdk
 
@@ -7,8 +8,7 @@ build-contracts:
 	npm run truffle -- compile
 
 build-sdk:
-	TRUFFLE_NETWORK=$(NETWORK) \
-	npm run truffle -- build
+	npm run webpack -- --mode $(MODE)
 
 .PHONY: build build-contracts build-sdk
 

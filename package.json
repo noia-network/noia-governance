@@ -18,6 +18,7 @@
   "scripts": {
     "truffle": "truffle --network ${TRUFFLE_NETWORK:-local}",
     "test": "make test",
+    "webpack": "webpack",
     "migrate": "truffle migrate --network ${TRUFFLE_NETWORK:-local}"
   },
   "repository": {

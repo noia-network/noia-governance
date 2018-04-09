@@ -6,14 +6,16 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {
+  "devDependencies": {
     "ganache-cli": "^6.1.0",
     "help": "^3.0.2",
     "should": "^13.2.1",
     "truffle": "^4.1.3",
-    "truffle-contract": "^3.0.4",
     "truffle-hdwallet-provider": "git+https://github.com/trufflesuite/truffle-hdwallet-provider.git",
     "webpack": "^4.1.1"
+  },
+  "dependencies": {
+    "truffle-contract": "^3.0.4"
   },
   "scripts": {
     "truffle": "truffle --network ${TRUFFLE_NETWORK:-local}",

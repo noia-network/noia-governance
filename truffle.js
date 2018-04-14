@@ -1,4 +1,5 @@
-const config =require('./config.js');
+const path = require('path');
+const config = require('./config.js');
 
 module.exports = {
     // See <http://truffleframework.com/docs/advanced/configuration>
@@ -11,6 +12,6 @@ module.exports = {
         }
     }, config.networks),
 
-    contracts_build_directory: './src/contracts',
+    contracts_build_directory: path.resolve(__dirname, 'sdk', 'contracts'),
     build: "make build"
 };

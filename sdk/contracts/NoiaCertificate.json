@@ -1,0 +1,911 @@
+{
+  "contractName": "NoiaCertificate",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "issuer",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "version",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint16"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "recipient",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "issuer_",
+          "type": "address"
+        },
+        {
+          "name": "recipient_",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b6040516040806102a68339810160405280805190602001909190805190602001909190505060016000806101000a81548161ffff021916908361ffff16021790555081600060026101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555080600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050506101c2806100e46000396000f300606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631d1438481461005c57806354fd4d50146100b157806366d003ac146100e2575b600080fd5b341561006757600080fd5b61006f610137565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100bc57600080fd5b6100c461015d565b604051808261ffff1661ffff16815260200191505060405180910390f35b34156100ed57600080fd5b6100f5610170565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600060029054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900461ffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a723058201aef9edfc1fd8e68040228a4289b0045f2a34df0a242d7739e77fd41c6ec01020029",
+  "deployedBytecode": "0x606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631d1438481461005c57806354fd4d50146100b157806366d003ac146100e2575b600080fd5b341561006757600080fd5b61006f610137565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100bc57600080fd5b6100c461015d565b604051808261ffff1661ffff16815260200191505060405180910390f35b34156100ed57600080fd5b6100f5610170565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600060029054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900461ffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a723058201aef9edfc1fd8e68040228a4289b0045f2a34df0a242d7739e77fd41c6ec01020029",
+  "sourceMap": "81:342:1:-;;;246:175;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;146:1;331:7;;:25;;;;;;;;;;;;;;;;;;375:7;366:6;;:16;;;;;;;;;;;;;;;;;;404:10;392:9;;:22;;;;;;;;;;;;;;;;;;246:175;;81:342;;;;;;",
+  "deployedSourceMap": "81:342:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;182:26;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;154:21;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;214:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;182:26;;;;;;;;;;;;;:::o;154:21::-;;;;;;;;;;;;;:::o;214:25::-;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.11;\n\nimport './NoiaNode.sol';\nimport './NoiaBusiness.sol';\n\ncontract NoiaCertificate {\n    uint16 constant CURRENT_VERSION = 1;\n\n    uint16 public version;\n\n    NoiaBusiness public issuer;\n    NoiaNode public recipient;\n\n    function NoiaCertificate(NoiaBusiness issuer_, NoiaNode recipient_) public {\n        version = CURRENT_VERSION;\n        issuer = issuer_;\n        recipient = recipient_;\n    }\n}\n",
+  "sourcePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/NoiaCertificate.sol",
+  "ast": {
+    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/NoiaCertificate.sol",
+    "exportedSymbols": {
+      "NoiaCertificate": [
+        49
+      ]
+    },
+    "id": 50,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 17,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".11"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/NoiaNode.sol",
+        "file": "./NoiaNode.sol",
+        "id": 18,
+        "nodeType": "ImportDirective",
+        "scope": 50,
+        "sourceUnit": 312,
+        "src": "26:24:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/NoiaBusiness.sol",
+        "file": "./NoiaBusiness.sol",
+        "id": 19,
+        "nodeType": "ImportDirective",
+        "scope": 50,
+        "sourceUnit": 16,
+        "src": "51:28:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 49,
+        "linearizedBaseContracts": [
+          49
+        ],
+        "name": "NoiaCertificate",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "id": 22,
+            "name": "CURRENT_VERSION",
+            "nodeType": "VariableDeclaration",
+            "scope": 49,
+            "src": "112:35:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint16",
+              "typeString": "uint16"
+            },
+            "typeName": {
+              "id": 20,
+              "name": "uint16",
+              "nodeType": "ElementaryTypeName",
+              "src": "112:6:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint16",
+                "typeString": "uint16"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "31",
+              "id": 21,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "146:1:1",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_1_by_1",
+                "typeString": "int_const 1"
+              },
+              "value": "1"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 24,
+            "name": "version",
+            "nodeType": "VariableDeclaration",
+            "scope": 49,
+            "src": "154:21:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint16",
+              "typeString": "uint16"
+            },
+            "typeName": {
+              "id": 23,
+              "name": "uint16",
+              "nodeType": "ElementaryTypeName",
+              "src": "154:6:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint16",
+                "typeString": "uint16"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 26,
+            "name": "issuer",
+            "nodeType": "VariableDeclaration",
+            "scope": 49,
+            "src": "182:26:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_NoiaBusiness_$15",
+              "typeString": "contract NoiaBusiness"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 25,
+              "name": "NoiaBusiness",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 15,
+              "src": "182:12:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_NoiaBusiness_$15",
+                "typeString": "contract NoiaBusiness"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 28,
+            "name": "recipient",
+            "nodeType": "VariableDeclaration",
+            "scope": 49,
+            "src": "214:25:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_NoiaNode_$311",
+              "typeString": "contract NoiaNode"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 27,
+              "name": "NoiaNode",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 311,
+              "src": "214:8:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_NoiaNode_$311",
+                "typeString": "contract NoiaNode"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 47,
+              "nodeType": "Block",
+              "src": "321:100:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 37,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 35,
+                      "name": "version",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 24,
+                      "src": "331:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 36,
+                      "name": "CURRENT_VERSION",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 22,
+                      "src": "341:15:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "src": "331:25:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "id": 38,
+                  "nodeType": "ExpressionStatement",
+                  "src": "331:25:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 41,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 39,
+                      "name": "issuer",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 26,
+                      "src": "366:6:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_NoiaBusiness_$15",
+                        "typeString": "contract NoiaBusiness"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 40,
+                      "name": "issuer_",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 30,
+                      "src": "375:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_NoiaBusiness_$15",
+                        "typeString": "contract NoiaBusiness"
+                      }
+                    },
+                    "src": "366:16:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_NoiaBusiness_$15",
+                      "typeString": "contract NoiaBusiness"
+                    }
+                  },
+                  "id": 42,
+                  "nodeType": "ExpressionStatement",
+                  "src": "366:16:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 45,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 43,
+                      "name": "recipient",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 28,
+                      "src": "392:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_NoiaNode_$311",
+                        "typeString": "contract NoiaNode"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 44,
+                      "name": "recipient_",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 32,
+                      "src": "404:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_NoiaNode_$311",
+                        "typeString": "contract NoiaNode"
+                      }
+                    },
+                    "src": "392:22:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_NoiaNode_$311",
+                      "typeString": "contract NoiaNode"
+                    }
+                  },
+                  "id": 46,
+                  "nodeType": "ExpressionStatement",
+                  "src": "392:22:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 48,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "NoiaCertificate",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 33,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 30,
+                  "name": "issuer_",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48,
+                  "src": "271:20:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_NoiaBusiness_$15",
+                    "typeString": "contract NoiaBusiness"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 29,
+                    "name": "NoiaBusiness",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 15,
+                    "src": "271:12:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_NoiaBusiness_$15",
+                      "typeString": "contract NoiaBusiness"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 32,
+                  "name": "recipient_",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48,
+                  "src": "293:19:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_NoiaNode_$311",
+                    "typeString": "contract NoiaNode"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 31,
+                    "name": "NoiaNode",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 311,
+                    "src": "293:8:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_NoiaNode_$311",
+                      "typeString": "contract NoiaNode"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "270:43:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 34,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "321:0:1"
+            },
+            "scope": 49,
+            "src": "246:175:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 50,
+        "src": "81:342:1"
+      }
+    ],
+    "src": "0:424:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/NoiaCertificate.sol",
+    "exportedSymbols": {
+      "NoiaCertificate": [
+        49
+      ]
+    },
+    "id": 50,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 17,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".11"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/NoiaNode.sol",
+        "file": "./NoiaNode.sol",
+        "id": 18,
+        "nodeType": "ImportDirective",
+        "scope": 50,
+        "sourceUnit": 312,
+        "src": "26:24:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/NoiaBusiness.sol",
+        "file": "./NoiaBusiness.sol",
+        "id": 19,
+        "nodeType": "ImportDirective",
+        "scope": 50,
+        "sourceUnit": 16,
+        "src": "51:28:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 49,
+        "linearizedBaseContracts": [
+          49
+        ],
+        "name": "NoiaCertificate",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "id": 22,
+            "name": "CURRENT_VERSION",
+            "nodeType": "VariableDeclaration",
+            "scope": 49,
+            "src": "112:35:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint16",
+              "typeString": "uint16"
+            },
+            "typeName": {
+              "id": 20,
+              "name": "uint16",
+              "nodeType": "ElementaryTypeName",
+              "src": "112:6:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint16",
+                "typeString": "uint16"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "31",
+              "id": 21,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "146:1:1",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_1_by_1",
+                "typeString": "int_const 1"
+              },
+              "value": "1"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 24,
+            "name": "version",
+            "nodeType": "VariableDeclaration",
+            "scope": 49,
+            "src": "154:21:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint16",
+              "typeString": "uint16"
+            },
+            "typeName": {
+              "id": 23,
+              "name": "uint16",
+              "nodeType": "ElementaryTypeName",
+              "src": "154:6:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint16",
+                "typeString": "uint16"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 26,
+            "name": "issuer",
+            "nodeType": "VariableDeclaration",
+            "scope": 49,
+            "src": "182:26:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_NoiaBusiness_$15",
+              "typeString": "contract NoiaBusiness"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 25,
+              "name": "NoiaBusiness",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 15,
+              "src": "182:12:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_NoiaBusiness_$15",
+                "typeString": "contract NoiaBusiness"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 28,
+            "name": "recipient",
+            "nodeType": "VariableDeclaration",
+            "scope": 49,
+            "src": "214:25:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_NoiaNode_$311",
+              "typeString": "contract NoiaNode"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 27,
+              "name": "NoiaNode",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 311,
+              "src": "214:8:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_NoiaNode_$311",
+                "typeString": "contract NoiaNode"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 47,
+              "nodeType": "Block",
+              "src": "321:100:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 37,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 35,
+                      "name": "version",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 24,
+                      "src": "331:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 36,
+                      "name": "CURRENT_VERSION",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 22,
+                      "src": "341:15:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "src": "331:25:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "id": 38,
+                  "nodeType": "ExpressionStatement",
+                  "src": "331:25:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 41,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 39,
+                      "name": "issuer",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 26,
+                      "src": "366:6:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_NoiaBusiness_$15",
+                        "typeString": "contract NoiaBusiness"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 40,
+                      "name": "issuer_",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 30,
+                      "src": "375:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_NoiaBusiness_$15",
+                        "typeString": "contract NoiaBusiness"
+                      }
+                    },
+                    "src": "366:16:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_NoiaBusiness_$15",
+                      "typeString": "contract NoiaBusiness"
+                    }
+                  },
+                  "id": 42,
+                  "nodeType": "ExpressionStatement",
+                  "src": "366:16:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 45,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 43,
+                      "name": "recipient",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 28,
+                      "src": "392:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_NoiaNode_$311",
+                        "typeString": "contract NoiaNode"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 44,
+                      "name": "recipient_",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 32,
+                      "src": "404:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_NoiaNode_$311",
+                        "typeString": "contract NoiaNode"
+                      }
+                    },
+                    "src": "392:22:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_NoiaNode_$311",
+                      "typeString": "contract NoiaNode"
+                    }
+                  },
+                  "id": 46,
+                  "nodeType": "ExpressionStatement",
+                  "src": "392:22:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 48,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "NoiaCertificate",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 33,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 30,
+                  "name": "issuer_",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48,
+                  "src": "271:20:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_NoiaBusiness_$15",
+                    "typeString": "contract NoiaBusiness"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 29,
+                    "name": "NoiaBusiness",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 15,
+                    "src": "271:12:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_NoiaBusiness_$15",
+                      "typeString": "contract NoiaBusiness"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 32,
+                  "name": "recipient_",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48,
+                  "src": "293:19:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_NoiaNode_$311",
+                    "typeString": "contract NoiaNode"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 31,
+                    "name": "NoiaNode",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 311,
+                    "src": "293:8:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_NoiaNode_$311",
+                      "typeString": "contract NoiaNode"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "270:43:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 34,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "321:0:1"
+            },
+            "scope": 49,
+            "src": "246:175:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 50,
+        "src": "81:342:1"
+      }
+    ],
+    "src": "0:424:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-04-14T21:34:04.642Z"
+}

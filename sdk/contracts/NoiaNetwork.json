@@ -1,0 +1,678 @@
+{
+  "contractName": "NoiaNetwork",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "tokenContract",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "marketplace",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_tokenContract",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b604051602080610f3583398101604052808051906020019091905050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506100736100cf565b604051809103906000f080151561008957600080fd5b600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506100df565b604051610cd58061026083390190565b610172806100ee6000396000f30060606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806355a373d614610051578063abc8c7af146100a6575b600080fd5b341561005c57600080fd5b6100646100fb565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100b157600080fd5b6100b9610120565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a723058206d4091936c9a6af71a8f921837d89ba0d9767ed19fda621f713f1bf1309eb34000296060604052341561000f57600080fd5b610cb78061001e6000396000f300606060405260043610610099576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680634c7742d21461009e578063672d7a0d146100f35780636f7ea10a1461012c57806377bdbccc14610165578063a249f89f1461019e578063b15b9360146101f3578063cb46b99714610248578063d5414c8e1461029d578063d960a14d146102f2575b600080fd5b34156100a957600080fd5b6100d5600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610347565b604051808261ffff1661ffff16815260200191505060405180910390f35b34156100fe57600080fd5b61012a600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506103a0565b005b341561013757600080fd5b610163600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061052a565b005b341561017057600080fd5b61019c600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506106b5565b005b34156101a957600080fd5b6101d5600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610a79565b604051808261ffff1661ffff16815260200191505060405180910390f35b34156101fe57600080fd5b61022a600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610ad3565b604051808261ffff1661ffff16815260200191505060405180910390f35b341561025357600080fd5b61027f600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610b2d565b604051808261ffff1661ffff16815260200191505060405180910390f35b34156102a857600080fd5b6102d4600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610b87565b604051808261ffff1661ffff16815260200191505060405180910390f35b34156102fd57600080fd5b610329600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610be0565b604051808261ffff1661ffff16815260200191505060405180910390f35b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160029054906101000a900461ffff169050919050565b60008190506040805190810160405280600161ffff1681526020018373ffffffffffffffffffffffffffffffffffffffff166354fd4d506040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b151561041e57600080fd5b5af1151561042b57600080fd5b5050506040518051905061ffff168152506000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548161ffff021916908361ffff16021790555060208201518160000160026101000a81548161ffff021916908361ffff1602179055509050507f564728e6a7c8edd446557d94e0339d5e6ca2e05f42188914efdbdc87bcbbabf681604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a15050565b60008190506040805190810160405280600161ffff1681526020018373ffffffffffffffffffffffffffffffffffffffff166354fd4d506040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15156105a857600080fd5b5af115156105b557600080fd5b5050506040518051905061ffff16815250600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548161ffff021916908361ffff16021790555060208201518160000160026101000a81548161ffff021916908361ffff1602179055509050507ffee635715ff735ecc04676edce1c3572810b100a274b1886e1e07ac54c3bde2981604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a15050565b60008190506040805190810160405280600161ffff1681526020018373ffffffffffffffffffffffffffffffffffffffff166354fd4d506040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b151561073357600080fd5b5af1151561074057600080fd5b5050506040518051905061ffff16815250600260008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548161ffff021916908361ffff16021790555060208201518160000160026101000a81548161ffff021916908361ffff160217905550905050600360008373ffffffffffffffffffffffffffffffffffffffff166366d003ac6040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b151561084057600080fd5b5af1151561084d57600080fd5b5050506040518051905073ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002080548060010182816108a39190610c3a565b9160005260206000209001600083909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550508173ffffffffffffffffffffffffffffffffffffffff166366d003ac6040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b151561095557600080fd5b5af1151561096257600080fd5b5050506040518051905073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff16631d1438486040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15156109e557600080fd5b5af115156109f257600080fd5b5050506040518051905073ffffffffffffffffffffffffffffffffffffffff167f97bb69219af61c414a378eb9f598ed6b9ef2b66106605ba13cc2acf0687546cb83604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a35050565b6000600260008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160009054906101000a900461ffff169050919050565b6000600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160009054906101000a900461ffff169050919050565b6000600260008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160029054906101000a900461ffff169050919050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160009054906101000a900461ffff169050919050565b6000600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160029054906101000a900461ffff169050919050565b815481835581811511610c6157818360005260206000209182019101610c609190610c66565b5b505050565b610c8891905b80821115610c84576000816000905550600101610c6c565b5090565b905600a165627a7a723058205f197903c336f1f71bc0383f32ce2fb9347f7e32d192caa29c115d4db160e2f80029",
+  "deployedBytecode": "0x60606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806355a373d614610051578063abc8c7af146100a6575b600080fd5b341561005c57600080fd5b6100646100fb565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100b157600080fd5b6100b9610120565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a723058206d4091936c9a6af71a8f921837d89ba0d9767ed19fda621f713f1bf1309eb3400029",
+  "sourceMap": "102:264:3:-;;;212:152;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;298:14;282:13;;:30;;;;;;;;;;;;;;;;;;336:21;;:::i;:::-;;;;;;;;;;;;;;;;;;322:11;;:35;;;;;;;;;;;;;;;;;;212:152;102:264;;;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "102:264:3:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;129:36;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;171:34;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;129:36;;;;;;;;;;;;;:::o;171:34::-;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.11;\n\nimport './abstracts/ERC223_interface.sol';\nimport './NoiaMarketplace.sol';\n\ncontract NoiaNetwork {\n    ERC223Interface public tokenContract;\n    NoiaMarketplace public marketplace;\n\n    function NoiaNetwork(ERC223Interface _tokenContract) public {\n        tokenContract = _tokenContract;\n        marketplace = new NoiaMarketplace();\n    }\n}\n",
+  "sourcePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/NoiaNetwork.sol",
+  "ast": {
+    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/NoiaNetwork.sol",
+    "exportedSymbols": {
+      "NoiaNetwork": [
+        295
+      ]
+    },
+    "id": 296,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 272,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".11"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:3"
+      },
+      {
+        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/abstracts/ERC223_interface.sol",
+        "file": "./abstracts/ERC223_interface.sol",
+        "id": 273,
+        "nodeType": "ImportDirective",
+        "scope": 296,
+        "sourceUnit": 373,
+        "src": "26:42:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/NoiaMarketplace.sol",
+        "file": "./NoiaMarketplace.sol",
+        "id": 274,
+        "nodeType": "ImportDirective",
+        "scope": 296,
+        "sourceUnit": 271,
+        "src": "69:31:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [
+          270
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 295,
+        "linearizedBaseContracts": [
+          295
+        ],
+        "name": "NoiaNetwork",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 276,
+            "name": "tokenContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 295,
+            "src": "129:36:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_ERC223Interface_$372",
+              "typeString": "contract ERC223Interface"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 275,
+              "name": "ERC223Interface",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 372,
+              "src": "129:15:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ERC223Interface_$372",
+                "typeString": "contract ERC223Interface"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 278,
+            "name": "marketplace",
+            "nodeType": "VariableDeclaration",
+            "scope": 295,
+            "src": "171:34:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_NoiaMarketplace_$270",
+              "typeString": "contract NoiaMarketplace"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 277,
+              "name": "NoiaMarketplace",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 270,
+              "src": "171:15:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_NoiaMarketplace_$270",
+                "typeString": "contract NoiaMarketplace"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 293,
+              "nodeType": "Block",
+              "src": "272:92:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 285,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 283,
+                      "name": "tokenContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 276,
+                      "src": "282:13:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ERC223Interface_$372",
+                        "typeString": "contract ERC223Interface"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 284,
+                      "name": "_tokenContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 280,
+                      "src": "298:14:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ERC223Interface_$372",
+                        "typeString": "contract ERC223Interface"
+                      }
+                    },
+                    "src": "282:30:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC223Interface_$372",
+                      "typeString": "contract ERC223Interface"
+                    }
+                  },
+                  "id": 286,
+                  "nodeType": "ExpressionStatement",
+                  "src": "282:30:3"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 291,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 287,
+                      "name": "marketplace",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 278,
+                      "src": "322:11:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_NoiaMarketplace_$270",
+                        "typeString": "contract NoiaMarketplace"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [],
+                      "expression": {
+                        "argumentTypes": [],
+                        "id": 289,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "NewExpression",
+                        "src": "336:19:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_creation_nonpayable$__$returns$_t_contract$_NoiaMarketplace_$270_$",
+                          "typeString": "function () returns (contract NoiaMarketplace)"
+                        },
+                        "typeName": {
+                          "contractScope": null,
+                          "id": 288,
+                          "name": "NoiaMarketplace",
+                          "nodeType": "UserDefinedTypeName",
+                          "referencedDeclaration": 270,
+                          "src": "340:15:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_NoiaMarketplace_$270",
+                            "typeString": "contract NoiaMarketplace"
+                          }
+                        }
+                      },
+                      "id": 290,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "336:21:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_NoiaMarketplace_$270",
+                        "typeString": "contract NoiaMarketplace"
+                      }
+                    },
+                    "src": "322:35:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_NoiaMarketplace_$270",
+                      "typeString": "contract NoiaMarketplace"
+                    }
+                  },
+                  "id": 292,
+                  "nodeType": "ExpressionStatement",
+                  "src": "322:35:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 294,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "NoiaNetwork",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 281,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 280,
+                  "name": "_tokenContract",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 294,
+                  "src": "233:30:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC223Interface_$372",
+                    "typeString": "contract ERC223Interface"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 279,
+                    "name": "ERC223Interface",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 372,
+                    "src": "233:15:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC223Interface_$372",
+                      "typeString": "contract ERC223Interface"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "232:32:3"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 282,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "272:0:3"
+            },
+            "scope": 295,
+            "src": "212:152:3",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 296,
+        "src": "102:264:3"
+      }
+    ],
+    "src": "0:367:3"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/NoiaNetwork.sol",
+    "exportedSymbols": {
+      "NoiaNetwork": [
+        295
+      ]
+    },
+    "id": 296,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 272,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".11"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:3"
+      },
+      {
+        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/abstracts/ERC223_interface.sol",
+        "file": "./abstracts/ERC223_interface.sol",
+        "id": 273,
+        "nodeType": "ImportDirective",
+        "scope": 296,
+        "sourceUnit": 373,
+        "src": "26:42:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/NoiaMarketplace.sol",
+        "file": "./NoiaMarketplace.sol",
+        "id": 274,
+        "nodeType": "ImportDirective",
+        "scope": 296,
+        "sourceUnit": 271,
+        "src": "69:31:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [
+          270
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 295,
+        "linearizedBaseContracts": [
+          295
+        ],
+        "name": "NoiaNetwork",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 276,
+            "name": "tokenContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 295,
+            "src": "129:36:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_ERC223Interface_$372",
+              "typeString": "contract ERC223Interface"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 275,
+              "name": "ERC223Interface",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 372,
+              "src": "129:15:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ERC223Interface_$372",
+                "typeString": "contract ERC223Interface"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 278,
+            "name": "marketplace",
+            "nodeType": "VariableDeclaration",
+            "scope": 295,
+            "src": "171:34:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_NoiaMarketplace_$270",
+              "typeString": "contract NoiaMarketplace"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 277,
+              "name": "NoiaMarketplace",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 270,
+              "src": "171:15:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_NoiaMarketplace_$270",
+                "typeString": "contract NoiaMarketplace"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 293,
+              "nodeType": "Block",
+              "src": "272:92:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 285,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 283,
+                      "name": "tokenContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 276,
+                      "src": "282:13:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ERC223Interface_$372",
+                        "typeString": "contract ERC223Interface"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 284,
+                      "name": "_tokenContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 280,
+                      "src": "298:14:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ERC223Interface_$372",
+                        "typeString": "contract ERC223Interface"
+                      }
+                    },
+                    "src": "282:30:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC223Interface_$372",
+                      "typeString": "contract ERC223Interface"
+                    }
+                  },
+                  "id": 286,
+                  "nodeType": "ExpressionStatement",
+                  "src": "282:30:3"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 291,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 287,
+                      "name": "marketplace",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 278,
+                      "src": "322:11:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_NoiaMarketplace_$270",
+                        "typeString": "contract NoiaMarketplace"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [],
+                      "expression": {
+                        "argumentTypes": [],
+                        "id": 289,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "NewExpression",
+                        "src": "336:19:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_creation_nonpayable$__$returns$_t_contract$_NoiaMarketplace_$270_$",
+                          "typeString": "function () returns (contract NoiaMarketplace)"
+                        },
+                        "typeName": {
+                          "contractScope": null,
+                          "id": 288,
+                          "name": "NoiaMarketplace",
+                          "nodeType": "UserDefinedTypeName",
+                          "referencedDeclaration": 270,
+                          "src": "340:15:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_NoiaMarketplace_$270",
+                            "typeString": "contract NoiaMarketplace"
+                          }
+                        }
+                      },
+                      "id": 290,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "336:21:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_NoiaMarketplace_$270",
+                        "typeString": "contract NoiaMarketplace"
+                      }
+                    },
+                    "src": "322:35:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_NoiaMarketplace_$270",
+                      "typeString": "contract NoiaMarketplace"
+                    }
+                  },
+                  "id": 292,
+                  "nodeType": "ExpressionStatement",
+                  "src": "322:35:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 294,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "NoiaNetwork",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 281,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 280,
+                  "name": "_tokenContract",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 294,
+                  "src": "233:30:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC223Interface_$372",
+                    "typeString": "contract ERC223Interface"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 279,
+                    "name": "ERC223Interface",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 372,
+                    "src": "233:15:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC223Interface_$372",
+                      "typeString": "contract ERC223Interface"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "232:32:3"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 282,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "272:0:3"
+            },
+            "scope": 295,
+            "src": "212:152:3",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 296,
+        "src": "102:264:3"
+      }
+    ],
+    "src": "0:367:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
+  },
+  "networks": {
+    "3": {
+      "events": {},
+      "links": {},
+      "address": "0xd968c3bc28aad317379753e2f0cb253b4cfbc039",
+      "transactionHash": "0xb37c58de5550c0c5880fa2166adff8b50a23d06a031f4887f64f9fd358864740"
+    }
+  },
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-04-14T21:34:04.644Z"
+}

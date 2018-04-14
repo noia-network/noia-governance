@@ -1,8 +1,8 @@
 pragma solidity ^0.4.11;
 
-import "./abstracts/ERC223_interface.sol";
-import "./abstracts/ERC223_receiving_contract.sol";
-import "./lib/SafeMath.sol";
+import "../abstracts/ERC223_interface.sol";
+import "../abstracts/ERC223_receiving_contract.sol";
+import "../lib/SafeMath.sol";
 
 contract NOIATestToken is ERC223Interface {
     using SafeMath for uint;
@@ -31,8 +31,8 @@ contract NOIATestToken is ERC223Interface {
             ERC223ReceivingContract receiver = ERC223ReceivingContract(_to);
             receiver.tokenFallback(msg.sender, _value, _data);
         }
-        Transfer(msg.sender, _to, _value);
-        Transfer(msg.sender, _to, _value, _data);
+        emit Transfer(msg.sender, _to, _value);
+        emit Transfer(msg.sender, _to, _value, _data);
     }
 
     /**
@@ -64,8 +64,8 @@ contract NOIATestToken is ERC223Interface {
         bytes memory empty;
         balances[beneficiary] += amount;               // Give the creator all initial tokens
         totalSupply += amount;                        // Update total supply
-        Transfer(0, beneficiary, amount);
-        Transfer(0, beneficiary, amount, empty);
+        emit Transfer(0, beneficiary, amount);
+        emit Transfer(0, beneficiary, amount, empty);
     }
 
     function isContract(address _to) private view returns (bool) {

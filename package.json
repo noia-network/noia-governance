@@ -2,26 +2,25 @@
   "name": "noia-governance",
   "version": "0.0.1",
   "description": "NOIA network governance rules",
-  "main": "src/sdk.js",
+  "main": "sdk/index.js",
   "directories": {
     "test": "test"
   },
   "devDependencies": {
     "ganache-cli": "^6.1.0",
-    "help": "^3.0.2",
     "should": "^13.2.1",
-    "truffle": "^4.1.3",
-    "truffle-hdwallet-provider": "git+https://github.com/trufflesuite/truffle-hdwallet-provider.git",
-    "webpack": "^4.1.1"
+    "truffle": "^4.1.5",
+    "truffle-hdwallet-provider": "https://github.com/hellwolf/truffle-hdwallet-provider.git",
+    "webpack": "^4.5.0"
   },
   "dependencies": {
     "truffle-contract": "^3.0.4"
   },
   "scripts": {
-    "truffle": "truffle --network ${TRUFFLE_NETWORK:-local}",
-    "test": "make test",
-    "webpack": "webpack",
-    "migrate": "truffle migrate --network ${TRUFFLE_NETWORK:-local}"
+    "truffle": "truffle --network ${NETWORK:-local}",
+    "migrate": "truffle migrate --network ${NETWORK:-local}",
+    "test": "make test NETWORK=${NETWORK:-local}",
+    "webpack": "webpack"
   },
   "repository": {
     "type": "git",

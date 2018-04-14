@@ -1,5 +1,5 @@
-const sdk = require('../src/sdk.js');
-const truffleConfig = require('../truffle.js');
+const sdk = require('../../');
+const truffleConfig = require('../../truffle.js');
 
 const Web3 = require('web3');
 const should = require('should');

@@ -1,5 +1,5 @@
 {
-  "contractName": "ERC223ReceivingContract",
+  "contractName": "NoiaUser",
   "abi": [
     {
       "constant": false,
@@ -28,20 +28,20 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.11;\n\n /**\n * @title Contract that will work with ERC223 tokens.\n */\ncontract ERC223ReceivingContract {\n    /**\n     * @dev Standard ERC223 function that will handle incoming token transfers.\n     *\n     * @param _from  Token sender address.\n     * @param _value Amount of tokens.\n     * @param _data  Transaction metadata.\n     */\n    function tokenFallback(address _from, uint _value, bytes _data) public;\n}\n",
-  "sourcePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/abstracts/ERC223_receiving_contract.sol",
+  "source": "pragma solidity ^0.4.11;\n\ncontract NoiaUser {\n    function tokenFallback(address _from, uint _value, bytes _data) public;\n}\n",
+  "sourcePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/NoiaUser.sol",
   "ast": {
-    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/abstracts/ERC223_receiving_contract.sol",
+    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/NoiaUser.sol",
     "exportedSymbols": {
-      "ERC223ReceivingContract": [
-        350
+      "NoiaUser": [
+        114
       ]
     },
-    "id": 351,
+    "id": 115,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 340,
+        "id": 104,
         "literals": [
           "solidity",
           "^",
@@ -49,24 +49,24 @@
           ".11"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:7"
+        "src": "0:24:3"
       },
       {
         "baseContracts": [],
         "contractDependencies": [],
         "contractKind": "contract",
-        "documentation": "@title Contract that will work with ERC223 tokens.",
+        "documentation": null,
         "fullyImplemented": false,
-        "id": 350,
+        "id": 114,
         "linearizedBaseContracts": [
-          350
+          114
         ],
-        "name": "ERC223ReceivingContract",
+        "name": "NoiaUser",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": null,
-            "id": 349,
+            "id": 113,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -74,16 +74,16 @@
             "name": "tokenFallback",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 347,
+              "id": 111,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 342,
+                  "id": 106,
                   "name": "_from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 349,
-                  "src": "379:13:7",
+                  "scope": 113,
+                  "src": "73:13:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -91,10 +91,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 341,
+                    "id": 105,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "379:7:7",
+                    "src": "73:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -105,11 +105,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 344,
+                  "id": 108,
                   "name": "_value",
                   "nodeType": "VariableDeclaration",
-                  "scope": 349,
-                  "src": "394:11:7",
+                  "scope": 113,
+                  "src": "88:11:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -117,10 +117,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 343,
+                    "id": 107,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "394:4:7",
+                    "src": "88:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -131,11 +131,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 346,
+                  "id": 110,
                   "name": "_data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 349,
-                  "src": "407:11:7",
+                  "scope": 113,
+                  "src": "101:11:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -143,10 +143,10 @@
                     "typeString": "bytes memory"
                   },
                   "typeName": {
-                    "id": 345,
+                    "id": 109,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "407:5:7",
+                    "src": "101:5:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes storage pointer"
@@ -156,40 +156,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "378:41:7"
+              "src": "72:41:3"
             },
             "payable": false,
             "returnParameters": {
-              "id": 348,
+              "id": 112,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "426:0:7"
+              "src": "120:0:3"
             },
-            "scope": 350,
-            "src": "356:71:7",
+            "scope": 114,
+            "src": "50:71:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 351,
-        "src": "89:340:7"
+        "scope": 115,
+        "src": "26:97:3"
       }
     ],
-    "src": "0:430:7"
+    "src": "0:124:3"
   },
   "legacyAST": {
-    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/abstracts/ERC223_receiving_contract.sol",
+    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/NoiaUser.sol",
     "exportedSymbols": {
-      "ERC223ReceivingContract": [
-        350
+      "NoiaUser": [
+        114
       ]
     },
-    "id": 351,
+    "id": 115,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 340,
+        "id": 104,
         "literals": [
           "solidity",
           "^",
@@ -197,24 +197,24 @@
           ".11"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:7"
+        "src": "0:24:3"
       },
       {
         "baseContracts": [],
         "contractDependencies": [],
         "contractKind": "contract",
-        "documentation": "@title Contract that will work with ERC223 tokens.",
+        "documentation": null,
         "fullyImplemented": false,
-        "id": 350,
+        "id": 114,
         "linearizedBaseContracts": [
-          350
+          114
         ],
-        "name": "ERC223ReceivingContract",
+        "name": "NoiaUser",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": null,
-            "id": 349,
+            "id": 113,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -222,16 +222,16 @@
             "name": "tokenFallback",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 347,
+              "id": 111,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 342,
+                  "id": 106,
                   "name": "_from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 349,
-                  "src": "379:13:7",
+                  "scope": 113,
+                  "src": "73:13:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -239,10 +239,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 341,
+                    "id": 105,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "379:7:7",
+                    "src": "73:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -253,11 +253,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 344,
+                  "id": 108,
                   "name": "_value",
                   "nodeType": "VariableDeclaration",
-                  "scope": 349,
-                  "src": "394:11:7",
+                  "scope": 113,
+                  "src": "88:11:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -265,10 +265,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 343,
+                    "id": 107,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "394:4:7",
+                    "src": "88:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -279,11 +279,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 346,
+                  "id": 110,
                   "name": "_data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 349,
-                  "src": "407:11:7",
+                  "scope": 113,
+                  "src": "101:11:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -291,10 +291,10 @@
                     "typeString": "bytes memory"
                   },
                   "typeName": {
-                    "id": 345,
+                    "id": 109,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "407:5:7",
+                    "src": "101:5:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes storage pointer"
@@ -304,27 +304,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "378:41:7"
+              "src": "72:41:3"
             },
             "payable": false,
             "returnParameters": {
-              "id": 348,
+              "id": 112,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "426:0:7"
+              "src": "120:0:3"
             },
-            "scope": 350,
-            "src": "356:71:7",
+            "scope": 114,
+            "src": "50:71:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 351,
-        "src": "89:340:7"
+        "scope": 115,
+        "src": "26:97:3"
       }
     ],
-    "src": "0:430:7"
+    "src": "0:124:3"
   },
   "compiler": {
     "name": "solc",
@@ -332,5 +332,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-04-05T07:13:53.250Z"
+  "updatedAt": "2018-04-12T18:52:38.514Z"
 }

@@ -1,19 +1,22 @@
-NETWORK=local
+export NETWORK=local
 MODE=development
 
 build: build-sdk
 
 build-contracts:
-	TRUFFLE_NETWORK=$(NETWORK) \
 	npm run truffle -- compile
 
-build-sdk:
+build-sdk: build-contracts
 	npm run webpack -- --mode $(MODE)
 
 .PHONY: build build-contracts build-sdk
 
-test:
-	TRUFFLE_NETWORK=$(NETWORK) \
-	npm run truffle -- test
+test: test-contracts test-sdk
 
-.PHONY: test
+test-contracts:
+	npm run truffle test -- test/contracts/all.js
+
+test-sdk: build-contracts
+	npm run truffle test -- test/sdk/all.js
+
+.PHONY: test test-contracts test-sdk

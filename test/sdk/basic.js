@@ -34,8 +34,8 @@ contract('NOIA Governance SDK Test', (accounts) => {
     it.only('Test message signing', async () => {
         let msg = "good weather in vilnius";
         let sgn = await businessClient.signMessage(msg);
-        console.log(`signed: ${sgn} with ${businessClient.owner}`);
-        let ownerAddress = await sdk.getOwnerAddress(businessClient);
+        console.log(`signed: ${sgn} by business at ${businessClient.address}`);
+        let ownerAddress = await sdk.getOwnerAddress(businessClient.address);
         console.log(`owner: ${ownerAddress}`);
         assert.equal(ownerAddress, sdk.recoverAddressFromSignedMessage(msg, sgn));
     })

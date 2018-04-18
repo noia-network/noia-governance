@@ -25,6 +25,7 @@ var web3;
 module.exports = {
     init: async (provider, accounts_, noia_, factory_) => {
         contracts.ERC223Interface = contract(require("./contracts/ERC223Interface.json"));
+        contracts.Owned = contract(require("./contracts/Owned.json"));
         contracts.NoiaNetwork = contract(require("./contracts/NoiaNetwork.json"));
         contracts.NoiaRegistry = contract(require("./contracts/NoiaRegistry.json"));
         contracts.NoiaMarketplace = contract(require("./contracts/NoiaMarketplace.json"));
@@ -75,8 +76,17 @@ module.exports = {
         return client;
     },
 
-    getOwnerAddress: async client => {
-        return await client.contract.owner();
+    isBusinessRegistered: async nodeAddress => {
+
+    },
+
+    isNodeRegistered: async nodeAddress => {
+
+    },
+
+    getOwnerAddress: async address => {
+        let owned = await contracts.Owned.at(address);
+        return await owned.owner();
     },
 
     recoverAddressFromSignedMessage: (msg, sgn) => {

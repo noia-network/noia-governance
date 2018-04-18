@@ -11,7 +11,7 @@ const {
     getGasUsedForContractCreation,
     getGasUsedForTransaction,
     waitEventsFromWatcher,
-    recoverAddress
+    signMessage
 } = require('../common/web3_utils.js');
 
 inherits(BusinessCient, EventEmitter)
@@ -35,6 +35,7 @@ BusinessCient.prototype.init = async function () {
         console.log(`Creating new business...`);
         let tx = await this.factory.createBusiness({ gas: NEW_BUSINESS_GAS });
         this.contract = this.contracts.NoiaBusiness.at(tx.logs[0].args.businessAddress);
+        this.address = this.contract.address;
         console.log(`Business created at ${this.contract.address}, gas used ${getGasUsedForTransaction(tx)}`);
     }
 }
@@ -43,7 +44,7 @@ BusinessCient.prototype.init = async function () {
  * use this message when you want to prove your ownership of the node contract
  */
 BusinessCient.prototype.signMessage = async function (msg) {
-    return await web3.eth.sign(this.owner, web3.sha3(msg));
+    return await signMessage(web3, this.owner, msg);
 }
 
 // events

@@ -11,7 +11,7 @@ const {
     getGasUsedForContractCreation,
     getGasUsedForTransaction,
     waitEventsFromWatcher,
-    recoverAddress
+    signMessage
 } = require('../common/web3_utils.js');
 
 inherits(NodeClient, EventEmitter)
@@ -36,6 +36,7 @@ NodeClient.prototype.init = async function () {
         console.log(`Creating new node...`);
         let tx = await this.factory.createNode({ gas: NEW_NODE_GAS });
         this.contract = this.contracts.NoiaNode.at(tx.logs[0].args.nodeAddress);
+        this.address = this.contract.address;
         console.log(`Node created at ${this.contract.address}, gas used ${getGasUsedForTransaction(tx)}`);
     }
 }
@@ -44,16 +45,8 @@ NodeClient.prototype.init = async function () {
  * use this message when you want to prove your ownership of the node contract
  */
 NodeClient.prototype.signMessage = async function (msg) {
-    return await this.web3.eth.sign(this.owner, this.web3.sha3(msg));
+    return await signMessage(web3, this.owner, msg);
 }
-
-/**
- * use this message when you want to authenticate the owner of the contract by
- * a message and its sigature
- */
-NodeClient.prototype.recoverAddress = function (msg, signature) {
-    return recoverAddress(this.web3, msg, signature);
-},
 
 // events
 //   - certificate_contract_received

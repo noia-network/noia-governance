@@ -40,11 +40,20 @@ module.exports = {
         });
     },
 
-    recoverAddress: (web3, msg, sgn) => {
-        let signature = ethutils.fromRpcSig(sgn);
-        let pub = ethutils.ecrecover(ethutils.sha3(msg), signature.v, signature.r, signature.s);
-        let addr = '0x' + ethutils.pubToAddress(pub).toString('hex');
-        console.log("!!!", signature, pub, addr);
+    signMessage : async (web3, acc, msg) => {
+        const msgBuf = new Buffer(msg);
+        return await web3.eth.sign(acc, '0x' + msgBuf.toString('hex'));
+    },
+
+    recoverAddressFromSignedMessage: (web3, msg, sgn) => {
+        const msgBuf = new Buffer(msg);
+        const prefix = new Buffer("\x19Ethereum Signed Message:\n");
+        const prefixedMsg = ethutils.sha3(
+            Buffer.concat([prefix, new Buffer(String(msgBuf.length)), msgBuf])
+        );
+        const signature = ethutils.fromRpcSig(sgn);
+        const pub = ethutils.ecrecover(prefixedMsg, signature.v, signature.r, signature.s);
+        const addr = '0x' + ethutils.pubToAddress(pub).toString('hex');
         return addr;
     }
 };

@@ -26,7 +26,9 @@ contract('NOIA Governance SDK Test', (accounts) => {
 
     beforeEach(async () => {
         nodeClient = await sdk.getNodeClient();
+        console.log(`Node client created at ${nodeClient.address}`);
         businessClient = await sdk.getBusinessClient();
+        console.log(`Business client created at ${nodeClient.address}`);
     })
 
     it.only('Test message signing', async () => {
@@ -35,7 +37,7 @@ contract('NOIA Governance SDK Test', (accounts) => {
         console.log(`signed: ${sgn} with ${businessClient.owner}`);
         let ownerAddress = await sdk.getOwnerAddress(businessClient);
         console.log(`owner: ${ownerAddress}`);
-        assert.equal(ownerAddress, nodeClient.recoverAddress(msg, sgn));
+        assert.equal(ownerAddress, sdk.recoverAddressFromSignedMessage(msg, sgn));
     })
 
     it("Transfer tokens", async () => {

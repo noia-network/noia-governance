@@ -2,6 +2,8 @@
 
 const util = require('util');
 
+const ethutils = require('ethereumjs-util');
+
 module.exports = {
     isContract: address => {
         return '0x0' !== web3.eth.getCode(address)
@@ -36,5 +38,13 @@ module.exports = {
                 }
             });
         });
+    },
+
+    recoverAddress: (web3, msg, sgn) => {
+        let signature = ethutils.fromRpcSig(sgn);
+        let pub = ethutils.ecrecover(ethutils.sha3(msg), signature.v, signature.r, signature.s);
+        let addr = '0x' + ethutils.pubToAddress(pub).toString('hex');
+        console.log("!!!", signature, pub, addr);
+        return addr;
     }
 };

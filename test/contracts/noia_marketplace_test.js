@@ -1,12 +1,12 @@
 'use strict';
 
 const NoiaNetwork = artifacts.require('NoiaNetwork');
+const NoiaContractsFactory = artifacts.require("NoiaContractsFactoryV1");
 const NoiaMarketplace = artifacts.require('NoiaMarketplace');
 const NoiaRegistry = artifacts.require('NoiaRegistry');
 const NoiaNode = artifacts.require('NoiaNodeV1');
 const NoiaBusiness = artifacts.require('NoiaBusinessV1');
 const NoiaCertificate = artifacts.require('NoiaCertificateV1');
-const NoiaContractsFactory = artifacts.require("NoiaContractsFactoryV1");
 
 const {
     setBeforeAllTimeout,
@@ -50,6 +50,7 @@ contract('NOIA noia tests: ', function (accounts) {
 
         noia = await NoiaNetwork.deployed();
         factory = await NoiaContractsFactory.deployed();
+
         marketplace = NoiaMarketplace.at(await noia.marketplace());
     });
 

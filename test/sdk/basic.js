@@ -1,3 +1,5 @@
+'use strict';
+
 const sdk = require('../../');
 const truffleConfig = require('../../truffle.js');
 
@@ -5,17 +7,35 @@ const Web3 = require('web3');
 const should = require('should');
 
 contract('NOIA Governance SDK Test', (accounts) => {
-    let acc0 = accounts[0];
-    let acc1 = accounts[1];
-    let provider = new Web3.providers.HttpProvider(`http://${truffleConfig.networks.local.host}:${truffleConfig.networks.local.port}`);
+    const acc0 = accounts[0];
+    const acc1 = accounts[1];
+    const provider = new Web3.providers.HttpProvider(`http://${truffleConfig.networks.local.host}:${truffleConfig.networks.local.port}`);
+
+    var nodeClient;
+    var businessClient;
 
     before(async () => {
-        noia = await artifacts.require('NoiaNetwork').deployed();
-        await sdk.init(provider, noia);
+        let noia = await artifacts.require('NoiaNetwork').deployed();
+        let factory = await artifacts.require("NoiaContractsFactoryV1").deployed();
+        await sdk.init(provider, accounts, noia, factory);
     })
 
     after(() => {
         sdk.uninit();
+    })
+
+    beforeEach(async () => {
+        nodeClient = await sdk.getNodeClient();
+        businessClient = await sdk.getBusinessClient();
+    })
+
+    it.only('Test message signing', async () => {
+        let msg = "good weather in vilnius";
+        let sgn = await businessClient.signMessage(msg);
+        console.log(`signed: ${sgn} with ${businessClient.owner}`);
+        let ownerAddress = await sdk.getOwnerAddress(businessClient);
+        console.log(`owner: ${ownerAddress}`);
+        assert.equal(ownerAddress, nodeClient.recoverAddress(msg, sgn));
     })
 
     it("Transfer tokens", async () => {

@@ -1,6 +1,9 @@
 const Migrations = artifacts.require("Migrations");
 const NoiaNetwork = artifacts.require("NoiaNetwork");
+const NoiaContractsFactoryV1 = artifacts.require("NoiaContractsFactoryV1");
+// for testing
 const NOIATestToken = artifacts.require("NOIATestToken");
+const NoiaSimpleRegulation = artifacts.require("NoiaSimpleRegulation");
 
 const {
     getGasUsedForContractCreation,
@@ -15,12 +18,18 @@ async function asyncForEach(array, callback) {
   }
 }
 
+function isTestNetwork(network) {
+    return network === "local" || network === "dev" || network === "ropsten";
+}
+
 module.exports = function (deployer, network, accounts) {
     const web3 = new Web3(deployer.provider);
 
     console.log(`accounts: ${accounts}`);
 
     deployer.then(async () => {
+        var tx;
+
         console.log(`Deploying Migrations contract...`);
         await deployer.deploy(Migrations, { gas: 300000 });
         let migrations = await Migrations.deployed();
@@ -28,7 +37,8 @@ module.exports = function (deployer, network, accounts) {
 
         // deploy token contract
         let tokenContract;
-        if (network === "local" || network === "dev" || network === "ropsten") {
+        let regulation;
+        if (isTestNetwork(network)) {
             // test token
             console.log(`Creating NOIATestToken contract...`);
             tokenContract = await NOIATestToken.new({ gas: 1000000 });
@@ -42,17 +52,32 @@ module.exports = function (deployer, network, accounts) {
             });
 
             console.log(`Transfering 1000 token from account0 to account1 ...`);
-            let tx = await tokenContract.transfer(accounts[1], 1000, { from: accounts[0], gas: 100000 });
+            tx = await tokenContract.transfer(accounts[1], 1000, { from: accounts[0], gas: 100000 });
             console.log(`Done, gasUsed ${getGasUsedForTransaction(tx)}`);
+
+            console.log(`Creating NoiaSimpleRegulation contract...`);
+            regulation = await NoiaSimpleRegulation.new({ gas: 500000 });
+            console.log(`Created at ${regulation.address}, gasUsed ${await getGasUsedForContractCreation(regulation)}`);
         } else {
             // real token
         }
 
         // deploy noia network
         console.log(`Deploying NoiaNetwork contract...`);
-        await deployer.deploy(NoiaNetwork, tokenContract.address, { gas: 2000000 });
+        await deployer.deploy(NoiaNetwork, tokenContract.address, regulation.address, { gas: 1500000 });
         let noia = await NoiaNetwork.deployed();
         console.log(`NoiaNetwork contract deployed at ${noia.address}`);
+
+        console.log(`Deploying NoiaContractsFactoryV1 contract...`);
+        await deployer.deploy(NoiaContractsFactoryV1, await noia.marketplace.call(), { gas: 2500000 });
+        let factory = await NoiaContractsFactoryV1.deployed();
+        console.log(`Deployed at ${factory.address}`);
+
+        if (isTestNetwork(network)) {
+            console.log(`Adding contractsFactory to regulation whitelist...`);
+            tx = await regulation.addApprovedFactory(factory.address);
+            console.log(`Done, gasUsed ${await getGasUsedForTransaction(tx)}`);
+        }
 
         console.log(`Deployment finished.`);
     }).catch(err => {

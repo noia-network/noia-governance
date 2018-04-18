@@ -1,7 +1,7 @@
 pragma solidity ^0.4.11;
 
-import "../abstracts/ERC223_interface.sol";
-import "../abstracts/ERC223_receiving_contract.sol";
+import "../abstracts/ERC223Interface.sol";
+import "../abstracts/ERC223ReceivingContract.sol";
 import "../lib/SafeMath.sol";
 
 contract NOIATestToken is ERC223Interface {

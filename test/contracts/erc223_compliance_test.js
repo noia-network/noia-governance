@@ -61,12 +61,31 @@ contract('ERC223 Compliance Test', function (accounts) {
         let tx;
 
         console.log(`Creating ERC223WithFallback ...`);
-        let goodContract = await ERC223WithFallback.new({ from: acc0, gas: 200000 });
+        let goodContract = await ERC223WithFallback.new(tokenContract.address, { from: acc0, gas: 400000 });
         console.log(`Done, gas used ${await getGasUsedForContractCreation(goodContract)}`);
 
+        console.log('Calling fallback from wrong addresss should fail ...');
+        await goodContract.tokenFallback(acc0, 100, "").should.be.rejected();
+
         console.log(`Transfering token to ERC223WithFallback ...`);
+        let balance0 = (await tokenContract.balanceOf.call(acc0)).toNumber();
         tx = await tokenContract.transfer(goodContract.address, 100, { from: acc0, gas: 100000 });
+        let balance1 = (await tokenContract.balanceOf.call(acc0)).toNumber();
         console.log(`Done, gas used ${await getGasUsedForTransaction(tx)}`);
+        assert.equal(acc0, await goodContract.originator.call());
         assert.equal(100, (await goodContract.tokenReceived.call()).toNumber());
+        assert.equal(balance1 + 100, balance0);
+
+        console.log(`Refund token back to acc1 should fail`);
+        await goodContract.requestRefund({ from: acc1, gas: 200000 }).should.be.rejected();
+
+        console.log(`Refund token back to acc0 ...`);
+        await goodContract.requestRefund({ from: acc0, gas: 200000 });
+        console.log(`Done, refunded`);
+        let balance2 = (await tokenContract.balanceOf.call(acc0)).toNumber();
+        assert.equal(balance2, balance0);
+
+        console.log('No more refund, Jose');
+        await goodContract.requestRefund({ from: acc0, gas: 200000 }).should.be.rejected();
     });
 });

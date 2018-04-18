@@ -20,5 +20,11 @@ module.exports = {
     setTestTimeout: function (test, ntransactions) {
         ntransactions = ntransactions || 1;
         test.timeout(ntransactions * MAX_TRANSACTION_TIMEOUT + EXTRA_TIMEOUT);
+    },
+
+    solAssertBytesEqual: function (to, bytes) {
+        let value = web3.toAscii(bytes);
+        value = value.replace(/\0*$/, '');
+        assert.equal(to, value);
     }
 }

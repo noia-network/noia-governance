@@ -7,9 +7,10 @@ contract Owned {
         _;
     }
 
+    address public creator;
     address public owner;
 
-    function Owned() public { owner = msg.sender;}
+    function Owned() public { creator = owner = msg.sender;}
 
     function changeOwner(address _newOwner) onlyOwner public {
         owner = _newOwner;

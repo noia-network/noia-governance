@@ -1,5 +1,6 @@
 pragma solidity ^0.4.11;
 
+import '../gov/NoiaMarketplace.sol';
 import './NoiaBaseContractV1.sol';
 import './NoiaCertificateV1.sol';
 
@@ -7,10 +8,16 @@ import './NoiaCertificateV1.sol';
  * Standard Noia Node Contract V1 (Draft)
  *
  */
-contract NoiaNodeV1
-    is NoiaBaseContractV1 {
+contract NoiaNodeV1 is NoiaBaseContractV1 {
+    NoiaMarketplace marketplace;
+
     address[] certificates;
     uint public certificatesCount;
+
+    function NoiaNodeV1(NoiaMarketplace marketplace_, address factory)
+        NoiaBaseContractV1(factory) public {
+        marketplace = marketplace_;
+    }
 
     //
     // Certificate Callback Functions
@@ -22,11 +29,8 @@ contract NoiaNodeV1
         _;
     }
 
-    function acceptSignedCertificate(address certificateAddress)
+    function acceptIssuedCertificate(address certificateAddress)
         fromCertificateV1(certificateAddress) public {
-        // we don't accept un-signed certificate
-        require(NoiaCertificateV1(certificateAddress).signedByBusiness());
-
         certificates.push(certificateAddress);
         ++certificatesCount;
     }
@@ -61,6 +65,7 @@ contract NoiaNodeV1
 
     //
     // misc
+    // TODO, link misc library
     //
     function isContract(address addr) private view returns (bool) {
       uint size;

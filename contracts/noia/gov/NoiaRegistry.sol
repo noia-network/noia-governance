@@ -25,14 +25,15 @@ contract NoiaRegistry {
     }
 
     function addEntry(NoiaBaseContract baseContract) public {
-        require(msg.sender == baseContract.creator());
+        // validate that sender is from the same factory
+        require(msg.sender == baseContract.factory());
         require(regulation.isContractValid(baseContract));
         entries[address(baseContract)] = 1;
         ++nEntries;
         emit NoiaRegistryEntryAdded(this, address(baseContract));
     }
 
-    function hasEntry(NoiaBaseContract baseContract) public view returns (bool) {
+    function hasEntry(address baseContract) public view returns (bool) {
         return entries[address(baseContract)] > 0;
     }
 

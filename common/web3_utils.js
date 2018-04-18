@@ -3,6 +3,10 @@
 const util = require('util');
 
 module.exports = {
+    isContract: address => {
+        return '0x0' !== web3.eth.getCode(address)
+    },
+
     getGasUsedForTransaction: tx => {
         return tx.receipt.gasUsed;
     },

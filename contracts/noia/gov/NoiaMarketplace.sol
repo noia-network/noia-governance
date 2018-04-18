@@ -17,12 +17,14 @@ contract NoiaMarketplace {
 
     NoiaRegistry public nodeRegistry;
     NoiaRegistry public businessRegistry;
+    NoiaRegistry public certificatesRegistry;
     NoiaRegistry public jobPostRegistry;
 
     function NoiaMarketplace(ERC223Interface tokenContract_, NoiaRegulation regulation) public {
         tokenContract = tokenContract_;
         nodeRegistry = new NoiaRegistry(regulation);
         businessRegistry = new NoiaRegistry(regulation);
+        certificatesRegistry = new NoiaRegistry(regulation);
         jobPostRegistry = new NoiaRegistry(regulation);
     }
 }

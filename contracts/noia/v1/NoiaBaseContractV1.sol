@@ -8,6 +8,8 @@ import '../gov/NoiaBaseContract.sol';
 contract NoiaBaseContractV1 is NoiaBaseContract {
     uint16 private constant CURRENT_VERSION = 1;
 
-    function NoiaBaseContractV1() NoiaBaseContract(CURRENT_VERSION) public {
+    function NoiaBaseContractV1(address factory)
+        NoiaBaseContract(factory, CURRENT_VERSION) public {
+        require(msg.sender == factory);
     }
 }

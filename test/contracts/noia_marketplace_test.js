@@ -15,6 +15,7 @@ const {
 } = require('./test_common.js');
 
 const {
+    isContract,
     getGasUsedForContractCreation,
     getGasUsedForTransaction,
     waitEventsFromWatcher
@@ -28,7 +29,8 @@ contract('NOIA noia tests: ', function (accounts) {
     const NEW_BUSINESS_GAS                  = 1200000;
     const REGISTER_BUSINESS_GAS             = 200000;
     const NEW_CERTIFICATE_GAS               = 1200000;
-    const SIGN_CERTIFICATE_GAS              = 300000;
+    const SIGN_CERTIFICATE_GAS              = 100000;
+    const ISSUE_CERTIFICATE_GAS             = 100000;
     const UPDATE_CERTIFICATE_GAS            = 200000;
     const REVOKE_CERTIFICATE_GAS            = 200000;
     const REVOKE_NOTICE_CERTIFICATE_GAS     = 200000;
@@ -128,37 +130,41 @@ contract('NOIA noia tests: ', function (accounts) {
 
         let tx;
 
-        let certsSignedEventWatcher = business0.CertificateSignedV1();
-        let certsUpdatedEventWatcher = business0.CertificateUpdatedV1();
-        let certsRevokedEventWatcher = business0.CertificateRevokedV1();
-
         console.log('Creating new certificate...');
-        let certificate = await NoiaCertificate.new(
+        tx = await factory.createCertificate(
+            "NODE_TEST_CERTIFICATE",
             business0.address,
             node0.address,
-            "NODE_TEST_CERTIFICATE",
-            "application/json",
-            JSON.stringify({
-                field1: "lorem ipsum",
-                field2: "lorem ipsum"
-            }),
             { gas: NEW_CERTIFICATE_GAS });
-        console.log(`Certificate created, gas used ${await getGasUsedForContractCreation(certificate)}`);
+        let certificate = NoiaCertificate.at(tx.logs[0].args.certAddress);
+        console.log(`Certificate created at ${certificate.address}, gas used ${await getGasUsedForTransaction(tx)}`);
 
-        assert.isFalse(await certificate.signedByBusiness.call());
+        let certsSignedEventWatcher = certificate.NoiaCertificateSignedV1();
+        let certsIssuedEventWatcher = certificate.NoiaCertificateIssuedV1();
+        let certsUpdatedEventWatcher = certificate.NoiaCertificateUpdatedV1();
+        let certsRevokedEventWatcher = certificate.NoiaCertificateRevokedV1();
 
+        assert.isFalse(await certificate.signed.call());
+        assert.isFalse(await certificate.isInEffect.call());
         console.log('Sign the certificate...');
         tx = await business0.signCertificate(certificate.address, { gas: SIGN_CERTIFICATE_GAS });
         console.log(`Certificate singed, gas used ${getGasUsedForTransaction(tx)}`);
-        assert.isTrue(await certificate.signedByBusiness.call());
+        assert.isTrue(await certificate.signed.call());
+        assert.isFalse(await certificate.isInEffect.call());
 
         let certsSignedEvents = await waitEventsFromWatcher(certsSignedEventWatcher, 1);
         assert.equal(1, certsSignedEvents.length);
         assert.equal(business0.address, certsSignedEvents[0].args.issuer);
         assert.equal(node0.address, certsSignedEvents[0].args.recipient);
 
+        console.log('Issue the certificate...');
+        tx = await certificate.issue( { gas: ISSUE_CERTIFICATE_GAS });
+        console.log(`Certificate issued, gas used ${getGasUsedForTransaction(tx)}`);
+        assert.isTrue(await certificate.signed.call());
+        assert.isTrue(await certificate.isInEffect.call());
+
         console.log('Update the certificate...');
-        tx = await business0.updateCertificate(certificate.address,
+        tx = await certificate.update(
             "application/json",
             JSON.stringify({
                 field1: "lorem ipsum"
@@ -173,22 +179,19 @@ contract('NOIA noia tests: ', function (accounts) {
 
         // test payload storage
         let certificadte2 = NoiaCertificate.at(certsSignedEvents[0].args.certificate);
-        assert.isTrue(await certificadte2.signedByBusiness.call());
+        assert.isTrue(await certificadte2.signed.call());
+        assert.isTrue(await certificadte2.isInEffect.call());
         assert.equal(business0.address, await certificadte2.issuer.call());
         assert.equal(node0.address, await certificadte2.recipient.call());
         solAssertBytesEqual("NODE_TEST_CERTIFICATE", await certificadte2.certificateName.call());
         solAssertBytesEqual("application/json", await certificadte2.payloadType.call());
         solAssertBytesEqual('{"field1":"lorem ipsum"}', await certificadte2.payloadData.call());
 
-        console.log('Sending certificate revoke notice...');
-        tx = await business0.sendCertificateRevokeNotice(certificate.address, { gas: REVOKE_NOTICE_CERTIFICATE_GAS });
-        console.log(`Notice sent, gas used ${getGasUsedForTransaction(tx)}`);
-
-        assert.notEqual('0x0', web3.eth.getCode(certificate.address));
+        assert.isTrue(isContract(certificate.address));
         console.log('Revoking certificate...');
-        tx = await business0.revokeCertificate(certificate.address, { gas: REVOKE_CERTIFICATE_GAS });
+        tx = await certificate.revoke({ gas: REVOKE_CERTIFICATE_GAS });
         console.log(`Certificate revoked, gas used ${getGasUsedForTransaction(tx)}`);
-        assert.equal('0x0', web3.eth.getCode(certificate.address));
+        assert.isFalse(isContract(certificate.address));
 
         let certsRevokedEvents = await waitEventsFromWatcher(certsRevokedEventWatcher, 1);
         assert.equal(1, certsRevokedEvents.length);
@@ -197,40 +200,33 @@ contract('NOIA noia tests: ', function (accounts) {
     });
 
     it('certificate functions can only be called by the issuer or owner', async function() {
+        let tx;
+
         console.log('Creating new certificate...');
-        let certificate = await NoiaCertificate.new(
+        tx = await factory.createCertificate(
+            "NODE_TEST_CERTIFICATE",
             business0.address,
             node0.address,
-            "NODE_TEST_CERTIFICATE",
-            "nonsense",
-            '',
             { gas: NEW_CERTIFICATE_GAS });
+        let certificate = NoiaCertificate.at(tx.logs[0].args.certAddress);
         console.log(`Certificate created, gas used ${await getGasUsedForContractCreation(certificate)}`);
 
+        console.log('cert.sing');
         await certificate.sign({ gas: SIGN_CERTIFICATE_GAS }).should.be.rejected();
-        await certificate.update("nonsense", "", { gas: UPDATE_CERTIFICATE_GAS  }).should.be.rejected();
-        await certificate.revokeNotice( { gas: REVOKE_CERTIFICATE_GAS  }).should.be.rejected();
-        await certificate.revoke({ gas: REVOKE_NOTICE_CERTIFICATE_GAS  }).should.be.rejected();
-
+        console.log('cert.issue');
+        await certificate.issue({ from: acc1, gas: SIGN_CERTIFICATE_GAS }).should.be.rejected();
+        console.log('cert.update');
+        await certificate.update("nonsense", "", { from: acc1, gas: UPDATE_CERTIFICATE_GAS  }).should.be.rejected();
+        console.log('cert.revoke');
+        await certificate.revoke({ from: acc1, gas: REVOKE_NOTICE_CERTIFICATE_GAS  }).should.be.rejected();
+        console.log('business.sign');
         await business0.signCertificate(certificate.address, {
             from: acc1,
             gas: SIGN_CERTIFICATE_GAS
         }).should.be.rejected();
-        await business0.updateCertificate(certificate.address, "nonsense", "", {
-            from: acc1,
-            gas: UPDATE_CERTIFICATE_GAS
-        }).should.be.rejected();
-        await business0.sendCertificateRevokeNotice(certificate.address, {
-            from: acc1,
-            gas: REVOKE_NOTICE_CERTIFICATE_GAS
-        }).should.be.rejected();
-        await business0.revokeCertificate(certificate.address, {
-            from: acc1,
-            gas: REVOKE_CERTIFICATE_GAS
-        }).should.be.rejected();
 
         // cleanup the shit
-        await business0.revokeCertificate(certificate.address, { gas: REVOKE_CERTIFICATE_GAS });
+        await certificate.revoke({ gas: REVOKE_CERTIFICATE_GAS });
     });
 
     it('Node certificate listing', async function() {
@@ -239,19 +235,22 @@ contract('NOIA noia tests: ', function (accounts) {
         let certs = [];
         for (let i = 0; i < 10; ++i) {
             console.log('Creating new certificate...');
-            let certificate = await NoiaCertificate.new(
+            tx = await factory.createCertificate(
+                "NODE_TEST_CERTIFICATE",
                 business0.address,
                 node0.address,
-                "NODE_TEST_CERTIFICATE",
-                "nonsense",
-                '',
                 { gas: NEW_CERTIFICATE_GAS });
-            console.log(`Certificate created, gas used ${await getGasUsedForContractCreation(certificate)}`);
+            let certificate = NoiaCertificate.at(tx.logs[0].args.certAddress);
+            console.log(`Certificate created, gas used ${await getGasUsedForTransaction(tx)}`);
 
             certs.push(certificate.address);
             console.log('Sign the certificate...');
             tx = await business0.signCertificate(certificate.address, { gas: SIGN_CERTIFICATE_GAS });
             console.log(`Certificate singed, gas used ${getGasUsedForTransaction(tx)}`);
+
+            console.log('Issue the certificate...');
+            tx = await certificate.issue( { gas: ISSUE_CERTIFICATE_GAS });
+            console.log(`Certificate issued, gas used ${getGasUsedForTransaction(tx)}`);
 
             let certsReturned = await node0.getCertificates.call();
             assert.deepEqual(certs, certsReturned);
@@ -260,9 +259,8 @@ contract('NOIA noia tests: ', function (accounts) {
         // delete one cert from the middle
         {
             console.log('Revoking certificate...');
-            tx = await business0.sendCertificateRevokeNotice(certs[5], { gas: REVOKE_NOTICE_CERTIFICATE_GAS });
-            console.log(`Certificate revocation noticed, gas used ${getGasUsedForTransaction(tx)}`);
-            tx = await business0.revokeCertificate(certs[5], { gas: REVOKE_CERTIFICATE_GAS });
+            let certificate = NoiaCertificate.at(certs[5]);
+            tx = await certificate.revoke({ gas: REVOKE_NOTICE_CERTIFICATE_GAS });
             console.log(`Certificate revoked, gas used ${getGasUsedForTransaction(tx)}`);
             certs.splice(5, 1);
             let certsReturned = await node0.getCertificates.call();

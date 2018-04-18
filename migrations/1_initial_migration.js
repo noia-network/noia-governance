@@ -64,12 +64,12 @@ module.exports = function (deployer, network, accounts) {
 
         // deploy noia network
         console.log(`Deploying NoiaNetwork contract...`);
-        await deployer.deploy(NoiaNetwork, tokenContract.address, regulation.address, { gas: 1500000 });
+        await deployer.deploy(NoiaNetwork, tokenContract.address, regulation.address, { gas: 4000000 });
         let noia = await NoiaNetwork.deployed();
         console.log(`NoiaNetwork contract deployed at ${noia.address}`);
 
         console.log(`Deploying NoiaContractsFactoryV1 contract...`);
-        await deployer.deploy(NoiaContractsFactoryV1, await noia.marketplace.call(), { gas: 2500000 });
+        await deployer.deploy(NoiaContractsFactoryV1, await noia.marketplace.call(), { gas: 4000000 });
         let factory = await NoiaContractsFactoryV1.deployed();
         console.log(`Deployed at ${factory.address}`);
 

@@ -28,7 +28,7 @@ contract('NOIA Governance SDK Test', (accounts) => {
         nodeClient = await sdk.getNodeClient();
         console.log(`Node client created at ${nodeClient.address}`);
         businessClient = await sdk.getBusinessClient();
-        console.log(`Business client created at ${nodeClient.address}`);
+        console.log(`Business client created at ${businessClient.address}`);
     })
 
     it.only('Test message signing', async () => {

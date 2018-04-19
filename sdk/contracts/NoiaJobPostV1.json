@@ -176,14 +176,14 @@
     "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaJobPostV1.sol",
     "exportedSymbols": {
       "NoiaJobPostV1": [
-        946
+        943
       ]
     },
-    "id": 947,
+    "id": 944,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 767,
+        "id": 764,
         "literals": [
           "solidity",
           "^",
@@ -196,10 +196,10 @@
       {
         "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaBaseContractV1.sol",
         "file": "./NoiaBaseContractV1.sol",
-        "id": 768,
+        "id": 765,
         "nodeType": "ImportDirective",
-        "scope": 947,
-        "sourceUnit": 346,
+        "scope": 944,
+        "sourceUnit": 343,
         "src": "26:34:11",
         "symbolAliases": [],
         "unitAlias": ""
@@ -207,10 +207,10 @@
       {
         "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaNodeV1.sol",
         "file": "./NoiaNodeV1.sol",
-        "id": 769,
+        "id": 766,
         "nodeType": "ImportDirective",
-        "scope": 947,
-        "sourceUnit": 1119,
+        "scope": 944,
+        "sourceUnit": 1116,
         "src": "61:26:11",
         "symbolAliases": [],
         "unitAlias": ""
@@ -218,10 +218,10 @@
       {
         "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaWorkContractV1.sol",
         "file": "./NoiaWorkContractV1.sol",
-        "id": 770,
+        "id": 767,
         "nodeType": "ImportDirective",
-        "scope": 947,
-        "sourceUnit": 1258,
+        "scope": 944,
+        "sourceUnit": 1255,
         "src": "88:34:11",
         "symbolAliases": [],
         "unitAlias": ""
@@ -232,17 +232,17 @@
             "arguments": [],
             "baseName": {
               "contractScope": null,
-              "id": 771,
+              "id": 768,
               "name": "NoiaBaseContractV1",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 345,
+              "referencedDeclaration": 342,
               "src": "211:18:11",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_NoiaBaseContractV1_$345",
+                "typeIdentifier": "t_contract$_NoiaBaseContractV1_$342",
                 "typeString": "contract NoiaBaseContractV1"
               }
             },
-            "id": 772,
+            "id": 769,
             "nodeType": "InheritanceSpecifier",
             "src": "211:18:11"
           }
@@ -250,16 +250,16 @@
         "contractDependencies": [
           97,
           123,
-          345,
-          1257
+          342,
+          1254
         ],
         "contractKind": "contract",
         "documentation": "Standard Noia Job Post Contract V1 (Draft)\n ",
         "fullyImplemented": false,
-        "id": 946,
+        "id": 943,
         "linearizedBaseContracts": [
-          946,
-          345,
+          943,
+          342,
           123,
           97
         ],
@@ -268,10 +268,10 @@
         "nodes": [
           {
             "constant": false,
-            "id": 774,
+            "id": 771,
             "name": "tokenContract",
             "nodeType": "VariableDeclaration",
-            "scope": 946,
+            "scope": 943,
             "src": "236:36:11",
             "stateVariable": true,
             "storageLocation": "default",
@@ -281,7 +281,7 @@
             },
             "typeName": {
               "contractScope": null,
-              "id": 773,
+              "id": 770,
               "name": "ERC223Interface",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 60,
@@ -296,10 +296,10 @@
           },
           {
             "constant": false,
-            "id": 776,
+            "id": 773,
             "name": "employerAddress",
             "nodeType": "VariableDeclaration",
-            "scope": 946,
+            "scope": 943,
             "src": "278:30:11",
             "stateVariable": true,
             "storageLocation": "default",
@@ -308,7 +308,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 775,
+              "id": 772,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "278:7:11",
@@ -322,21 +322,21 @@
           },
           {
             "constant": false,
-            "id": 780,
+            "id": 777,
             "name": "employerCreatedContracts",
             "nodeType": "VariableDeclaration",
-            "scope": 946,
+            "scope": 943,
             "src": "315:63:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
               "typeString": "mapping(address => contract NoiaWorkContractV1)"
             },
             "typeName": {
-              "id": 779,
+              "id": 776,
               "keyType": {
-                "id": 777,
+                "id": 774,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "323:7:11",
@@ -348,18 +348,18 @@
               "nodeType": "Mapping",
               "src": "315:38:11",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
                 "typeString": "mapping(address => contract NoiaWorkContractV1)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 778,
+                "id": 775,
                 "name": "NoiaWorkContractV1",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1257,
+                "referencedDeclaration": 1254,
                 "src": "334:18:11",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                  "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                   "typeString": "contract NoiaWorkContractV1"
                 }
               }
@@ -369,21 +369,21 @@
           },
           {
             "constant": false,
-            "id": 784,
+            "id": 781,
             "name": "workerCreatedContracts",
             "nodeType": "VariableDeclaration",
-            "scope": 946,
+            "scope": 943,
             "src": "384:61:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
               "typeString": "mapping(address => contract NoiaWorkContractV1)"
             },
             "typeName": {
-              "id": 783,
+              "id": 780,
               "keyType": {
-                "id": 781,
+                "id": 778,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "392:7:11",
@@ -395,18 +395,18 @@
               "nodeType": "Mapping",
               "src": "384:38:11",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
                 "typeString": "mapping(address => contract NoiaWorkContractV1)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 782,
+                "id": 779,
                 "name": "NoiaWorkContractV1",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1257,
+                "referencedDeclaration": 1254,
                 "src": "403:18:11",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                  "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                   "typeString": "contract NoiaWorkContractV1"
                 }
               }
@@ -416,25 +416,25 @@
           },
           {
             "body": {
-              "id": 793,
+              "id": 790,
               "nodeType": "Block",
               "src": "514:47:11",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 791,
+                    "id": 788,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 789,
+                      "id": 786,
                       "name": "tokenContract",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 774,
+                      "referencedDeclaration": 771,
                       "src": "524:13:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_ERC223Interface_$60",
@@ -445,11 +445,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 790,
+                      "id": 787,
                       "name": "tokenContract_",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 786,
+                      "referencedDeclaration": 783,
                       "src": "540:14:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_ERC223Interface_$60",
@@ -462,14 +462,14 @@
                       "typeString": "contract ERC223Interface"
                     }
                   },
-                  "id": 792,
+                  "id": 789,
                   "nodeType": "ExpressionStatement",
                   "src": "524:30:11"
                 }
               ]
             },
             "documentation": null,
-            "id": 794,
+            "id": 791,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -477,15 +477,15 @@
             "name": "NoiaJobPostV1",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 787,
+              "id": 784,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 786,
+                  "id": 783,
                   "name": "tokenContract_",
                   "nodeType": "VariableDeclaration",
-                  "scope": 794,
+                  "scope": 791,
                   "src": "475:30:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -495,7 +495,7 @@
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 785,
+                    "id": 782,
                     "name": "ERC223Interface",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 60,
@@ -513,12 +513,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 788,
+              "id": 785,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "514:0:11"
             },
-            "scope": 946,
+            "scope": 943,
             "src": "452:109:11",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -526,7 +526,7 @@
           },
           {
             "body": {
-              "id": 866,
+              "id": 863,
               "nodeType": "Block",
               "src": "621:670:11",
               "statements": [
@@ -535,26 +535,26 @@
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 802,
+                      "id": 799,
                       "name": "initiator",
                       "nodeType": "VariableDeclaration",
-                      "scope": 867,
+                      "scope": 864,
                       "src": "631:38:11",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_Initiator_$1125",
+                        "typeIdentifier": "t_enum$_Initiator_$1122",
                         "typeString": "enum NoiaWorkContractV1.Initiator"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 801,
+                        "id": 798,
                         "name": "NoiaWorkContractV1.Initiator",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 1125,
+                        "referencedDeclaration": 1122,
                         "src": "631:28:11",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_enum$_Initiator_$1125",
+                          "typeIdentifier": "t_enum$_Initiator_$1122",
                           "typeString": "enum NoiaWorkContractV1.Initiator"
                         }
                       },
@@ -562,7 +562,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 803,
+                  "id": 800,
                   "initialValue": null,
                   "nodeType": "VariableDeclarationStatement",
                   "src": "631:38:11"
@@ -572,26 +572,26 @@
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 805,
+                      "id": 802,
                       "name": "workContract",
                       "nodeType": "VariableDeclaration",
-                      "scope": 867,
+                      "scope": 864,
                       "src": "679:31:11",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                        "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                         "typeString": "contract NoiaWorkContractV1"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 804,
+                        "id": 801,
                         "name": "NoiaWorkContractV1",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 1257,
+                        "referencedDeclaration": 1254,
                         "src": "679:18:11",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                          "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                           "typeString": "contract NoiaWorkContractV1"
                         }
                       },
@@ -599,7 +599,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 806,
+                  "id": 803,
                   "initialValue": null,
                   "nodeType": "VariableDeclarationStatement",
                   "src": "679:31:11"
@@ -611,7 +611,7 @@
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     },
-                    "id": 810,
+                    "id": 807,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -620,18 +620,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 807,
+                        "id": 804,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1270,
+                        "referencedDeclaration": 1267,
                         "src": "724:3:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 808,
+                      "id": 805,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -649,11 +649,11 @@
                     "operator": "==",
                     "rightExpression": {
                       "argumentTypes": null,
-                      "id": 809,
+                      "id": 806,
                       "name": "employerAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 776,
+                      "referencedDeclaration": 773,
                       "src": "738:15:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -673,7 +673,7 @@
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       },
-                      "id": 836,
+                      "id": 833,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -682,18 +682,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 833,
+                          "id": 830,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1270,
+                          "referencedDeclaration": 1267,
                           "src": "990:3:11",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 834,
+                        "id": 831,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -711,11 +711,11 @@
                       "operator": "==",
                       "rightExpression": {
                         "argumentTypes": null,
-                        "id": 835,
+                        "id": 832,
                         "name": "workerAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 796,
+                        "referencedDeclaration": 793,
                         "src": "1004:13:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -729,7 +729,7 @@
                       }
                     },
                     "falseBody": {
-                      "id": 863,
+                      "id": 860,
                       "nodeType": "Block",
                       "src": "1246:39:11",
                       "statements": [
@@ -740,7 +740,7 @@
                               {
                                 "argumentTypes": null,
                                 "hexValue": "66616c7365",
-                                "id": 860,
+                                "id": 857,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -763,18 +763,18 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "id": 859,
+                              "id": 856,
                               "name": "require",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1273,
+                              "referencedDeclaration": 1270,
                               "src": "1260:7:11",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                                 "typeString": "function (bool) pure"
                               }
                             },
-                            "id": 861,
+                            "id": 858,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -788,38 +788,38 @@
                               "typeString": "tuple()"
                             }
                           },
-                          "id": 862,
+                          "id": 859,
                           "nodeType": "ExpressionStatement",
                           "src": "1260:14:11"
                         }
                       ]
                     },
-                    "id": 864,
+                    "id": 861,
                     "nodeType": "IfStatement",
                     "src": "986:299:11",
                     "trueBody": {
-                      "id": 858,
+                      "id": 855,
                       "nodeType": "Block",
                       "src": "1019:221:11",
                       "statements": [
                         {
                           "expression": {
                             "argumentTypes": null,
-                            "id": 841,
+                            "id": 838,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
                             "lValueRequested": false,
                             "leftHandSide": {
                               "argumentTypes": null,
-                              "id": 837,
+                              "id": 834,
                               "name": "initiator",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 802,
+                              "referencedDeclaration": 799,
                               "src": "1033:9:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_enum$_Initiator_$1125",
+                                "typeIdentifier": "t_enum$_Initiator_$1122",
                                 "typeString": "enum NoiaWorkContractV1.Initiator"
                               }
                             },
@@ -831,32 +831,32 @@
                                 "argumentTypes": null,
                                 "expression": {
                                   "argumentTypes": null,
-                                  "id": 838,
+                                  "id": 835,
                                   "name": "NoiaWorkContractV1",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 1257,
+                                  "referencedDeclaration": 1254,
                                   "src": "1045:18:11",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_type$_t_contract$_NoiaWorkContractV1_$1257_$",
+                                    "typeIdentifier": "t_type$_t_contract$_NoiaWorkContractV1_$1254_$",
                                     "typeString": "type(contract NoiaWorkContractV1)"
                                   }
                                 },
-                                "id": 839,
+                                "id": 836,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "memberName": "Initiator",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 1125,
+                                "referencedDeclaration": 1122,
                                 "src": "1045:28:11",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_type$_t_enum$_Initiator_$1125_$",
+                                  "typeIdentifier": "t_type$_t_enum$_Initiator_$1122_$",
                                   "typeString": "type(enum NoiaWorkContractV1.Initiator)"
                                 }
                               },
-                              "id": 840,
+                              "id": 837,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -866,38 +866,38 @@
                               "referencedDeclaration": null,
                               "src": "1045:35:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_enum$_Initiator_$1125",
+                                "typeIdentifier": "t_enum$_Initiator_$1122",
                                 "typeString": "enum NoiaWorkContractV1.Initiator"
                               }
                             },
                             "src": "1033:47:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_enum$_Initiator_$1125",
+                              "typeIdentifier": "t_enum$_Initiator_$1122",
                               "typeString": "enum NoiaWorkContractV1.Initiator"
                             }
                           },
-                          "id": 842,
+                          "id": 839,
                           "nodeType": "ExpressionStatement",
                           "src": "1033:47:11"
                         },
                         {
                           "expression": {
                             "argumentTypes": null,
-                            "id": 850,
+                            "id": 847,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
                             "lValueRequested": false,
                             "leftHandSide": {
                               "argumentTypes": null,
-                              "id": 843,
+                              "id": 840,
                               "name": "workContract",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 805,
+                              "referencedDeclaration": 802,
                               "src": "1094:12:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                                 "typeString": "contract NoiaWorkContractV1"
                               }
                             },
@@ -908,37 +908,37 @@
                               "arguments": [
                                 {
                                   "argumentTypes": null,
-                                  "id": 846,
+                                  "id": 843,
                                   "name": "this",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 1307,
+                                  "referencedDeclaration": 1304,
                                   "src": "1132:4:11",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_contract$_NoiaJobPostV1_$946",
+                                    "typeIdentifier": "t_contract$_NoiaJobPostV1_$943",
                                     "typeString": "contract NoiaJobPostV1"
                                   }
                                 },
                                 {
                                   "argumentTypes": null,
-                                  "id": 847,
+                                  "id": 844,
                                   "name": "initiator",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 802,
+                                  "referencedDeclaration": 799,
                                   "src": "1138:9:11",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_enum$_Initiator_$1125",
+                                    "typeIdentifier": "t_enum$_Initiator_$1122",
                                     "typeString": "enum NoiaWorkContractV1.Initiator"
                                   }
                                 },
                                 {
                                   "argumentTypes": null,
-                                  "id": 848,
+                                  "id": 845,
                                   "name": "workerAddress",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 796,
+                                  "referencedDeclaration": 793,
                                   "src": "1149:13:11",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_address",
@@ -949,11 +949,11 @@
                               "expression": {
                                 "argumentTypes": [
                                   {
-                                    "typeIdentifier": "t_contract$_NoiaJobPostV1_$946",
+                                    "typeIdentifier": "t_contract$_NoiaJobPostV1_$943",
                                     "typeString": "contract NoiaJobPostV1"
                                   },
                                   {
-                                    "typeIdentifier": "t_enum$_Initiator_$1125",
+                                    "typeIdentifier": "t_enum$_Initiator_$1122",
                                     "typeString": "enum NoiaWorkContractV1.Initiator"
                                   },
                                   {
@@ -961,7 +961,7 @@
                                     "typeString": "address"
                                   }
                                 ],
-                                "id": 845,
+                                "id": 842,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -969,23 +969,23 @@
                                 "nodeType": "NewExpression",
                                 "src": "1109:22:11",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaJobPostV1_$946_$_t_enum$_Initiator_$1125_$_t_address_$returns$_t_contract$_NoiaWorkContractV1_$1257_$",
+                                  "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaJobPostV1_$943_$_t_enum$_Initiator_$1122_$_t_address_$returns$_t_contract$_NoiaWorkContractV1_$1254_$",
                                   "typeString": "function (contract NoiaJobPostV1,enum NoiaWorkContractV1.Initiator,address) returns (contract NoiaWorkContractV1)"
                                 },
                                 "typeName": {
                                   "contractScope": null,
-                                  "id": 844,
+                                  "id": 841,
                                   "name": "NoiaWorkContractV1",
                                   "nodeType": "UserDefinedTypeName",
-                                  "referencedDeclaration": 1257,
+                                  "referencedDeclaration": 1254,
                                   "src": "1113:18:11",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                                    "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                                     "typeString": "contract NoiaWorkContractV1"
                                   }
                                 }
                               },
-                              "id": 849,
+                              "id": 846,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -995,24 +995,24 @@
                               "nodeType": "FunctionCall",
                               "src": "1109:54:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                                 "typeString": "contract NoiaWorkContractV1"
                               }
                             },
                             "src": "1094:69:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                               "typeString": "contract NoiaWorkContractV1"
                             }
                           },
-                          "id": 851,
+                          "id": 848,
                           "nodeType": "ExpressionStatement",
                           "src": "1094:69:11"
                         },
                         {
                           "expression": {
                             "argumentTypes": null,
-                            "id": 856,
+                            "id": 853,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -1021,25 +1021,25 @@
                               "argumentTypes": null,
                               "baseExpression": {
                                 "argumentTypes": null,
-                                "id": 852,
+                                "id": 849,
                                 "name": "workerCreatedContracts",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 784,
+                                "referencedDeclaration": 781,
                                 "src": "1177:22:11",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
                                   "typeString": "mapping(address => contract NoiaWorkContractV1)"
                                 }
                               },
-                              "id": 854,
+                              "id": 851,
                               "indexExpression": {
                                 "argumentTypes": null,
-                                "id": 853,
+                                "id": 850,
                                 "name": "workerAddress",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 796,
+                                "referencedDeclaration": 793,
                                 "src": "1200:13:11",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_address",
@@ -1053,7 +1053,7 @@
                               "nodeType": "IndexAccess",
                               "src": "1177:37:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                                 "typeString": "contract NoiaWorkContractV1"
                               }
                             },
@@ -1061,56 +1061,56 @@
                             "operator": "=",
                             "rightHandSide": {
                               "argumentTypes": null,
-                              "id": 855,
+                              "id": 852,
                               "name": "workContract",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 805,
+                              "referencedDeclaration": 802,
                               "src": "1217:12:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                                 "typeString": "contract NoiaWorkContractV1"
                               }
                             },
                             "src": "1177:52:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                               "typeString": "contract NoiaWorkContractV1"
                             }
                           },
-                          "id": 857,
+                          "id": 854,
                           "nodeType": "ExpressionStatement",
                           "src": "1177:52:11"
                         }
                       ]
                     }
                   },
-                  "id": 865,
+                  "id": 862,
                   "nodeType": "IfStatement",
                   "src": "720:565:11",
                   "trueBody": {
-                    "id": 832,
+                    "id": 829,
                     "nodeType": "Block",
                     "src": "755:225:11",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 815,
+                          "id": 812,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "argumentTypes": null,
-                            "id": 811,
+                            "id": 808,
                             "name": "initiator",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 802,
+                            "referencedDeclaration": 799,
                             "src": "769:9:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_enum$_Initiator_$1125",
+                              "typeIdentifier": "t_enum$_Initiator_$1122",
                               "typeString": "enum NoiaWorkContractV1.Initiator"
                             }
                           },
@@ -1122,32 +1122,32 @@
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 812,
+                                "id": 809,
                                 "name": "NoiaWorkContractV1",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1257,
+                                "referencedDeclaration": 1254,
                                 "src": "781:18:11",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_type$_t_contract$_NoiaWorkContractV1_$1257_$",
+                                  "typeIdentifier": "t_type$_t_contract$_NoiaWorkContractV1_$1254_$",
                                   "typeString": "type(contract NoiaWorkContractV1)"
                                 }
                               },
-                              "id": 813,
+                              "id": 810,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "Initiator",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1125,
+                              "referencedDeclaration": 1122,
                               "src": "781:28:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_enum$_Initiator_$1125_$",
+                                "typeIdentifier": "t_type$_t_enum$_Initiator_$1122_$",
                                 "typeString": "type(enum NoiaWorkContractV1.Initiator)"
                               }
                             },
-                            "id": 814,
+                            "id": 811,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1157,38 +1157,38 @@
                             "referencedDeclaration": null,
                             "src": "781:37:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_enum$_Initiator_$1125",
+                              "typeIdentifier": "t_enum$_Initiator_$1122",
                               "typeString": "enum NoiaWorkContractV1.Initiator"
                             }
                           },
                           "src": "769:49:11",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_enum$_Initiator_$1125",
+                            "typeIdentifier": "t_enum$_Initiator_$1122",
                             "typeString": "enum NoiaWorkContractV1.Initiator"
                           }
                         },
-                        "id": 816,
+                        "id": 813,
                         "nodeType": "ExpressionStatement",
                         "src": "769:49:11"
                       },
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 824,
+                          "id": 821,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "argumentTypes": null,
-                            "id": 817,
+                            "id": 814,
                             "name": "workContract",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 805,
+                            "referencedDeclaration": 802,
                             "src": "832:12:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                               "typeString": "contract NoiaWorkContractV1"
                             }
                           },
@@ -1199,37 +1199,37 @@
                             "arguments": [
                               {
                                 "argumentTypes": null,
-                                "id": 820,
+                                "id": 817,
                                 "name": "this",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1307,
+                                "referencedDeclaration": 1304,
                                 "src": "870:4:11",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_contract$_NoiaJobPostV1_$946",
+                                  "typeIdentifier": "t_contract$_NoiaJobPostV1_$943",
                                   "typeString": "contract NoiaJobPostV1"
                                 }
                               },
                               {
                                 "argumentTypes": null,
-                                "id": 821,
+                                "id": 818,
                                 "name": "initiator",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 802,
+                                "referencedDeclaration": 799,
                                 "src": "876:9:11",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_enum$_Initiator_$1125",
+                                  "typeIdentifier": "t_enum$_Initiator_$1122",
                                   "typeString": "enum NoiaWorkContractV1.Initiator"
                                 }
                               },
                               {
                                 "argumentTypes": null,
-                                "id": 822,
+                                "id": 819,
                                 "name": "workerAddress",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 796,
+                                "referencedDeclaration": 793,
                                 "src": "887:13:11",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_address",
@@ -1240,11 +1240,11 @@
                             "expression": {
                               "argumentTypes": [
                                 {
-                                  "typeIdentifier": "t_contract$_NoiaJobPostV1_$946",
+                                  "typeIdentifier": "t_contract$_NoiaJobPostV1_$943",
                                   "typeString": "contract NoiaJobPostV1"
                                 },
                                 {
-                                  "typeIdentifier": "t_enum$_Initiator_$1125",
+                                  "typeIdentifier": "t_enum$_Initiator_$1122",
                                   "typeString": "enum NoiaWorkContractV1.Initiator"
                                 },
                                 {
@@ -1252,7 +1252,7 @@
                                   "typeString": "address"
                                 }
                               ],
-                              "id": 819,
+                              "id": 816,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -1260,23 +1260,23 @@
                               "nodeType": "NewExpression",
                               "src": "847:22:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaJobPostV1_$946_$_t_enum$_Initiator_$1125_$_t_address_$returns$_t_contract$_NoiaWorkContractV1_$1257_$",
+                                "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaJobPostV1_$943_$_t_enum$_Initiator_$1122_$_t_address_$returns$_t_contract$_NoiaWorkContractV1_$1254_$",
                                 "typeString": "function (contract NoiaJobPostV1,enum NoiaWorkContractV1.Initiator,address) returns (contract NoiaWorkContractV1)"
                               },
                               "typeName": {
                                 "contractScope": null,
-                                "id": 818,
+                                "id": 815,
                                 "name": "NoiaWorkContractV1",
                                 "nodeType": "UserDefinedTypeName",
-                                "referencedDeclaration": 1257,
+                                "referencedDeclaration": 1254,
                                 "src": "851:18:11",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                                  "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                                   "typeString": "contract NoiaWorkContractV1"
                                 }
                               }
                             },
-                            "id": 823,
+                            "id": 820,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -1286,24 +1286,24 @@
                             "nodeType": "FunctionCall",
                             "src": "847:54:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                               "typeString": "contract NoiaWorkContractV1"
                             }
                           },
                           "src": "832:69:11",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                            "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                             "typeString": "contract NoiaWorkContractV1"
                           }
                         },
-                        "id": 825,
+                        "id": 822,
                         "nodeType": "ExpressionStatement",
                         "src": "832:69:11"
                       },
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 830,
+                          "id": 827,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1312,25 +1312,25 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 826,
+                              "id": 823,
                               "name": "employerCreatedContracts",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 780,
+                              "referencedDeclaration": 777,
                               "src": "915:24:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
                                 "typeString": "mapping(address => contract NoiaWorkContractV1)"
                               }
                             },
-                            "id": 828,
+                            "id": 825,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 827,
+                              "id": 824,
                               "name": "workerAddress",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 796,
+                              "referencedDeclaration": 793,
                               "src": "940:13:11",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -1344,7 +1344,7 @@
                             "nodeType": "IndexAccess",
                             "src": "915:39:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                               "typeString": "contract NoiaWorkContractV1"
                             }
                           },
@@ -1352,24 +1352,24 @@
                           "operator": "=",
                           "rightHandSide": {
                             "argumentTypes": null,
-                            "id": 829,
+                            "id": 826,
                             "name": "workContract",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 805,
+                            "referencedDeclaration": 802,
                             "src": "957:12:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                               "typeString": "contract NoiaWorkContractV1"
                             }
                           },
                           "src": "915:54:11",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                            "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                             "typeString": "contract NoiaWorkContractV1"
                           }
                         },
-                        "id": 831,
+                        "id": 828,
                         "nodeType": "ExpressionStatement",
                         "src": "915:54:11"
                       }
@@ -1379,7 +1379,7 @@
               ]
             },
             "documentation": null,
-            "id": 867,
+            "id": 864,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1387,15 +1387,15 @@
             "name": "createContract",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 797,
+              "id": 794,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 796,
+                  "id": 793,
                   "name": "workerAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 867,
+                  "scope": 864,
                   "src": "591:21:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1404,7 +1404,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 795,
+                    "id": 792,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "591:7:11",
@@ -1421,12 +1421,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 798,
+              "id": 795,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "621:0:11"
             },
-            "scope": 946,
+            "scope": 943,
             "src": "567:724:11",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1434,7 +1434,7 @@
           },
           {
             "body": {
-              "id": 910,
+              "id": 907,
               "nodeType": "Block",
               "src": "1352:421:11",
               "statements": [
@@ -1443,10 +1443,10 @@
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 873,
+                      "id": 870,
                       "name": "workContractAddress",
                       "nodeType": "VariableDeclaration",
-                      "scope": 911,
+                      "scope": 908,
                       "src": "1362:27:11",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1455,7 +1455,7 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 872,
+                        "id": 869,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
                         "src": "1362:7:11",
@@ -1468,7 +1468,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 874,
+                  "id": 871,
                   "initialValue": null,
                   "nodeType": "VariableDeclarationStatement",
                   "src": "1362:27:11"
@@ -1480,7 +1480,7 @@
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     },
-                    "id": 878,
+                    "id": 875,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1489,18 +1489,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 875,
+                        "id": 872,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1270,
+                        "referencedDeclaration": 1267,
                         "src": "1403:3:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 876,
+                      "id": 873,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1518,11 +1518,11 @@
                     "operator": "==",
                     "rightExpression": {
                       "argumentTypes": null,
-                      "id": 877,
+                      "id": 874,
                       "name": "employerAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 776,
+                      "referencedDeclaration": 773,
                       "src": "1417:15:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -1542,7 +1542,7 @@
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       },
-                      "id": 889,
+                      "id": 886,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1551,18 +1551,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 886,
+                          "id": 883,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1270,
+                          "referencedDeclaration": 1267,
                           "src": "1530:3:11",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 887,
+                        "id": 884,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1580,11 +1580,11 @@
                       "operator": "==",
                       "rightExpression": {
                         "argumentTypes": null,
-                        "id": 888,
+                        "id": 885,
                         "name": "workerAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 869,
+                        "referencedDeclaration": 866,
                         "src": "1544:13:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1598,7 +1598,7 @@
                       }
                     },
                     "falseBody": {
-                      "id": 901,
+                      "id": 898,
                       "nodeType": "Block",
                       "src": "1649:39:11",
                       "statements": [
@@ -1609,7 +1609,7 @@
                               {
                                 "argumentTypes": null,
                                 "hexValue": "66616c7365",
-                                "id": 898,
+                                "id": 895,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -1632,18 +1632,18 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "id": 897,
+                              "id": 894,
                               "name": "require",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1273,
+                              "referencedDeclaration": 1270,
                               "src": "1663:7:11",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                                 "typeString": "function (bool) pure"
                               }
                             },
-                            "id": 899,
+                            "id": 896,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -1657,35 +1657,35 @@
                               "typeString": "tuple()"
                             }
                           },
-                          "id": 900,
+                          "id": 897,
                           "nodeType": "ExpressionStatement",
                           "src": "1663:14:11"
                         }
                       ]
                     },
-                    "id": 902,
+                    "id": 899,
                     "nodeType": "IfStatement",
                     "src": "1526:162:11",
                     "trueBody": {
-                      "id": 896,
+                      "id": 893,
                       "nodeType": "Block",
                       "src": "1559:84:11",
                       "statements": [
                         {
                           "expression": {
                             "argumentTypes": null,
-                            "id": 894,
+                            "id": 891,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
                             "lValueRequested": false,
                             "leftHandSide": {
                               "argumentTypes": null,
-                              "id": 890,
+                              "id": 887,
                               "name": "workContractAddress",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 873,
+                              "referencedDeclaration": 870,
                               "src": "1573:19:11",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -1698,25 +1698,25 @@
                               "argumentTypes": null,
                               "baseExpression": {
                                 "argumentTypes": null,
-                                "id": 891,
+                                "id": 888,
                                 "name": "workerCreatedContracts",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 784,
+                                "referencedDeclaration": 781,
                                 "src": "1595:22:11",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
                                   "typeString": "mapping(address => contract NoiaWorkContractV1)"
                                 }
                               },
-                              "id": 893,
+                              "id": 890,
                               "indexExpression": {
                                 "argumentTypes": null,
-                                "id": 892,
+                                "id": 889,
                                 "name": "workerAddress",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 869,
+                                "referencedDeclaration": 866,
                                 "src": "1618:13:11",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_address",
@@ -1730,7 +1730,7 @@
                               "nodeType": "IndexAccess",
                               "src": "1595:37:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                                 "typeString": "contract NoiaWorkContractV1"
                               }
                             },
@@ -1740,36 +1740,36 @@
                               "typeString": "address"
                             }
                           },
-                          "id": 895,
+                          "id": 892,
                           "nodeType": "ExpressionStatement",
                           "src": "1573:59:11"
                         }
                       ]
                     }
                   },
-                  "id": 903,
+                  "id": 900,
                   "nodeType": "IfStatement",
                   "src": "1399:289:11",
                   "trueBody": {
-                    "id": 885,
+                    "id": 882,
                     "nodeType": "Block",
                     "src": "1434:86:11",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 883,
+                          "id": 880,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "argumentTypes": null,
-                            "id": 879,
+                            "id": 876,
                             "name": "workContractAddress",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 873,
+                            "referencedDeclaration": 870,
                             "src": "1448:19:11",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1782,25 +1782,25 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 880,
+                              "id": 877,
                               "name": "employerCreatedContracts",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 780,
+                              "referencedDeclaration": 777,
                               "src": "1470:24:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
                                 "typeString": "mapping(address => contract NoiaWorkContractV1)"
                               }
                             },
-                            "id": 882,
+                            "id": 879,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 881,
+                              "id": 878,
                               "name": "workerAddress",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 869,
+                              "referencedDeclaration": 866,
                               "src": "1495:13:11",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -1814,7 +1814,7 @@
                             "nodeType": "IndexAccess",
                             "src": "1470:39:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                               "typeString": "contract NoiaWorkContractV1"
                             }
                           },
@@ -1824,7 +1824,7 @@
                             "typeString": "address"
                           }
                         },
-                        "id": 884,
+                        "id": 881,
                         "nodeType": "ExpressionStatement",
                         "src": "1448:61:11"
                       }
@@ -1837,24 +1837,24 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 905,
+                        "id": 902,
                         "name": "this",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1307,
+                        "referencedDeclaration": 1304,
                         "src": "1725:4:11",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_NoiaJobPostV1_$946",
+                          "typeIdentifier": "t_contract$_NoiaJobPostV1_$943",
                           "typeString": "contract NoiaJobPostV1"
                         }
                       },
                       {
                         "argumentTypes": null,
-                        "id": 906,
+                        "id": 903,
                         "name": "workerAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 869,
+                        "referencedDeclaration": 866,
                         "src": "1731:13:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1863,11 +1863,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 907,
+                        "id": 904,
                         "name": "workContractAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 873,
+                        "referencedDeclaration": 870,
                         "src": "1746:19:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1878,7 +1878,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_contract$_NoiaJobPostV1_$946",
+                          "typeIdentifier": "t_contract$_NoiaJobPostV1_$943",
                           "typeString": "contract NoiaJobPostV1"
                         },
                         {
@@ -1890,18 +1890,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 904,
+                      "id": 901,
                       "name": "NoiaContractProposedV1",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 945,
+                      "referencedDeclaration": 942,
                       "src": "1702:22:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_address_$returns$__$",
                         "typeString": "function (address,address,address)"
                       }
                     },
-                    "id": 908,
+                    "id": 905,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1915,14 +1915,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 909,
+                  "id": 906,
                   "nodeType": "EmitStatement",
                   "src": "1697:69:11"
                 }
               ]
             },
             "documentation": null,
-            "id": 911,
+            "id": 908,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1930,15 +1930,15 @@
             "name": "proposeContract",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 870,
+              "id": 867,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 869,
+                  "id": 866,
                   "name": "workerAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 911,
+                  "scope": 908,
                   "src": "1322:21:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1947,7 +1947,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 868,
+                    "id": 865,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1322:7:11",
@@ -1964,12 +1964,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 871,
+              "id": 868,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1352:0:11"
             },
-            "scope": 946,
+            "scope": 943,
             "src": "1297:476:11",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1977,14 +1977,14 @@
           },
           {
             "body": {
-              "id": 936,
+              "id": 933,
               "nodeType": "Block",
               "src": "2041:135:11",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 926,
+                    "id": 923,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1993,22 +1993,22 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 920,
+                        "id": 917,
                         "name": "proposals",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 918,
+                        "referencedDeclaration": 915,
                         "src": "2051:9:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$2_memory_ptr",
                           "typeString": "address[2] memory"
                         }
                       },
-                      "id": 922,
+                      "id": 919,
                       "indexExpression": {
                         "argumentTypes": null,
                         "hexValue": "30",
-                        "id": 921,
+                        "id": 918,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -2040,25 +2040,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 923,
+                        "id": 920,
                         "name": "employerCreatedContracts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 780,
+                        "referencedDeclaration": 777,
                         "src": "2066:24:11",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
                           "typeString": "mapping(address => contract NoiaWorkContractV1)"
                         }
                       },
-                      "id": 925,
+                      "id": 922,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 924,
+                        "id": 921,
                         "name": "workerAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 913,
+                        "referencedDeclaration": 910,
                         "src": "2091:13:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2072,7 +2072,7 @@
                       "nodeType": "IndexAccess",
                       "src": "2066:39:11",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                        "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                         "typeString": "contract NoiaWorkContractV1"
                       }
                     },
@@ -2082,14 +2082,14 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 927,
+                  "id": 924,
                   "nodeType": "ExpressionStatement",
                   "src": "2051:54:11"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 934,
+                    "id": 931,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2098,22 +2098,22 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 928,
+                        "id": 925,
                         "name": "proposals",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 918,
+                        "referencedDeclaration": 915,
                         "src": "2115:9:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$2_memory_ptr",
                           "typeString": "address[2] memory"
                         }
                       },
-                      "id": 930,
+                      "id": 927,
                       "indexExpression": {
                         "argumentTypes": null,
                         "hexValue": "31",
-                        "id": 929,
+                        "id": 926,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -2145,25 +2145,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 931,
+                        "id": 928,
                         "name": "employerCreatedContracts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 780,
+                        "referencedDeclaration": 777,
                         "src": "2130:24:11",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
                           "typeString": "mapping(address => contract NoiaWorkContractV1)"
                         }
                       },
-                      "id": 933,
+                      "id": 930,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 932,
+                        "id": 929,
                         "name": "workerAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 913,
+                        "referencedDeclaration": 910,
                         "src": "2155:13:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2177,7 +2177,7 @@
                       "nodeType": "IndexAccess",
                       "src": "2130:39:11",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                        "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                         "typeString": "contract NoiaWorkContractV1"
                       }
                     },
@@ -2187,14 +2187,14 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 935,
+                  "id": 932,
                   "nodeType": "ExpressionStatement",
                   "src": "2115:54:11"
                 }
               ]
             },
             "documentation": "Get proposed contracts from employer and worker\n     * [0] - contract proposal from employer\n[1] - contract proposal from worker",
-            "id": 937,
+            "id": 934,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -2202,15 +2202,15 @@
             "name": "getProposedContracts",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 914,
+              "id": 911,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 913,
+                  "id": 910,
                   "name": "workerAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 937,
+                  "scope": 934,
                   "src": "1975:21:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2219,7 +2219,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 912,
+                    "id": 909,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1975:7:11",
@@ -2236,15 +2236,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 919,
+              "id": 916,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 918,
+                  "id": 915,
                   "name": "proposals",
                   "nodeType": "VariableDeclaration",
-                  "scope": 937,
+                  "scope": 934,
                   "src": "2019:20:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2254,7 +2254,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 915,
+                      "id": 912,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "2019:7:11",
@@ -2263,11 +2263,11 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 917,
+                    "id": 914,
                     "length": {
                       "argumentTypes": null,
                       "hexValue": "32",
-                      "id": 916,
+                      "id": 913,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2295,7 +2295,7 @@
               ],
               "src": "2018:22:11"
             },
-            "scope": 946,
+            "scope": 943,
             "src": "1945:231:11",
             "stateMutability": "view",
             "superFunction": null,
@@ -2304,20 +2304,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 945,
+            "id": 942,
             "name": "NoiaContractProposedV1",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 944,
+              "id": 941,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 939,
+                  "id": 936,
                   "indexed": true,
                   "name": "jobPostAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 945,
+                  "scope": 942,
                   "src": "2220:30:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2326,7 +2326,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 938,
+                    "id": 935,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2220:7:11",
@@ -2340,11 +2340,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 941,
+                  "id": 938,
                   "indexed": true,
                   "name": "workerAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 945,
+                  "scope": 942,
                   "src": "2260:29:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2353,7 +2353,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 940,
+                    "id": 937,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2260:7:11",
@@ -2367,11 +2367,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 943,
+                  "id": 940,
                   "indexed": false,
                   "name": "workContractAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 945,
+                  "scope": 942,
                   "src": "2299:27:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2380,7 +2380,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 942,
+                    "id": 939,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2299:7:11",
@@ -2398,7 +2398,7 @@
             "src": "2182:146:11"
           }
         ],
-        "scope": 947,
+        "scope": 944,
         "src": "181:2149:11"
       }
     ],
@@ -2408,14 +2408,14 @@
     "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaJobPostV1.sol",
     "exportedSymbols": {
       "NoiaJobPostV1": [
-        946
+        943
       ]
     },
-    "id": 947,
+    "id": 944,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 767,
+        "id": 764,
         "literals": [
           "solidity",
           "^",
@@ -2428,10 +2428,10 @@
       {
         "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaBaseContractV1.sol",
         "file": "./NoiaBaseContractV1.sol",
-        "id": 768,
+        "id": 765,
         "nodeType": "ImportDirective",
-        "scope": 947,
-        "sourceUnit": 346,
+        "scope": 944,
+        "sourceUnit": 343,
         "src": "26:34:11",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2439,10 +2439,10 @@
       {
         "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaNodeV1.sol",
         "file": "./NoiaNodeV1.sol",
-        "id": 769,
+        "id": 766,
         "nodeType": "ImportDirective",
-        "scope": 947,
-        "sourceUnit": 1119,
+        "scope": 944,
+        "sourceUnit": 1116,
         "src": "61:26:11",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2450,10 +2450,10 @@
       {
         "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaWorkContractV1.sol",
         "file": "./NoiaWorkContractV1.sol",
-        "id": 770,
+        "id": 767,
         "nodeType": "ImportDirective",
-        "scope": 947,
-        "sourceUnit": 1258,
+        "scope": 944,
+        "sourceUnit": 1255,
         "src": "88:34:11",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2464,17 +2464,17 @@
             "arguments": [],
             "baseName": {
               "contractScope": null,
-              "id": 771,
+              "id": 768,
               "name": "NoiaBaseContractV1",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 345,
+              "referencedDeclaration": 342,
               "src": "211:18:11",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_NoiaBaseContractV1_$345",
+                "typeIdentifier": "t_contract$_NoiaBaseContractV1_$342",
                 "typeString": "contract NoiaBaseContractV1"
               }
             },
-            "id": 772,
+            "id": 769,
             "nodeType": "InheritanceSpecifier",
             "src": "211:18:11"
           }
@@ -2482,16 +2482,16 @@
         "contractDependencies": [
           97,
           123,
-          345,
-          1257
+          342,
+          1254
         ],
         "contractKind": "contract",
         "documentation": "Standard Noia Job Post Contract V1 (Draft)\n ",
         "fullyImplemented": false,
-        "id": 946,
+        "id": 943,
         "linearizedBaseContracts": [
-          946,
-          345,
+          943,
+          342,
           123,
           97
         ],
@@ -2500,10 +2500,10 @@
         "nodes": [
           {
             "constant": false,
-            "id": 774,
+            "id": 771,
             "name": "tokenContract",
             "nodeType": "VariableDeclaration",
-            "scope": 946,
+            "scope": 943,
             "src": "236:36:11",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2513,7 +2513,7 @@
             },
             "typeName": {
               "contractScope": null,
-              "id": 773,
+              "id": 770,
               "name": "ERC223Interface",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 60,
@@ -2528,10 +2528,10 @@
           },
           {
             "constant": false,
-            "id": 776,
+            "id": 773,
             "name": "employerAddress",
             "nodeType": "VariableDeclaration",
-            "scope": 946,
+            "scope": 943,
             "src": "278:30:11",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2540,7 +2540,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 775,
+              "id": 772,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "278:7:11",
@@ -2554,21 +2554,21 @@
           },
           {
             "constant": false,
-            "id": 780,
+            "id": 777,
             "name": "employerCreatedContracts",
             "nodeType": "VariableDeclaration",
-            "scope": 946,
+            "scope": 943,
             "src": "315:63:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
               "typeString": "mapping(address => contract NoiaWorkContractV1)"
             },
             "typeName": {
-              "id": 779,
+              "id": 776,
               "keyType": {
-                "id": 777,
+                "id": 774,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "323:7:11",
@@ -2580,18 +2580,18 @@
               "nodeType": "Mapping",
               "src": "315:38:11",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
                 "typeString": "mapping(address => contract NoiaWorkContractV1)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 778,
+                "id": 775,
                 "name": "NoiaWorkContractV1",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1257,
+                "referencedDeclaration": 1254,
                 "src": "334:18:11",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                  "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                   "typeString": "contract NoiaWorkContractV1"
                 }
               }
@@ -2601,21 +2601,21 @@
           },
           {
             "constant": false,
-            "id": 784,
+            "id": 781,
             "name": "workerCreatedContracts",
             "nodeType": "VariableDeclaration",
-            "scope": 946,
+            "scope": 943,
             "src": "384:61:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
               "typeString": "mapping(address => contract NoiaWorkContractV1)"
             },
             "typeName": {
-              "id": 783,
+              "id": 780,
               "keyType": {
-                "id": 781,
+                "id": 778,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "392:7:11",
@@ -2627,18 +2627,18 @@
               "nodeType": "Mapping",
               "src": "384:38:11",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
                 "typeString": "mapping(address => contract NoiaWorkContractV1)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 782,
+                "id": 779,
                 "name": "NoiaWorkContractV1",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1257,
+                "referencedDeclaration": 1254,
                 "src": "403:18:11",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                  "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                   "typeString": "contract NoiaWorkContractV1"
                 }
               }
@@ -2648,25 +2648,25 @@
           },
           {
             "body": {
-              "id": 793,
+              "id": 790,
               "nodeType": "Block",
               "src": "514:47:11",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 791,
+                    "id": 788,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 789,
+                      "id": 786,
                       "name": "tokenContract",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 774,
+                      "referencedDeclaration": 771,
                       "src": "524:13:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_ERC223Interface_$60",
@@ -2677,11 +2677,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 790,
+                      "id": 787,
                       "name": "tokenContract_",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 786,
+                      "referencedDeclaration": 783,
                       "src": "540:14:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_ERC223Interface_$60",
@@ -2694,14 +2694,14 @@
                       "typeString": "contract ERC223Interface"
                     }
                   },
-                  "id": 792,
+                  "id": 789,
                   "nodeType": "ExpressionStatement",
                   "src": "524:30:11"
                 }
               ]
             },
             "documentation": null,
-            "id": 794,
+            "id": 791,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -2709,15 +2709,15 @@
             "name": "NoiaJobPostV1",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 787,
+              "id": 784,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 786,
+                  "id": 783,
                   "name": "tokenContract_",
                   "nodeType": "VariableDeclaration",
-                  "scope": 794,
+                  "scope": 791,
                   "src": "475:30:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2727,7 +2727,7 @@
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 785,
+                    "id": 782,
                     "name": "ERC223Interface",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 60,
@@ -2745,12 +2745,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 788,
+              "id": 785,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "514:0:11"
             },
-            "scope": 946,
+            "scope": 943,
             "src": "452:109:11",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2758,7 +2758,7 @@
           },
           {
             "body": {
-              "id": 866,
+              "id": 863,
               "nodeType": "Block",
               "src": "621:670:11",
               "statements": [
@@ -2767,26 +2767,26 @@
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 802,
+                      "id": 799,
                       "name": "initiator",
                       "nodeType": "VariableDeclaration",
-                      "scope": 867,
+                      "scope": 864,
                       "src": "631:38:11",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_Initiator_$1125",
+                        "typeIdentifier": "t_enum$_Initiator_$1122",
                         "typeString": "enum NoiaWorkContractV1.Initiator"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 801,
+                        "id": 798,
                         "name": "NoiaWorkContractV1.Initiator",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 1125,
+                        "referencedDeclaration": 1122,
                         "src": "631:28:11",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_enum$_Initiator_$1125",
+                          "typeIdentifier": "t_enum$_Initiator_$1122",
                           "typeString": "enum NoiaWorkContractV1.Initiator"
                         }
                       },
@@ -2794,7 +2794,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 803,
+                  "id": 800,
                   "initialValue": null,
                   "nodeType": "VariableDeclarationStatement",
                   "src": "631:38:11"
@@ -2804,26 +2804,26 @@
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 805,
+                      "id": 802,
                       "name": "workContract",
                       "nodeType": "VariableDeclaration",
-                      "scope": 867,
+                      "scope": 864,
                       "src": "679:31:11",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                        "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                         "typeString": "contract NoiaWorkContractV1"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 804,
+                        "id": 801,
                         "name": "NoiaWorkContractV1",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 1257,
+                        "referencedDeclaration": 1254,
                         "src": "679:18:11",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                          "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                           "typeString": "contract NoiaWorkContractV1"
                         }
                       },
@@ -2831,7 +2831,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 806,
+                  "id": 803,
                   "initialValue": null,
                   "nodeType": "VariableDeclarationStatement",
                   "src": "679:31:11"
@@ -2843,7 +2843,7 @@
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     },
-                    "id": 810,
+                    "id": 807,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2852,18 +2852,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 807,
+                        "id": 804,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1270,
+                        "referencedDeclaration": 1267,
                         "src": "724:3:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 808,
+                      "id": 805,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2881,11 +2881,11 @@
                     "operator": "==",
                     "rightExpression": {
                       "argumentTypes": null,
-                      "id": 809,
+                      "id": 806,
                       "name": "employerAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 776,
+                      "referencedDeclaration": 773,
                       "src": "738:15:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -2905,7 +2905,7 @@
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       },
-                      "id": 836,
+                      "id": 833,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2914,18 +2914,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 833,
+                          "id": 830,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1270,
+                          "referencedDeclaration": 1267,
                           "src": "990:3:11",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 834,
+                        "id": 831,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2943,11 +2943,11 @@
                       "operator": "==",
                       "rightExpression": {
                         "argumentTypes": null,
-                        "id": 835,
+                        "id": 832,
                         "name": "workerAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 796,
+                        "referencedDeclaration": 793,
                         "src": "1004:13:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2961,7 +2961,7 @@
                       }
                     },
                     "falseBody": {
-                      "id": 863,
+                      "id": 860,
                       "nodeType": "Block",
                       "src": "1246:39:11",
                       "statements": [
@@ -2972,7 +2972,7 @@
                               {
                                 "argumentTypes": null,
                                 "hexValue": "66616c7365",
-                                "id": 860,
+                                "id": 857,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -2995,18 +2995,18 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "id": 859,
+                              "id": 856,
                               "name": "require",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1273,
+                              "referencedDeclaration": 1270,
                               "src": "1260:7:11",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                                 "typeString": "function (bool) pure"
                               }
                             },
-                            "id": 861,
+                            "id": 858,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -3020,38 +3020,38 @@
                               "typeString": "tuple()"
                             }
                           },
-                          "id": 862,
+                          "id": 859,
                           "nodeType": "ExpressionStatement",
                           "src": "1260:14:11"
                         }
                       ]
                     },
-                    "id": 864,
+                    "id": 861,
                     "nodeType": "IfStatement",
                     "src": "986:299:11",
                     "trueBody": {
-                      "id": 858,
+                      "id": 855,
                       "nodeType": "Block",
                       "src": "1019:221:11",
                       "statements": [
                         {
                           "expression": {
                             "argumentTypes": null,
-                            "id": 841,
+                            "id": 838,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
                             "lValueRequested": false,
                             "leftHandSide": {
                               "argumentTypes": null,
-                              "id": 837,
+                              "id": 834,
                               "name": "initiator",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 802,
+                              "referencedDeclaration": 799,
                               "src": "1033:9:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_enum$_Initiator_$1125",
+                                "typeIdentifier": "t_enum$_Initiator_$1122",
                                 "typeString": "enum NoiaWorkContractV1.Initiator"
                               }
                             },
@@ -3063,32 +3063,32 @@
                                 "argumentTypes": null,
                                 "expression": {
                                   "argumentTypes": null,
-                                  "id": 838,
+                                  "id": 835,
                                   "name": "NoiaWorkContractV1",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 1257,
+                                  "referencedDeclaration": 1254,
                                   "src": "1045:18:11",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_type$_t_contract$_NoiaWorkContractV1_$1257_$",
+                                    "typeIdentifier": "t_type$_t_contract$_NoiaWorkContractV1_$1254_$",
                                     "typeString": "type(contract NoiaWorkContractV1)"
                                   }
                                 },
-                                "id": 839,
+                                "id": 836,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "memberName": "Initiator",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 1125,
+                                "referencedDeclaration": 1122,
                                 "src": "1045:28:11",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_type$_t_enum$_Initiator_$1125_$",
+                                  "typeIdentifier": "t_type$_t_enum$_Initiator_$1122_$",
                                   "typeString": "type(enum NoiaWorkContractV1.Initiator)"
                                 }
                               },
-                              "id": 840,
+                              "id": 837,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -3098,38 +3098,38 @@
                               "referencedDeclaration": null,
                               "src": "1045:35:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_enum$_Initiator_$1125",
+                                "typeIdentifier": "t_enum$_Initiator_$1122",
                                 "typeString": "enum NoiaWorkContractV1.Initiator"
                               }
                             },
                             "src": "1033:47:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_enum$_Initiator_$1125",
+                              "typeIdentifier": "t_enum$_Initiator_$1122",
                               "typeString": "enum NoiaWorkContractV1.Initiator"
                             }
                           },
-                          "id": 842,
+                          "id": 839,
                           "nodeType": "ExpressionStatement",
                           "src": "1033:47:11"
                         },
                         {
                           "expression": {
                             "argumentTypes": null,
-                            "id": 850,
+                            "id": 847,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
                             "lValueRequested": false,
                             "leftHandSide": {
                               "argumentTypes": null,
-                              "id": 843,
+                              "id": 840,
                               "name": "workContract",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 805,
+                              "referencedDeclaration": 802,
                               "src": "1094:12:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                                 "typeString": "contract NoiaWorkContractV1"
                               }
                             },
@@ -3140,37 +3140,37 @@
                               "arguments": [
                                 {
                                   "argumentTypes": null,
-                                  "id": 846,
+                                  "id": 843,
                                   "name": "this",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 1307,
+                                  "referencedDeclaration": 1304,
                                   "src": "1132:4:11",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_contract$_NoiaJobPostV1_$946",
+                                    "typeIdentifier": "t_contract$_NoiaJobPostV1_$943",
                                     "typeString": "contract NoiaJobPostV1"
                                   }
                                 },
                                 {
                                   "argumentTypes": null,
-                                  "id": 847,
+                                  "id": 844,
                                   "name": "initiator",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 802,
+                                  "referencedDeclaration": 799,
                                   "src": "1138:9:11",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_enum$_Initiator_$1125",
+                                    "typeIdentifier": "t_enum$_Initiator_$1122",
                                     "typeString": "enum NoiaWorkContractV1.Initiator"
                                   }
                                 },
                                 {
                                   "argumentTypes": null,
-                                  "id": 848,
+                                  "id": 845,
                                   "name": "workerAddress",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 796,
+                                  "referencedDeclaration": 793,
                                   "src": "1149:13:11",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_address",
@@ -3181,11 +3181,11 @@
                               "expression": {
                                 "argumentTypes": [
                                   {
-                                    "typeIdentifier": "t_contract$_NoiaJobPostV1_$946",
+                                    "typeIdentifier": "t_contract$_NoiaJobPostV1_$943",
                                     "typeString": "contract NoiaJobPostV1"
                                   },
                                   {
-                                    "typeIdentifier": "t_enum$_Initiator_$1125",
+                                    "typeIdentifier": "t_enum$_Initiator_$1122",
                                     "typeString": "enum NoiaWorkContractV1.Initiator"
                                   },
                                   {
@@ -3193,7 +3193,7 @@
                                     "typeString": "address"
                                   }
                                 ],
-                                "id": 845,
+                                "id": 842,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -3201,23 +3201,23 @@
                                 "nodeType": "NewExpression",
                                 "src": "1109:22:11",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaJobPostV1_$946_$_t_enum$_Initiator_$1125_$_t_address_$returns$_t_contract$_NoiaWorkContractV1_$1257_$",
+                                  "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaJobPostV1_$943_$_t_enum$_Initiator_$1122_$_t_address_$returns$_t_contract$_NoiaWorkContractV1_$1254_$",
                                   "typeString": "function (contract NoiaJobPostV1,enum NoiaWorkContractV1.Initiator,address) returns (contract NoiaWorkContractV1)"
                                 },
                                 "typeName": {
                                   "contractScope": null,
-                                  "id": 844,
+                                  "id": 841,
                                   "name": "NoiaWorkContractV1",
                                   "nodeType": "UserDefinedTypeName",
-                                  "referencedDeclaration": 1257,
+                                  "referencedDeclaration": 1254,
                                   "src": "1113:18:11",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                                    "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                                     "typeString": "contract NoiaWorkContractV1"
                                   }
                                 }
                               },
-                              "id": 849,
+                              "id": 846,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -3227,24 +3227,24 @@
                               "nodeType": "FunctionCall",
                               "src": "1109:54:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                                 "typeString": "contract NoiaWorkContractV1"
                               }
                             },
                             "src": "1094:69:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                               "typeString": "contract NoiaWorkContractV1"
                             }
                           },
-                          "id": 851,
+                          "id": 848,
                           "nodeType": "ExpressionStatement",
                           "src": "1094:69:11"
                         },
                         {
                           "expression": {
                             "argumentTypes": null,
-                            "id": 856,
+                            "id": 853,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -3253,25 +3253,25 @@
                               "argumentTypes": null,
                               "baseExpression": {
                                 "argumentTypes": null,
-                                "id": 852,
+                                "id": 849,
                                 "name": "workerCreatedContracts",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 784,
+                                "referencedDeclaration": 781,
                                 "src": "1177:22:11",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
                                   "typeString": "mapping(address => contract NoiaWorkContractV1)"
                                 }
                               },
-                              "id": 854,
+                              "id": 851,
                               "indexExpression": {
                                 "argumentTypes": null,
-                                "id": 853,
+                                "id": 850,
                                 "name": "workerAddress",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 796,
+                                "referencedDeclaration": 793,
                                 "src": "1200:13:11",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_address",
@@ -3285,7 +3285,7 @@
                               "nodeType": "IndexAccess",
                               "src": "1177:37:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                                 "typeString": "contract NoiaWorkContractV1"
                               }
                             },
@@ -3293,56 +3293,56 @@
                             "operator": "=",
                             "rightHandSide": {
                               "argumentTypes": null,
-                              "id": 855,
+                              "id": 852,
                               "name": "workContract",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 805,
+                              "referencedDeclaration": 802,
                               "src": "1217:12:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                                 "typeString": "contract NoiaWorkContractV1"
                               }
                             },
                             "src": "1177:52:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                               "typeString": "contract NoiaWorkContractV1"
                             }
                           },
-                          "id": 857,
+                          "id": 854,
                           "nodeType": "ExpressionStatement",
                           "src": "1177:52:11"
                         }
                       ]
                     }
                   },
-                  "id": 865,
+                  "id": 862,
                   "nodeType": "IfStatement",
                   "src": "720:565:11",
                   "trueBody": {
-                    "id": 832,
+                    "id": 829,
                     "nodeType": "Block",
                     "src": "755:225:11",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 815,
+                          "id": 812,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "argumentTypes": null,
-                            "id": 811,
+                            "id": 808,
                             "name": "initiator",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 802,
+                            "referencedDeclaration": 799,
                             "src": "769:9:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_enum$_Initiator_$1125",
+                              "typeIdentifier": "t_enum$_Initiator_$1122",
                               "typeString": "enum NoiaWorkContractV1.Initiator"
                             }
                           },
@@ -3354,32 +3354,32 @@
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 812,
+                                "id": 809,
                                 "name": "NoiaWorkContractV1",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1257,
+                                "referencedDeclaration": 1254,
                                 "src": "781:18:11",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_type$_t_contract$_NoiaWorkContractV1_$1257_$",
+                                  "typeIdentifier": "t_type$_t_contract$_NoiaWorkContractV1_$1254_$",
                                   "typeString": "type(contract NoiaWorkContractV1)"
                                 }
                               },
-                              "id": 813,
+                              "id": 810,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "Initiator",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1125,
+                              "referencedDeclaration": 1122,
                               "src": "781:28:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_enum$_Initiator_$1125_$",
+                                "typeIdentifier": "t_type$_t_enum$_Initiator_$1122_$",
                                 "typeString": "type(enum NoiaWorkContractV1.Initiator)"
                               }
                             },
-                            "id": 814,
+                            "id": 811,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -3389,38 +3389,38 @@
                             "referencedDeclaration": null,
                             "src": "781:37:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_enum$_Initiator_$1125",
+                              "typeIdentifier": "t_enum$_Initiator_$1122",
                               "typeString": "enum NoiaWorkContractV1.Initiator"
                             }
                           },
                           "src": "769:49:11",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_enum$_Initiator_$1125",
+                            "typeIdentifier": "t_enum$_Initiator_$1122",
                             "typeString": "enum NoiaWorkContractV1.Initiator"
                           }
                         },
-                        "id": 816,
+                        "id": 813,
                         "nodeType": "ExpressionStatement",
                         "src": "769:49:11"
                       },
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 824,
+                          "id": 821,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "argumentTypes": null,
-                            "id": 817,
+                            "id": 814,
                             "name": "workContract",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 805,
+                            "referencedDeclaration": 802,
                             "src": "832:12:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                               "typeString": "contract NoiaWorkContractV1"
                             }
                           },
@@ -3431,37 +3431,37 @@
                             "arguments": [
                               {
                                 "argumentTypes": null,
-                                "id": 820,
+                                "id": 817,
                                 "name": "this",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1307,
+                                "referencedDeclaration": 1304,
                                 "src": "870:4:11",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_contract$_NoiaJobPostV1_$946",
+                                  "typeIdentifier": "t_contract$_NoiaJobPostV1_$943",
                                   "typeString": "contract NoiaJobPostV1"
                                 }
                               },
                               {
                                 "argumentTypes": null,
-                                "id": 821,
+                                "id": 818,
                                 "name": "initiator",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 802,
+                                "referencedDeclaration": 799,
                                 "src": "876:9:11",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_enum$_Initiator_$1125",
+                                  "typeIdentifier": "t_enum$_Initiator_$1122",
                                   "typeString": "enum NoiaWorkContractV1.Initiator"
                                 }
                               },
                               {
                                 "argumentTypes": null,
-                                "id": 822,
+                                "id": 819,
                                 "name": "workerAddress",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 796,
+                                "referencedDeclaration": 793,
                                 "src": "887:13:11",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_address",
@@ -3472,11 +3472,11 @@
                             "expression": {
                               "argumentTypes": [
                                 {
-                                  "typeIdentifier": "t_contract$_NoiaJobPostV1_$946",
+                                  "typeIdentifier": "t_contract$_NoiaJobPostV1_$943",
                                   "typeString": "contract NoiaJobPostV1"
                                 },
                                 {
-                                  "typeIdentifier": "t_enum$_Initiator_$1125",
+                                  "typeIdentifier": "t_enum$_Initiator_$1122",
                                   "typeString": "enum NoiaWorkContractV1.Initiator"
                                 },
                                 {
@@ -3484,7 +3484,7 @@
                                   "typeString": "address"
                                 }
                               ],
-                              "id": 819,
+                              "id": 816,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -3492,23 +3492,23 @@
                               "nodeType": "NewExpression",
                               "src": "847:22:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaJobPostV1_$946_$_t_enum$_Initiator_$1125_$_t_address_$returns$_t_contract$_NoiaWorkContractV1_$1257_$",
+                                "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaJobPostV1_$943_$_t_enum$_Initiator_$1122_$_t_address_$returns$_t_contract$_NoiaWorkContractV1_$1254_$",
                                 "typeString": "function (contract NoiaJobPostV1,enum NoiaWorkContractV1.Initiator,address) returns (contract NoiaWorkContractV1)"
                               },
                               "typeName": {
                                 "contractScope": null,
-                                "id": 818,
+                                "id": 815,
                                 "name": "NoiaWorkContractV1",
                                 "nodeType": "UserDefinedTypeName",
-                                "referencedDeclaration": 1257,
+                                "referencedDeclaration": 1254,
                                 "src": "851:18:11",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                                  "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                                   "typeString": "contract NoiaWorkContractV1"
                                 }
                               }
                             },
-                            "id": 823,
+                            "id": 820,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -3518,24 +3518,24 @@
                             "nodeType": "FunctionCall",
                             "src": "847:54:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                               "typeString": "contract NoiaWorkContractV1"
                             }
                           },
                           "src": "832:69:11",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                            "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                             "typeString": "contract NoiaWorkContractV1"
                           }
                         },
-                        "id": 825,
+                        "id": 822,
                         "nodeType": "ExpressionStatement",
                         "src": "832:69:11"
                       },
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 830,
+                          "id": 827,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -3544,25 +3544,25 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 826,
+                              "id": 823,
                               "name": "employerCreatedContracts",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 780,
+                              "referencedDeclaration": 777,
                               "src": "915:24:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
                                 "typeString": "mapping(address => contract NoiaWorkContractV1)"
                               }
                             },
-                            "id": 828,
+                            "id": 825,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 827,
+                              "id": 824,
                               "name": "workerAddress",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 796,
+                              "referencedDeclaration": 793,
                               "src": "940:13:11",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -3576,7 +3576,7 @@
                             "nodeType": "IndexAccess",
                             "src": "915:39:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                               "typeString": "contract NoiaWorkContractV1"
                             }
                           },
@@ -3584,24 +3584,24 @@
                           "operator": "=",
                           "rightHandSide": {
                             "argumentTypes": null,
-                            "id": 829,
+                            "id": 826,
                             "name": "workContract",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 805,
+                            "referencedDeclaration": 802,
                             "src": "957:12:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                               "typeString": "contract NoiaWorkContractV1"
                             }
                           },
                           "src": "915:54:11",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                            "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                             "typeString": "contract NoiaWorkContractV1"
                           }
                         },
-                        "id": 831,
+                        "id": 828,
                         "nodeType": "ExpressionStatement",
                         "src": "915:54:11"
                       }
@@ -3611,7 +3611,7 @@
               ]
             },
             "documentation": null,
-            "id": 867,
+            "id": 864,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -3619,15 +3619,15 @@
             "name": "createContract",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 797,
+              "id": 794,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 796,
+                  "id": 793,
                   "name": "workerAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 867,
+                  "scope": 864,
                   "src": "591:21:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3636,7 +3636,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 795,
+                    "id": 792,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "591:7:11",
@@ -3653,12 +3653,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 798,
+              "id": 795,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "621:0:11"
             },
-            "scope": 946,
+            "scope": 943,
             "src": "567:724:11",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -3666,7 +3666,7 @@
           },
           {
             "body": {
-              "id": 910,
+              "id": 907,
               "nodeType": "Block",
               "src": "1352:421:11",
               "statements": [
@@ -3675,10 +3675,10 @@
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 873,
+                      "id": 870,
                       "name": "workContractAddress",
                       "nodeType": "VariableDeclaration",
-                      "scope": 911,
+                      "scope": 908,
                       "src": "1362:27:11",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -3687,7 +3687,7 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 872,
+                        "id": 869,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
                         "src": "1362:7:11",
@@ -3700,7 +3700,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 874,
+                  "id": 871,
                   "initialValue": null,
                   "nodeType": "VariableDeclarationStatement",
                   "src": "1362:27:11"
@@ -3712,7 +3712,7 @@
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     },
-                    "id": 878,
+                    "id": 875,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3721,18 +3721,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 875,
+                        "id": 872,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1270,
+                        "referencedDeclaration": 1267,
                         "src": "1403:3:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 876,
+                      "id": 873,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3750,11 +3750,11 @@
                     "operator": "==",
                     "rightExpression": {
                       "argumentTypes": null,
-                      "id": 877,
+                      "id": 874,
                       "name": "employerAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 776,
+                      "referencedDeclaration": 773,
                       "src": "1417:15:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -3774,7 +3774,7 @@
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       },
-                      "id": 889,
+                      "id": 886,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3783,18 +3783,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 886,
+                          "id": 883,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1270,
+                          "referencedDeclaration": 1267,
                           "src": "1530:3:11",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 887,
+                        "id": 884,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -3812,11 +3812,11 @@
                       "operator": "==",
                       "rightExpression": {
                         "argumentTypes": null,
-                        "id": 888,
+                        "id": 885,
                         "name": "workerAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 869,
+                        "referencedDeclaration": 866,
                         "src": "1544:13:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -3830,7 +3830,7 @@
                       }
                     },
                     "falseBody": {
-                      "id": 901,
+                      "id": 898,
                       "nodeType": "Block",
                       "src": "1649:39:11",
                       "statements": [
@@ -3841,7 +3841,7 @@
                               {
                                 "argumentTypes": null,
                                 "hexValue": "66616c7365",
-                                "id": 898,
+                                "id": 895,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -3864,18 +3864,18 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "id": 897,
+                              "id": 894,
                               "name": "require",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1273,
+                              "referencedDeclaration": 1270,
                               "src": "1663:7:11",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                                 "typeString": "function (bool) pure"
                               }
                             },
-                            "id": 899,
+                            "id": 896,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -3889,35 +3889,35 @@
                               "typeString": "tuple()"
                             }
                           },
-                          "id": 900,
+                          "id": 897,
                           "nodeType": "ExpressionStatement",
                           "src": "1663:14:11"
                         }
                       ]
                     },
-                    "id": 902,
+                    "id": 899,
                     "nodeType": "IfStatement",
                     "src": "1526:162:11",
                     "trueBody": {
-                      "id": 896,
+                      "id": 893,
                       "nodeType": "Block",
                       "src": "1559:84:11",
                       "statements": [
                         {
                           "expression": {
                             "argumentTypes": null,
-                            "id": 894,
+                            "id": 891,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
                             "lValueRequested": false,
                             "leftHandSide": {
                               "argumentTypes": null,
-                              "id": 890,
+                              "id": 887,
                               "name": "workContractAddress",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 873,
+                              "referencedDeclaration": 870,
                               "src": "1573:19:11",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -3930,25 +3930,25 @@
                               "argumentTypes": null,
                               "baseExpression": {
                                 "argumentTypes": null,
-                                "id": 891,
+                                "id": 888,
                                 "name": "workerCreatedContracts",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 784,
+                                "referencedDeclaration": 781,
                                 "src": "1595:22:11",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
                                   "typeString": "mapping(address => contract NoiaWorkContractV1)"
                                 }
                               },
-                              "id": 893,
+                              "id": 890,
                               "indexExpression": {
                                 "argumentTypes": null,
-                                "id": 892,
+                                "id": 889,
                                 "name": "workerAddress",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 869,
+                                "referencedDeclaration": 866,
                                 "src": "1618:13:11",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_address",
@@ -3962,7 +3962,7 @@
                               "nodeType": "IndexAccess",
                               "src": "1595:37:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                                "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                                 "typeString": "contract NoiaWorkContractV1"
                               }
                             },
@@ -3972,36 +3972,36 @@
                               "typeString": "address"
                             }
                           },
-                          "id": 895,
+                          "id": 892,
                           "nodeType": "ExpressionStatement",
                           "src": "1573:59:11"
                         }
                       ]
                     }
                   },
-                  "id": 903,
+                  "id": 900,
                   "nodeType": "IfStatement",
                   "src": "1399:289:11",
                   "trueBody": {
-                    "id": 885,
+                    "id": 882,
                     "nodeType": "Block",
                     "src": "1434:86:11",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 883,
+                          "id": 880,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "argumentTypes": null,
-                            "id": 879,
+                            "id": 876,
                             "name": "workContractAddress",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 873,
+                            "referencedDeclaration": 870,
                             "src": "1448:19:11",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -4014,25 +4014,25 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 880,
+                              "id": 877,
                               "name": "employerCreatedContracts",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 780,
+                              "referencedDeclaration": 777,
                               "src": "1470:24:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
                                 "typeString": "mapping(address => contract NoiaWorkContractV1)"
                               }
                             },
-                            "id": 882,
+                            "id": 879,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 881,
+                              "id": 878,
                               "name": "workerAddress",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 869,
+                              "referencedDeclaration": 866,
                               "src": "1495:13:11",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -4046,7 +4046,7 @@
                             "nodeType": "IndexAccess",
                             "src": "1470:39:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                              "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                               "typeString": "contract NoiaWorkContractV1"
                             }
                           },
@@ -4056,7 +4056,7 @@
                             "typeString": "address"
                           }
                         },
-                        "id": 884,
+                        "id": 881,
                         "nodeType": "ExpressionStatement",
                         "src": "1448:61:11"
                       }
@@ -4069,24 +4069,24 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 905,
+                        "id": 902,
                         "name": "this",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1307,
+                        "referencedDeclaration": 1304,
                         "src": "1725:4:11",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_NoiaJobPostV1_$946",
+                          "typeIdentifier": "t_contract$_NoiaJobPostV1_$943",
                           "typeString": "contract NoiaJobPostV1"
                         }
                       },
                       {
                         "argumentTypes": null,
-                        "id": 906,
+                        "id": 903,
                         "name": "workerAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 869,
+                        "referencedDeclaration": 866,
                         "src": "1731:13:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -4095,11 +4095,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 907,
+                        "id": 904,
                         "name": "workContractAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 873,
+                        "referencedDeclaration": 870,
                         "src": "1746:19:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -4110,7 +4110,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_contract$_NoiaJobPostV1_$946",
+                          "typeIdentifier": "t_contract$_NoiaJobPostV1_$943",
                           "typeString": "contract NoiaJobPostV1"
                         },
                         {
@@ -4122,18 +4122,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 904,
+                      "id": 901,
                       "name": "NoiaContractProposedV1",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 945,
+                      "referencedDeclaration": 942,
                       "src": "1702:22:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_address_$returns$__$",
                         "typeString": "function (address,address,address)"
                       }
                     },
-                    "id": 908,
+                    "id": 905,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4147,14 +4147,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 909,
+                  "id": 906,
                   "nodeType": "EmitStatement",
                   "src": "1697:69:11"
                 }
               ]
             },
             "documentation": null,
-            "id": 911,
+            "id": 908,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -4162,15 +4162,15 @@
             "name": "proposeContract",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 870,
+              "id": 867,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 869,
+                  "id": 866,
                   "name": "workerAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 911,
+                  "scope": 908,
                   "src": "1322:21:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4179,7 +4179,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 868,
+                    "id": 865,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1322:7:11",
@@ -4196,12 +4196,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 871,
+              "id": 868,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1352:0:11"
             },
-            "scope": 946,
+            "scope": 943,
             "src": "1297:476:11",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -4209,14 +4209,14 @@
           },
           {
             "body": {
-              "id": 936,
+              "id": 933,
               "nodeType": "Block",
               "src": "2041:135:11",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 926,
+                    "id": 923,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4225,22 +4225,22 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 920,
+                        "id": 917,
                         "name": "proposals",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 918,
+                        "referencedDeclaration": 915,
                         "src": "2051:9:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$2_memory_ptr",
                           "typeString": "address[2] memory"
                         }
                       },
-                      "id": 922,
+                      "id": 919,
                       "indexExpression": {
                         "argumentTypes": null,
                         "hexValue": "30",
-                        "id": 921,
+                        "id": 918,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -4272,25 +4272,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 923,
+                        "id": 920,
                         "name": "employerCreatedContracts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 780,
+                        "referencedDeclaration": 777,
                         "src": "2066:24:11",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
                           "typeString": "mapping(address => contract NoiaWorkContractV1)"
                         }
                       },
-                      "id": 925,
+                      "id": 922,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 924,
+                        "id": 921,
                         "name": "workerAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 913,
+                        "referencedDeclaration": 910,
                         "src": "2091:13:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -4304,7 +4304,7 @@
                       "nodeType": "IndexAccess",
                       "src": "2066:39:11",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                        "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                         "typeString": "contract NoiaWorkContractV1"
                       }
                     },
@@ -4314,14 +4314,14 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 927,
+                  "id": 924,
                   "nodeType": "ExpressionStatement",
                   "src": "2051:54:11"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 934,
+                    "id": 931,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4330,22 +4330,22 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 928,
+                        "id": 925,
                         "name": "proposals",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 918,
+                        "referencedDeclaration": 915,
                         "src": "2115:9:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$2_memory_ptr",
                           "typeString": "address[2] memory"
                         }
                       },
-                      "id": 930,
+                      "id": 927,
                       "indexExpression": {
                         "argumentTypes": null,
                         "hexValue": "31",
-                        "id": 929,
+                        "id": 926,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -4377,25 +4377,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 931,
+                        "id": 928,
                         "name": "employerCreatedContracts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 780,
+                        "referencedDeclaration": 777,
                         "src": "2130:24:11",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1257_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_contract$_NoiaWorkContractV1_$1254_$",
                           "typeString": "mapping(address => contract NoiaWorkContractV1)"
                         }
                       },
-                      "id": 933,
+                      "id": 930,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 932,
+                        "id": 929,
                         "name": "workerAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 913,
+                        "referencedDeclaration": 910,
                         "src": "2155:13:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -4409,7 +4409,7 @@
                       "nodeType": "IndexAccess",
                       "src": "2130:39:11",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1257",
+                        "typeIdentifier": "t_contract$_NoiaWorkContractV1_$1254",
                         "typeString": "contract NoiaWorkContractV1"
                       }
                     },
@@ -4419,14 +4419,14 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 935,
+                  "id": 932,
                   "nodeType": "ExpressionStatement",
                   "src": "2115:54:11"
                 }
               ]
             },
             "documentation": "Get proposed contracts from employer and worker\n     * [0] - contract proposal from employer\n[1] - contract proposal from worker",
-            "id": 937,
+            "id": 934,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -4434,15 +4434,15 @@
             "name": "getProposedContracts",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 914,
+              "id": 911,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 913,
+                  "id": 910,
                   "name": "workerAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 937,
+                  "scope": 934,
                   "src": "1975:21:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4451,7 +4451,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 912,
+                    "id": 909,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1975:7:11",
@@ -4468,15 +4468,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 919,
+              "id": 916,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 918,
+                  "id": 915,
                   "name": "proposals",
                   "nodeType": "VariableDeclaration",
-                  "scope": 937,
+                  "scope": 934,
                   "src": "2019:20:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4486,7 +4486,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 915,
+                      "id": 912,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "2019:7:11",
@@ -4495,11 +4495,11 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 917,
+                    "id": 914,
                     "length": {
                       "argumentTypes": null,
                       "hexValue": "32",
-                      "id": 916,
+                      "id": 913,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -4527,7 +4527,7 @@
               ],
               "src": "2018:22:11"
             },
-            "scope": 946,
+            "scope": 943,
             "src": "1945:231:11",
             "stateMutability": "view",
             "superFunction": null,
@@ -4536,20 +4536,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 945,
+            "id": 942,
             "name": "NoiaContractProposedV1",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 944,
+              "id": 941,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 939,
+                  "id": 936,
                   "indexed": true,
                   "name": "jobPostAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 945,
+                  "scope": 942,
                   "src": "2220:30:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4558,7 +4558,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 938,
+                    "id": 935,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2220:7:11",
@@ -4572,11 +4572,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 941,
+                  "id": 938,
                   "indexed": true,
                   "name": "workerAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 945,
+                  "scope": 942,
                   "src": "2260:29:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4585,7 +4585,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 940,
+                    "id": 937,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2260:7:11",
@@ -4599,11 +4599,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 943,
+                  "id": 940,
                   "indexed": false,
                   "name": "workContractAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 945,
+                  "scope": 942,
                   "src": "2299:27:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4612,7 +4612,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 942,
+                    "id": 939,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2299:7:11",
@@ -4630,7 +4630,7 @@
             "src": "2182:146:11"
           }
         ],
-        "scope": 947,
+        "scope": 944,
         "src": "181:2149:11"
       }
     ],
@@ -4642,5 +4642,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-04-18T10:11:40.618Z"
+  "updatedAt": "2018-04-19T20:11:49.527Z"
 }

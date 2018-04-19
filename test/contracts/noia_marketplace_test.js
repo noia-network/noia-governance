@@ -96,7 +96,7 @@ contract('NOIA noia tests: ', function (accounts) {
         assert.equal(nentry + 1, (await nodeRegistry.count.call()).toNumber());
         let events = await waitEventsFromWatcher(eventWatcher, 1);
         assert.equal(1, events.length);
-        assert.equal(nodeRegistry.address, events[0].args.registry.valueOf());
+        assert.equal(nodeRegistry.address, events[0].address);
         assert.equal(node1.address, events[0].args.baseContract.valueOf());
     });
 
@@ -122,7 +122,7 @@ contract('NOIA noia tests: ', function (accounts) {
         assert.equal(nentry + 1, (await businessRegistry.count.call()).toNumber());
         let events = await waitEventsFromWatcher(eventWatcher, 1);
         assert.equal(1, events.length);
-        assert.equal(businessRegistry.address, events[0].args.registry.valueOf());
+        assert.equal(businessRegistry.address, events[0].address);
         assert.equal(business1.address, events[0].args.baseContract.valueOf());
     });
 

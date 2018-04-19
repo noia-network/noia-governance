@@ -59,8 +59,8 @@
       "type": "constructor"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b604051604080610e3d83398101604052808051906020019091908051906020019091905050816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555080600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff166101026101c8565b808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200192505050604051809103906000f080151561018157600080fd5b600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050506101d8565b604051610a5e806103df83390190565b6101f8806101e76000396000f300606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806355a373d61461005c578063789c637c146100b1578063abc8c7af14610106575b600080fd5b341561006757600080fd5b61006f61015b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100bc57600080fd5b6100c4610180565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561011157600080fd5b6101196101a6565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820eb25b5ac45ed017c15cba1cfd5ddaca374bb1c2a94da14456c5a841ac0e536de00296060604052341561000f57600080fd5b604051604080610a5e83398101604052808051906020019091908051906020019091905050816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508061007d6102cf565b808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050604051809103906000f08015156100c957600080fd5b600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550806101126102cf565b808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050604051809103906000f080151561015e57600080fd5b600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550806101a76102cf565b808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050604051809103906000f08015156101f357600080fd5b600360006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508061023c6102cf565b808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050604051809103906000f080151561028857600080fd5b600460006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050506102df565b60405161046c806105f283390190565b610304806102ee6000396000f30060606040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633dfc32f61461007257806355a373d6146100c7578063ba9bb76d1461011c578063d9b5c4a514610171578063e4f7dd63146101c6575b600080fd5b341561007d57600080fd5b61008561021b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100d257600080fd5b6100da610241565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561012757600080fd5b61012f610266565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561017c57600080fd5b61018461028c565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156101d157600080fd5b6101d96102b2565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600460009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820822631ebbae6982fa9c30db503189af42dd1f9425a6430c0a79cb8d0150c754900296060604052341561000f57600080fd5b60405160208061046c83398101604052808051906020019091905050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506103f18061007b6000396000f300606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd1461005c578063a25047a214610085578063f15ae568146100d6575b600080fd5b341561006757600080fd5b61006f61010f565b6040518082815260200191505060405180910390f35b341561009057600080fd5b6100bc600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610119565b604051808215151515815260200191505060405180910390f35b34156100e157600080fd5b61010d600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610164565b005b6000600254905090565b600080600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054119050919050565b8073ffffffffffffffffffffffffffffffffffffffff1663c45a01556040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15156101c757600080fd5b5af115156101d457600080fd5b5050506040518051905073ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561021757600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16631f94c77c826040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b15156102d257600080fd5b5af115156102df57600080fd5b5050506040518051905015156102f457600080fd5b60018060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550600260008154600101919050819055503073ffffffffffffffffffffffffffffffffffffffff167f7191fe0a4e2a47445dd9df5906a9e3661208f0a92077472b9172080d32f4904682604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a2505600a165627a7a723058201a9d61759c75e51fab001aec85de01da1072cafddacd7ef05001e45fd000dab30029",
-  "deployedBytecode": "0x606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806355a373d61461005c578063789c637c146100b1578063abc8c7af14610106575b600080fd5b341561006757600080fd5b61006f61015b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100bc57600080fd5b6100c4610180565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561011157600080fd5b6101196101a6565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820eb25b5ac45ed017c15cba1cfd5ddaca374bb1c2a94da14456c5a841ac0e536de0029",
+  "bytecode": "0x6060604052341561000f57600080fd5b604051604080610e2683398101604052808051906020019091908051906020019091905050816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555080600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff166101026101c8565b808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200192505050604051809103906000f080151561018157600080fd5b600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050506101d8565b604051610a47806103df83390190565b6101f8806101e76000396000f300606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806355a373d61461005c578063789c637c146100b1578063abc8c7af14610106575b600080fd5b341561006757600080fd5b61006f61015b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100bc57600080fd5b6100c4610180565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561011157600080fd5b6101196101a6565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a7230582010d11085d1b2b3e4154ddb3d0b7d13d7017877bf786a5dc44e799ca5e3a95ae600296060604052341561000f57600080fd5b604051604080610a4783398101604052808051906020019091908051906020019091905050816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508061007d6102cf565b808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050604051809103906000f08015156100c957600080fd5b600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550806101126102cf565b808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050604051809103906000f080151561015e57600080fd5b600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550806101a76102cf565b808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050604051809103906000f08015156101f357600080fd5b600360006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508061023c6102cf565b808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050604051809103906000f080151561028857600080fd5b600460006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050506102df565b604051610455806105f283390190565b610304806102ee6000396000f30060606040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633dfc32f61461007257806355a373d6146100c7578063ba9bb76d1461011c578063d9b5c4a514610171578063e4f7dd63146101c6575b600080fd5b341561007d57600080fd5b61008561021b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100d257600080fd5b6100da610241565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561012757600080fd5b61012f610266565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561017c57600080fd5b61018461028c565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156101d157600080fd5b6101d96102b2565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600460009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820b1329b2de09bd218aaf5db0b60f28a7a256552e90afc9d58a62934c59dd79b0a00296060604052341561000f57600080fd5b60405160208061045583398101604052808051906020019091905050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506103da8061007b6000396000f300606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd1461005c578063a25047a214610085578063f15ae568146100d6575b600080fd5b341561006757600080fd5b61006f61010f565b6040518082815260200191505060405180910390f35b341561009057600080fd5b6100bc600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610119565b604051808215151515815260200191505060405180910390f35b34156100e157600080fd5b61010d600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610164565b005b6000600254905090565b600080600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054119050919050565b8073ffffffffffffffffffffffffffffffffffffffff1663c45a01556040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15156101c757600080fd5b5af115156101d457600080fd5b5050506040518051905073ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561021757600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16631f94c77c826040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b15156102d257600080fd5b5af115156102df57600080fd5b5050506040518051905015156102f457600080fd5b60018060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550600260008154600101919050819055507f1d2908a21f62bdc114393352feeaf505a80950de4d81096e75e408f23ffcf1ef81604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a1505600a165627a7a72305820dfb8c33a862ebf50e1487e232eff999e3b945bb7558293f8c8d54600445f4ad20029",
+  "deployedBytecode": "0x606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806355a373d61461005c578063789c637c146100b1578063abc8c7af14610106575b600080fd5b341561006757600080fd5b61006f61015b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100bc57600080fd5b6100c4610180565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561011157600080fd5b6101196101a6565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a7230582010d11085d1b2b3e4154ddb3d0b7d13d7017877bf786a5dc44e799ca5e3a95ae60029",
   "sourceMap": "400:406:4:-;;;548:256;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;679:14;663:13;;:30;;;;;;;;;;;;;;;;;;716:11;703:10;;:24;;;;;;;;;;;;;;;;;;771:13;;;;;;;;;;;786:10;;;;;;;;;;;751:46;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;737:11;;:60;;;;;;;;;;;;;;;;;;548:256;;400:406;;;;;;;;;;;;:::o;:::-;;;;;;;",
   "deployedSourceMap": "400:406:4:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;427:36;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;469:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;507:34;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;427:36;;;;;;;;;;;;;:::o;469:32::-;;;;;;;;;;;;;:::o;507:34::-;;;;;;;;;;;;;:::o",
   "source": "pragma solidity ^0.4.11;\n\nimport '../../abstracts/ERC223Interface.sol';\nimport './NoiaRegistry.sol';\nimport './NoiaMarketplace.sol';\n\n/**\n * Entrypoint of the Noia Network, including:\n *\n * - token contract (ERC223)\n * - Regulation: what node/business/jobPosts are valid contracts\n * - Marketplace: node/business/jobPosts registries\n * - Legislative Body: TODO, how regulation can evovle in time\n */\ncontract NoiaNetwork {\n    ERC223Interface public tokenContract;\n    NoiaRegulation public regulation;\n    NoiaMarketplace public marketplace;\n\n    function NoiaNetwork(\n        ERC223Interface tokenContract_,\n        NoiaRegulation regulation_) public {\n        tokenContract = tokenContract_;\n        regulation = regulation_;\n        marketplace = new NoiaMarketplace(tokenContract, regulation);\n    }\n}\n",
@@ -103,7 +103,7 @@
         "id": 183,
         "nodeType": "ImportDirective",
         "scope": 216,
-        "sourceUnit": 309,
+        "sourceUnit": 306,
         "src": "72:28:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -172,7 +172,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_NoiaRegulation_$319",
+              "typeIdentifier": "t_contract$_NoiaRegulation_$316",
               "typeString": "contract NoiaRegulation"
             },
             "typeName": {
@@ -180,10 +180,10 @@
               "id": 187,
               "name": "NoiaRegulation",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 319,
+              "referencedDeclaration": 316,
               "src": "469:14:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_NoiaRegulation_$319",
+                "typeIdentifier": "t_contract$_NoiaRegulation_$316",
                 "typeString": "contract NoiaRegulation"
               }
             },
@@ -287,7 +287,7 @@
                       "referencedDeclaration": 188,
                       "src": "703:10:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegulation_$319",
+                        "typeIdentifier": "t_contract$_NoiaRegulation_$316",
                         "typeString": "contract NoiaRegulation"
                       }
                     },
@@ -302,13 +302,13 @@
                       "referencedDeclaration": 194,
                       "src": "716:11:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegulation_$319",
+                        "typeIdentifier": "t_contract$_NoiaRegulation_$316",
                         "typeString": "contract NoiaRegulation"
                       }
                     },
                     "src": "703:24:4",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaRegulation_$319",
+                      "typeIdentifier": "t_contract$_NoiaRegulation_$316",
                       "typeString": "contract NoiaRegulation"
                     }
                   },
@@ -364,7 +364,7 @@
                           "referencedDeclaration": 188,
                           "src": "786:10:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$319",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$316",
                             "typeString": "contract NoiaRegulation"
                           }
                         }
@@ -376,7 +376,7 @@
                             "typeString": "contract ERC223Interface"
                           },
                           {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$319",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$316",
                             "typeString": "contract NoiaRegulation"
                           }
                         ],
@@ -388,7 +388,7 @@
                         "nodeType": "NewExpression",
                         "src": "751:19:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_ERC223Interface_$60_$_t_contract$_NoiaRegulation_$319_$returns$_t_contract$_NoiaMarketplace_$179_$",
+                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_ERC223Interface_$60_$_t_contract$_NoiaRegulation_$316_$returns$_t_contract$_NoiaMarketplace_$179_$",
                           "typeString": "function (contract ERC223Interface,contract NoiaRegulation) returns (contract NoiaMarketplace)"
                         },
                         "typeName": {
@@ -480,7 +480,7 @@
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_NoiaRegulation_$319",
+                    "typeIdentifier": "t_contract$_NoiaRegulation_$316",
                     "typeString": "contract NoiaRegulation"
                   },
                   "typeName": {
@@ -488,10 +488,10 @@
                     "id": 193,
                     "name": "NoiaRegulation",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 319,
+                    "referencedDeclaration": 316,
                     "src": "618:14:4",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaRegulation_$319",
+                      "typeIdentifier": "t_contract$_NoiaRegulation_$316",
                       "typeString": "contract NoiaRegulation"
                     }
                   },
@@ -559,7 +559,7 @@
         "id": 183,
         "nodeType": "ImportDirective",
         "scope": 216,
-        "sourceUnit": 309,
+        "sourceUnit": 306,
         "src": "72:28:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -628,7 +628,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_NoiaRegulation_$319",
+              "typeIdentifier": "t_contract$_NoiaRegulation_$316",
               "typeString": "contract NoiaRegulation"
             },
             "typeName": {
@@ -636,10 +636,10 @@
               "id": 187,
               "name": "NoiaRegulation",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 319,
+              "referencedDeclaration": 316,
               "src": "469:14:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_NoiaRegulation_$319",
+                "typeIdentifier": "t_contract$_NoiaRegulation_$316",
                 "typeString": "contract NoiaRegulation"
               }
             },
@@ -743,7 +743,7 @@
                       "referencedDeclaration": 188,
                       "src": "703:10:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegulation_$319",
+                        "typeIdentifier": "t_contract$_NoiaRegulation_$316",
                         "typeString": "contract NoiaRegulation"
                       }
                     },
@@ -758,13 +758,13 @@
                       "referencedDeclaration": 194,
                       "src": "716:11:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegulation_$319",
+                        "typeIdentifier": "t_contract$_NoiaRegulation_$316",
                         "typeString": "contract NoiaRegulation"
                       }
                     },
                     "src": "703:24:4",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaRegulation_$319",
+                      "typeIdentifier": "t_contract$_NoiaRegulation_$316",
                       "typeString": "contract NoiaRegulation"
                     }
                   },
@@ -820,7 +820,7 @@
                           "referencedDeclaration": 188,
                           "src": "786:10:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$319",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$316",
                             "typeString": "contract NoiaRegulation"
                           }
                         }
@@ -832,7 +832,7 @@
                             "typeString": "contract ERC223Interface"
                           },
                           {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$319",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$316",
                             "typeString": "contract NoiaRegulation"
                           }
                         ],
@@ -844,7 +844,7 @@
                         "nodeType": "NewExpression",
                         "src": "751:19:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_ERC223Interface_$60_$_t_contract$_NoiaRegulation_$319_$returns$_t_contract$_NoiaMarketplace_$179_$",
+                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_ERC223Interface_$60_$_t_contract$_NoiaRegulation_$316_$returns$_t_contract$_NoiaMarketplace_$179_$",
                           "typeString": "function (contract ERC223Interface,contract NoiaRegulation) returns (contract NoiaMarketplace)"
                         },
                         "typeName": {
@@ -936,7 +936,7 @@
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_NoiaRegulation_$319",
+                    "typeIdentifier": "t_contract$_NoiaRegulation_$316",
                     "typeString": "contract NoiaRegulation"
                   },
                   "typeName": {
@@ -944,10 +944,10 @@
                     "id": 193,
                     "name": "NoiaRegulation",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 319,
+                    "referencedDeclaration": 316,
                     "src": "618:14:4",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaRegulation_$319",
+                      "typeIdentifier": "t_contract$_NoiaRegulation_$316",
                       "typeString": "contract NoiaRegulation"
                     }
                   },
@@ -983,5 +983,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-04-18T10:11:40.610Z"
+  "updatedAt": "2018-04-19T20:11:49.514Z"
 }

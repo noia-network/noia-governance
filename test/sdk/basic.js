@@ -3,6 +3,7 @@
 const sdk = require('../../');
 const truffleConfig = require('../../truffle.js');
 
+const util = require('util');
 const Web3 = require('web3');
 const should = require('should');
 
@@ -25,19 +26,37 @@ contract('NOIA Governance SDK Test', (accounts) => {
     })
 
     beforeEach(async () => {
-        nodeClient = await sdk.getNodeClient();
+        nodeClient = await sdk.createNodeClient({/* node info missing */});
         console.log(`Node client created at ${nodeClient.address}`);
-        businessClient = await sdk.getBusinessClient();
+        businessClient = await sdk.createBusinessClient({/* business info missing */});
         console.log(`Business client created at ${businessClient.address}`);
     })
 
-    it.only('Test message signing', async () => {
+    it('Test message signing', async () => {
         let msg = "good weather in vilnius";
         let sgn = await businessClient.signMessage(msg);
         console.log(`signed: ${sgn} by business at ${businessClient.address}`);
         let ownerAddress = await sdk.getOwnerAddress(businessClient.address);
         console.log(`owner: ${ownerAddress}`);
         assert.equal(ownerAddress, sdk.recoverAddressFromSignedMessage(msg, sgn));
+    })
+
+    it.only('Test node event watching', async () => {
+        let latestSyncedBlock = await util.promisify(web3.eth.getBlockNumber)();
+        console.log(`start watching node events from ${latestSyncedBlock}`);
+        businessClient.startWatchingNodeEvents(latestSyncedBlock, {
+            pollingInterval: 500,
+        });
+        console.log('creating new node client');
+        let nodeClient1 = await sdk.createNodeClient({/* node info missing */});
+        console.log(`Created new node client at ${nodeClient1.address}`);
+        await new Promise(function (resolve, reject) {
+            businessClient.on('node_entry_added', function (nodeAddress) {
+                assert.equal(nodeClient1.address, nodeAddress);
+                resolve();
+            });
+        });
+        businessClient.stopWatchingNodeEvents();
     })
 
     it("Transfer tokens", async () => {

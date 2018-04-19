@@ -87,8 +87,8 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b6040516040806107018339810160405280805190602001909190805190602001909190505080806001336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555080600160146101000a81548161ffff021916908361ffff16021790555081600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050508073ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561011257600080fd5b5081600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505061059c806101656000396000f30060606040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632781e0161461007257806354fd4d50146100ab5780638da5cb5b146100dc578063a6f9dae114610131578063c45a01551461016a575b600080fd5b341561007d57600080fd5b6100a9600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506101bf565b005b34156100b657600080fd5b6100be610473565b604051808261ffff1661ffff16815260200191505060405180910390f35b34156100e757600080fd5b6100ef610487565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561013c57600080fd5b610168600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506104ac565b005b341561017557600080fd5b61017d61054a565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561021a57600080fd5b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663ba9bb76d6040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b151561029f57600080fd5b5af115156102ac57600080fd5b5050506040518051905073ffffffffffffffffffffffffffffffffffffffff1663a25047a2826040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b151561034f57600080fd5b5af1151561035c57600080fd5b50505060405180519050151561037157600080fd5b60018173ffffffffffffffffffffffffffffffffffffffff166354fd4d506040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15156103d657600080fd5b5af115156103e357600080fd5b5050506040518051905061ffff161415156103fd57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff16632ca151226040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401600060405180830381600087803b151561046057600080fd5b5af1151561046d57600080fd5b50505050565b600160149054906101000a900461ffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561050757600080fd5b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a723058202add224b6d6ade177140dd9a102e006ab1af01d9e6d301dc377a4f63768cc7ad0029",
-  "deployedBytecode": "0x60606040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632781e0161461007257806354fd4d50146100ab5780638da5cb5b146100dc578063a6f9dae114610131578063c45a01551461016a575b600080fd5b341561007d57600080fd5b6100a9600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506101bf565b005b34156100b657600080fd5b6100be610473565b604051808261ffff1661ffff16815260200191505060405180910390f35b34156100e757600080fd5b6100ef610487565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561013c57600080fd5b610168600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506104ac565b005b341561017557600080fd5b61017d61054a565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561021a57600080fd5b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663ba9bb76d6040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b151561029f57600080fd5b5af115156102ac57600080fd5b5050506040518051905073ffffffffffffffffffffffffffffffffffffffff1663a25047a2826040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b151561034f57600080fd5b5af1151561035c57600080fd5b50505060405180519050151561037157600080fd5b60018173ffffffffffffffffffffffffffffffffffffffff166354fd4d506040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15156103d657600080fd5b5af115156103e357600080fd5b5050506040518051905061ffff161415156103fd57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff16632ca151226040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401600060405180830381600087803b151561046057600080fd5b5af1151561046d57600080fd5b50505050565b600160149054906101000a900461ffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561050757600080fd5b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a723058202add224b6d6ade177140dd9a102e006ab1af01d9e6d301dc377a4f63768cc7ad0029",
+  "bytecode": "0x6060604052341561000f57600080fd5b6040516040806107018339810160405280805190602001909190805190602001909190505080806001336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555080600160146101000a81548161ffff021916908361ffff16021790555081600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050508073ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561011257600080fd5b5081600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505061059c806101656000396000f30060606040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632781e0161461007257806354fd4d50146100ab5780638da5cb5b146100dc578063a6f9dae114610131578063c45a01551461016a575b600080fd5b341561007d57600080fd5b6100a9600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506101bf565b005b34156100b657600080fd5b6100be610473565b604051808261ffff1661ffff16815260200191505060405180910390f35b34156100e757600080fd5b6100ef610487565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561013c57600080fd5b610168600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506104ac565b005b341561017557600080fd5b61017d61054a565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561021a57600080fd5b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663ba9bb76d6040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b151561029f57600080fd5b5af115156102ac57600080fd5b5050506040518051905073ffffffffffffffffffffffffffffffffffffffff1663a25047a2826040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b151561034f57600080fd5b5af1151561035c57600080fd5b50505060405180519050151561037157600080fd5b60018173ffffffffffffffffffffffffffffffffffffffff166354fd4d506040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15156103d657600080fd5b5af115156103e357600080fd5b5050506040518051905061ffff161415156103fd57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff16632ca151226040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401600060405180830381600087803b151561046057600080fd5b5af1151561046d57600080fd5b50505050565b600160149054906101000a900461ffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561050757600080fd5b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820f63b243e4d5052605f5a3a067471bca73a993854644f8b493c024e0e898f37760029",
+  "deployedBytecode": "0x60606040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632781e0161461007257806354fd4d50146100ab5780638da5cb5b146100dc578063a6f9dae114610131578063c45a01551461016a575b600080fd5b341561007d57600080fd5b6100a9600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506101bf565b005b34156100b657600080fd5b6100be610473565b604051808261ffff1661ffff16815260200191505060405180910390f35b34156100e757600080fd5b6100ef610487565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561013c57600080fd5b610168600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506104ac565b005b341561017557600080fd5b61017d61054a565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561021a57600080fd5b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663ba9bb76d6040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b151561029f57600080fd5b5af115156102ac57600080fd5b5050506040518051905073ffffffffffffffffffffffffffffffffffffffff1663a25047a2826040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b151561034f57600080fd5b5af1151561035c57600080fd5b50505060405180519050151561037157600080fd5b60018173ffffffffffffffffffffffffffffffffffffffff166354fd4d506040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15156103d657600080fd5b5af115156103e357600080fd5b5050506040518051905061ffff161415156103fd57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff16632ca151226040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401600060405180830381600087803b151561046057600080fd5b5af1151561046d57600080fd5b50505050565b600160149054906101000a900461ffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561050757600080fd5b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820f63b243e4d5052605f5a3a067471bca73a993854644f8b493c024e0e898f37760029",
   "sourceMap": "226:534:8:-;;;312:157;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;410:7;283::7;205:1;238:10:1;230:5;;:18;;;;;;;;;;;;;;;;;;292:8:2;282:7;;:18;;;;;;;;;;;;;;;;;;320:8;310:7;;:18;;;;;;;;;;;;;;;;;;204:131;;348:7:7;334:21;;:10;:21;;;326:30;;;;;;;;213:150;450:12:8;436:11;;:26;;;;;;;;;;;;;;;;;;312:157;;226:534;;;;;;",
   "deployedSourceMap": "226:534:8:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;475:283;;;;;;;;;;;;;;;;;;;;;;;;;;;;176:21:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;177:20:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;256:91;;;;;;;;;;;;;;;;;;;;;;;;;;;;148:22:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;475:283:8;147:5:1;;;;;;;;;;;133:19;;:10;:19;;;124:29;;;;;;;;563:11:8;;;;;;;;;;;:32;;;:34;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:43;;;607:18;563:63;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;555:72;;;;;;;;695:1;662:18;645:44;;;:46;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:51;;;637:60;;;;;;;;725:18;707:42;;;:44;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;475:283;:::o;176:21:2:-;;;;;;;;;;;;;:::o;177:20:1:-;;;;;;;;;;;;;:::o;256:91::-;147:5;;;;;;;;;;;133:19;;:10;:19;;;124:29;;;;;;;;331:9;323:5;;:17;;;;;;;;;;;;;;;;;;256:91;:::o;148:22:2:-;;;;;;;;;;;;;:::o",
   "source": "pragma solidity ^0.4.11;\n\nimport '../gov/NoiaMarketplace.sol';\nimport './NoiaContractsFactoryV1.sol';\nimport './NoiaBaseContractV1.sol';\nimport './NoiaCertificateV1.sol';\n\n/**\n * Standard Noia Business Contract V1 (Draft)\n */\ncontract NoiaBusinessV1 is NoiaBaseContractV1 {\n    NoiaMarketplace marketplace;\n\n    function NoiaBusinessV1(NoiaMarketplace marketplace_, address factory)\n        NoiaBaseContractV1(factory) public {\n        marketplace = marketplace_;\n    }\n\n    function signCertificate(address certificateAddress) onlyOwner public {\n        require(marketplace.certificatesRegistry().hasEntry(certificateAddress));\n        require(NoiaBaseContract(certificateAddress).version() == 1);\n        NoiaCertificateV1(certificateAddress).sign();\n    }\n}\n",
@@ -97,14 +97,14 @@
     "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaBusinessV1.sol",
     "exportedSymbols": {
       "NoiaBusinessV1": [
-        404
+        401
       ]
     },
-    "id": 405,
+    "id": 402,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 347,
+        "id": 344,
         "literals": [
           "solidity",
           "^",
@@ -117,9 +117,9 @@
       {
         "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/gov/NoiaMarketplace.sol",
         "file": "../gov/NoiaMarketplace.sol",
-        "id": 348,
+        "id": 345,
         "nodeType": "ImportDirective",
-        "scope": 405,
+        "scope": 402,
         "sourceUnit": 180,
         "src": "26:36:8",
         "symbolAliases": [],
@@ -128,10 +128,10 @@
       {
         "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaContractsFactoryV1.sol",
         "file": "./NoiaContractsFactoryV1.sol",
-        "id": 349,
+        "id": 346,
         "nodeType": "ImportDirective",
-        "scope": 405,
-        "sourceUnit": 766,
+        "scope": 402,
+        "sourceUnit": 763,
         "src": "63:38:8",
         "symbolAliases": [],
         "unitAlias": ""
@@ -139,10 +139,10 @@
       {
         "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaBaseContractV1.sol",
         "file": "./NoiaBaseContractV1.sol",
-        "id": 350,
+        "id": 347,
         "nodeType": "ImportDirective",
-        "scope": 405,
-        "sourceUnit": 346,
+        "scope": 402,
+        "sourceUnit": 343,
         "src": "102:34:8",
         "symbolAliases": [],
         "unitAlias": ""
@@ -150,10 +150,10 @@
       {
         "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaCertificateV1.sol",
         "file": "./NoiaCertificateV1.sol",
-        "id": 351,
+        "id": 348,
         "nodeType": "ImportDirective",
-        "scope": 405,
-        "sourceUnit": 611,
+        "scope": 402,
+        "sourceUnit": 608,
         "src": "137:33:8",
         "symbolAliases": [],
         "unitAlias": ""
@@ -164,17 +164,17 @@
             "arguments": [],
             "baseName": {
               "contractScope": null,
-              "id": 352,
+              "id": 349,
               "name": "NoiaBaseContractV1",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 345,
+              "referencedDeclaration": 342,
               "src": "253:18:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_NoiaBaseContractV1_$345",
+                "typeIdentifier": "t_contract$_NoiaBaseContractV1_$342",
                 "typeString": "contract NoiaBaseContractV1"
               }
             },
-            "id": 353,
+            "id": 350,
             "nodeType": "InheritanceSpecifier",
             "src": "253:18:8"
           }
@@ -182,15 +182,15 @@
         "contractDependencies": [
           97,
           123,
-          345
+          342
         ],
         "contractKind": "contract",
         "documentation": "Standard Noia Business Contract V1 (Draft)",
         "fullyImplemented": true,
-        "id": 404,
+        "id": 401,
         "linearizedBaseContracts": [
-          404,
-          345,
+          401,
+          342,
           123,
           97
         ],
@@ -199,10 +199,10 @@
         "nodes": [
           {
             "constant": false,
-            "id": 355,
+            "id": 352,
             "name": "marketplace",
             "nodeType": "VariableDeclaration",
-            "scope": 404,
+            "scope": 401,
             "src": "278:27:8",
             "stateVariable": true,
             "storageLocation": "default",
@@ -212,7 +212,7 @@
             },
             "typeName": {
               "contractScope": null,
-              "id": 354,
+              "id": 351,
               "name": "NoiaMarketplace",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 179,
@@ -227,25 +227,25 @@
           },
           {
             "body": {
-              "id": 369,
+              "id": 366,
               "nodeType": "Block",
               "src": "426:43:8",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 367,
+                    "id": 364,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 365,
+                      "id": 362,
                       "name": "marketplace",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 355,
+                      "referencedDeclaration": 352,
                       "src": "436:11:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_NoiaMarketplace_$179",
@@ -256,11 +256,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 366,
+                      "id": 363,
                       "name": "marketplace_",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 357,
+                      "referencedDeclaration": 354,
                       "src": "450:12:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_NoiaMarketplace_$179",
@@ -273,14 +273,14 @@
                       "typeString": "contract NoiaMarketplace"
                     }
                   },
-                  "id": 368,
+                  "id": 365,
                   "nodeType": "ExpressionStatement",
                   "src": "436:26:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 370,
+            "id": 367,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -289,11 +289,11 @@
                 "arguments": [
                   {
                     "argumentTypes": null,
-                    "id": 362,
+                    "id": 359,
                     "name": "factory",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 359,
+                    "referencedDeclaration": 356,
                     "src": "410:7:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -301,17 +301,17 @@
                     }
                   }
                 ],
-                "id": 363,
+                "id": 360,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 361,
+                  "id": 358,
                   "name": "NoiaBaseContractV1",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 345,
+                  "referencedDeclaration": 342,
                   "src": "391:18:8",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_type$_t_contract$_NoiaBaseContractV1_$345_$",
+                    "typeIdentifier": "t_type$_t_contract$_NoiaBaseContractV1_$342_$",
                     "typeString": "type(contract NoiaBaseContractV1)"
                   }
                 },
@@ -322,15 +322,15 @@
             "name": "NoiaBusinessV1",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 360,
+              "id": 357,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 357,
+                  "id": 354,
                   "name": "marketplace_",
                   "nodeType": "VariableDeclaration",
-                  "scope": 370,
+                  "scope": 367,
                   "src": "336:28:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -340,7 +340,7 @@
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 356,
+                    "id": 353,
                     "name": "NoiaMarketplace",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 179,
@@ -355,10 +355,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 359,
+                  "id": 356,
                   "name": "factory",
                   "nodeType": "VariableDeclaration",
-                  "scope": 370,
+                  "scope": 367,
                   "src": "366:15:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -367,7 +367,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 358,
+                    "id": 355,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "366:7:8",
@@ -384,12 +384,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 364,
+              "id": 361,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "426:0:8"
             },
-            "scope": 404,
+            "scope": 401,
             "src": "312:157:8",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -397,7 +397,7 @@
           },
           {
             "body": {
-              "id": 402,
+              "id": 399,
               "nodeType": "Block",
               "src": "545:213:8",
               "statements": [
@@ -410,11 +410,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 382,
+                            "id": 379,
                             "name": "certificateAddress",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 372,
+                            "referencedDeclaration": 369,
                             "src": "607:18:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -436,18 +436,18 @@
                               "argumentTypes": [],
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 378,
+                                "id": 375,
                                 "name": "marketplace",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 355,
+                                "referencedDeclaration": 352,
                                 "src": "563:11:8",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_contract$_NoiaMarketplace_$179",
                                   "typeString": "contract NoiaMarketplace"
                                 }
                               },
-                              "id": 379,
+                              "id": 376,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -457,11 +457,11 @@
                               "referencedDeclaration": 136,
                               "src": "563:32:8",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_function_external_view$__$returns$_t_contract$_NoiaRegistry_$308_$",
+                                "typeIdentifier": "t_function_external_view$__$returns$_t_contract$_NoiaRegistry_$305_$",
                                 "typeString": "function () view external returns (contract NoiaRegistry)"
                               }
                             },
-                            "id": 380,
+                            "id": 377,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -471,25 +471,25 @@
                             "nodeType": "FunctionCall",
                             "src": "563:34:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaRegistry_$308",
+                              "typeIdentifier": "t_contract$_NoiaRegistry_$305",
                               "typeString": "contract NoiaRegistry"
                             }
                           },
-                          "id": 381,
+                          "id": 378,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "hasEntry",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 293,
+                          "referencedDeclaration": 292,
                           "src": "563:43:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_bool_$",
                             "typeString": "function (address) view external returns (bool)"
                           }
                         },
-                        "id": 383,
+                        "id": 380,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -511,18 +511,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 377,
+                      "id": 374,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1273,
+                      "referencedDeclaration": 1270,
                       "src": "555:7:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 384,
+                    "id": 381,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -536,7 +536,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 385,
+                  "id": 382,
                   "nodeType": "ExpressionStatement",
                   "src": "555:72:8"
                 },
@@ -550,7 +550,7 @@
                           "typeIdentifier": "t_uint16",
                           "typeString": "uint16"
                         },
-                        "id": 393,
+                        "id": 390,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -565,11 +565,11 @@
                               "arguments": [
                                 {
                                   "argumentTypes": null,
-                                  "id": 388,
+                                  "id": 385,
                                   "name": "certificateAddress",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 372,
+                                  "referencedDeclaration": 369,
                                   "src": "662:18:8",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_address",
@@ -584,7 +584,7 @@
                                     "typeString": "address"
                                   }
                                 ],
-                                "id": 387,
+                                "id": 384,
                                 "name": "NoiaBaseContract",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
@@ -595,7 +595,7 @@
                                   "typeString": "type(contract NoiaBaseContract)"
                                 }
                               },
-                              "id": 389,
+                              "id": 386,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -609,7 +609,7 @@
                                 "typeString": "contract NoiaBaseContract"
                               }
                             },
-                            "id": 390,
+                            "id": 387,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -623,7 +623,7 @@
                               "typeString": "function () view external returns (uint16)"
                             }
                           },
-                          "id": 391,
+                          "id": 388,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -642,7 +642,7 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "31",
-                          "id": 392,
+                          "id": 389,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -671,18 +671,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 386,
+                      "id": 383,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1273,
+                      "referencedDeclaration": 1270,
                       "src": "637:7:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 394,
+                    "id": 391,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -696,7 +696,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 395,
+                  "id": 392,
                   "nodeType": "ExpressionStatement",
                   "src": "637:60:8"
                 },
@@ -711,11 +711,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 397,
+                            "id": 394,
                             "name": "certificateAddress",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 372,
+                            "referencedDeclaration": 369,
                             "src": "725:18:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -730,18 +730,18 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 396,
+                          "id": 393,
                           "name": "NoiaCertificateV1",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 610,
+                          "referencedDeclaration": 607,
                           "src": "707:17:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_NoiaCertificateV1_$610_$",
+                            "typeIdentifier": "t_type$_t_contract$_NoiaCertificateV1_$607_$",
                             "typeString": "type(contract NoiaCertificateV1)"
                           }
                         },
-                        "id": 398,
+                        "id": 395,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -751,25 +751,25 @@
                         "nodeType": "FunctionCall",
                         "src": "707:37:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_NoiaCertificateV1_$610",
+                          "typeIdentifier": "t_contract$_NoiaCertificateV1_$607",
                           "typeString": "contract NoiaCertificateV1"
                         }
                       },
-                      "id": 399,
+                      "id": 396,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "sign",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 486,
+                      "referencedDeclaration": 483,
                       "src": "707:42:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$__$returns$__$",
                         "typeString": "function () external"
                       }
                     },
-                    "id": 400,
+                    "id": 397,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -783,24 +783,24 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 401,
+                  "id": 398,
                   "nodeType": "ExpressionStatement",
                   "src": "707:44:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 403,
+            "id": 400,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": [],
-                "id": 375,
+                "id": 372,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 374,
+                  "id": 371,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
@@ -818,15 +818,15 @@
             "name": "signCertificate",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 373,
+              "id": 370,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 372,
+                  "id": 369,
                   "name": "certificateAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 403,
+                  "scope": 400,
                   "src": "500:26:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -835,7 +835,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 371,
+                    "id": 368,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "500:7:8",
@@ -852,19 +852,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 376,
+              "id": 373,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "545:0:8"
             },
-            "scope": 404,
+            "scope": 401,
             "src": "475:283:8",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 405,
+        "scope": 402,
         "src": "226:534:8"
       }
     ],
@@ -874,14 +874,14 @@
     "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaBusinessV1.sol",
     "exportedSymbols": {
       "NoiaBusinessV1": [
-        404
+        401
       ]
     },
-    "id": 405,
+    "id": 402,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 347,
+        "id": 344,
         "literals": [
           "solidity",
           "^",
@@ -894,9 +894,9 @@
       {
         "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/gov/NoiaMarketplace.sol",
         "file": "../gov/NoiaMarketplace.sol",
-        "id": 348,
+        "id": 345,
         "nodeType": "ImportDirective",
-        "scope": 405,
+        "scope": 402,
         "sourceUnit": 180,
         "src": "26:36:8",
         "symbolAliases": [],
@@ -905,10 +905,10 @@
       {
         "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaContractsFactoryV1.sol",
         "file": "./NoiaContractsFactoryV1.sol",
-        "id": 349,
+        "id": 346,
         "nodeType": "ImportDirective",
-        "scope": 405,
-        "sourceUnit": 766,
+        "scope": 402,
+        "sourceUnit": 763,
         "src": "63:38:8",
         "symbolAliases": [],
         "unitAlias": ""
@@ -916,10 +916,10 @@
       {
         "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaBaseContractV1.sol",
         "file": "./NoiaBaseContractV1.sol",
-        "id": 350,
+        "id": 347,
         "nodeType": "ImportDirective",
-        "scope": 405,
-        "sourceUnit": 346,
+        "scope": 402,
+        "sourceUnit": 343,
         "src": "102:34:8",
         "symbolAliases": [],
         "unitAlias": ""
@@ -927,10 +927,10 @@
       {
         "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaCertificateV1.sol",
         "file": "./NoiaCertificateV1.sol",
-        "id": 351,
+        "id": 348,
         "nodeType": "ImportDirective",
-        "scope": 405,
-        "sourceUnit": 611,
+        "scope": 402,
+        "sourceUnit": 608,
         "src": "137:33:8",
         "symbolAliases": [],
         "unitAlias": ""
@@ -941,17 +941,17 @@
             "arguments": [],
             "baseName": {
               "contractScope": null,
-              "id": 352,
+              "id": 349,
               "name": "NoiaBaseContractV1",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 345,
+              "referencedDeclaration": 342,
               "src": "253:18:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_NoiaBaseContractV1_$345",
+                "typeIdentifier": "t_contract$_NoiaBaseContractV1_$342",
                 "typeString": "contract NoiaBaseContractV1"
               }
             },
-            "id": 353,
+            "id": 350,
             "nodeType": "InheritanceSpecifier",
             "src": "253:18:8"
           }
@@ -959,15 +959,15 @@
         "contractDependencies": [
           97,
           123,
-          345
+          342
         ],
         "contractKind": "contract",
         "documentation": "Standard Noia Business Contract V1 (Draft)",
         "fullyImplemented": true,
-        "id": 404,
+        "id": 401,
         "linearizedBaseContracts": [
-          404,
-          345,
+          401,
+          342,
           123,
           97
         ],
@@ -976,10 +976,10 @@
         "nodes": [
           {
             "constant": false,
-            "id": 355,
+            "id": 352,
             "name": "marketplace",
             "nodeType": "VariableDeclaration",
-            "scope": 404,
+            "scope": 401,
             "src": "278:27:8",
             "stateVariable": true,
             "storageLocation": "default",
@@ -989,7 +989,7 @@
             },
             "typeName": {
               "contractScope": null,
-              "id": 354,
+              "id": 351,
               "name": "NoiaMarketplace",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 179,
@@ -1004,25 +1004,25 @@
           },
           {
             "body": {
-              "id": 369,
+              "id": 366,
               "nodeType": "Block",
               "src": "426:43:8",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 367,
+                    "id": 364,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 365,
+                      "id": 362,
                       "name": "marketplace",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 355,
+                      "referencedDeclaration": 352,
                       "src": "436:11:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_NoiaMarketplace_$179",
@@ -1033,11 +1033,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 366,
+                      "id": 363,
                       "name": "marketplace_",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 357,
+                      "referencedDeclaration": 354,
                       "src": "450:12:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_NoiaMarketplace_$179",
@@ -1050,14 +1050,14 @@
                       "typeString": "contract NoiaMarketplace"
                     }
                   },
-                  "id": 368,
+                  "id": 365,
                   "nodeType": "ExpressionStatement",
                   "src": "436:26:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 370,
+            "id": 367,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -1066,11 +1066,11 @@
                 "arguments": [
                   {
                     "argumentTypes": null,
-                    "id": 362,
+                    "id": 359,
                     "name": "factory",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 359,
+                    "referencedDeclaration": 356,
                     "src": "410:7:8",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1078,17 +1078,17 @@
                     }
                   }
                 ],
-                "id": 363,
+                "id": 360,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 361,
+                  "id": 358,
                   "name": "NoiaBaseContractV1",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 345,
+                  "referencedDeclaration": 342,
                   "src": "391:18:8",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_type$_t_contract$_NoiaBaseContractV1_$345_$",
+                    "typeIdentifier": "t_type$_t_contract$_NoiaBaseContractV1_$342_$",
                     "typeString": "type(contract NoiaBaseContractV1)"
                   }
                 },
@@ -1099,15 +1099,15 @@
             "name": "NoiaBusinessV1",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 360,
+              "id": 357,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 357,
+                  "id": 354,
                   "name": "marketplace_",
                   "nodeType": "VariableDeclaration",
-                  "scope": 370,
+                  "scope": 367,
                   "src": "336:28:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1117,7 +1117,7 @@
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 356,
+                    "id": 353,
                     "name": "NoiaMarketplace",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 179,
@@ -1132,10 +1132,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 359,
+                  "id": 356,
                   "name": "factory",
                   "nodeType": "VariableDeclaration",
-                  "scope": 370,
+                  "scope": 367,
                   "src": "366:15:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1144,7 +1144,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 358,
+                    "id": 355,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "366:7:8",
@@ -1161,12 +1161,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 364,
+              "id": 361,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "426:0:8"
             },
-            "scope": 404,
+            "scope": 401,
             "src": "312:157:8",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1174,7 +1174,7 @@
           },
           {
             "body": {
-              "id": 402,
+              "id": 399,
               "nodeType": "Block",
               "src": "545:213:8",
               "statements": [
@@ -1187,11 +1187,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 382,
+                            "id": 379,
                             "name": "certificateAddress",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 372,
+                            "referencedDeclaration": 369,
                             "src": "607:18:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1213,18 +1213,18 @@
                               "argumentTypes": [],
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 378,
+                                "id": 375,
                                 "name": "marketplace",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 355,
+                                "referencedDeclaration": 352,
                                 "src": "563:11:8",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_contract$_NoiaMarketplace_$179",
                                   "typeString": "contract NoiaMarketplace"
                                 }
                               },
-                              "id": 379,
+                              "id": 376,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -1234,11 +1234,11 @@
                               "referencedDeclaration": 136,
                               "src": "563:32:8",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_function_external_view$__$returns$_t_contract$_NoiaRegistry_$308_$",
+                                "typeIdentifier": "t_function_external_view$__$returns$_t_contract$_NoiaRegistry_$305_$",
                                 "typeString": "function () view external returns (contract NoiaRegistry)"
                               }
                             },
-                            "id": 380,
+                            "id": 377,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -1248,25 +1248,25 @@
                             "nodeType": "FunctionCall",
                             "src": "563:34:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaRegistry_$308",
+                              "typeIdentifier": "t_contract$_NoiaRegistry_$305",
                               "typeString": "contract NoiaRegistry"
                             }
                           },
-                          "id": 381,
+                          "id": 378,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "hasEntry",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 293,
+                          "referencedDeclaration": 292,
                           "src": "563:43:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_bool_$",
                             "typeString": "function (address) view external returns (bool)"
                           }
                         },
-                        "id": 383,
+                        "id": 380,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1288,18 +1288,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 377,
+                      "id": 374,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1273,
+                      "referencedDeclaration": 1270,
                       "src": "555:7:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 384,
+                    "id": 381,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1313,7 +1313,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 385,
+                  "id": 382,
                   "nodeType": "ExpressionStatement",
                   "src": "555:72:8"
                 },
@@ -1327,7 +1327,7 @@
                           "typeIdentifier": "t_uint16",
                           "typeString": "uint16"
                         },
-                        "id": 393,
+                        "id": 390,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1342,11 +1342,11 @@
                               "arguments": [
                                 {
                                   "argumentTypes": null,
-                                  "id": 388,
+                                  "id": 385,
                                   "name": "certificateAddress",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 372,
+                                  "referencedDeclaration": 369,
                                   "src": "662:18:8",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_address",
@@ -1361,7 +1361,7 @@
                                     "typeString": "address"
                                   }
                                 ],
-                                "id": 387,
+                                "id": 384,
                                 "name": "NoiaBaseContract",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
@@ -1372,7 +1372,7 @@
                                   "typeString": "type(contract NoiaBaseContract)"
                                 }
                               },
-                              "id": 389,
+                              "id": 386,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -1386,7 +1386,7 @@
                                 "typeString": "contract NoiaBaseContract"
                               }
                             },
-                            "id": 390,
+                            "id": 387,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -1400,7 +1400,7 @@
                               "typeString": "function () view external returns (uint16)"
                             }
                           },
-                          "id": 391,
+                          "id": 388,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1419,7 +1419,7 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "31",
-                          "id": 392,
+                          "id": 389,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1448,18 +1448,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 386,
+                      "id": 383,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1273,
+                      "referencedDeclaration": 1270,
                       "src": "637:7:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 394,
+                    "id": 391,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1473,7 +1473,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 395,
+                  "id": 392,
                   "nodeType": "ExpressionStatement",
                   "src": "637:60:8"
                 },
@@ -1488,11 +1488,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 397,
+                            "id": 394,
                             "name": "certificateAddress",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 372,
+                            "referencedDeclaration": 369,
                             "src": "725:18:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1507,18 +1507,18 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 396,
+                          "id": 393,
                           "name": "NoiaCertificateV1",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 610,
+                          "referencedDeclaration": 607,
                           "src": "707:17:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_NoiaCertificateV1_$610_$",
+                            "typeIdentifier": "t_type$_t_contract$_NoiaCertificateV1_$607_$",
                             "typeString": "type(contract NoiaCertificateV1)"
                           }
                         },
-                        "id": 398,
+                        "id": 395,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1528,25 +1528,25 @@
                         "nodeType": "FunctionCall",
                         "src": "707:37:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_NoiaCertificateV1_$610",
+                          "typeIdentifier": "t_contract$_NoiaCertificateV1_$607",
                           "typeString": "contract NoiaCertificateV1"
                         }
                       },
-                      "id": 399,
+                      "id": 396,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "sign",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 486,
+                      "referencedDeclaration": 483,
                       "src": "707:42:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$__$returns$__$",
                         "typeString": "function () external"
                       }
                     },
-                    "id": 400,
+                    "id": 397,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1560,24 +1560,24 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 401,
+                  "id": 398,
                   "nodeType": "ExpressionStatement",
                   "src": "707:44:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 403,
+            "id": 400,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": [],
-                "id": 375,
+                "id": 372,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 374,
+                  "id": 371,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
@@ -1595,15 +1595,15 @@
             "name": "signCertificate",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 373,
+              "id": 370,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 372,
+                  "id": 369,
                   "name": "certificateAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 403,
+                  "scope": 400,
                   "src": "500:26:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1612,7 +1612,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 371,
+                    "id": 368,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "500:7:8",
@@ -1629,19 +1629,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 376,
+              "id": 373,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "545:0:8"
             },
-            "scope": 404,
+            "scope": 401,
             "src": "475:283:8",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 405,
+        "scope": 402,
         "src": "226:534:8"
       }
     ],
@@ -1653,5 +1653,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-04-18T10:11:40.612Z"
+  "updatedAt": "2018-04-19T20:11:49.516Z"
 }

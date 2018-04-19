@@ -56,6 +56,13 @@ module.exports = {
     uninit: () => {
     },
 
+    // if nodeAddress is undefined, new node contract will be created
+    createBusinessClient: async (businessInfo) => {
+        let client = new BusinessClient(contracts, accounts[0], marketplace, factory, null, businessInfo);
+        await client.init();
+        return client;
+    },
+
     getBusinessClient: async businessAddress => {
         let client = new BusinessClient(contracts, accounts[0], marketplace, factory, businessAddress);
         await client.init();
@@ -64,7 +71,7 @@ module.exports = {
 
     // if nodeAddress is undefined, new node contract will be created
     createNodeClient: async (nodeInfo) => {
-        let client = new NodeClient(contracts, accounts[0], marketplace, factory, nodeAddress);
+        let client = new NodeClient(contracts, accounts[0], marketplace, factory, null, nodeInfo);
         await client.init();
         return client;
     },
@@ -81,7 +88,6 @@ module.exports = {
     },
 
     isNodeRegistered: async nodeAddress => {
-
     },
 
     getOwnerAddress: async address => {

@@ -30,7 +30,7 @@ contract NoiaRegistry {
         require(regulation.isContractValid(baseContract));
         entries[address(baseContract)] = 1;
         ++nEntries;
-        emit NoiaRegistryEntryAdded(this, address(baseContract));
+        emit NoiaRegistryEntryAdded(address(baseContract));
     }
 
     function hasEntry(address baseContract) public view returns (bool) {
@@ -42,6 +42,5 @@ contract NoiaRegistry {
     }
 
     event NoiaRegistryEntryAdded(
-        address indexed registry,
         address baseContract);
 }

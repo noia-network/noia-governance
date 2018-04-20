@@ -3,14 +3,12 @@
   "version": "0.0.1",
   "description": "NOIA network governance rules",
   "main": "sdk/index.js",
-  "directories": {
-    "test": "test"
-  },
   "devDependencies": {
     "ganache-cli": "^6.1.0",
     "should": "^13.2.1",
     "truffle": "^4.1.5",
-    "truffle-hdwallet-provider": "https://github.com/hellwolf/truffle-hdwallet-provider.git",
+    "truffle-hdwallet-provider": "https://github.com/noia-network/truffle-hdwallet-provider",
+    "web3": "^0.20.6",
     "webpack": "^4.5.0"
   },
   "dependencies": {

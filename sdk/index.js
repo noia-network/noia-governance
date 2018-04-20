@@ -15,35 +15,37 @@ const {
 } = require('../common/web3_utils.js');
 
 var contracts = {};
-var accounts;
+var owner;
 var noia;
+var factory;
 var tokenContract;
 var marketplace;
 var nodeRegistry;
 var businessRegistry;
-var factory;
 var web3;
 
 module.exports = {
-    init: async (provider, accounts_, noia_, factory_) => {
-        contracts.ERC223Interface = contract(require("./contracts/ERC223Interface.json"));
-        contracts.Owned = contract(require("./contracts/Owned.json"));
-        contracts.NoiaNetwork = contract(require("./contracts/NoiaNetwork.json"));
-        contracts.NoiaRegistry = contract(require("./contracts/NoiaRegistry.json"));
-        contracts.NoiaMarketplace = contract(require("./contracts/NoiaMarketplace.json"));
-        contracts.NoiaContractsFactory = contract(require("./contracts/NoiaContractsFactoryV1.json"));
-        contracts.NoiaNode = contract(require("./contracts/NoiaNodeV1.json"));
-        contracts.NoiaBusiness = contract(require("./contracts/NoiaBusinessV1.json"));
-        for (var i in contracts) contracts[i].setProvider(provider);
-
-        accounts = provider.addresses;
-
-        if (provider.addresses) {
-            accounts = provider.addresses;
+    init: async (provider_, owner_, noia_, factory_) => {
+        // initialize contracts
+        {
+            contracts.ERC223Interface = contract(require("./contracts/ERC223Interface.json"));
+            contracts.Owned = contract(require("./contracts/Owned.json"));
+            contracts.NoiaNetwork = contract(require("./contracts/NoiaNetwork.json"));
+            contracts.NoiaRegistry = contract(require("./contracts/NoiaRegistry.json"));
+            contracts.NoiaMarketplace = contract(require("./contracts/NoiaMarketplace.json"));
+            contracts.NoiaContractsFactory = contract(require("./contracts/NoiaContractsFactoryV1.json"));
+            contracts.NoiaNode = contract(require("./contracts/NoiaNodeV1.json"));
+            contracts.NoiaBusiness = contract(require("./contracts/NoiaBusinessV1.json"));
+            for (var i in contracts) contracts[i].setProvider(provider_);
         }
-        if (typeof accounts_ !== 'undefined') {
-            accounts = accounts_;
+
+        if (provider_.addresses) {
+            owner = provider_.addresses[0];
         }
+        if (typeof owner_ !== 'undefined') {
+            owner = owner_;
+        }
+
         if (typeof noia_ === 'undefined') {
             noia = await contracts.NoiaNetwork.deployed();
         } else {
@@ -68,27 +70,27 @@ module.exports = {
 
     // if nodeAddress is undefined, new node contract will be created
     createBusinessClient: async (businessInfo) => {
-        let client = new BusinessClient(contracts, accounts[0], marketplace, factory, null, businessInfo);
+        let client = new BusinessClient(contracts, owner, marketplace, factory, null, businessInfo);
         await client.init();
         return client;
     },
 
     getBusinessClient: async businessAddress => {
-        let client = new BusinessClient(contracts, accounts[0], marketplace, factory, businessAddress);
+        let client = new BusinessClient(contracts, owner, marketplace, factory, businessAddress);
         await client.init();
         return client;
     },
 
     // if nodeAddress is undefined, new node contract will be created
     createNodeClient: async (nodeInfo) => {
-        let client = new NodeClient(contracts, accounts[0], marketplace, factory, null, nodeInfo);
+        let client = new NodeClient(contracts, owner, marketplace, factory, null, nodeInfo);
         await client.init();
         return client;
     },
 
     // if nodeAddress is undefined, new node contract will be created
     getNodeClient: async (nodeAddress) => {
-        let client = new NodeClient(contracts, accounts[0], marketplace, factory, nodeAddress);
+        let client = new NodeClient(contracts, owner, marketplace, factory, nodeAddress);
         await client.init();
         return client;
     },

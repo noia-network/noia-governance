@@ -1,35 +1,36 @@
 'use strict';
 
+require('./test_common.js');
+
 const sdk = require('../../');
-const truffleConfig = require('../../truffle.js');
 
 const util = require('util');
-const Web3 = require('web3');
+const assert = require('assert');
 const should = require('should');
 
-contract('NOIA Governance SDK Test', (accounts) => {
+contract('NOIA Governance SDK tests: ', function (accounts) {
     const acc0 = accounts[0];
     const acc1 = accounts[1];
-    const provider = new Web3.providers.HttpProvider(`http://${truffleConfig.networks.local.host}:${truffleConfig.networks.local.port}`);
 
     var nodeClient;
     var businessClient;
 
     before(async () => {
-        let noia = await artifacts.require('NoiaNetwork').deployed();
-        let factory = await artifacts.require("NoiaContractsFactoryV1").deployed();
-        await sdk.init(provider, accounts, noia, factory);
-    })
+        let noia, factory;
+        if (typeof artifacts !== 'undefined') {
+            noia = await artifacts.require('NoiaNetwork').deployed();
+            factory = await artifacts.require("NoiaContractsFactoryV1").deployed();
+        }
+        await sdk.init(web3.currentProvider, acc0, noia, factory);
 
-    after(() => {
-        sdk.uninit();
-    })
-
-    beforeEach(async () => {
         nodeClient = await sdk.createNodeClient({host : '127.0.0.1'});
         console.log(`Node client created at ${nodeClient.address}`);
         businessClient = await sdk.createBusinessClient({/* business info missing */});
         console.log(`Business client created at ${businessClient.address}`);
+    })
+
+    after(() => {
+        sdk.uninit();
     })
 
     it('message signing & validation', async () => {
@@ -42,9 +43,10 @@ contract('NOIA Governance SDK Test', (accounts) => {
     })
 
     it('node registration event watching', async () => {
-        let latestSyncedBlock = await util.promisify(web3.eth.getBlockNumber)();
+        let latestSyncedBlock = (await util.promisify(web3.eth.getBlockNumber)()) - 1;
         console.log(`start watching node events from ${latestSyncedBlock}`);
-        businessClient.startWatchingNodeEvents(latestSyncedBlock, {
+        await businessClient.startWatchingNodeEvents({
+            fromBlock: latestSyncedBlock,
             pollingInterval: 500,
         });
         console.log('creating new node client');
@@ -52,8 +54,7 @@ contract('NOIA Governance SDK Test', (accounts) => {
         console.log(`Created new node client at ${nodeClient1.address}`);
         await new Promise(function (resolve, reject) {
             businessClient.on('node_entry_added', function (nodeAddress) {
-                assert.equal(nodeClient1.address, nodeAddress);
-                resolve();
+                if (nodeClient1.address == nodeAddress) resolve();
             });
         });
         businessClient.stopWatchingNodeEvents();

@@ -1,1 +1,1 @@
-require('./basic.js');
+require('./basic_testsuite.js');

@@ -11,14 +11,14 @@ const NoiaCertificate = artifacts.require('NoiaCertificateV1');
 const {
     setBeforeAllTimeout,
     setTestTimeout,
-    solAssertBytesEqual
 } = require('./test_common.js');
 
 const {
     isContract,
     getGasUsedForContractCreation,
     getGasUsedForTransaction,
-    waitEventsFromWatcher
+    waitEventsFromWatcher,
+    bytesToString
 } = require('../../common/web3_utils.js');
 
 const should = require('should');
@@ -93,8 +93,8 @@ contract('NOIA noia tests: ', function (accounts) {
         console.log(`Created at ${node0.address}, gas used ${await getGasUsedForTransaction(tx)}`);
 
         assert.isTrue(await nodeRegistry.hasEntry(node1.address));
-        solAssertBytesEqual('application/json', await node1.infoType.call());
-        solAssertBytesEqual('{"host":"test-node.noia.network"}', await node1.infoData.call());
+        assert.equal('application/json', bytesToString(await node1.infoType.call()));
+        assert.equal('{"host":"test-node.noia.network"}', bytesToString(await node1.infoData.call()));
         assert.equal(nentry + 1, (await nodeRegistry.count.call()).toNumber());
         let events = await waitEventsFromWatcher(eventWatcher, 1);
         assert.equal(1, events.length);
@@ -186,15 +186,15 @@ contract('NOIA noia tests: ', function (accounts) {
         assert.isTrue(await certificadte2.isInEffect.call());
         assert.equal(business0.address, await certificadte2.issuer.call());
         assert.equal(node0.address, await certificadte2.recipient.call());
-        solAssertBytesEqual("NODE_TEST_CERTIFICATE", await certificadte2.certificateName.call());
-        solAssertBytesEqual("application/json", await certificadte2.payloadType.call());
-        solAssertBytesEqual('{"field1":"lorem ipsum"}', await certificadte2.payloadData.call());
+        assert.equal("NODE_TEST_CERTIFICATE", bytesToString(await certificadte2.certificateName.call()));
+        assert.equal("application/json", bytesToString(await certificadte2.payloadType.call()));
+        assert.equal('{"field1":"lorem ipsum"}', bytesToString(await certificadte2.payloadData.call()));
 
-        assert.isTrue(isContract(certificate.address));
+        assert.isTrue(await isContract(certificate.address));
         console.log('Revoking certificate...');
         tx = await certificate.revoke({ gas: REVOKE_CERTIFICATE_GAS });
         console.log(`Certificate revoked, gas used ${getGasUsedForTransaction(tx)}`);
-        assert.isFalse(isContract(certificate.address));
+        assert.isFalse(await isContract(certificate.address));
 
         let certsRevokedEvents = await waitEventsFromWatcher(certsRevokedEventWatcher, 1);
         assert.equal(1, certsRevokedEvents.length);

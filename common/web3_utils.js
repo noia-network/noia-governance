@@ -5,8 +5,14 @@ const util = require('util');
 const ethutils = require('ethereumjs-util');
 
 module.exports = {
-    isContract: address => {
-        return '0x0' !== web3.eth.getCode(address)
+    isContract: async address => {
+        let code = await new Promise(function (resolve, reject) {
+            web3.eth.getCode(address, (error, result) => {
+                if (error) reject(error);
+                else resolve(result);
+            });
+        });
+        return '0x0' !== code;
     },
 
     getGasUsedForTransaction: tx => {
@@ -40,9 +46,22 @@ module.exports = {
         });
     },
 
+    bytesToString: function (bytes, encoding_) {
+        let encoding = encoding_ || 'utf8';
+        if (bytes.startsWith('0x')) bytes = bytes.slice(2);
+        let result = new Buffer(bytes, 'hex').toString(encoding);
+        result = result.replace(/\0*$/, '');
+        return result;
+    },
+
     signMessage : async (web3, acc, msg) => {
         const msgBuf = new Buffer(msg);
-        return await web3.eth.sign(acc, '0x' + msgBuf.toString('hex'));
+        return await new Promise(function (resolve, reject) {
+            web3.eth.sign(acc, '0x' + msgBuf.toString('hex'), function (error, result) {
+                if (error) reject(error);
+                else resolve(result);
+            });
+        });
     },
 
     recoverAddressFromSignedMessage: (web3, msg, sgn) => {

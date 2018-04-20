@@ -1,3 +1,4 @@
+const Web3 = require('web3');
 const path = require('path');
 const config = require('./config.js');
 
@@ -6,8 +7,7 @@ module.exports = {
     // to customize your Truffle configuration!
     networks: Object.assign({
         local: {
-            host: "127.0.0.1",
-            port: 7545,
+            provider: () => new Web3.providers.HttpProvider('http://127.0.0.1:7545'),
             network_id: "*" // Match any network id
         }
     }, config.networks),

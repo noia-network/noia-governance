@@ -11,7 +11,8 @@ const {
     getGasUsedForContractCreation,
     getGasUsedForTransaction,
     waitEventsFromWatcher,
-    signMessage
+    signMessage,
+    bytesToString
 } = require('../common/web3_utils.js');
 
 inherits(NodeClient, EventEmitter)
@@ -28,17 +29,30 @@ function NodeClient(contracts, owner, marketplace, factory, address, nodeInfo) {
 NodeClient.prototype.init = async function () {
     this.nodeRegistry = this.contracts.NoiaRegistry.at(await this.marketplace.nodeRegistry.call());
     if (this.address) {
-        if (await nodeRegistry.hasEntry.call(this.address)) {
-            this.contract = await NoiaNode.at(this.address);
+        if (await this.nodeRegistry.hasEntry.call(this.address)) {
+            this.contract = await this.contracts.NoiaNode.at(this.address);
         } else {
             throw Error(`Node does not exist at ${this.address}`);
         }
     } else {
         console.log(`Creating new node...`);
         let tx = await this.factory.createNode('application/json', JSON.stringify(this.info), { from: this.owner, gas: NEW_NODE_GAS });
-        this.contract = this.contracts.NoiaNode.at(tx.logs[0].args.nodeAddress);
-        this.address = this.contract.address;
-        console.log(`Node created at ${this.contract.address}, gas used ${getGasUsedForTransaction(tx)}`);
+        this.address = tx.logs[0].args.nodeAddress;
+        console.log(`Node created at ${this.address}@${tx.receipt.blockNumber}, gas used ${getGasUsedForTransaction(tx)}`);
+        this.contract = await this.contracts.NoiaNode.at(this.address);
+    }
+}
+
+NodeClient.prototype.getInfo = async function (msg) {
+    let type = bytesToString(await this.contract.infoType.call());
+    let data = bytesToString(await this.contract.infoData.call());
+    if (type == 'application/json') {
+        return JSON.parse(data);
+    } else {
+        return {
+            type: type,
+            data: data
+        }
     }
 }
 

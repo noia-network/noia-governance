@@ -36,8 +36,14 @@ module.exports = {
         contracts.NoiaBusiness = contract(require("./contracts/NoiaBusinessV1.json"));
         for (var i in contracts) contracts[i].setProvider(provider);
 
-        accounts = accounts_;
+        accounts = provider.addresses;
 
+        if (provider.addresses) {
+            accounts = provider.addresses;
+        }
+        if (typeof accounts_ !== 'undefined') {
+            accounts = accounts_;
+        }
         if (typeof noia_ === 'undefined') {
             noia = await contracts.NoiaNetwork.deployed();
         } else {

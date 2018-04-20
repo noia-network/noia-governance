@@ -35,7 +35,7 @@ NodeClient.prototype.init = async function () {
         }
     } else {
         console.log(`Creating new node...`);
-        let tx = await this.factory.createNode('application/json', JSON.stringify(this.info), { gas: NEW_NODE_GAS });
+        let tx = await this.factory.createNode('application/json', JSON.stringify(this.info), { from: this.owner, gas: NEW_NODE_GAS });
         this.contract = this.contracts.NoiaNode.at(tx.logs[0].args.nodeAddress);
         this.address = this.contract.address;
         console.log(`Node created at ${this.contract.address}, gas used ${getGasUsedForTransaction(tx)}`);

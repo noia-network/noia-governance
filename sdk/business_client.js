@@ -37,7 +37,7 @@ BusinessClient.prototype.init = async function () {
         }
     } else {
         console.log(`Creating new business...`);
-        let tx = await this.factory.createBusiness({ gas: NEW_BUSINESS_GAS });
+        let tx = await this.factory.createBusiness({ from: this.owner, gas: NEW_BUSINESS_GAS });
         this.contract = this.contracts.NoiaBusiness.at(tx.logs[0].args.businessAddress);
         this.address = this.contract.address;
         console.log(`Business created at ${this.contract.address}, gas used ${getGasUsedForTransaction(tx)}`);
@@ -55,10 +55,10 @@ BusinessClient.prototype.startWatchingNodeEvents = function (latestSyncedBlock_,
         };
         let that = this;
         async function pollEvents () {
-            console.log('pollEvents');
+            //console.debug('pollEvents');
             // FIXME setInterval doesn't await for async function
             let latestBlock = await util.promisify(that.web3.eth.getBlockNumber)();
-            console.log(`pollEvents latestBlock ${latestBlock}`);
+            //console.debug(`pollEvents latestBlock ${latestBlock}`);
             let filter = that.nodeRegistry.NoiaRegistryEntryAdded({}, {
                 fromBlock: handler.latestSyncedBlock,
                 toBlock: latestBlock,

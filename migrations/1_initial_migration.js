@@ -39,7 +39,7 @@ module.exports = function (deployer, network, accounts) {
         let tokenContract;
         let regulation;
         if (isTestNetwork(network)) {
-            if (network === "ropsten") {
+            if (network == "ropsten") {
                 // https://ropsten.etherscan.io/token/0xdfcec63cb1438f25e4795f7240032b95bcfc38a9#balances
                 tokenContract = await NOIATestToken.at('0xdfcec63cb1438f25e4795f7240032b95bcfc38a9');
             } else {
@@ -49,16 +49,18 @@ module.exports = function (deployer, network, accounts) {
                 console.log(`NOIATestToken deployed at ${tokenContract.address}, gasUsed ${await getGasUsedForContractCreation(tokenContract)}`);
             }
 
-            console.log(`Creating tokens for ${accounts.length} accounts`);
-            await asyncForEach(accounts, async account => {
-                console.log(`Creating 100000 token for account ${account} ...`);
-                let tx = await tokenContract.createTokens(account, 100000, { gas: 100000 });
-                console.log(`Done, gasUsed ${getGasUsedForTransaction(tx)}`);
-            });
+            if (network != "ropsten") {
+                console.log(`Creating tokens for ${accounts.length} accounts`);
+                await asyncForEach(accounts, async account => {
+                    console.log(`Creating 100000 token for account ${account} ...`);
+                    let tx = await tokenContract.createTokens(account, 100000, { gas: 100000 });
+                    console.log(`Done, gasUsed ${getGasUsedForTransaction(tx)}`);
+                });
 
-            console.log(`Transfering 1000 token from account0 to account1 ...`);
-            tx = await tokenContract.transfer(accounts[1], 1000, { from: accounts[0], gas: 100000 });
-            console.log(`Done, gasUsed ${getGasUsedForTransaction(tx)}`);
+                console.log(`Transfering 1000 token from account0 to account1 ...`);
+                tx = await tokenContract.transfer(accounts[1], 1000, { from: accounts[0], gas: 100000 });
+                console.log(`Done, gasUsed ${getGasUsedForTransaction(tx)}`);
+            }
 
             console.log(`Creating NoiaSimpleRegulation contract...`);
             regulation = await NoiaSimpleRegulation.new({ gas: 500000 });

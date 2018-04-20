@@ -39,12 +39,12 @@ module.exports = {
         accounts = accounts_;
 
         if (typeof noia_ === 'undefined') {
-            noia = await NoiaNetwork.deployed();
+            noia = await contracts.NoiaNetwork.deployed();
         } else {
             noia = noia_;
         }
         if (typeof factory_ === 'undefined') {
-            factory = await NoiaContractsFactory.deployed();
+            factory = await contracts.NoiaContractsFactory.deployed();
         } else {
             factory = factory_;
         }

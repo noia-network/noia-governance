@@ -19,6 +19,8 @@ var accounts;
 var noia;
 var tokenContract;
 var marketplace;
+var nodeRegistry;
+var businessRegistry;
 var factory;
 var web3;
 
@@ -48,7 +50,9 @@ module.exports = {
         }
 
         tokenContract = contracts.ERC223Interface.at(await noia.tokenContract.call());
-        marketplace = contracts.NoiaMarketplace.at(await noia.marketplace());
+        marketplace = contracts.NoiaMarketplace.at(await noia.marketplace.call());
+        nodeRegistry = contracts.NoiaRegistry.at(await marketplace.nodeRegistry.call());
+        businessRegistry = contracts.NoiaRegistry.at(await marketplace.businessRegistry.call());
 
         web3 = marketplace.constructor.web3;
     },
@@ -83,11 +87,12 @@ module.exports = {
         return client;
     },
 
-    isBusinessRegistered: async nodeAddress => {
-
+    isBusinessRegistered: async businessAddress => {
+        return await businessRegistry.hasEntry.call(businessAddress);
     },
 
     isNodeRegistered: async nodeAddress => {
+        return await nodeRegistry.hasEntry.call(nodeAddress);
     },
 
     getOwnerAddress: async address => {

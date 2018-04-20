@@ -20,8 +20,8 @@ contract NoiaContractsFactoryV1 {
 
     event NoiaBusinessCreatedV1(address businessAddress);
 
-    function createNode() public {
-        NoiaNodeV1 node = new NoiaNodeV1(marketplace, this);
+    function createNode(bytes32 infoType, bytes infoData) public {
+        NoiaNodeV1 node = new NoiaNodeV1(marketplace, this, infoType, infoData);
         node.changeOwner(msg.sender);
         marketplace.nodeRegistry().addEntry(node);
         emit NoiaNodeCreatedV1(address(node));

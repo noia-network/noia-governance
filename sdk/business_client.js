@@ -30,7 +30,7 @@ BusinessClient.prototype.init = async function () {
     this.businessRegistry = this.contracts.NoiaRegistry.at(await this.marketplace.businessRegistry.call());
     this.nodeRegistry = this.contracts.NoiaRegistry.at(await this.marketplace.nodeRegistry.call());
     if (this.address) {
-        if (businessRegistry.hasEntry.call(this.address)) {
+        if (await businessRegistry.hasEntry.call(this.address)) {
             this.contract = await NoiaBusiness.at(this.address);
         } else {
             throw Error(`Business does not exist at ${this.address}`);

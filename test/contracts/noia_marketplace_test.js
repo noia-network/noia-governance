@@ -24,7 +24,7 @@ const {
 const should = require('should');
 
 contract('NOIA noia tests: ', function (accounts) {
-    const NEW_NODE_GAS                      = 700000;
+    const NEW_NODE_GAS                      = 1000000;
     const REGISTER_NODE_GAS                 = 100000;
     const NEW_BUSINESS_GAS                  = 1200000;
     const REGISTER_BUSINESS_GAS             = 200000;
@@ -60,7 +60,7 @@ contract('NOIA noia tests: ', function (accounts) {
         let tx;
 
         console.log('Creating node0...');
-        tx = await factory.createNode({ gas: NEW_NODE_GAS });
+        tx = await factory.createNode('application/json', '{"host": "127.0.0.1"}', { gas: NEW_NODE_GAS });
         node0 = NoiaNode.at(tx.logs[0].args.nodeAddress);
         console.log(`Created at ${node0.address}, gas used ${await getGasUsedForTransaction(tx)}`);
 
@@ -88,11 +88,13 @@ contract('NOIA noia tests: ', function (accounts) {
 
         let nentry = (await nodeRegistry.count.call()).toNumber();
         console.log('Creating node1...');
-        tx = await factory.createNode({ gas: NEW_NODE_GAS });
+        tx = await factory.createNode('application/json', '{"host":"test-node.noia.network"}', { gas: NEW_NODE_GAS });
         let node1 = NoiaNode.at(tx.logs[0].args.nodeAddress);
         console.log(`Created at ${node0.address}, gas used ${await getGasUsedForTransaction(tx)}`);
 
         assert.isTrue(await nodeRegistry.hasEntry(node1.address));
+        solAssertBytesEqual('application/json', await node1.infoType.call());
+        solAssertBytesEqual('{"host":"test-node.noia.network"}', await node1.infoData.call());
         assert.equal(nentry + 1, (await nodeRegistry.count.call()).toNumber());
         let events = await waitEventsFromWatcher(eventWatcher, 1);
         assert.equal(1, events.length);

@@ -39,10 +39,15 @@ module.exports = function (deployer, network, accounts) {
         let tokenContract;
         let regulation;
         if (isTestNetwork(network)) {
-            // test token
-            console.log(`Creating NOIATestToken contract...`);
-            tokenContract = await NOIATestToken.new({ gas: 1000000 });
-            console.log(`NOIATestToken deployed at ${tokenContract.address}, gasUsed ${await getGasUsedForContractCreation(tokenContract)}`);
+            if (network === "ropsten") {
+                // https://ropsten.etherscan.io/token/0xdfcec63cb1438f25e4795f7240032b95bcfc38a9#balances
+                tokenContract = await NOIATestToken.at('0xdfcec63cb1438f25e4795f7240032b95bcfc38a9');
+            } else {
+                // create new test token contracts for local/dev networks
+                console.log(`Creating NOIATestToken contract...`);
+                tokenContract = await NOIATestToken.new({ gas: 1000000 });
+                console.log(`NOIATestToken deployed at ${tokenContract.address}, gasUsed ${await getGasUsedForContractCreation(tokenContract)}`);
+            }
 
             console.log(`Creating tokens for ${accounts.length} accounts`);
             await asyncForEach(accounts, async account => {

@@ -26,13 +26,13 @@ contract('NOIA Governance SDK Test', (accounts) => {
     })
 
     beforeEach(async () => {
-        nodeClient = await sdk.createNodeClient({/* node info missing */});
+        nodeClient = await sdk.createNodeClient({host : '127.0.0.1'});
         console.log(`Node client created at ${nodeClient.address}`);
         businessClient = await sdk.createBusinessClient({/* business info missing */});
         console.log(`Business client created at ${businessClient.address}`);
     })
 
-    it('Test message signing', async () => {
+    it('message signing & validation', async () => {
         let msg = "good weather in vilnius";
         let sgn = await businessClient.signMessage(msg);
         console.log(`signed: ${sgn} by business at ${businessClient.address}`);
@@ -41,14 +41,14 @@ contract('NOIA Governance SDK Test', (accounts) => {
         assert.equal(ownerAddress, sdk.recoverAddressFromSignedMessage(msg, sgn));
     })
 
-    it.only('Test node event watching', async () => {
+    it('node registration event watching', async () => {
         let latestSyncedBlock = await util.promisify(web3.eth.getBlockNumber)();
         console.log(`start watching node events from ${latestSyncedBlock}`);
         businessClient.startWatchingNodeEvents(latestSyncedBlock, {
             pollingInterval: 500,
         });
         console.log('creating new node client');
-        let nodeClient1 = await sdk.createNodeClient({/* node info missing */});
+        let nodeClient1 = await sdk.createNodeClient({host : '127.0.0.1'});
         console.log(`Created new node client at ${nodeClient1.address}`);
         await new Promise(function (resolve, reject) {
             businessClient.on('node_entry_added', function (nodeAddress) {

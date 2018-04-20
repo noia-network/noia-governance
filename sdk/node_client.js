@@ -4,7 +4,7 @@ const EventEmitter = require('events').EventEmitter
 const inherits = require('util').inherits;
 const contract = require("truffle-contract");
 
-const NEW_NODE_GAS                      = 700000;
+const NEW_NODE_GAS                      = 1000000;
 
 const {
     isContract,
@@ -15,26 +15,27 @@ const {
 } = require('../common/web3_utils.js');
 
 inherits(NodeClient, EventEmitter)
-function NodeClient(contracts, owner, marketplace, factory, address) {
+function NodeClient(contracts, owner, marketplace, factory, address, nodeInfo) {
     this.contracts = contracts;
     this.owner = owner;
     this.marketplace = marketplace;
     this.factory = factory;
     this.address = address;
+    this.info = nodeInfo;
     this.web3 = this.marketplace.constructor.web3;
 };
 
 NodeClient.prototype.init = async function () {
     this.nodeRegistry = this.contracts.NoiaRegistry.at(await this.marketplace.nodeRegistry.call());
     if (this.address) {
-        if (nodeRegistry.hasEntry.call(this.address)) {
+        if (await nodeRegistry.hasEntry.call(this.address)) {
             this.contract = await NoiaNode.at(this.address);
         } else {
             throw Error(`Node does not exist at ${this.address}`);
         }
     } else {
         console.log(`Creating new node...`);
-        let tx = await this.factory.createNode({ gas: NEW_NODE_GAS });
+        let tx = await this.factory.createNode('application/json', JSON.stringify(this.info), { gas: NEW_NODE_GAS });
         this.contract = this.contracts.NoiaNode.at(tx.logs[0].args.nodeAddress);
         this.address = this.contract.address;
         console.log(`Node created at ${this.contract.address}, gas used ${getGasUsedForTransaction(tx)}`);

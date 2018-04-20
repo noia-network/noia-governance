@@ -14,9 +14,25 @@ contract NoiaNodeV1 is NoiaBaseContractV1 {
     address[] certificates;
     uint public certificatesCount;
 
-    function NoiaNodeV1(NoiaMarketplace marketplace_, address factory)
+    bytes32 public infoType;
+    bytes public infoData;
+
+    function NoiaNodeV1(
+        NoiaMarketplace marketplace_,
+        address factory,
+        bytes32 infoType_, bytes infoData_)
         NoiaBaseContractV1(factory) public {
         marketplace = marketplace_;
+        infoType = infoType_;
+        infoData = infoData_;
+    }
+
+    //
+    // Node Info
+    //
+    function setInfo(bytes32 infoType_, bytes infoData_) public {
+        infoType = infoType_;
+        infoData = infoData_;
     }
 
     //

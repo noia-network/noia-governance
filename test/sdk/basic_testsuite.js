@@ -43,19 +43,22 @@ contract('NOIA Governance SDK tests: ', function (accounts) {
     })
 
     it('node registration event watching', async () => {
-        let latestSyncedBlock = (await util.promisify(web3.eth.getBlockNumber)()) - 1;
-        console.log(`start watching node events from ${latestSyncedBlock}`);
+        console.log(`start watching node events`);
         await businessClient.startWatchingNodeEvents({
-            fromBlock: latestSyncedBlock,
-            pollingInterval: 500,
+            pollingInterval: 1000 // faster!!
         });
-        console.log('creating new node client');
-        let nodeClient1 = await sdk.createNodeClient({host : '127.0.0.1'});
-        console.log(`Created new node client at ${nodeClient1.address}`);
-        await new Promise(function (resolve, reject) {
+        let nodeAddresses = {};
+        await new Promise(async function (resolve, reject) {
+            let nodeClient1;
             businessClient.on('node_entry_added', function (nodeAddress) {
-                if (nodeClient1.address == nodeAddress) resolve();
+                console.log('node_entry_added', nodeAddress);
+                nodeAddresses[nodeAddress] = true;
+                if (nodeClient1 && nodeClient1.address in nodeAddresses) resolve();
             });
+            console.log('creating new node client');
+            nodeClient1 = await sdk.createNodeClient({host : '127.0.0.1'});
+            console.log(`Created new node client at ${nodeClient1.address}`);
+            if (nodeClient1.address in nodeAddresses) resolve();
         });
         businessClient.stopWatchingNodeEvents();
     })

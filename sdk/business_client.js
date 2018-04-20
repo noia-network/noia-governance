@@ -5,6 +5,8 @@ const EventEmitter = require('events').EventEmitter
 const inherits = require('util').inherits;
 const contract = require("truffle-contract");
 
+const LOGS_NUM_BLOCKS_TO_WATCH = 1;
+
 const NEW_BUSINESS_GAS                  = 1200000;
 
 const {
@@ -46,14 +48,14 @@ BusinessClient.prototype.init = async function () {
 
 BusinessClient.prototype.startWatchingNodeEvents = async function (options_) {
     let options = options_ || {};
-    let fromBlock = options.fromBlock || (await util.promisify(this.web3.eth.getBlockNumber)() - 1);
+    let fromBlock = options.fromBlock || await util.promisify(this.web3.eth.getBlockNumber)();
     let pollingInterval = options.pollingInterval || 5000;
     // currently using polling
     // TODO: support pubusb if websocket provider is used
     if (!this.watchingNodeEventsHandler) {
         let handler = this.watchingNodeEventsHandler = {
             polling: false,
-            latestSyncedBlock: fromBlock,
+            latestSyncedBlock: fromBlock - LOGS_NUM_BLOCKS_TO_WATCH,
             receivedLogs: { /* blocknumber : [] */}
         };
         let that = this;
@@ -62,7 +64,7 @@ BusinessClient.prototype.startWatchingNodeEvents = async function (options_) {
             handler.polling = true;
             try {
                 //console.debug('pollEvents');
-                let latestBlock = (await util.promisify(that.web3.eth.getBlockNumber)()) - 1;
+                let latestBlock = await util.promisify(that.web3.eth.getBlockNumber)();
                 //console.debug(`pollEvents latestBlock ${handler.latestSyncedBlock} -> ${latestBlock}`);
                 let filter = that.nodeRegistry.NoiaRegistryEntryAdded({}, {
                     fromBlock: handler.latestSyncedBlock,
@@ -84,12 +86,12 @@ BusinessClient.prototype.startWatchingNodeEvents = async function (options_) {
                     }
                 });
 
-                // one block before current block is fully synced
-                if (latestBlock - 1 > handler.latestSyncedBlock) {
-                    handler.latestSyncedBlock = latestBlock - 1;
+                // LOGS_NUM_BLOCKS_TO_WATCH block before current block is fully synced
+                if (latestBlock - LOGS_NUM_BLOCKS_TO_WATCH > handler.latestSyncedBlock) {
+                    handler.latestSyncedBlock = latestBlock - LOGS_NUM_BLOCKS_TO_WATCH;
                     // cleanup saved old blocks logs
                     for (let b in handler.receivedLogs) {
-                        if (b < latestBlock - 1) {
+                        if (b < latestBlock - LOGS_NUM_BLOCKS_TO_WATCH) {
                             delete handler.receivedLogs[b];
                         }
                     }

@@ -54,7 +54,7 @@ module.exports = {
         return result;
     },
 
-    signMessage : async (web3, acc, msg) => {
+    rpcSignMessage : async (web3, msg, acc) => {
         const msgBuf = new Buffer(msg);
         return await new Promise(function (resolve, reject) {
             web3.eth.sign(acc, '0x' + msgBuf.toString('hex'), function (error, result) {
@@ -64,7 +64,7 @@ module.exports = {
         });
     },
 
-    recoverAddressFromSignedMessage: (web3, msg, sgn) => {
+    recoverAddressFromRpcSignedMessage: (msg, sgn) => {
         const msgBuf = new Buffer(msg);
         const prefix = new Buffer("\x19Ethereum Signed Message:\n");
         const prefixedMsg = ethutils.sha3(
@@ -72,6 +72,25 @@ module.exports = {
         );
         const signature = ethutils.fromRpcSig(sgn);
         const pub = ethutils.ecrecover(prefixedMsg, signature.v, signature.r, signature.s);
+        const addr = '0x' + ethutils.pubToAddress(pub).toString('hex');
+        return addr;
+    },
+
+    signMessage : (msg, privateKey) => {
+        const msgBuf = new Buffer(msg);
+        const msgHash = ethutils.sha3(msgBuf);
+        const sig = ethutils.ecsign(msgHash, privateKey);
+        sig.r = ethutils.bufferToHex(sig.r).slice(2);
+        sig.s = ethutils.bufferToHex(sig.s).slice(2);
+        return sig;
+    },
+
+    recoverAddressFromSignedMessage: (msg, sig) => {
+        const msgBuf = new Buffer(msg);
+        const msgHash = ethutils.sha3(msgBuf);
+        sig.r = new Buffer(sig.r, 'hex');
+        sig.s = new Buffer(sig.s, 'hex');
+        const pub = ethutils.ecrecover(msgHash, sig.v, sig.r, sig.s);
         const addr = '0x' + ethutils.pubToAddress(pub).toString('hex');
         return addr;
     }

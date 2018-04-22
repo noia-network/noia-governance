@@ -14,7 +14,7 @@ const {
     getGasUsedForContractCreation,
     getGasUsedForTransaction,
     waitEventsFromWatcher,
-    signMessage
+    rpcSignMessage,
 } = require('../common/web3_utils.js');
 
 inherits(BusinessClient, EventEmitter)
@@ -121,7 +121,7 @@ BusinessClient.prototype.stopWatchingNodeEvents = function () {
  * use this message when you want to prove your ownership of the node contract
  */
 BusinessClient.prototype.signMessage = async function (msg) {
-    return await signMessage(this.web3, this.owner, msg);
+    return await rpcSignMessage(this.web3, msg, this.owner);
 }
 
 // Emitting Events:

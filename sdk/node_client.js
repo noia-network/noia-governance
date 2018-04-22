@@ -11,7 +11,7 @@ const {
     getGasUsedForContractCreation,
     getGasUsedForTransaction,
     waitEventsFromWatcher,
-    signMessage,
+    rpcSignMessage,
     bytesToString
 } = require('../common/web3_utils.js');
 
@@ -60,7 +60,7 @@ NodeClient.prototype.getInfo = async function (msg) {
  * use this message when you want to prove your ownership of the node contract
  */
 NodeClient.prototype.signMessage = async function (msg) {
-    return await signMessage(web3, this.owner, msg);
+    return await rpcSignMessage(this.web3, msg, this.owner);
 }
 
 // events

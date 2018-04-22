@@ -10,8 +10,7 @@ const {
     getGasUsedForContractCreation,
     getGasUsedForTransaction,
     waitEventsFromWatcher,
-    singMessage,
-    recoverAddressFromSignedMessage
+    recoverAddressFromRpcSignedMessage,
 } = require('../common/web3_utils.js');
 
 var contracts = {};
@@ -108,8 +107,8 @@ module.exports = {
         return await owned.owner();
     },
 
-    recoverAddressFromSignedMessage: (msg, sgn) => {
-        return recoverAddressFromSignedMessage(web3, msg, sgn);
+    recoverAddressFromRpcSignedMessage: (msg, sgn) => {
+        return recoverAddressFromRpcSignedMessage(msg, sgn);
     },
 
     balanceOf: async owner => {

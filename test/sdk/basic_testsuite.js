@@ -5,7 +5,7 @@ require('./test_common.js');
 const sdk = require('../../');
 
 const util = require('util');
-const assert = require('assert');
+const assert = require('chai').assert;
 const should = require('should');
 
 contract('NOIA Governance SDK tests: ', function (accounts) {
@@ -33,13 +33,13 @@ contract('NOIA Governance SDK tests: ', function (accounts) {
         sdk.uninit();
     })
 
-    it('message signing & validation', async () => {
+    it('rpc message signing & validation', async () => {
         let msg = "good weather in vilnius";
         let sgn = await businessClient.signMessage(msg);
         console.log(`signed: ${sgn} by business at ${businessClient.address}`);
         let ownerAddress = await sdk.getOwnerAddress(businessClient.address);
         console.log(`owner: ${ownerAddress}`);
-        assert.equal(ownerAddress, sdk.recoverAddressFromSignedMessage(msg, sgn));
+        assert.equal(ownerAddress, sdk.recoverAddressFromRpcSignedMessage(msg, sgn));
     })
 
     it('node registration event watching', async () => {

@@ -32,16 +32,16 @@ contract('Common utils tests: ', function (accounts) {
     it('isContract function', async () => {
         assert.isFalse(await isContract(acc0));
         console.log('Creating a test contract...');
-        let contract = await TestContract.new({ from : acc0 });
-        console.log(`Test contract created at ${contract.address}, gas used ${getGasUsedForContractCreation(contract)}`);
-        assert.isTrue(await isContract(contract.address));
+        let testContract = await TestContract.new({ from : acc0, gas: 300000 });
+        console.log(`Test contract created at ${testContract.address}, gas used ${await getGasUsedForContractCreation(testContract)}`);
+        assert.isTrue(await isContract(testContract.address));
     })
 
     it('getGasUsedForTransaction function', async () => {
         console.log('Creating a test contract...');
-        let contract = await TestContract.new({ from : acc0 });
-        console.log(`Test contract created at ${contract.address}, gas used ${getGasUsedForContractCreation(contract)}`);
-        let tx = await contract.changeOwner(acc1, { from: acc0 });
+        let testContract = await TestContract.new({ from : acc0, gas: 300000 });
+        console.log(`Test contract created at ${testContract.address}, gas used ${await getGasUsedForContractCreation(testContract)}`);
+        let tx = await testContract.changeOwner(acc1, { from: acc0, gas: 100000 });
         assert.isTrue(getGasUsedForTransaction(tx) > 0);
     })
 

@@ -12,7 +12,7 @@ module.exports = {
                 else resolve(result);
             });
         });
-        return '0x0' !== code;
+        return '0x0' !== code && '0x' !== code && '' !== code;
     },
 
     getGasUsedForTransaction: tx => {

@@ -96,6 +96,10 @@ module.exports = {
         return client;
     },
 
+    isAddress: address => {
+        return web3.isAddress(address);
+    },
+
     isBusinessRegistered: async businessAddress => {
         return await businessRegistry.hasEntry.call(businessAddress);
     },

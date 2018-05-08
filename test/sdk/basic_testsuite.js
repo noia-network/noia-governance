@@ -44,6 +44,7 @@ contract('NOIA Governance SDK tests: ', function (accounts) {
 
     it('business client registration', async () => {
         let businessClient1 = await sdk.createBusinessClient({/* business info missing */});
+        assert.isTrue(sdk.isAddress(businessClient1.address));
         assert.isTrue(await sdk.isBusinessRegistered(businessClient1.address));
         console.log(`Business client 1 created at ${businessClient1.address}`);
     })

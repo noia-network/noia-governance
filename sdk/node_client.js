@@ -1,8 +1,7 @@
 'use strict';
 
-const EventEmitter = require('events').EventEmitter
+const BaseClient = require('./base_client');
 const inherits = require('util').inherits;
-const contract = require("truffle-contract");
 
 const NEW_NODE_GAS                      = 1000000;
 
@@ -11,36 +10,49 @@ const {
     getGasUsedForContractCreation,
     getGasUsedForTransaction,
     waitEventsFromWatcher,
+    signMessage,
     rpcSignMessage,
     bytesToString
 } = require('../common/web3_utils.js');
 
-inherits(NodeClient, EventEmitter)
-function NodeClient(contracts, owner, marketplace, factory, address, nodeInfo) {
-    this.contracts = contracts;
-    this.owner = owner;
-    this.marketplace = marketplace;
-    this.factory = factory;
-    this.address = address;
-    this.info = nodeInfo;
-    this.web3 = this.marketplace.constructor.web3;
-};
+inherits(NodeClient, BaseClient)
+function NodeClient(options) {
+    let self = this;
+    return new Promise(async function (resolve, reject) { try {
+        await BaseClient.call(self, options);
+        self.address = options.at;
+        if (self.address) {
+            if (await self.nodeRegistry.hasEntry.call(self.address)) {
+                self.contract = await self.contracts.NoiaNode.at(self.address);
+            } else {
+                throw Error(`Node does not exist at ${self.address}`);
+            }
 
-NodeClient.prototype.init = async function () {
-    this.nodeRegistry = this.contracts.NoiaRegistry.at(await this.marketplace.nodeRegistry.call());
-    if (this.address) {
-        if (await this.nodeRegistry.hasEntry.call(this.address)) {
-            this.contract = await this.contracts.NoiaNode.at(this.address);
+            // load info
+            let infoType = bytesToString(await self.contract.infoType.call());
+            self.info = bytesToString(await self.contract.infoData.call());
+            if (infoType == 'application/json') {
+                try {
+                    self.info = JSON.parse(self.info);
+                } catch (error) {
+                    logger.info(`Parse node @${self.contract.address} json info failed`, self.info);
+                }
+            }
         } else {
-            throw Error(`Node does not exist at ${this.address}`);
+            self.info = options.info;
+            if (typeof self.info !== 'object') {
+                throw new Error('options.info has to be an object');
+            }
+            self.logger.info(`Creating new node...`, self.info);
+            let tx = await self.factories.node.create('application/json', JSON.stringify(self.info), { from: self.owner, gas: NEW_NODE_GAS });
+            self.address = tx.logs[0].args.contractInstance;
+            self.logger.info(`Node created at ${self.address}@${tx.receipt.blockNumber}, gas used ${getGasUsedForTransaction(tx)}`);
+            self.contract = await self.contracts.NoiaNode.at(self.address);
         }
-    } else {
-        console.log(`Creating new node...`);
-        let tx = await this.factory.createNode('application/json', JSON.stringify(this.info), { from: this.owner, gas: NEW_NODE_GAS });
-        this.address = tx.logs[0].args.nodeAddress;
-        console.log(`Node created at ${this.address}@${tx.receipt.blockNumber}, gas used ${getGasUsedForTransaction(tx)}`);
-        this.contract = await this.contracts.NoiaNode.at(this.address);
-    }
+        resolve(self);
+    } catch (error) {
+        reject(error);
+    }});
 }
 
 NodeClient.prototype.getInfo = async function (msg) {
@@ -55,19 +67,5 @@ NodeClient.prototype.getInfo = async function (msg) {
         }
     }
 }
-
-/**
- * use this message when you want to prove your ownership of the node contract
- */
-NodeClient.prototype.signMessage = async function (msg) {
-    return await rpcSignMessage(this.web3, msg, this.owner);
-}
-
-// events
-//   - certificate_contract_received
-//   - certificate_contract_updated
-//   - certificate_contract_revoked
-//   - work_contract_received
-//   - work_contract_signed
 
 module.exports = NodeClient;

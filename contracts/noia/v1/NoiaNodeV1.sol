@@ -1,6 +1,5 @@
 pragma solidity ^0.4.11;
 
-import '../gov/NoiaMarketplace.sol';
 import './NoiaBaseContractV1.sol';
 import './NoiaCertificateV1.sol';
 
@@ -9,8 +8,6 @@ import './NoiaCertificateV1.sol';
  *
  */
 contract NoiaNodeV1 is NoiaBaseContractV1 {
-    NoiaMarketplace marketplace;
-
     address[] certificates;
     uint public certificatesCount;
 
@@ -18,11 +15,10 @@ contract NoiaNodeV1 is NoiaBaseContractV1 {
     bytes public infoData;
 
     function NoiaNodeV1(
-        NoiaMarketplace marketplace_,
         address factory,
+        NoiaMarketplace marketplace,
         bytes32 infoType_, bytes infoData_)
-        NoiaBaseContractV1(factory) public {
-        marketplace = marketplace_;
+        NoiaBaseContractV1(factory, marketplace) public {
         infoType = infoType_;
         infoData = infoData_;
     }

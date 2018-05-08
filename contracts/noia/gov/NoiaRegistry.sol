@@ -26,7 +26,7 @@ contract NoiaRegistry {
 
     function addEntry(NoiaBaseContract baseContract) public {
         // validate that sender is from the same factory
-        require(msg.sender == baseContract.factory());
+        require(msg.sender == address(baseContract.factory()));
         require(regulation.isContractValid(baseContract));
         entries[address(baseContract)] = 1;
         ++nEntries;

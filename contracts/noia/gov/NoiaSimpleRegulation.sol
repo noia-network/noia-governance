@@ -1,5 +1,6 @@
 pragma solidity ^0.4.11;
 
+import '../../abstracts/Owned.sol';
 import './NoiaRegulation.sol';
 
 /**

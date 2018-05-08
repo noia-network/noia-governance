@@ -33,14 +33,20 @@ module.exports = {
 
     waitEventsFromWatcher: (watcher, nevents) => {
         let events = [];
+        let stopping = false;
         return new Promise((resolve, reject) => {
             watcher.watch((error, result) => {
                 if (error) reject(error); else {
-                    events.push(result);
-                    if (events.length < nevents) return;
-                    watcher.stopWatching((error, result) => {
-                        if (error) reject(error); else resolve(events);
-                    });
+                    if (events.length < nevents) {
+                        events.push(result);
+                    } else {
+                        if (!stopping) {
+                            stopping = true;
+                            watcher.stopWatching((error, result) => {
+                                if (error) reject(error); else resolve(events);
+                            });
+                        }
+                    }
                 }
             });
         });

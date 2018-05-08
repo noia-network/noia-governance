@@ -1,2 +1,2 @@
 require('./utils_testsuite.js');
-require('./basic_testsuite.js');
+require('./sdk_testsuite.js');

@@ -18,10 +18,11 @@ contract NoiaCertificateV1
 
     function NoiaCertificateV1(
         address factory,
+        NoiaMarketplace marketplace,
         bytes32 certificateName_,
         NoiaBusinessV1 issuer_,
         NoiaNodeV1 recipient_)
-        NoiaBaseContractV1(factory) public {
+        NoiaBaseContractV1(factory, marketplace) public {
         // the factory has guranteed that issuer and recipient are regulated contracts
         certificateName = certificateName_;
         issuer = issuer_;

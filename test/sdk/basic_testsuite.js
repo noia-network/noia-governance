@@ -63,10 +63,16 @@ contract('NOIA Governance SDK tests: ', function (accounts) {
         businessClient.stopWatchingNodeEvents();
     })
 
-    it("Transfer tokens", async () => {
+    it.only("Transfer tokens", async () => {
+        let ethBalanceOldAcc0 = await sdk.ethBalanceOf(acc0);
+        let ethBalanceOldAcc1 = await sdk.ethBalanceOf(acc1);
         let oldBalance = await sdk.balanceOf(acc1);
         await sdk.transfer(acc0, acc1, 100);
+        let ethBalanceNewAcc0 = await sdk.ethBalanceOf(acc0);
+        let ethBalanceNewAcc1 = await sdk.ethBalanceOf(acc1);
         let newBalance = await sdk.balanceOf(acc1);
+        assert.isTrue(ethBalanceNewAcc0 < ethBalanceOldAcc0);
+        assert.isTrue(ethBalanceNewAcc1 === ethBalanceOldAcc1);
         assert.equal(oldBalance + 100, newBalance);
     })
 

@@ -5,6 +5,8 @@ const contract = require("truffle-contract");
 const NodeClient = require('./node_client.js');
 const BusinessClient = require('./business_client.js');
 
+const util = require('util');
+
 const {
     isContract,
     getGasUsedForContractCreation,
@@ -113,6 +115,15 @@ module.exports = {
 
     balanceOf: async owner => {
         return (await tokenContract.balanceOf.call(owner)).toNumber();
+    },
+
+    ethBalanceOf: async owner => {
+        return await new Promise(function (resolve, reject) {
+            web3.eth.getBalance(owner, function (err, result) {
+                if (err) reject(err);
+                else resolve(web3.toWei(result, 'ether').toNumber());
+            });
+        })
     },
 
     transfer: async (from, to, value) => {

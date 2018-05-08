@@ -8,6 +8,12 @@ const util = require('util');
 const assert = require('chai').assert;
 const should = require('should');
 
+describe('NOIA Governance SDK tests (without truffle-test): ', function () {
+    it('init sdk', async () => {
+        //await sdk.init(initOptions);
+    })
+})
+
 contract('NOIA Governance SDK tests: ', function (accounts) {
     const acc0 = accounts[0];
     const acc1 = accounts[1];
@@ -17,12 +23,18 @@ contract('NOIA Governance SDK tests: ', function (accounts) {
 
     before(async () => {
         let noia, factory;
-        if (typeof artifacts !== 'undefined') {
-            noia = await artifacts.require('NoiaNetwork').deployed();
-            factory = await artifacts.require("NoiaContractsFactoryV1").deployed();
+        let initOptions = {
+            web3_provider : web3.currentProvider,
+            owner: acc0,
         }
-        await sdk.init(web3.currentProvider, acc0, noia, factory);
+        if (typeof artifacts !== 'undefined') {
+            initOptions.deployed_contracts = {
+                noia : await artifacts.require('NoiaNetwork').deployed(),
+                factory : await artifacts.require("NoiaContractsFactoryV1").deployed()
+            };
+        }
 
+        await sdk.init(initOptions);
         nodeClient = await sdk.createNodeClient({host : '127.0.0.1'});
         console.log(`Node client created at ${nodeClient.address}`);
         businessClient = await sdk.createBusinessClient({/* business info missing */});

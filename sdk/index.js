@@ -1,6 +1,8 @@
 'use strict';
 
+const debug = require('debug')('noiagov');
 const contract = require("truffle-contract");
+const HDWalletProvider = require("truffle-hdwallet-provider");
 
 const NodeClient = require('./node_client.js');
 const BusinessClient = require('./business_client.js');
@@ -15,19 +17,48 @@ const {
     recoverAddressFromRpcSignedMessage,
 } = require('../common/web3_utils.js');
 
-var contracts = {};
 var owner;
+var contracts = {};
+var web3;
 var noia;
 var factory;
 var tokenContract;
 var marketplace;
 var nodeRegistry;
 var businessRegistry;
-var web3;
 
 module.exports = {
-    init: async (provider_, owner_, noia_, factory_) => {
-        // initialize contracts
+    /**
+     * Initialize the SDK
+     *
+     * options:
+     *   - (optional) account_mnemonic - account mnemonic
+     *   - (optional) provider_url - provider_url
+     *   - (optional) web3_provider - provide the external web3 provider instead
+     *   - (optional) deployed_contracts - provide deployed noia, factory contracts
+     *   - (optional) owner - provider the default address to fund all transactions
+     */
+    init: async (options) => {
+        let provider;
+
+        if (typeof options.web3_provider === 'undefined') {
+            if (options.provider_url && options.account_mnemonic) {
+                provider = new HDWalletProvider(options.account_mnemonic, options.provider_url);
+                owner = provider.addresses[0];
+            }
+        } else {
+            provider = options.web3_provider;
+            owner = options.owner;
+            if (typeof owner === 'undefined') {
+                throw new Error('options.owner is not defined when an external provider is set');
+            }
+        }
+
+        if (typeof provider === 'undefined') {
+            throw new Error('Neither an external provider nor a pair of (provider_url, account_mnemonic) is not provided');
+        }
+
+        // initialize contracts code
         {
             contracts.ERC223Interface = contract(require("./contracts/ERC223Interface.json"));
             contracts.Owned = contract(require("./contracts/Owned.json"));
@@ -37,33 +68,26 @@ module.exports = {
             contracts.NoiaContractsFactory = contract(require("./contracts/NoiaContractsFactoryV1.json"));
             contracts.NoiaNode = contract(require("./contracts/NoiaNodeV1.json"));
             contracts.NoiaBusiness = contract(require("./contracts/NoiaBusinessV1.json"));
-            for (var i in contracts) contracts[i].setProvider(provider_);
+            for (var i in contracts) contracts[i].setProvider(provider);
         }
 
-        if (provider_.addresses) {
-            owner = provider_.addresses[0];
-        }
-        if (typeof owner_ !== 'undefined') {
-            owner = owner_;
-        }
+        web3 = contracts.NoiaNetwork.web3;
 
-        if (typeof noia_ === 'undefined') {
+        // intialize contract instances
+        if (typeof options.deployed_contracts.noia === 'undefined') {
             noia = await contracts.NoiaNetwork.deployed();
         } else {
-            noia = noia_;
+            noia = options.deployed_contracts.noia;
         }
-        if (typeof factory_ === 'undefined') {
+        if (typeof options.deployed_contracts.factory === 'undefined') {
             factory = await contracts.NoiaContractsFactory.deployed();
         } else {
-            factory = factory_;
+            factory = options.deployed_contracts.factory;
         }
-
         tokenContract = contracts.ERC223Interface.at(await noia.tokenContract.call());
         marketplace = contracts.NoiaMarketplace.at(await noia.marketplace.call());
         nodeRegistry = contracts.NoiaRegistry.at(await marketplace.nodeRegistry.call());
         businessRegistry = contracts.NoiaRegistry.at(await marketplace.businessRegistry.call());
-
-        web3 = marketplace.constructor.web3;
     },
 
     uninit: () => {

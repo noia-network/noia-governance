@@ -14,10 +14,12 @@ const {
     getGasUsedForContractCreation,
     getGasUsedForTransaction,
     waitEventsFromWatcher,
+    recoverAddressFromSignedMessage,
     recoverAddressFromRpcSignedMessage,
 } = require('../common/web3_utils.js');
 
 var owner;
+var ownerPrivateKey;
 var contracts;
 var web3;
 var instances;
@@ -83,7 +85,10 @@ module.exports = {
             }
         }
 
-        // account
+        if (!provider.wallets) {
+            throw new Error('provider must have wallets defined');
+        }
+        ownerPrivateKey = provider.wallets[owner].getPrivateKey();
 
         // initialize contracts code
         {
@@ -126,34 +131,69 @@ module.exports = {
 
     uninit: () => {
         owner = undefined;
+        ownerPrivateKey = undefined;
         contracts = undefined;
         web3 = undefined;
         instances = undefined;
     },
 
     // if nodeAddress is undefined, new node contract will be created
-    createBusinessClient: async (businessInfo) => {
-        let client = new BusinessClient(contracts, owner, instances.marketplace, instances.factory, null, businessInfo);
+    createBusinessClient: async businessInfo => {
+        let client = new BusinessClient({
+            web3: web3,
+            account: {
+                owner: owner,
+                ownerPrivateKey: ownerPrivateKey
+            },
+            contracts: contracts,
+            instances: instances,
+            info: businessInfo
+        });
         await client.init();
         return client;
     },
 
     getBusinessClient: async businessAddress => {
-        let client = new BusinessClient(contracts, owner, instances.marketplace, instances.factory, businessAddress);
+        let client = new BusinessClient({
+            web3: web3,
+            account: {
+                owner: owner,
+                ownerPrivateKey: ownerPrivateKey
+            },
+            contracts: contracts,
+            instances: instances,
+            at: businessAddress
+        });
         await client.init();
         return client;
     },
 
-    // if nodeAddress is undefined, new node contract will be created
-    createNodeClient: async (nodeInfo) => {
-        let client = new NodeClient(contracts, owner, instances.marketplace, instances.factory, null, nodeInfo);
+    createNodeClient: async nodeInfo => {
+        let client = new NodeClient({
+            web3: web3,
+            account: {
+                owner: owner,
+                ownerPrivateKey: ownerPrivateKey
+            },
+            contracts: contracts,
+            instances: instances,
+            info: nodeInfo
+        });
         await client.init();
         return client;
     },
 
-    // if nodeAddress is undefined, new node contract will be created
-    getNodeClient: async (nodeAddress) => {
-        let client = new NodeClient(contracts, owner, instances.marketplace, instances.factory, nodeAddress);
+    getNodeClient: async nodeAddress => {
+        let client = new NodeClient({
+            web3: web3,
+            account: {
+                owner: owner,
+                ownerPrivateKey: ownerPrivateKey
+            },
+            contracts: contracts,
+            instances: instances,
+            at: nodeAddress
+        });
         await client.init();
         return client;
     },
@@ -171,24 +211,64 @@ module.exports = {
         return await owned.owner();
     },
 
+    recoverAddressFromSignedMessage: (msg, sgn) => {
+        return recoverAddressFromSignedMessage(msg, sgn);
+    },
+
     recoverAddressFromRpcSignedMessage: (msg, sgn) => {
         return recoverAddressFromRpcSignedMessage(msg, sgn);
     },
 
-    balanceOf: async owner => {
-        return (await instances.tokenContract.balanceOf.call(owner)).toNumber();
-    },
 
-    ethBalanceOf: async owner => {
+    /**
+     * Get ethereum coin balance of anyone
+     *
+     * @return Number with unit in ether
+     */
+    getEtherBalance: async who => {
         return await new Promise(function (resolve, reject) {
-            web3.eth.getBalance(owner, function (err, result) {
+            web3.eth.getBalance(who, function (err, result) {
                 if (err) reject(err);
                 else resolve(web3.fromWei(result, 'ether').toNumber());
             });
         })
     },
 
-    transfer: async (from, to, value) => {
-        await instances.tokenContract.transfer(to, value, { from : from, gas: 200000 });
+    /**
+     * Transfer ethereum coin from owner to others
+     *
+     * @param to - transfer ether to this account
+     * @param value - amount of ethereum coin to be transferred, in unit of ether
+     */
+    transferEther: async (to, value) => {
+        return await new Promise(function (resolve, reject) {
+            let valueInWei = web3.toWei(value, 'ether');
+            web3.eth.sendTransaction({
+                from: owner,
+                to: to,
+                value: valueInWei
+            }, function (err, result) {
+                if (err) reject(err); else resolve();
+            });
+        });
+    },
+
+    /**
+     * Get Noia token balance of anyone
+     *
+     * @return Number with floating point
+     */
+    getNoiaBalance: async who => {
+        return (await instances.tokenContract.balanceOf.call(who)).toNumber();
+    },
+
+    /**
+     * Transfer noia token from owner to others
+     *
+     * @param to - transfer ether to this account
+     * @param value - amount of noia token to be transferred
+     */
+    transferNoiaToken: async (to, value) => {
+        await instances.tokenContract.transfer(to, value, { from : owner, gas: 200000 });
     }
 };

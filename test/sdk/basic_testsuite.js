@@ -45,11 +45,20 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
 
     it('rpc message signing & validation', async () => {
         let msg = "good weather in vilnius";
-        let sgn = await businessClient.signMessage(msg);
+        let sgn = await businessClient.rpcSignMessage(msg);
         console.log(`signed: ${sgn} by business at ${businessClient.address}`);
         let ownerAddress = await sdk.getOwnerAddress(businessClient.address);
         console.log(`owner: ${ownerAddress}`);
         assert.equal(ownerAddress, sdk.recoverAddressFromRpcSignedMessage(msg, sgn));
+    })
+
+    it('message signing & validation', async () => {
+        let msg = "good weather in vilnius too";
+        let sgn = businessClient.signMessage(msg);
+        console.log(`signed: ${sgn} by business at ${businessClient.address}`);
+        let ownerAddress = await sdk.getOwnerAddress(businessClient.address);
+        console.log(`owner: ${ownerAddress}`);
+        assert.equal(ownerAddress, sdk.recoverAddressFromSignedMessage(msg, sgn));
     })
 
     it('business client registration', async () => {
@@ -80,22 +89,28 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
         businessClient.stopWatchingNodeEvents();
     })
 
-    it("Transfer tokens", async () => {
-        let ethBalanceOldAcc0 = await sdk.ethBalanceOf(acc0);
-        let ethBalanceOldAcc1 = await sdk.ethBalanceOf(acc1);
-        let oldBalance = await sdk.balanceOf(acc1);
-        await sdk.transfer(acc0, acc1, 100);
-        let ethBalanceNewAcc0 = await sdk.ethBalanceOf(acc0);
-        let ethBalanceNewAcc1 = await sdk.ethBalanceOf(acc1);
-        let newBalance = await sdk.balanceOf(acc1);
-        console.log(ethBalanceNewAcc0, ethBalanceOldAcc0, ethBalanceNewAcc1, ethBalanceOldAcc1)
-        assert.isTrue(ethBalanceNewAcc0 < ethBalanceOldAcc0);
-        assert.isTrue(ethBalanceNewAcc1 === ethBalanceOldAcc1);
+    it("Transfer ether", async () => {
+        let ethBalanceOldAcc0 = await sdk.getEtherBalance(acc0);
+        let ethBalanceOldAcc1 = await sdk.getEtherBalance(acc1);
+
+        await sdk.transferEther(acc1, 0.001);
+
+        let ethBalanceNewAcc0 = await sdk.getEtherBalance(acc0);
+        let ethBalanceNewAcc1 = await sdk.getEtherBalance(acc1);
+
+        assert.isTrue(ethBalanceNewAcc0 + 0.001 < ethBalanceOldAcc0);
+        assert.isTrue(ethBalanceNewAcc1 > ethBalanceOldAcc1);
+    })
+
+    it("Transfer noia tokens", async () => {
+        let oldBalance = await sdk.getNoiaBalance(acc1);
+        await sdk.transferNoiaToken(acc1, 100);
+        let newBalance = await sdk.getNoiaBalance(acc1);
         assert.equal(oldBalance + 100, newBalance);
     })
 
     it("Transfer too many tokens", async () => {
-        let maxBalance = await sdk.balanceOf(acc0);
-        await sdk.transfer(acc0, acc1, maxBalance + 1).should.be.rejected();
+        let maxBalance = await sdk.getNoiaBalance(acc0);
+        await sdk.transferNoiaToken(acc1, maxBalance + 1).should.be.rejected();
     })
 });

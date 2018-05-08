@@ -1,9 +1,8 @@
 'use strict';
 
+const BaseClient = require('./base_client');
 const util = require('util');
-const EventEmitter = require('events').EventEmitter
 const inherits = require('util').inherits;
-const contract = require("truffle-contract");
 
 const LOGS_NUM_BLOCKS_TO_WATCH = 1;
 
@@ -14,17 +13,15 @@ const {
     getGasUsedForContractCreation,
     getGasUsedForTransaction,
     waitEventsFromWatcher,
-    rpcSignMessage,
+    signMessage,
 } = require('../common/web3_utils.js');
 
-inherits(BusinessClient, EventEmitter)
-function BusinessClient(contracts, owner, marketplace, factory, address) {
-    this.contracts = contracts;
-    this.owner = owner;
-    this.marketplace = marketplace;
-    this.factory = factory;
-    this.address = address;
-    this.web3 = this.marketplace.constructor.web3;
+inherits(BusinessClient, BaseClient)
+function BusinessClient(options) {
+    BaseClient.call(this, options);
+
+    this.address = options.at;
+    this.info = options.info;
     this.NOIA_REGISTRY_ENTRY_ADDED_EVENT = this.web3.sha3('NoiaRegistryEntryAdded(address)');
 };
 
@@ -115,13 +112,6 @@ BusinessClient.prototype.stopWatchingNodeEvents = function () {
     } else {
         throw new Error('Not watching node events');
     }
-}
-
-/**
- * use this message when you want to prove your ownership of the node contract
- */
-BusinessClient.prototype.signMessage = async function (msg) {
-    return await rpcSignMessage(this.web3, msg, this.owner);
 }
 
 // Emitting Events:

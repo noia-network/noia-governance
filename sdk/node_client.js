@@ -1,8 +1,7 @@
 'use strict';
 
-const EventEmitter = require('events').EventEmitter
+const BaseClient = require('./base_client');
 const inherits = require('util').inherits;
-const contract = require("truffle-contract");
 
 const NEW_NODE_GAS                      = 1000000;
 
@@ -11,19 +10,17 @@ const {
     getGasUsedForContractCreation,
     getGasUsedForTransaction,
     waitEventsFromWatcher,
+    signMessage,
     rpcSignMessage,
     bytesToString
 } = require('../common/web3_utils.js');
 
-inherits(NodeClient, EventEmitter)
-function NodeClient(contracts, owner, marketplace, factory, address, nodeInfo) {
-    this.contracts = contracts;
-    this.owner = owner;
-    this.marketplace = marketplace;
-    this.factory = factory;
-    this.address = address;
-    this.info = nodeInfo;
-    this.web3 = this.marketplace.constructor.web3;
+inherits(NodeClient, BaseClient)
+function NodeClient(options) {
+    BaseClient.call(this, options);
+
+    this.address = options.at;
+    this.info = options.info;
 };
 
 NodeClient.prototype.init = async function () {
@@ -54,13 +51,6 @@ NodeClient.prototype.getInfo = async function (msg) {
             data: data
         }
     }
-}
-
-/**
- * use this message when you want to prove your ownership of the node contract
- */
-NodeClient.prototype.signMessage = async function (msg) {
-    return await rpcSignMessage(this.web3, msg, this.owner);
 }
 
 // events

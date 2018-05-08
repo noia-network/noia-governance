@@ -76,7 +76,7 @@ module.exports = function (deployer, network, accounts) {
         console.log(`NoiaNetwork contract deployed at ${noia.address}`);
 
         console.log(`Deploying NoiaContractsFactoryV1 contract...`);
-        await deployer.deploy(NoiaContractsFactoryV1, await noia.marketplace.call(), { gas: 4000000 });
+        await deployer.deploy(NoiaContractsFactoryV1, await noia.marketplace.call(), { gas: 6000000 });
         let factory = await NoiaContractsFactoryV1.deployed();
         console.log(`Deployed at ${factory.address}`);
 

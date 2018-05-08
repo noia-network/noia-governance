@@ -6,8 +6,6 @@ import './NoiaJobPostV1.sol';
 contract NoiaWorkContractV1 {
     enum Initiator { Employer, Worker  }
 
-    ERC223Interface public tokenContract;
-
     NoiaJobPostV1 public jobPost;
     Initiator initiator;
     address public workerAddress;
@@ -34,7 +32,7 @@ contract NoiaWorkContractV1 {
     }
 
     function signByEmployer() public {
-        require(jobPost.employerAddress() == msg.sender);
+        require(address(jobPost.employer()) == msg.sender);
         signedByEmployer = true;
     }
 
@@ -53,7 +51,7 @@ contract NoiaWorkContractV1 {
 
     function tokenFallback(address /*from*/, uint value, bytes /*_data*/) public {
         // token `from` anyone is welcome :)
-        require(msg.sender == address(jobPost.tokenContract()));
+        require(msg.sender == address(jobPost.factory().marketplace().tokenContract()));
         tokenReceived += value;
     }
 }

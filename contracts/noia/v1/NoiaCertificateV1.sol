@@ -1,6 +1,7 @@
 pragma solidity ^0.4.11;
 
 import './NoiaBaseContractV1.sol';
+import './NoiaContractsFactoryV1.sol';
 import './NoiaNodeV1.sol';
 import './NoiaBusinessV1.sol';
 
@@ -17,7 +18,7 @@ contract NoiaCertificateV1
     bytes public payloadData;
 
     function NoiaCertificateV1(
-        address factory,
+        NoiaContractsFactoryV1 factory,
         bytes32 certificateName_,
         NoiaBusinessV1 issuer_,
         NoiaNodeV1 recipient_)

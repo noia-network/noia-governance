@@ -48,23 +48,23 @@ module.exports = {
      *
      *  Example options:
      *  * Using external provider:
-        {
-            web3: {
-                provider : web3.currentProvider,
-            },
-            account: {
-                owner: acc0
-            }
-        }
-    *  * Using internal provider:
-           {
-               web3: {
-                   provider_url : web3.currentProvider,
-               },
-               account: {
-                   mnemonic: "xxx yyy zzz"
-               }
-           }
+     *    {
+     *        web3: {
+     *            provider : web3.currentProvider,
+     *        },
+     *        account: {
+     *            owner: acc0
+     *        }
+     *    }
+     *  * Using internal provider:
+     *    {
+     *        web3: {
+     *            provider_url : web3.currentProvider,
+     *        },
+     *        account: {
+     *            mnemonic: "xxx yyy zzz"
+     *        }
+     *    }
      */
     init: async (options) => {
         let provider;
@@ -129,6 +129,9 @@ module.exports = {
         }
     },
 
+    /**
+     * Unitialize the sdk and release all resources
+     */
     uninit: () => {
         owner = undefined;
         ownerPrivateKey = undefined;
@@ -137,7 +140,6 @@ module.exports = {
         instances = undefined;
     },
 
-    // if nodeAddress is undefined, new node contract will be created
     createBusinessClient: async businessInfo => {
         let client = new BusinessClient({
             web3: web3,
@@ -206,22 +208,41 @@ module.exports = {
         return await instances.nodeRegistry.hasEntry.call(nodeAddress);
     },
 
+    /**
+     * [async] Get the owner at a Owner contract
+     *
+     * @param address - The Owner contract's address
+     * @return owner address of the Owner contract
+     */
     getOwnerAddress: async address => {
         let owned = await contracts.Owned.at(address);
         return await owned.owner();
     },
 
+    /**
+     * Recover address of the signer who signed the message with its private key
+     *
+     * @param string msg - original message
+     * @param Signature sgn - signature object returned by client.signMessage
+     * @return address of the signer
+     */
     recoverAddressFromSignedMessage: (msg, sgn) => {
         return recoverAddressFromSignedMessage(msg, sgn);
     },
 
+    /**
+     * Recover address of the signer who signed the message through rpc call
+     *
+     * @param string msg - original message
+     * @param Signature sgn - signature object returned by client.rpcSignMessage
+     * @return address of the signer
+     */
     recoverAddressFromRpcSignedMessage: (msg, sgn) => {
         return recoverAddressFromRpcSignedMessage(msg, sgn);
     },
 
-
     /**
-     * Get ethereum coin balance of anyone
+     * [async] Get ethereum coin balance of anyone
      *
      * @return Number with unit in ether
      */
@@ -235,7 +256,7 @@ module.exports = {
     },
 
     /**
-     * Transfer ethereum coin from owner to others
+     * [async] Transfer ethereum coin from owner to others
      *
      * @param to - transfer ether to this account
      * @param value - amount of ethereum coin to be transferred, in unit of ether
@@ -254,7 +275,7 @@ module.exports = {
     },
 
     /**
-     * Get Noia token balance of anyone
+     * [async] Get Noia token balance of anyone
      *
      * @return Number with floating point
      */
@@ -263,7 +284,7 @@ module.exports = {
     },
 
     /**
-     * Transfer noia token from owner to others
+     * [async] Transfer noia token from owner to others
      *
      * @param to - transfer ether to this account
      * @param value - amount of noia token to be transferred

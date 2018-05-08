@@ -7,6 +7,7 @@ const NoiaRegistry = artifacts.require('NoiaRegistry');
 const NoiaNode = artifacts.require('NoiaNodeV1');
 const NoiaBusiness = artifacts.require('NoiaBusinessV1');
 const NoiaCertificate = artifacts.require('NoiaCertificateV1');
+const NoiaJobPost = artifacts.require('NoiaJobPostV1');
 
 const {
     setBeforeAllTimeout,
@@ -27,7 +28,7 @@ contract('NOIA noia tests: ', function (accounts) {
     const NEW_NODE_GAS                      = 1000000;
     const REGISTER_NODE_GAS                 = 100000;
     const NEW_BUSINESS_GAS                  = 1200000;
-    const REGISTER_BUSINESS_GAS             = 200000;
+    const NEW_JOBPOST_GAS                   = 1500000;
     const NEW_CERTIFICATE_GAS               = 1200000;
     const SIGN_CERTIFICATE_GAS              = 100000;
     const ISSUE_CERTIFICATE_GAS             = 100000;
@@ -81,6 +82,7 @@ contract('NOIA noia tests: ', function (accounts) {
         let nodeRegistry = NoiaRegistry.at(await marketplace.nodeRegistry.call());
         let eventWatcher = nodeRegistry.NoiaRegistryEntryAdded();
 
+        // add an existed entry
         await nodeRegistry.addEntry(node0.address, {
             from: acc1,
             gas: REGISTER_NODE_GAS
@@ -90,7 +92,7 @@ contract('NOIA noia tests: ', function (accounts) {
         console.log('Creating node1...');
         tx = await factory.createNode('application/json', '{"host":"test-node.noia.network"}', { gas: NEW_NODE_GAS });
         let node1 = NoiaNode.at(tx.logs[0].args.nodeAddress);
-        console.log(`Created at ${node0.address}, gas used ${await getGasUsedForTransaction(tx)}`);
+        console.log(`Created at ${node1.address}, gas used ${await getGasUsedForTransaction(tx)}`);
 
         assert.isTrue(await nodeRegistry.hasEntry(node1.address));
         assert.equal('application/json', bytesToString(await node1.infoType.call()));
@@ -109,6 +111,7 @@ contract('NOIA noia tests: ', function (accounts) {
         let businessRegistry = NoiaRegistry.at(await marketplace.businessRegistry.call());
         let eventWatcher = businessRegistry.NoiaRegistryEntryAdded();
 
+        // add an existed entry
         await businessRegistry.addEntry(business0.address, {
             from: acc1,
             gas: REGISTER_NODE_GAS
@@ -269,5 +272,26 @@ contract('NOIA noia tests: ', function (accounts) {
             let certsReturned = await node0.getCertificates.call();
             assert.deepEqual(certs, certsReturned);
         }
+    });
+
+    it('register new job post', async function () {
+        setTestTimeout(this, 2);
+
+        let tx;
+        let jobPostRegistry = NoiaRegistry.at(await marketplace.jobPostRegistry.call());
+        let eventWatcher = jobPostRegistry.NoiaRegistryEntryAdded();
+
+        let nentry = (await jobPostRegistry.count.call()).toNumber();
+        console.log('Creating jobPost...');
+        tx = await factory.createJobPost(business0.address, 'application/json', '{"period":"1 week"}', { gas: NEW_JOBPOST_GAS });
+        let jobPost = NoiaJobPost.at(tx.logs[0].args.jobPostAddress);
+        console.log(`Created at ${jobPost.address}, gas used ${await getGasUsedForTransaction(tx)}`);
+
+        assert.isTrue(await jobPostRegistry.hasEntry(jobPost.address));
+        assert.equal(nentry + 1, (await jobPostRegistry.count.call()).toNumber());
+        let events = await waitEventsFromWatcher(eventWatcher, 1);
+        assert.equal(1, events.length);
+        assert.equal(jobPostRegistry.address, events[0].address);
+        assert.equal(jobPost.address, events[0].args.baseContract.valueOf());
     });
 })

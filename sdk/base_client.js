@@ -17,10 +17,20 @@ function BaseClient(options) {
     this.factory = options.instances.factory;
 }
 
+/**
+ * Sign message through rpc
+ * @param string msg - msg to sign
+ * @return Signature object
+ */
 BaseClient.prototype.rpcSignMessage = async function (msg) {
     return await rpcSignMessage(this.web3, msg, this.owner);
 }
 
+/**
+ * Sign message by client owner's private key
+ * @param string msg - msg to sign
+ * @return Signature object
+ */
 BaseClient.prototype.signMessage = function (msg) {
     return signMessage(msg, this.ownerPrivateKey);
 }

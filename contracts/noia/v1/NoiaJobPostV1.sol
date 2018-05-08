@@ -1,6 +1,8 @@
 pragma solidity ^0.4.11;
 
 import './NoiaBaseContractV1.sol';
+import './NoiaContractsFactoryV1.sol';
+import './NoiaBusinessV1.sol';
 import './NoiaNodeV1.sol';
 import './NoiaWorkContractV1.sol';
 
@@ -10,20 +12,26 @@ import './NoiaWorkContractV1.sol';
  */
 contract NoiaJobPostV1
     is NoiaBaseContractV1 {
-    ERC223Interface public tokenContract;
-    address public employerAddress;
+    NoiaBusinessV1 public employer;
+    bytes32 public infoType;
+    bytes public infoData;
 
     mapping(address => NoiaWorkContractV1) employerCreatedContracts;
     mapping(address => NoiaWorkContractV1) workerCreatedContracts;
 
-    function NoiaJobPostV1(ERC223Interface tokenContract_) public {
-        tokenContract = tokenContract_;
+    function NoiaJobPostV1(NoiaContractsFactoryV1 factory,
+        NoiaBusinessV1 employer_,
+        bytes32 infoType_, bytes infoData_)
+        NoiaBaseContractV1(factory) public {
+        employer = employer_;
+        infoType = infoType_;
+        infoData = infoData_;
     }
 
     function createContract(address workerAddress) public {
         NoiaWorkContractV1.Initiator initiator;
         NoiaWorkContractV1 workContract;
-        if (msg.sender == employerAddress) {
+        if (msg.sender == address(employer)) {
             initiator = NoiaWorkContractV1.Initiator.Employer;
             workContract = new NoiaWorkContractV1(this, initiator, workerAddress);
             employerCreatedContracts[workerAddress] = workContract;
@@ -38,7 +46,7 @@ contract NoiaJobPostV1
 
     function proposeContract(address workerAddress) public {
         address workContractAddress;
-        if (msg.sender == employerAddress) {
+        if (msg.sender == address(employer)) {
             workContractAddress = employerCreatedContracts[workerAddress];
         } else if (msg.sender == workerAddress) {
             workContractAddress = workerCreatedContracts[workerAddress];

@@ -121,7 +121,7 @@ module.exports = {
         return await new Promise(function (resolve, reject) {
             web3.eth.getBalance(owner, function (err, result) {
                 if (err) reject(err);
-                else resolve(web3.toWei(result, 'ether').toNumber());
+                else resolve(web3.fromWei(result, 'ether').toNumber());
             });
         })
     },

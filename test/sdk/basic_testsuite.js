@@ -71,6 +71,7 @@ contract('NOIA Governance SDK tests: ', function (accounts) {
         let ethBalanceNewAcc0 = await sdk.ethBalanceOf(acc0);
         let ethBalanceNewAcc1 = await sdk.ethBalanceOf(acc1);
         let newBalance = await sdk.balanceOf(acc1);
+        console.log(ethBalanceNewAcc0, ethBalanceOldAcc0, ethBalanceNewAcc1, ethBalanceOldAcc1)
         assert.isTrue(ethBalanceNewAcc0 < ethBalanceOldAcc0);
         assert.isTrue(ethBalanceNewAcc1 === ethBalanceOldAcc1);
         assert.equal(oldBalance + 100, newBalance);

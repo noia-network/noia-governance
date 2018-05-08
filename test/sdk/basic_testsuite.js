@@ -42,6 +42,12 @@ contract('NOIA Governance SDK tests: ', function (accounts) {
         assert.equal(ownerAddress, sdk.recoverAddressFromRpcSignedMessage(msg, sgn));
     })
 
+    it('business client registration', async () => {
+        let businessClient1 = await sdk.createBusinessClient({/* business info missing */});
+        assert.isTrue(await sdk.isBusinessRegistered(businessClient1.address));
+        console.log(`Business client 1 created at ${businessClient1.address}`);
+    })
+
     it('node registration event watching', async () => {
         console.log(`start watching node events`);
         await businessClient.startWatchingNodeEvents({
@@ -57,13 +63,14 @@ contract('NOIA Governance SDK tests: ', function (accounts) {
             });
             console.log('creating new node client');
             nodeClient1 = await sdk.createNodeClient({host : '127.0.0.1'});
+            assert.isTrue(await sdk.isNodeRegistered(nodeClient1.address));
             console.log(`Created new node client at ${nodeClient1.address}`);
             if (nodeClient1.address in nodeAddresses) resolve();
         });
         businessClient.stopWatchingNodeEvents();
     })
 
-    it.only("Transfer tokens", async () => {
+    it("Transfer tokens", async () => {
         let ethBalanceOldAcc0 = await sdk.ethBalanceOf(acc0);
         let ethBalanceOldAcc1 = await sdk.ethBalanceOf(acc1);
         let oldBalance = await sdk.balanceOf(acc1);

@@ -8,13 +8,7 @@ const util = require('util');
 const assert = require('chai').assert;
 const should = require('should');
 
-describe('NOIA Governance SDK tests (without truffle-test): ', function () {
-    it('init sdk', async () => {
-        //await sdk.init(initOptions);
-    })
-})
-
-contract('NOIA Governance SDK tests: ', function (accounts) {
+contract('NOIA Governance SDK functional tests: ', function (accounts) {
     const acc0 = accounts[0];
     const acc1 = accounts[1];
 
@@ -24,9 +18,13 @@ contract('NOIA Governance SDK tests: ', function (accounts) {
     before(async () => {
         let noia, factory;
         let initOptions = {
-            web3_provider : web3.currentProvider,
-            owner: acc0,
-        }
+            web3 : {
+                provider : web3.currentProvider,
+            },
+            account : {
+                owner: acc0,
+            }
+        };
         if (typeof artifacts !== 'undefined') {
             initOptions.deployed_contracts = {
                 noia : await artifacts.require('NoiaNetwork').deployed(),

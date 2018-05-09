@@ -1,11 +1,13 @@
 'use strict';
 
-const debug = require('debug')('noiagov');
+const debug = require('debug');
 const contract = require("truffle-contract");
 const HDWalletProvider = require("truffle-hdwallet-provider");
 
+const BaseClient = require('./base_client.js');
 const NodeClient = require('./node_client.js');
 const BusinessClient = require('./business_client.js');
+const JobPost = require('./job_post.js');
 
 const util = require('util');
 
@@ -23,13 +25,7 @@ var ownerPrivateKey;
 var contracts;
 var web3;
 var instances;
-
-var noia;
-var factory;
-var tokenContract;
-var marketplace;
-var nodeRegistry;
-var businessRegistry;
+var logger;
 
 module.exports = {
     /**
@@ -46,8 +42,9 @@ module.exports = {
      *     - deployed_contracts.noia - designated NoiaNetwork contract
      *     - deployed_contracts.factory = designated NoiaContractsFactory contract
      *
-     *  Example options:
-     *  * Using external provider:
+     *  Mandatory options:
+     *
+     *  - Using external provider:
      *    {
      *        web3: {
      *            provider : web3.currentProvider,
@@ -56,7 +53,8 @@ module.exports = {
      *            owner: acc0
      *        }
      *    }
-     *  * Using internal provider:
+     *
+     *  - Using internal provider:
      *    {
      *        web3: {
      *            provider_url : web3.currentProvider,
@@ -64,6 +62,16 @@ module.exports = {
      *        account: {
      *            mnemonic: "xxx yyy zzz"
      *        }
+     *    }
+     *
+     *  Logger option:
+     *  - Default: using debug module, with logger name 'noiagov:<level>'
+     *
+     *  - Supplied:
+     *    logger: {
+     *        info: [func],
+     *        warn: [func],
+     *        error: [func],
      *    }
      */
     init: async (options) => {
@@ -101,6 +109,7 @@ module.exports = {
             contracts.NoiaContractsFactory = contract(require("./contracts/NoiaContractsFactoryV1.json"));
             contracts.NoiaNode = contract(require("./contracts/NoiaNodeV1.json"));
             contracts.NoiaBusiness = contract(require("./contracts/NoiaBusinessV1.json"));
+            contracts.NoiaJobPost = contract(require("./contracts/NoiaJobPostV1.json"));
             for (var i in contracts) contracts[i].setProvider(provider);
         }
 
@@ -126,6 +135,25 @@ module.exports = {
             instances.marketplace = contracts.NoiaMarketplace.at(await instances.noia.marketplace.call());
             instances.nodeRegistry = contracts.NoiaRegistry.at(await instances.marketplace.nodeRegistry.call());
             instances.businessRegistry = contracts.NoiaRegistry.at(await instances.marketplace.businessRegistry.call());
+            instances.jobPostRegistry = contracts.NoiaRegistry.at(await instances.marketplace.jobPostRegistry.call());
+        }
+
+        if (options.logger) {
+            if (typeof options.logger.info !== 'function' ||
+                typeof options.logger.warn !== 'function' ||
+                typeof options.logger.error !== 'function') {
+                throw new Error('invalid logger option');
+            }
+            logger = options.logger;
+        } else {
+            logger =  {
+                info : debug('noiagov:info'),
+                warn : debug('noiagov:warn'),
+                error : debug('noiagov:error')
+            };
+            logger.info.log = console.info.bind(console);
+            logger.warn.log = console.warn.bind(console);
+            logger.error.log = console.error.bind(console);
         }
     },
 
@@ -138,10 +166,40 @@ module.exports = {
         contracts = undefined;
         web3 = undefined;
         instances = undefined;
+        logger = undefined;
     },
 
+
+    /**
+     * [async] Get a base client
+     *
+     * With a base client you could interact with noia and watch noia events
+     * without having a business or node client.
+     *
+     * @return the base client
+     */
+    getBaseClient: async () => {
+        return await new BaseClient({
+            logger: logger,
+            web3: web3,
+            account: {
+                owner: owner,
+                ownerPrivateKey: ownerPrivateKey
+            },
+            contracts: contracts,
+            instances: instances
+        });
+    },
+
+    /**
+     * [async] Create new business client contract
+     *
+     * @param businessInfo - meta info about the business
+     * @return new client created
+     */
     createBusinessClient: async businessInfo => {
-        let client = new BusinessClient({
+        return await new BusinessClient({
+            logger: logger,
             web3: web3,
             account: {
                 owner: owner,
@@ -151,12 +209,17 @@ module.exports = {
             instances: instances,
             info: businessInfo
         });
-        await client.init();
-        return client;
     },
 
+    /**
+     * [async] Get the business client contract at the address
+     *
+     * @param businessAddress - address of the business client contract
+     * @return the business client
+     */
     getBusinessClient: async businessAddress => {
-        let client = new BusinessClient({
+        return await new BusinessClient({
+            logger: logger,
             web3: web3,
             account: {
                 owner: owner,
@@ -166,12 +229,17 @@ module.exports = {
             instances: instances,
             at: businessAddress
         });
-        await client.init();
-        return client;
     },
 
+
+    /**
+     * [async] Create new node client contract
+     *
+     * @param nodeInfo - meta info about the node
+     */
     createNodeClient: async nodeInfo => {
-        let client = new NodeClient({
+        return await new NodeClient({
+            logger: logger,
             web3: web3,
             account: {
                 owner: owner,
@@ -181,12 +249,17 @@ module.exports = {
             instances: instances,
             info: nodeInfo
         });
-        await client.init();
-        return client;
     },
 
+    /**
+     * [async] Get the node client contract at the address
+     *
+     * @param nodeAddress - address of the node client contract
+     * @return the node client
+     */
     getNodeClient: async nodeAddress => {
-        let client = new NodeClient({
+        return await new NodeClient({
+            logger: logger,
             web3: web3,
             account: {
                 owner: owner,
@@ -196,14 +269,34 @@ module.exports = {
             instances: instances,
             at: nodeAddress
         });
-        await client.init();
-        return client;
     },
 
+    /**
+     * [async] Get the job post contract at the address
+     *
+     * @param nodeAddress - address of job post contract
+     * @return the job post
+     */
+    getJobPost: async jobPostAddress => {
+        return await JobPost.getInstance(contracts.NoiaJobPost, jobPostAddress, logger);
+    },
+
+    /**
+     * [async] Check if there is a business client contract at the address
+     *
+     * @param nodeAddress - address of the business client contract
+     * @return true/false
+     */
     isBusinessRegistered: async businessAddress => {
         return await instances.businessRegistry.hasEntry.call(businessAddress);
     },
 
+    /**
+     * [async] Check if there is a node client contract at the address
+     *
+     * @param nodeAddress - address of the node client contract
+     * @return true/false
+     */
     isNodeRegistered: async nodeAddress => {
         return await instances.nodeRegistry.hasEntry.call(nodeAddress);
     },

@@ -12,6 +12,7 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
     const acc0 = accounts[0];
     const acc1 = accounts[1];
 
+    var baseClient;
     var nodeClient;
     var businessClient;
 
@@ -33,6 +34,7 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
         }
 
         await sdk.init(initOptions);
+        baseClient = await sdk.getBaseClient();
         nodeClient = await sdk.createNodeClient({host : '127.0.0.1'});
         console.log(`Node client created at ${nodeClient.address}`);
         businessClient = await sdk.createBusinessClient({/* business info missing */});
@@ -63,31 +65,67 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
 
     it('business client registration', async () => {
         let businessClient1 = await sdk.createBusinessClient({/* business info missing */});
-        assert.isTrue(await sdk.isBusinessRegistered(businessClient1.address));
         console.log(`Business client 1 created at ${businessClient1.address}`);
+        assert.isTrue(await sdk.isBusinessRegistered(businessClient1.address));
+        let businessClient2 = await sdk.getBusinessClient(businessClient1.address);
+        assert.isTrue(await sdk.isBusinessRegistered(businessClient2.address));
     })
 
     it('node registration event watching', async () => {
         console.log(`start watching node events`);
-        await businessClient.startWatchingNodeEvents({
+        await baseClient.startWatchingNodeEvents({
             pollingInterval: 1000 // faster!!
         });
         let nodeAddresses = {};
         await new Promise(async function (resolve, reject) {
             let nodeClient1;
-            businessClient.on('node_entry_added', function (nodeAddress) {
+
+            baseClient.on('node_entry_added', function (nodeAddress) {
                 console.log('node_entry_added', nodeAddress);
                 nodeAddresses[nodeAddress] = true;
                 if (nodeClient1 && nodeClient1.address in nodeAddresses) resolve();
             });
+
             console.log('creating new node client');
             nodeClient1 = await sdk.createNodeClient({host : '127.0.0.1'});
-            assert.isTrue(await sdk.isNodeRegistered(nodeClient1.address));
             console.log(`Created new node client at ${nodeClient1.address}`);
+            assert.isTrue(await sdk.isNodeRegistered(nodeClient1.address));
+            expect(nodeClient1.info).to.deep.equal({host : '127.0.0.1'});
+            let nodeClient2 = await sdk.getNodeClient(nodeClient1.address);
+            assert.isTrue(await sdk.isNodeRegistered(nodeClient2.address));
+            expect(nodeClient2.info).to.deep.equal({host : '127.0.0.1'});
+
+            // in case registratino is fast
             if (nodeClient1.address in nodeAddresses) resolve();
         });
-        businessClient.stopWatchingNodeEvents();
+        baseClient.stopWatchingNodeEvents();
     })
+
+    it('job post creation and event watching', async function () {
+        console.log(`start watching node events`);
+        await baseClient.startWatchingJobPostAddedEvents({
+            pollingInterval: 1000 // faster!!
+        });
+        let jobPostAddresses = {};
+        await new Promise(async function (resolve, reject) {
+            let jobPost1;
+
+            baseClient.on('job_post_added', function (jobPostAddress) {
+                console.log('job_post_added', jobPostAddress);
+                jobPostAddresses[jobPostAddress] = true;
+                if (jobPost1 && jobPost1.address in jobPostAddresses) resolve();
+            });
+
+            jobPost1 = await businessClient.createJobPost({ employer_address : businessClient.address });
+            expect(jobPost1.info).to.deep.equal({ employer_address : businessClient.address });
+            let jobPost2 = await sdk.getJobPost(jobPost1.address);
+            expect(jobPost2.info).to.deep.equal({ employer_address : businessClient.address });
+
+            // in case registratino is fast
+            if (jobPost1.address in jobPostAddresses) resolve();
+        });
+        baseClient.stopWatchingJobPostAddedEvents();
+    });
 
     it("Transfer ether", async () => {
         let ethBalanceOldAcc0 = await sdk.getEtherBalance(acc0);

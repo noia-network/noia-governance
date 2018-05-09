@@ -17,27 +17,40 @@ const {
 
 inherits(NodeClient, BaseClient)
 function NodeClient(options) {
-    BaseClient.call(this, options);
+    let self = this;
+    return new Promise(async function (resolve, reject) {
+        await BaseClient.call(self, options);
+        self.address = options.at;
+        if (self.address) {
+            if (await self.nodeRegistry.hasEntry.call(self.address)) {
+                self.contract = await self.contracts.NoiaNode.at(self.address);
+            } else {
+                throw Error(`Node does not exist at ${self.address}`);
+            }
 
-    this.address = options.at;
-    this.info = options.info;
-};
-
-NodeClient.prototype.init = async function () {
-    this.nodeRegistry = this.contracts.NoiaRegistry.at(await this.marketplace.nodeRegistry.call());
-    if (this.address) {
-        if (await this.nodeRegistry.hasEntry.call(this.address)) {
-            this.contract = await this.contracts.NoiaNode.at(this.address);
+            // load info
+            let infoType = bytesToString(await self.contract.infoType.call());
+            self.info = bytesToString(await self.contract.infoData.call());
+            if (infoType == 'application/json') {
+                try {
+                    self.info = JSON.parse(self.info);
+                } catch (error) {
+                    logger.info(`Parse node @${self.contract.address} json info failed`, self.info);
+                }
+            }
         } else {
-            throw Error(`Node does not exist at ${this.address}`);
+            self.info = options.info;
+            if (typeof self.info !== 'object') {
+                throw new Error('options.info has to be an object');
+            }
+            self.logger.info(`Creating new node...`, self.info);
+            let tx = await self.factory.createNode('application/json', JSON.stringify(self.info), { from: self.owner, gas: NEW_NODE_GAS });
+            self.address = tx.logs[0].args.nodeAddress;
+            self.logger.info(`Node created at ${self.address}@${tx.receipt.blockNumber}, gas used ${getGasUsedForTransaction(tx)}`);
+            self.contract = await self.contracts.NoiaNode.at(self.address);
         }
-    } else {
-        console.log(`Creating new node...`);
-        let tx = await this.factory.createNode('application/json', JSON.stringify(this.info), { from: this.owner, gas: NEW_NODE_GAS });
-        this.address = tx.logs[0].args.nodeAddress;
-        console.log(`Node created at ${this.address}@${tx.receipt.blockNumber}, gas used ${getGasUsedForTransaction(tx)}`);
-        this.contract = await this.contracts.NoiaNode.at(this.address);
-    }
+        resolve(self);
+    });
 }
 
 NodeClient.prototype.getInfo = async function (msg) {
@@ -52,12 +65,5 @@ NodeClient.prototype.getInfo = async function (msg) {
         }
     }
 }
-
-// events
-//   - certificate_contract_received
-//   - certificate_contract_updated
-//   - certificate_contract_revoked
-//   - work_contract_received
-//   - work_contract_signed
 
 module.exports = NodeClient;

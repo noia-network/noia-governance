@@ -18,7 +18,7 @@ const {
 inherits(NodeClient, BaseClient)
 function NodeClient(options) {
     let self = this;
-    return new Promise(async function (resolve, reject) {
+    return new Promise(async function (resolve, reject) { try {
         await BaseClient.call(self, options);
         self.address = options.at;
         if (self.address) {
@@ -50,6 +50,8 @@ function NodeClient(options) {
             self.contract = await self.contracts.NoiaNode.at(self.address);
         }
         resolve(self);
+    } catch (error) {
+        reject(error);
     });
 }
 

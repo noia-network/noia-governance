@@ -13,7 +13,7 @@ const {
 inherits(BaseClient, require('events').EventEmitter)
 function BaseClient(options) {
     let self = this;
-    return new Promise(async function (resolve, reject) {
+    return new Promise(async function (resolve, reject) { try {
         self.logger = options.logger;
         self.web3 = options.web3;
         self.contracts = options.contracts;
@@ -30,6 +30,8 @@ function BaseClient(options) {
         self.NOIA_REGISTRY_ENTRY_ADDED_EVENT = self.web3.sha3('NoiaRegistryEntryAdded(address)');
 
         resolve(self);
+    } catch (error) {
+        reject(error);
     });
 }
 

@@ -17,7 +17,7 @@ const {
 inherits(BusinessClient, BaseClient)
 function BusinessClient(options) {
     let self = this;
-    return new Promise(async function (resolve, reject) {
+    return new Promise(async function (resolve, reject) { try {
         await BaseClient.call(self, options);
         self.address = options.at;
         self.info = options.info;
@@ -35,6 +35,8 @@ function BusinessClient(options) {
             self.logger.info(`Business created at ${self.contract.address}, gas used ${getGasUsedForTransaction(tx)}`);
         }
         resolve(self);
+    } catch (error) {
+        reject(error);
     });
 }
 

@@ -9,7 +9,7 @@ const NEW_JOBPOST_GAS                   = 2000000;
 
 function JobPost(contract, logger, jobPostInfo) {
     let self = this;
-    return new Promise(async function (resolve, reject) {
+    return new Promise(async function (resolve, reject) { try {
         self.contract = contract;
         self.address = contract.address;
         if (!jobPostInfo) {
@@ -26,6 +26,8 @@ function JobPost(contract, logger, jobPostInfo) {
             self.info = jobPostInfo;
         }
         resolve(self);
+    } catch (error) {
+        reject(error);
     });
 }
 

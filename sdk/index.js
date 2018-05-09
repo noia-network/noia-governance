@@ -57,7 +57,7 @@ module.exports = {
      *  - Using internal provider:
      *    {
      *        web3: {
-     *            provider_url : web3.currentProvider,
+     *            provider_url : <provider_url>,
      *        },
      *        account: {
      *            mnemonic: "xxx yyy zzz"
@@ -169,6 +169,12 @@ module.exports = {
         logger = undefined;
     },
 
+    /**
+     * Return owner address used for all transactions
+     */
+    getOwnerAddress: () => {
+        return owner;
+    },
 
     /**
      * [async] Get a base client
@@ -307,7 +313,7 @@ module.exports = {
      * @param address - The Owner contract's address
      * @return owner address of the Owner contract
      */
-    getOwnerAddress: async address => {
+    getOwnerOfContract: async address => {
         let owned = await contracts.Owned.at(address);
         return await owned.owner();
     },

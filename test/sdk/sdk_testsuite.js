@@ -6,6 +6,7 @@ const sdk = require('../../');
 
 const util = require('util');
 const assert = require('chai').assert;
+const expect = require('chai').expect;
 const should = require('should');
 
 contract('NOIA Governance SDK functional tests: ', function (accounts) {
@@ -34,6 +35,7 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
         }
 
         await sdk.init(initOptions);
+
         baseClient = await sdk.getBaseClient();
         nodeClient = await sdk.createNodeClient({host : '127.0.0.1'});
         console.log(`Node client created at ${nodeClient.address}`);
@@ -47,18 +49,18 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
 
     it('rpc message signing & validation', async () => {
         let msg = "good weather in vilnius";
-        let sgn = await businessClient.rpcSignMessage(msg);
-        console.log(`signed: ${sgn} by business at ${businessClient.address}`);
-        let ownerAddress = await sdk.getOwnerAddress(businessClient.address);
+        let sgn = await baseClient.rpcSignMessage(msg);
+        console.log(`signed: ${sgn} by base at ${baseClient.address}`);
+        let ownerAddress = await sdk.getOwnerAddress(baseClient.address);
         console.log(`owner: ${ownerAddress}`);
         assert.equal(ownerAddress, sdk.recoverAddressFromRpcSignedMessage(msg, sgn));
     })
 
     it('message signing & validation', async () => {
         let msg = "good weather in vilnius too";
-        let sgn = businessClient.signMessage(msg);
-        console.log(`signed: ${sgn} by business at ${businessClient.address}`);
-        let ownerAddress = await sdk.getOwnerAddress(businessClient.address);
+        let sgn = baseClient.signMessage(msg);
+        console.log(`signed: ${sgn} by base at ${baseClient.address}`);
+        let ownerAddress = await sdk.getOwnerAddress(baseClient.address);
         console.log(`owner: ${ownerAddress}`);
         assert.equal(ownerAddress, sdk.recoverAddressFromSignedMessage(msg, sgn));
     })
@@ -77,7 +79,7 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
             pollingInterval: 1000 // faster!!
         });
         let nodeAddresses = {};
-        await new Promise(async function (resolve, reject) {
+        await new Promise(async function (resolve, reject) { try {
             let nodeClient1;
 
             baseClient.on('node_entry_added', function (nodeAddress) {
@@ -97,7 +99,9 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
 
             // in case registratino is fast
             if (nodeClient1.address in nodeAddresses) resolve();
-        });
+        } catch(err) {
+            reject(err);
+        }});
         baseClient.stopWatchingNodeEvents();
     })
 
@@ -107,7 +111,7 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
             pollingInterval: 1000 // faster!!
         });
         let jobPostAddresses = {};
-        await new Promise(async function (resolve, reject) {
+        await new Promise(async function (resolve, reject) { try {
             let jobPost1;
 
             baseClient.on('job_post_added', function (jobPostAddress) {
@@ -123,7 +127,9 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
 
             // in case registratino is fast
             if (jobPost1.address in jobPostAddresses) resolve();
-        });
+        } catch(err) {
+            reject(err);
+        }});
         baseClient.stopWatchingJobPostAddedEvents();
     });
 
@@ -136,7 +142,7 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
         let ethBalanceNewAcc0 = await sdk.getEtherBalance(acc0);
         let ethBalanceNewAcc1 = await sdk.getEtherBalance(acc1);
 
-        assert.isTrue(ethBalanceNewAcc0 + 0.001 < ethBalanceOldAcc0);
+        assert.isTrue(ethBalanceNewAcc0 < ethBalanceOldAcc0);
         assert.isTrue(ethBalanceNewAcc1 > ethBalanceOldAcc1);
     })
 

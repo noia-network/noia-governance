@@ -132,7 +132,7 @@ module.exports = {
             }
             let factories;
             if (typeof options.deployed_contracts.factories === 'undefined') {
-                factories = await contracts.NoiaContractsFactory.deployed();
+                factories = await contracts.NoiaContractFactories.deployed();
             } else {
                 factories = options.deployed_contracts.factories;
             }

@@ -106,7 +106,11 @@ module.exports = {
             contracts.NoiaNetwork = contract(require("./contracts/NoiaNetwork.json"));
             contracts.NoiaRegistry = contract(require("./contracts/NoiaRegistry.json"));
             contracts.NoiaMarketplace = contract(require("./contracts/NoiaMarketplace.json"));
-            contracts.NoiaContractsFactory = contract(require("./contracts/NoiaContractsFactoryV1.json"));
+            contracts.NoiaContractFactories = contract(require("./contracts/NoiaContractFactoriesV1.json"));
+            contracts.NoiaBusinessContractFactory = contract(require("./contracts/NoiaBusinessContractFactoryV1.json"));
+            contracts.NoiaNodeContractFactory = contract(require("./contracts/NoiaNodeContractFactoryV1.json"));
+            contracts.NoiaCertificateContractFactory = contract(require("./contracts/NoiaCertificateContractFactoryV1.json"));
+            contracts.NoiaJobPostContractFactory = contract(require("./contracts/NoiaJobPostContractFactoryV1.json"));
             contracts.NoiaNode = contract(require("./contracts/NoiaNodeV1.json"));
             contracts.NoiaBusiness = contract(require("./contracts/NoiaBusinessV1.json"));
             contracts.NoiaJobPost = contract(require("./contracts/NoiaJobPostV1.json"));
@@ -126,16 +130,22 @@ module.exports = {
             } else {
                 instances.noia = options.deployed_contracts.noia;
             }
-            if (typeof options.deployed_contracts.factory === 'undefined') {
-                instances.factory = await contracts.NoiaContractsFactory.deployed();
+            let factories;
+            if (typeof options.deployed_contracts.factories === 'undefined') {
+                factories = await contracts.NoiaContractsFactory.deployed();
             } else {
-                instances.factory = options.deployed_contracts.factory;
+                factories = options.deployed_contracts.factories;
             }
-            instances.tokenContract = contracts.ERC223Interface.at(await instances.noia.tokenContract.call());
-            instances.marketplace = contracts.NoiaMarketplace.at(await instances.noia.marketplace.call());
-            instances.nodeRegistry = contracts.NoiaRegistry.at(await instances.marketplace.nodeRegistry.call());
-            instances.businessRegistry = contracts.NoiaRegistry.at(await instances.marketplace.businessRegistry.call());
-            instances.jobPostRegistry = contracts.NoiaRegistry.at(await instances.marketplace.jobPostRegistry.call());
+            instances.tokenContract = await contracts.ERC223Interface.at(await instances.noia.tokenContract.call());
+            instances.marketplace = await contracts.NoiaMarketplace.at(await instances.noia.marketplace.call());
+            instances.nodeRegistry = await contracts.NoiaRegistry.at(await instances.marketplace.nodeRegistry.call());
+            instances.businessRegistry = await contracts.NoiaRegistry.at(await instances.marketplace.businessRegistry.call());
+            instances.jobPostRegistry = await contracts.NoiaRegistry.at(await instances.marketplace.jobPostRegistry.call());
+            instances.factories = {};
+            instances.factories.business = await contracts.NoiaBusinessContractFactory.at(await factories.business.call());
+            instances.factories.node = await contracts.NoiaNodeContractFactory.at(await factories.node.call());
+            instances.factories.certificate = await contracts.NoiaCertificateContractFactory.at(await factories.certificate.call());
+            instances.factories.jobPost = await contracts.NoiaJobPostContractFactory.at(await factories.jobPost.call());
         }
 
         if (options.logger) {

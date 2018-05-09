@@ -1,7 +1,6 @@
 pragma solidity ^0.4.11;
 
 import './NoiaBaseContractV1.sol';
-import './NoiaContractsFactoryV1.sol';
 import './NoiaBusinessV1.sol';
 import './NoiaNodeV1.sol';
 import './NoiaWorkContractV1.sol';
@@ -19,10 +18,12 @@ contract NoiaJobPostV1
     mapping(address => NoiaWorkContractV1) employerCreatedContracts;
     mapping(address => NoiaWorkContractV1) workerCreatedContracts;
 
-    function NoiaJobPostV1(NoiaContractsFactoryV1 factory,
+    function NoiaJobPostV1(
+        address factory,
+        NoiaMarketplace marketplace,
         NoiaBusinessV1 employer_,
         bytes32 infoType_, bytes infoData_)
-        NoiaBaseContractV1(factory) public {
+        NoiaBaseContractV1(factory, marketplace) public {
         employer = employer_;
         infoType = infoType_;
         infoData = infoData_;

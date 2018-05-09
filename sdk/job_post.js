@@ -31,10 +31,10 @@ function JobPost(contract, logger, jobPostInfo) {
     }});
 }
 
-JobPost.createInstance = async function (JobPostContract, factory, employerAddress, jobPostInfo, logger) {
+JobPost.createInstance = async function (owner, JobPostContract, factory, employerAddress, jobPostInfo, logger) {
     logger.info('Creating new job post...', jobPostInfo);
-    let tx = await factory.createJobPost(employerAddress, 'application/json', JSON.stringify(jobPostInfo), { gas: NEW_JOBPOST_GAS })
-    let jobPostAddress = tx.logs[0].args.jobPostAddress;
+    let tx = await factory.create(employerAddress, 'application/json', JSON.stringify(jobPostInfo), { from: owner, gas: NEW_JOBPOST_GAS })
+    let jobPostAddress = tx.logs[0].args.contractInstance;
     logger.info(`Job post created at ${jobPostAddress}@${tx.receipt.blockNumber}, gas used ${getGasUsedForTransaction(tx)}`);
     let jobPost = await JobPostContract.at(jobPostAddress);
     return await new JobPost(jobPost, logger, jobPostInfo);

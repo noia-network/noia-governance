@@ -29,7 +29,7 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
         if (typeof artifacts !== 'undefined') {
             initOptions.deployed_contracts = {
                 noia : await artifacts.require('NoiaNetwork').deployed(),
-                factory : await artifacts.require("NoiaContractsFactoryV1").deployed()
+                factories : await artifacts.require("NoiaContractFactoriesV1").deployed()
             };
         }
 
@@ -102,7 +102,7 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
     })
 
     it('job post creation and event watching', async function () {
-        console.log(`start watching node events`);
+        console.log(`start watching job post events`);
         await baseClient.startWatchingJobPostAddedEvents({
             pollingInterval: 1000 // faster!!
         });

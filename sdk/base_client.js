@@ -20,7 +20,7 @@ function BaseClient(options) {
         self.owner = options.account.owner;
         self.ownerPrivateKey = options.account.ownerPrivateKey;
         self.marketplace = options.instances.marketplace;
-        self.factory = options.instances.factory;
+        self.factories = options.instances.factories;
         self.eventHandlers = {};
 
         self.businessRegistry = self.contracts.NoiaRegistry.at(await self.marketplace.businessRegistry.call());

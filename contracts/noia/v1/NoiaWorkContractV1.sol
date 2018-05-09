@@ -51,7 +51,7 @@ contract NoiaWorkContractV1 {
 
     function tokenFallback(address /*from*/, uint value, bytes /*_data*/) public {
         // token `from` anyone is welcome :)
-        require(msg.sender == address(jobPost.factory().marketplace().tokenContract()));
+        require(msg.sender == address(jobPost.marketplace().tokenContract()));
         tokenReceived += value;
     }
 }

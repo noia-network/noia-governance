@@ -1,7 +1,11 @@
 'use strict';
 
 const NoiaNetwork = artifacts.require('NoiaNetwork');
-const NoiaContractsFactory = artifacts.require("NoiaContractsFactoryV1");
+const NoiaBusinessContractFactory = artifacts.require("NoiaBusinessContractFactoryV1");
+const NoiaNodeContractFactory = artifacts.require("NoiaNodeContractFactoryV1");
+const NoiaCertificateContractFactory = artifacts.require("NoiaCertificateContractFactoryV1");
+const NoiaJobPostContractFactory = artifacts.require("NoiaJobPostContractFactoryV1");
+const NoiaContractFactories = artifacts.require("NoiaContractFactoriesV1");
 const NoiaMarketplace = artifacts.require('NoiaMarketplace');
 const NoiaRegistry = artifacts.require('NoiaRegistry');
 const NoiaNode = artifacts.require('NoiaNodeV1');
@@ -25,11 +29,11 @@ const {
 const should = require('should');
 
 contract('NOIA noia tests: ', function (accounts) {
-    const NEW_NODE_GAS                      = 1000000;
+    const NEW_NODE_GAS                      = 1500000;
     const REGISTER_NODE_GAS                 = 100000;
-    const NEW_BUSINESS_GAS                  = 1200000;
+    const NEW_BUSINESS_GAS                  = 1500000;
     const NEW_JOBPOST_GAS                   = 1500000;
-    const NEW_CERTIFICATE_GAS               = 1200000;
+    const NEW_CERTIFICATE_GAS               = 1500000;
     const SIGN_CERTIFICATE_GAS              = 100000;
     const ISSUE_CERTIFICATE_GAS             = 100000;
     const UPDATE_CERTIFICATE_GAS            = 200000;
@@ -41,7 +45,10 @@ contract('NOIA noia tests: ', function (accounts) {
     const acc2 = accounts[1];
 
     var noia;
-    var factory;
+    var businessFactory;
+    var nodeFactory;
+    var certificateFactory;
+    var jobPostFactory;
     var marketplace;
     var node0;
     var business0;
@@ -50,7 +57,12 @@ contract('NOIA noia tests: ', function (accounts) {
         setBeforeAllTimeout(this, 2);
 
         noia = await NoiaNetwork.deployed();
-        factory = await NoiaContractsFactory.deployed();
+
+        let factories = await NoiaContractFactories.deployed();
+        businessFactory = await NoiaBusinessContractFactory.at(await factories.business.call());
+        nodeFactory = await NoiaNodeContractFactory.at(await factories.node.call());
+        certificateFactory = await NoiaCertificateContractFactory.at(await factories.certificate.call());
+        jobPostFactory = await NoiaJobPostContractFactory.at(await factories.jobPost.call());
 
         marketplace = NoiaMarketplace.at(await noia.marketplace());
     });
@@ -61,13 +73,13 @@ contract('NOIA noia tests: ', function (accounts) {
         let tx;
 
         console.log('Creating node0...');
-        tx = await factory.createNode('application/json', '{"host": "127.0.0.1"}', { gas: NEW_NODE_GAS });
-        node0 = NoiaNode.at(tx.logs[0].args.nodeAddress);
+        tx = await nodeFactory.create('application/json', '{"host": "127.0.0.1"}', { gas: NEW_NODE_GAS });
+        node0 = NoiaNode.at(tx.logs[0].args.contractInstance);
         console.log(`Created at ${node0.address}, gas used ${await getGasUsedForTransaction(tx)}`);
 
         console.log('Creating business0...');
-        tx = await factory.createBusiness({ gas: NEW_BUSINESS_GAS });
-        business0 = NoiaBusiness.at(tx.logs[0].args.businessAddress);
+        tx = await businessFactory.create({ gas: NEW_BUSINESS_GAS });
+        business0 = NoiaBusiness.at(tx.logs[0].args.contractInstance);
         console.log(`Created at ${business0.address}, gas used ${await getGasUsedForTransaction(tx)}`);
     })
 
@@ -90,8 +102,8 @@ contract('NOIA noia tests: ', function (accounts) {
 
         let nentry = (await nodeRegistry.count.call()).toNumber();
         console.log('Creating node1...');
-        tx = await factory.createNode('application/json', '{"host":"test-node.noia.network"}', { gas: NEW_NODE_GAS });
-        let node1 = NoiaNode.at(tx.logs[0].args.nodeAddress);
+        tx = await nodeFactory.create('application/json', '{"host":"test-node.noia.network"}', { gas: NEW_NODE_GAS });
+        let node1 = await NoiaNode.at(tx.logs[0].args.contractInstance);
         console.log(`Created at ${node1.address}, gas used ${await getGasUsedForTransaction(tx)}`);
 
         assert.isTrue(await nodeRegistry.hasEntry(node1.address));
@@ -119,8 +131,8 @@ contract('NOIA noia tests: ', function (accounts) {
 
         let nentry = (await businessRegistry.count.call()).toNumber();
         console.log('Creating business1...');
-        tx = await factory.createBusiness({ gas: NEW_BUSINESS_GAS });
-        let business1 = NoiaBusiness.at(tx.logs[0].args.businessAddress);
+        tx = await businessFactory.create({ gas: NEW_BUSINESS_GAS });
+        let business1 = await NoiaBusiness.at(tx.logs[0].args.contractInstance);
         console.log(`Created at ${business1.address}, gas used ${await getGasUsedForTransaction(tx)}`);
 
         assert.isTrue(await businessRegistry.hasEntry(business1.address));
@@ -137,12 +149,12 @@ contract('NOIA noia tests: ', function (accounts) {
         let tx;
 
         console.log('Creating new certificate...');
-        tx = await factory.createCertificate(
+        tx = await certificateFactory.create(
             "NODE_TEST_CERTIFICATE",
             business0.address,
             node0.address,
             { gas: NEW_CERTIFICATE_GAS });
-        let certificate = NoiaCertificate.at(tx.logs[0].args.certAddress);
+        let certificate = await NoiaCertificate.at(tx.logs[0].args.contractInstance);
         console.log(`Certificate created at ${certificate.address}, gas used ${await getGasUsedForTransaction(tx)}`);
 
         let certsSignedEventWatcher = certificate.NoiaCertificateSignedV1();
@@ -209,12 +221,12 @@ contract('NOIA noia tests: ', function (accounts) {
         let tx;
 
         console.log('Creating new certificate...');
-        tx = await factory.createCertificate(
+        tx = await certificateFactory.create(
             "NODE_TEST_CERTIFICATE",
             business0.address,
             node0.address,
             { gas: NEW_CERTIFICATE_GAS });
-        let certificate = NoiaCertificate.at(tx.logs[0].args.certAddress);
+        let certificate = await NoiaCertificate.at(tx.logs[0].args.contractInstance);
         console.log(`Certificate created, gas used ${await getGasUsedForContractCreation(certificate)}`);
 
         console.log('cert.sing');
@@ -241,12 +253,12 @@ contract('NOIA noia tests: ', function (accounts) {
         let certs = [];
         for (let i = 0; i < 10; ++i) {
             console.log('Creating new certificate...');
-            tx = await factory.createCertificate(
+            tx = await certificateFactory.create(
                 "NODE_TEST_CERTIFICATE",
                 business0.address,
                 node0.address,
                 { gas: NEW_CERTIFICATE_GAS });
-            let certificate = NoiaCertificate.at(tx.logs[0].args.certAddress);
+            let certificate = await NoiaCertificate.at(tx.logs[0].args.contractInstance);
             console.log(`Certificate created, gas used ${await getGasUsedForTransaction(tx)}`);
 
             certs.push(certificate.address);
@@ -283,8 +295,8 @@ contract('NOIA noia tests: ', function (accounts) {
 
         let nentry = (await jobPostRegistry.count.call()).toNumber();
         console.log('Creating jobPost...');
-        tx = await factory.createJobPost(business0.address, 'application/json', '{"period":"1 week"}', { gas: NEW_JOBPOST_GAS });
-        let jobPost = NoiaJobPost.at(tx.logs[0].args.jobPostAddress);
+        tx = await jobPostFactory.create(business0.address, 'application/json', '{"period":"1 week"}', { gas: NEW_JOBPOST_GAS });
+        let jobPost = await NoiaJobPost.at(tx.logs[0].args.contractInstance);
         console.log(`Created at ${jobPost.address}, gas used ${await getGasUsedForTransaction(tx)}`);
 
         assert.isTrue(await jobPostRegistry.hasEntry(jobPost.address));

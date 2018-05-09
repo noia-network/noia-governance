@@ -1,6 +1,10 @@
 const Migrations = artifacts.require("Migrations");
 const NoiaNetwork = artifacts.require("NoiaNetwork");
-const NoiaContractsFactoryV1 = artifacts.require("NoiaContractsFactoryV1");
+const NoiaBusinessContractFactoryV1 = artifacts.require("NoiaBusinessContractFactoryV1");
+const NoiaNodeContractFactoryV1 = artifacts.require("NoiaNodeContractFactoryV1");
+const NoiaCertificateContractFactoryV1 = artifacts.require("NoiaCertificateContractFactoryV1");
+const NoiaJobPostContractFactoryV1 = artifacts.require("NoiaJobPostContractFactoryV1");
+const NoiaContractFactoriesV1 = artifacts.require("NoiaContractFactoriesV1");
 // for testing
 const NOIATestToken = artifacts.require("NOIATestToken");
 const NoiaSimpleRegulation = artifacts.require("NoiaSimpleRegulation");
@@ -63,7 +67,7 @@ module.exports = function (deployer, network, accounts) {
             }
 
             console.log(`Creating NoiaSimpleRegulation contract...`);
-            regulation = await NoiaSimpleRegulation.new({ gas: 500000 });
+            regulation = await NoiaSimpleRegulation.new({ gas: 400000 });
             console.log(`Created at ${regulation.address}, gasUsed ${await getGasUsedForContractCreation(regulation)}`);
         } else {
             // real token
@@ -75,15 +79,42 @@ module.exports = function (deployer, network, accounts) {
         let noia = await NoiaNetwork.deployed();
         console.log(`NoiaNetwork contract deployed at ${noia.address}`);
 
-        console.log(`Deploying NoiaContractsFactoryV1 contract...`);
-        await deployer.deploy(NoiaContractsFactoryV1, await noia.marketplace.call(), { gas: 6000000 });
-        let factory = await NoiaContractsFactoryV1.deployed();
-        console.log(`Deployed at ${factory.address}`);
+        // deploying factories
+        {
+            console.log(`Deploying NoiaBusinessContractFactoryV1 contract...`);
+            let businessFactory = await NoiaBusinessContractFactoryV1.new({gas: 2000000});
+            console.log(`NoiaBusinessContractFactoryV1 deployed at ${businessFactory.address}, gasUsed ${await getGasUsedForContractCreation(businessFactory)}`);
+            console.log(`Deploying NoiaNodeContractFactoryV1 contract...`);
+            let nodeFactory = await NoiaNodeContractFactoryV1.new({gas: 2000000});
+            console.log(`NoiaNodeContractFactoryV1 deployed at ${nodeFactory.address}, gasUsed ${await getGasUsedForContractCreation(nodeFactory)}`);
+            console.log(`Deploying NoiaCertificateContractFactoryV1 contract...`);
+            let certificateFactory = await NoiaCertificateContractFactoryV1.new({gas: 2000000});
+            console.log(`NoiaCertificateContractFactoryV1 deployed at ${certificateFactory.address}, gasUsed ${await getGasUsedForContractCreation(certificateFactory)}`);
+            console.log(`Deploying NoiaJobPostContractFactoryV1 contract...`);
+            let jobPostFactory = await NoiaJobPostContractFactoryV1.new({gas: 2500000});
+            console.log(`NoiaJobPostContractFactoryV1 deployed at ${jobPostFactory.address}, gasUsed ${await getGasUsedForContractCreation(jobPostFactory)}`);
+            console.log(`Deploying NoiaContractFactoriesV1 contract...`);
+            await deployer.deploy(NoiaContractFactoriesV1,
+                await noia.marketplace.call(),
+                businessFactory.address,
+                nodeFactory.address,
+                certificateFactory.address,
+                jobPostFactory.address,
+                { gas: 2000000 });
+            let factories = await NoiaContractFactoriesV1.deployed();
+            console.log(`Deployed at ${factories.address}`);
 
-        if (isTestNetwork(network)) {
-            console.log(`Adding contractsFactory to regulation whitelist...`);
-            tx = await regulation.addApprovedFactory(factory.address);
-            console.log(`Done, gasUsed ${await getGasUsedForTransaction(tx)}`);
+            if (isTestNetwork(network)) {
+                console.log(`Adding factories to regulation whitelist...`);
+                tx = await regulation.addApprovedFactory(businessFactory.address);
+                console.log(`Added businessFactory, gasUsed ${await getGasUsedForTransaction(tx)}`);
+                tx = await regulation.addApprovedFactory(nodeFactory.address);
+                console.log(`Added nodeFactory, gasUsed ${await getGasUsedForTransaction(tx)}`);
+                tx = await regulation.addApprovedFactory(certificateFactory.address);
+                console.log(`Added certificateFactory, gasUsed ${await getGasUsedForTransaction(tx)}`);
+                tx = await regulation.addApprovedFactory(jobPostFactory.address);
+                console.log(`Added jobPostFactory, gasUsed ${await getGasUsedForTransaction(tx)}`);
+            }
         }
 
         console.log(`Deployment finished.`);

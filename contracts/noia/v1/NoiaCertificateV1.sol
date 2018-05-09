@@ -1,7 +1,6 @@
 pragma solidity ^0.4.11;
 
 import './NoiaBaseContractV1.sol';
-import './NoiaContractsFactoryV1.sol';
 import './NoiaNodeV1.sol';
 import './NoiaBusinessV1.sol';
 
@@ -18,11 +17,12 @@ contract NoiaCertificateV1
     bytes public payloadData;
 
     function NoiaCertificateV1(
-        NoiaContractsFactoryV1 factory,
+        address factory,
+        NoiaMarketplace marketplace,
         bytes32 certificateName_,
         NoiaBusinessV1 issuer_,
         NoiaNodeV1 recipient_)
-        NoiaBaseContractV1(factory) public {
+        NoiaBaseContractV1(factory, marketplace) public {
         // the factory has guranteed that issuer and recipient are regulated contracts
         certificateName = certificateName_;
         issuer = issuer_;

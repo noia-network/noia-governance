@@ -29,8 +29,8 @@ function BusinessClient(options) {
             }
         } else {
             self.logger.info(`Creating new business...`);
-            let tx = await self.factory.createBusiness({ from: self.owner, gas: NEW_BUSINESS_GAS });
-            self.contract = await self.contracts.NoiaBusiness.at(tx.logs[0].args.businessAddress);
+            let tx = await self.factories.business.create({ from: self.owner, gas: NEW_BUSINESS_GAS });
+            self.contract = await self.contracts.NoiaBusiness.at(tx.logs[0].args.contractInstance);
             self.address = self.contract.address;
             self.logger.info(`Business created at ${self.contract.address}, gas used ${getGasUsedForTransaction(tx)}`);
         }
@@ -47,7 +47,7 @@ function BusinessClient(options) {
  * @return jobPost contract instance
  */
 BusinessClient.prototype.createJobPost = async function (jobPostInfo) {
-    return await JobPost.createInstance(this.contracts.NoiaJobPost, this.factory, this.address, jobPostInfo, this.logger);
+    return await JobPost.createInstance(this.owner, this.contracts.NoiaJobPost, this.factories.jobPost, this.address, jobPostInfo, this.logger);
 }
 
 module.exports = BusinessClient;

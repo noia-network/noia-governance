@@ -32,7 +32,7 @@ function BaseClient(options) {
         resolve(self);
     } catch (error) {
         reject(error);
-    });
+    }});
 }
 
 /**

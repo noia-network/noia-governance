@@ -28,7 +28,7 @@ function JobPost(contract, logger, jobPostInfo) {
         resolve(self);
     } catch (error) {
         reject(error);
-    });
+    }});
 }
 
 JobPost.createInstance = async function (JobPostContract, factory, employerAddress, jobPostInfo, logger) {

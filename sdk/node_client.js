@@ -52,7 +52,7 @@ function NodeClient(options) {
         resolve(self);
     } catch (error) {
         reject(error);
-    });
+    }});
 }
 
 NodeClient.prototype.getInfo = async function (msg) {

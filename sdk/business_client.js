@@ -37,7 +37,7 @@ function BusinessClient(options) {
         resolve(self);
     } catch (error) {
         reject(error);
-    });
+    }});
 }
 
 /**

@@ -47,7 +47,7 @@ function BusinessClient(options) {
  * @return jobPost contract instance
  */
 BusinessClient.prototype.createJobPost = async function (jobPostInfo) {
-    return await JobPost.createInstance(this.owner, this.contracts.NoiaJobPost, this.factories.jobPost, this.address, jobPostInfo, this.logger);
+    return await JobPost.createInstance(this.owner, this.contracts, this.factories.jobPost, this.address, jobPostInfo, this.logger);
 }
 
 module.exports = BusinessClient;

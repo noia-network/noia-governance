@@ -1,5 +1,7 @@
 'use strict';
 
+const BusinessClient = require('./business_client.js');
+
 const {
     bytesToString,
     getGasUsedForTransaction
@@ -7,9 +9,10 @@ const {
 
 const NEW_JOBPOST_GAS                   = 2000000;
 
-function JobPost(contract, logger, jobPostInfo) {
+function JobPost(contracts, contract, logger, jobPostInfo) {
     let self = this;
     return new Promise(async function (resolve, reject) { try {
+        self.contracts = contracts;
         self.contract = contract;
         self.address = contract.address;
         if (!jobPostInfo) {
@@ -31,18 +34,22 @@ function JobPost(contract, logger, jobPostInfo) {
     }});
 }
 
-JobPost.createInstance = async function (owner, JobPostContract, factory, employerAddress, jobPostInfo, logger) {
+JobPost.prototype.getEmployerAddress = async function () {
+    return await this.contract.employer.call();
+}
+
+JobPost.createInstance = async function (owner, contracts, factory, employerAddress, jobPostInfo, logger) {
     logger.info('Creating new job post...', jobPostInfo);
     let tx = await factory.create(employerAddress, 'application/json', JSON.stringify(jobPostInfo), { from: owner, gas: NEW_JOBPOST_GAS })
     let jobPostAddress = tx.logs[0].args.contractInstance;
     logger.info(`Job post created at ${jobPostAddress}@${tx.receipt.blockNumber}, gas used ${getGasUsedForTransaction(tx)}`);
-    let jobPost = await JobPostContract.at(jobPostAddress);
-    return await new JobPost(jobPost, logger, jobPostInfo);
+    let jobPost = await contracts.NoiaJobPost.at(jobPostAddress);
+    return await new JobPost(contracts, jobPost, logger, jobPostInfo);
 }
 
-JobPost.getInstance = async function (JobPostContract, at, logger) {
-    let jobPost = await JobPostContract.at(at);
-    return await new JobPost(jobPost, logger);
+JobPost.getInstance = async function (contracts, at, logger) {
+    let jobPost = await contracts.NoiaJobPost.at(at);
+    return await new JobPost(contracts, jobPost, logger);
 }
 
 module.exports = JobPost;

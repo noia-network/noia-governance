@@ -294,7 +294,7 @@ module.exports = {
      * @return the job post
      */
     getJobPost: async jobPostAddress => {
-        return await JobPost.getInstance(contracts.NoiaJobPost, jobPostAddress, logger);
+        return await JobPost.getInstance(contracts, jobPostAddress, logger);
     },
 
     /**

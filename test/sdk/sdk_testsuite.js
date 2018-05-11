@@ -125,6 +125,9 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
             let jobPost2 = await sdk.getJobPost(jobPost1.address);
             expect(jobPost2.info).to.deep.equal({ employer_address : businessClient.address });
 
+            let employerAddress = await jobPost1.getEmployerAddress();
+            assert.equal(businessClient.address, employerAddress);
+
             // in case registratino is fast
             if (jobPost1.address in jobPostAddresses) resolve();
         } catch(err) {

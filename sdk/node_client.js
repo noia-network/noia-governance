@@ -44,7 +44,7 @@ function NodeClient(options) {
                 throw new Error('options.info has to be an object');
             }
             self.logger.info(`Creating new node...`, self.info);
-            let tx = await self.factories.node.create('application/json', JSON.stringify(self.info), { from: self.owner, gas: NEW_NODE_GAS });
+            let tx = await self.factories.node.create('application/json', JSON.stringify(self.info), { from: self.accountOwner, gas: NEW_NODE_GAS });
             self.address = tx.logs[0].args.contractInstance;
             self.logger.info(`Node created at ${self.address}@${tx.receipt.blockNumber}, gas used ${getGasUsedForTransaction(tx)}`);
             self.contract = await self.contracts.NoiaNode.at(self.address);

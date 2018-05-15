@@ -17,8 +17,8 @@ function BaseClient(options) {
         self.logger = options.logger;
         self.web3 = options.web3;
         self.contracts = options.contracts;
-        self.owner = options.account.owner;
-        self.ownerPrivateKey = options.account.ownerPrivateKey;
+        self.accountOwner = options.account.owner;
+        self.accountOwnerPrivateKey = options.account.ownerPrivateKey;
         self.marketplace = options.instances.marketplace;
         self.factories = options.instances.factories;
         self.eventHandlers = {};
@@ -36,12 +36,29 @@ function BaseClient(options) {
 }
 
 /**
+ * Get owner address of the contract
+ * @return address of the owner
+ */
+BaseClient.prototype.getOwnerAddress = async function () {
+    return await this.contract.owner.call();
+}
+
+/**
  * [async] Sign message through rpc
  * @param string msg - msg to sign
  * @return Signature object
  */
 BaseClient.prototype.rpcSignMessage = async function (msg) {
-    return await rpcSignMessage(this.web3, msg, this.owner);
+    return await rpcSignMessage(this.web3, msg, this.accountOwner);
+}
+
+/**
+ * Sign message by client owner's private key
+ * @param string msg - msg to sign
+ * @return Signature object
+ */
+BaseClient.prototype.signMessage = function (msg) {
+    return signMessage(msg, this.accountOwnerPrivateKey);
 }
 
 BaseClient.prototype.startWatchingNodeEvents = function (options) {
@@ -70,15 +87,6 @@ BaseClient.prototype.startWatchingJobPostAddedEvents = function (options) {
 
 BaseClient.prototype.stopWatchingJobPostAddedEvents = function () {
     this._stopWatchingEvent('job_post_added')
-}
-
-/**
- * Sign message by client owner's private key
- * @param string msg - msg to sign
- * @return Signature object
- */
-BaseClient.prototype.signMessage = function (msg) {
-    return signMessage(msg, this.ownerPrivateKey);
 }
 
 BaseClient.prototype._startWatchingEvent = async function (eventName, filterFunc, topics, options_) {

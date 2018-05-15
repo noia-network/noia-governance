@@ -17,14 +17,14 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
     var nodeClient;
     var businessClient;
 
-    before(async () => {
+    async function initSdk(acc) {
         let noia, factory;
         let initOptions = {
             web3 : {
                 provider : web3.currentProvider,
             },
             account : {
-                owner: acc0,
+                owner: acc,
             }
         };
         if (typeof artifacts !== 'undefined') {
@@ -35,7 +35,10 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
         }
 
         await sdk.init(initOptions);
+    }
 
+    before(async () => {
+        await initSdk(acc0);
         baseClient = await sdk.getBaseClient();
         nodeClient = await sdk.createNodeClient({host : '127.0.0.1'});
         console.log(`Node client created at ${nodeClient.address}`);
@@ -103,6 +106,17 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
             reject(err);
         }});
         baseClient.stopWatchingNodeEvents();
+    })
+
+    it('node registration with different owner', async () => {
+        sdk.uninit();
+        await initSdk(acc1);
+        let nodeClient2 = await sdk.createNodeClient({host : '127.0.0.1'});
+        sdk.uninit();
+
+        await initSdk(acc0);
+        let nodeClient2_2 = await sdk.getNodeClient(nodeClient2.address);
+        assert.equal(acc1, await nodeClient2_2.getOwnerAddress());
     })
 
     it('job post creation and event watching', async function () {

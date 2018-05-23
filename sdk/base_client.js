@@ -139,7 +139,7 @@ BaseClient.prototype._startWatchingEvent = async function (eventName, filterFunc
                     }
                 }
             } catch (error) {
-                this.logger.error(`poll events@${eventName} error`, error);
+                that.logger.error(`poll events@${eventName} error`, error);
             }
             handler.polling = false;
         };

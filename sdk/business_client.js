@@ -4,7 +4,7 @@ const BaseClient = require('./base_client');
 const JobPost = require('./job_post');
 const inherits = require('util').inherits;
 
-const NEW_BUSINESS_GAS                  = 1200000;
+const NEW_BUSINESS_GAS                  = 2000000;
 
 const {
     isContract,

@@ -41,6 +41,20 @@ logger.error.log = console.error.bind(console);
     });
 }
 
+ async function sendTransactionAndWaitForReceiptMined (web3, method, options) {
+    let args = Array.from(arguments).slice(3);
+    let gasSafetyMargin = 1.05;
+    args.push(options);
+    let gasEstimate = await method.estimateGas.apply(null, args);
+    options.gas = Math.ceil(Number(gasEstimate) * gasSafetyMargin);
+    logger.info(`Gas estimated ${gasEstimate}, using ${options.gas}`);
+    let tx = await method.apply(null, args);
+    logger.info(`Waiting for transaction ${tx.receipt.transactionHash} to be mined`);
+    tx.receiptMined = await getTransactionReceiptMined(web3, tx.receipt.transactionHash);
+    logger.info(`Transaction is mined @${tx.receiptMined.blockNumber}`);
+    return tx;
+}
+
 module.exports = {
     setupWeb3Utils: logger_ => {
         if (typeof logger_.info !== 'function' ||
@@ -147,17 +161,7 @@ module.exports = {
         return addr;
     },
 
-    sendTransactionAndWaitForReceiptMined : async function (web3, method, options) {
-        let args = Array.from(arguments).slice(3);
-        let gasSafetyMargin = 1.05;
-        args.push(options);
-        let gasEstimate = await method.estimateGas.apply(null, args);
-        options.gas = Math.ceil(Number(gasEstimate) * gasSafetyMargin);
-        logger.info(`Gas estimated ${gasEstimate}, using ${options.gas}`);
-        let tx = await method.apply(null, args);
-        logger.info(`Waiting for transaction ${tx.receipt.transactionHash} to be mined`);
-        tx.receiptMined = await getTransactionReceiptMined(web3, tx.receipt.transactionHash);
-        logger.info(`Transaction is mined @${tx.receiptMined.blockNumber}`);
-        return tx;
-    },
+    getTransactionReceiptMined: getTransactionReceiptMined,
+
+    sendTransactionAndWaitForReceiptMined: sendTransactionAndWaitForReceiptMined,
 };

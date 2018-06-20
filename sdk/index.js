@@ -18,6 +18,7 @@ const {
     waitEventsFromWatcher,
     recoverAddressFromSignedMessage,
     recoverAddressFromRpcSignedMessage,
+    getTransactionReceiptMined,
     sendTransactionAndWaitForReceiptMined
 } = require('../common/web3_utils.js');
 
@@ -383,8 +384,16 @@ module.exports = {
                 from: owner,
                 to: to,
                 value: valueInWei
-            }, function (err, result) {
-                if (err) reject(err); else resolve();
+            }, async function (err, txHash) {
+                if (err) reject(err);
+                else {
+                    try {
+                        await getTransactionReceiptMined(web3, txHash);
+                        resolve();
+                    } catch (err) {
+                        reject(err);
+                    }
+                }
             });
         });
     },

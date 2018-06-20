@@ -18,6 +18,7 @@ const {
     waitEventsFromWatcher,
     recoverAddressFromSignedMessage,
     recoverAddressFromRpcSignedMessage,
+    sendTransactionAndWaitForReceiptMined
 } = require('../common/web3_utils.js');
 
 var owner;
@@ -165,6 +166,7 @@ module.exports = {
             logger.warn.log = console.warn.bind(console);
             logger.error.log = console.error.bind(console);
         }
+
     },
 
     /**
@@ -403,6 +405,8 @@ module.exports = {
      * @param value - amount of noia token to be transferred
      */
     transferNoiaToken: async (to, value) => {
-        await instances.tokenContract.transfer(to, value, { from : owner, gas: 200000 });
+        await sendTransactionAndWaitForReceiptMined(web3,instances.tokenContract.transfer,
+            { from : owner },
+            to, value);
     }
 };

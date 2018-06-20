@@ -125,28 +125,34 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
             pollingInterval: 1000 // faster!!
         });
         let jobPostAddresses = {};
-        await new Promise(async function (resolve, reject) { try {
-            let jobPost1;
+        try {
+            await new Promise(async function (resolve, reject) { try {
+                let jobPost1;
 
-            baseClient.on('job_post_added', function (jobPostAddress) {
-                console.log('job_post_added', jobPostAddress);
-                jobPostAddresses[jobPostAddress] = true;
-                if (jobPost1 && jobPost1.address in jobPostAddresses) resolve();
-            });
+                baseClient.on('job_post_added', function (jobPostAddress) {
+                    console.log('job_post_added', jobPostAddress);
+                    jobPostAddresses[jobPostAddress] = true;
+                    if (jobPost1 && jobPost1.address in jobPostAddresses) resolve();
+                });
 
-            jobPost1 = await businessClient.createJobPost({ employer_address : businessClient.address });
-            expect(jobPost1.info).to.deep.equal({ employer_address : businessClient.address });
-            let jobPost2 = await sdk.getJobPost(jobPost1.address);
-            expect(jobPost2.info).to.deep.equal({ employer_address : businessClient.address });
+                jobPost1 = await businessClient.createJobPost({ employer_address : businessClient.address });
+                expect(jobPost1.info).to.deep.equal({ employer_address : businessClient.address });
+                let jobPost2 = await sdk.getJobPost(jobPost1.address);
+                expect(jobPost2.info).to.deep.equal({ employer_address : businessClient.address });
 
-            let employerAddress = await jobPost1.getEmployerAddress();
-            assert.equal(businessClient.address, employerAddress);
+                let employerAddress = await jobPost1.getEmployerAddress();
+                assert.equal(businessClient.address, employerAddress);
 
-            // in case registratino is fast
-            if (jobPost1.address in jobPostAddresses) resolve();
-        } catch(err) {
-            reject(err);
-        }});
+                // in case registratino is fast
+                if (jobPost1.address in jobPostAddresses) resolve();
+            } catch(err) {
+                reject(err);
+            }});
+        } catch (e) {
+            console.error("Error", e);
+            baseClient.stopWatchingJobPostAddedEvents();
+            assert.isTrue(false);
+        }
         baseClient.stopWatchingJobPostAddedEvents();
     });
 

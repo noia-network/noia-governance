@@ -30,11 +30,11 @@ contract('Common utils tests: ', function (accounts) {
     })
 
     it('isContract function', async () => {
-        assert.isFalse(await isContract(acc0));
+        assert.isFalse(await isContract(web3, acc0));
         console.log('Creating a test contract...');
         let testContract = await TestContract.new({ from : acc0, gas: 300000 });
         console.log(`Test contract created at ${testContract.address}, gas used ${await getGasUsedForContractCreation(testContract)}`);
-        assert.isTrue(await isContract(testContract.address));
+        assert.isTrue(await isContract(web3, testContract.address));
     })
 
     it('getGasUsedForTransaction function', async () => {

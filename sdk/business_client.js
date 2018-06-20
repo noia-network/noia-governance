@@ -4,14 +4,13 @@ const BaseClient = require('./base_client');
 const JobPost = require('./job_post');
 const inherits = require('util').inherits;
 
-const NEW_BUSINESS_GAS                  = 1200000;
-
 const {
     isContract,
     getGasUsedForContractCreation,
     getGasUsedForTransaction,
     waitEventsFromWatcher,
     signMessage,
+    sendTransactionAndWaitForReceiptMined
 } = require('../common/web3_utils.js');
 
 inherits(BusinessClient, BaseClient)
@@ -29,7 +28,8 @@ function BusinessClient(options) {
             }
         } else {
             self.logger.info(`Creating new business...`);
-            let tx = await self.factories.business.create({ from: self.accountOwner, gas: NEW_BUSINESS_GAS });
+            let tx = await sendTransactionAndWaitForReceiptMined(self.web3, self.factories.business.create,
+                { from: self.accountOwner });
             self.contract = await self.contracts.NoiaBusiness.at(tx.logs[0].args.contractInstance);
             self.address = self.contract.address;
             self.logger.info(`Business created at ${self.contract.address}, gas used ${getGasUsedForTransaction(tx)}`);

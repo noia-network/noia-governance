@@ -205,11 +205,11 @@ contract('NOIA noia tests: ', function (accounts) {
         assert.equal("application/json", bytesToString(await certificadte2.payloadType.call()));
         assert.equal('{"field1":"lorem ipsum"}', bytesToString(await certificadte2.payloadData.call()));
 
-        assert.isTrue(await isContract(certificate.address));
+        assert.isTrue(await isContract(web3, certificate.address));
         console.log('Revoking certificate...');
         tx = await certificate.revoke({ gas: REVOKE_CERTIFICATE_GAS });
         console.log(`Certificate revoked, gas used ${getGasUsedForTransaction(tx)}`);
-        assert.isFalse(await isContract(certificate.address));
+        assert.isFalse(await isContract(web3, certificate.address));
 
         let certsRevokedEvents = await waitEventsFromWatcher(certsRevokedEventWatcher, 1);
         assert.equal(1, certsRevokedEvents.length);

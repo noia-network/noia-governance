@@ -5,17 +5,17 @@
   "main": "sdk/index.js",
   "devDependencies": {
     "chai": "^4.1.2",
-    "ganache-cli": "^6.1.0",
+    "ganache-cli": "^6.1.3",
     "should": "^13.2.1",
-    "truffle": "^4.1.5",
+    "truffle": "^4.1.11",
     "web3": "^0.20.6",
-    "webpack": "^4.5.0"
+    "webpack": "^4.12.0"
   },
   "dependencies": {
     "debug": "^3.1.0",
-    "ethereumjs-util": "^5.1.5",
-    "truffle-hdwallet-provider": "https://github.com/noia-network/truffle-hdwallet-provider",
-    "truffle-contract": "^3.0.4"
+    "ethereumjs-util": "^5.2.0",
+    "truffle-contract": "^3.0.5",
+    "truffle-hdwallet-provider": "git+https://github.com/noia-network/truffle-hdwallet-provider.git"
   },
   "scripts": {
     "truffle": "truffle --network ${NETWORK:-local}",

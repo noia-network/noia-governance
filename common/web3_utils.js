@@ -1,11 +1,57 @@
 'use strict';
 
 const util = require('util');
+const debug = require('debug');
 
 const ethutils = require('ethereumjs-util');
+var logger = {
+    info : debug('noiagov:info'),
+    warn : debug('noiagov:warn'),
+    error : debug('noiagov:error')
+};
+logger.info.log = console.info.bind(console);
+logger.warn.log = console.warn.bind(console);
+logger.error.log = console.error.bind(console);
+
+ function getTransactionReceiptMined(web3, txnHash, interval) {
+    interval = interval ? interval : 500;
+    let transactionReceiptAsync = function(txnHash, resolve, reject) {
+        try {
+            web3.eth.getTransactionReceipt(txnHash, function (err, receipt) {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+                // FIXME check if recipt shows tx rejected/failed
+                if (!receipt || !receipt.blockNumber) {
+                    setTimeout(function () {
+                        transactionReceiptAsync(txnHash, resolve, reject);
+                    }, interval);
+                } else {
+                    resolve(receipt);
+                }
+            });
+        } catch(e) {
+            reject(e);
+        }
+    };
+
+    return new Promise(function (resolve, reject) {
+        transactionReceiptAsync(txnHash, resolve, reject);
+    });
+}
 
 module.exports = {
-    isContract: async address => {
+    setupWeb3Utils: logger_ => {
+        if (typeof logger_.info !== 'function' ||
+            typeof logger_.warn !== 'function' ||
+            typeof logger_.error !== 'function') {
+            throw new Error('invalid logger option');
+        }
+        logger = logger_;
+    },
+
+    isContract: async (web3, address) => {
         let code = await new Promise(function (resolve, reject) {
             web3.eth.getCode(address, (error, result) => {
                 if (error) reject(error);
@@ -99,5 +145,19 @@ module.exports = {
         const pub = ethutils.ecrecover(msgHash, sig.v, sig.r, sig.s);
         const addr = '0x' + ethutils.pubToAddress(pub).toString('hex');
         return addr;
-    }
+    },
+
+    sendTransactionAndWaitForReceiptMined : async function (web3, method, options) {
+        let args = Array.from(arguments).slice(3);
+        let gasSafetyMargin = 1.05;
+        args.push(options);
+        let gasEstimate = await method.estimateGas.apply(null, args);
+        options.gas = Math.ceil(Number(gasEstimate) * gasSafetyMargin);
+        logger.info(`Gas estimated ${gasEstimate}, using ${options.gas}`);
+        let tx = await method.apply(null, args);
+        logger.info(`Waiting for transaction ${tx.receipt.transactionHash} to be mined`);
+        tx.receiptMined = await getTransactionReceiptMined(web3, tx.receipt.transactionHash);
+        logger.info(`Transaction is mined @${tx.receiptMined.blockNumber}`);
+        return tx;
+    },
 };

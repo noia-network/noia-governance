@@ -4,10 +4,9 @@ const BusinessClient = require('./business_client.js');
 
 const {
     bytesToString,
-    getGasUsedForTransaction
+    getGasUsedForTransaction,
+    sendTransactionAndWaitForReceiptMined
 } = require('../common/web3_utils.js');
-
-const NEW_JOBPOST_GAS                   = 2000000;
 
 function JobPost(contracts, contract, logger, jobPostInfo) {
     let self = this;
@@ -40,7 +39,10 @@ JobPost.prototype.getEmployerAddress = async function () {
 
 JobPost.createInstance = async function (owner, contracts, factory, employerAddress, jobPostInfo, logger) {
     logger.info('Creating new job post...', jobPostInfo);
-    let tx = await factory.create(employerAddress, 'application/json', JSON.stringify(jobPostInfo), { from: owner, gas: NEW_JOBPOST_GAS })
+    let web3 = factory.constructor.web3;
+    let tx = await sendTransactionAndWaitForReceiptMined(web3, factory.create,
+        { from: owner },
+        employerAddress, 'application/json', JSON.stringify(jobPostInfo));
     let jobPostAddress = tx.logs[0].args.contractInstance;
     logger.info(`Job post created at ${jobPostAddress}@${tx.receipt.blockNumber}, gas used ${getGasUsedForTransaction(tx)}`);
     let jobPost = await contracts.NoiaJobPost.at(jobPostAddress);

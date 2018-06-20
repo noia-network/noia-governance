@@ -3,8 +3,6 @@
 const BaseClient = require('./base_client');
 const inherits = require('util').inherits;
 
-const NEW_NODE_GAS                      = 1000000;
-
 const {
     isContract,
     getGasUsedForContractCreation,
@@ -12,7 +10,8 @@ const {
     waitEventsFromWatcher,
     signMessage,
     rpcSignMessage,
-    bytesToString
+    bytesToString,
+    sendTransactionAndWaitForReceiptMined
 } = require('../common/web3_utils.js');
 
 inherits(NodeClient, BaseClient)
@@ -43,10 +42,12 @@ function NodeClient(options) {
             if (typeof self.info !== 'object') {
                 throw new Error('options.info has to be an object');
             }
-            self.logger.info(`Creating new node...`, self.info);
-            let tx = await self.factories.node.create('application/json', JSON.stringify(self.info), { from: self.accountOwner, gas: NEW_NODE_GAS });
+            self.logger.info(`Creating new node...`, self.info, self.factories.node.create.constructor.name);
+            let tx = await sendTransactionAndWaitForReceiptMined(self.web3, self.factories.node.create,
+                { from: self.accountOwner },
+                'application/json', JSON.stringify(self.info));
             self.address = tx.logs[0].args.contractInstance;
-            self.logger.info(`Node created at ${self.address}@${tx.receipt.blockNumber}, gas used ${getGasUsedForTransaction(tx)}`);
+            self.logger.info(`Node created at ${self.address}@${tx.receiptMined.blockNumber}, gas used ${getGasUsedForTransaction(tx)}`);
             self.contract = await self.contracts.NoiaNode.at(self.address);
         }
         resolve(self);

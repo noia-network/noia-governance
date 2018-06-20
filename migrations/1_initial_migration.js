@@ -35,7 +35,7 @@ module.exports = function (deployer, network, accounts) {
         var tx;
 
         console.log(`Deploying Migrations contract...`);
-        await deployer.deploy(Migrations, { gas: 300000 });
+        let xx = await deployer.deploy(Migrations, { gas: 300000 });
         let migrations = await Migrations.deployed();
         console.log(`Migrations deployed at ${migrations.address}, gasUsed ${await getGasUsedForContractCreation(migrations)}`);
 

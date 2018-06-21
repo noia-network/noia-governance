@@ -18,9 +18,10 @@
     "truffle-hdwallet-provider": "git+https://github.com/noia-network/truffle-hdwallet-provider.git#v0.0.3"
   },
   "scripts": {
+    "test": "make test NETWORK=${NETWORK:-local}",
+    "build": "echo 'Warning: No build needed.'",
     "truffle": "truffle --network ${NETWORK:-local}",
     "migrate": "truffle migrate --network ${NETWORK:-local}",
-    "test": "make test NETWORK=${NETWORK:-local}",
     "webpack": "webpack"
   },
   "repository": {

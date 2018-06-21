@@ -2,7 +2,7 @@
 
 const debug = require('debug');
 const contract = require("truffle-contract");
-const HDWalletProvider = require("truffle-hdwallet-provider");
+const HDWalletProvider = require("@noia-network/truffle-hdwallet-provider");
 
 const BaseClient = require('./base_client.js');
 const NodeClient = require('./node_client.js');

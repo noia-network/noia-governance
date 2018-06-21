@@ -1,5 +1,5 @@
 const Web3 = require('web3');
-const HDWalletProvider = require("truffle-hdwallet-provider");
+const HDWalletProvider = require("@noia-network/truffle-hdwallet-provider");
 const path = require('path');
 const config = require('./config.js');
 

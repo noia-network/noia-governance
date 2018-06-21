@@ -1,4 +1,4 @@
-const HDWalletProvider = require("truffle-hdwallet-provider");
+const HDWalletProvider = require("@noia-network/truffle-hdwallet-provider");
 
 var mnemonic = 'xxx'; // https://en.bitcoin.it/wiki/Mnemonic_phrase
 var infura_api_key = 'yyy'; // https://infura.io/

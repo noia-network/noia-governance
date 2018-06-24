@@ -28,6 +28,6 @@ test-sdk: build-contracts
 	npm run truffle test -- $(SDK_TESTS)
 
 test-sdk-e2e: build-contracts
-	mocha test -- $(SDK_TESTS)
+	npm run mocha test -- $(SDK_TESTS)
 
 .PHONY: test test-contracts test-sdk test-sdk-e2e

@@ -6,8 +6,9 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "ganache-cli": "^6.1.3",
+    "mocha": "^5.2.0",
     "should": "^13.2.1",
-    "truffle": "^4.1.11",
+    "truffle": "^4.1.12",
     "web3": "^0.20.6",
     "webpack": "^4.12.0"
   },
@@ -18,8 +19,9 @@
     "@noia-network/truffle-hdwallet-provider": "^0.0.4"
   },
   "scripts": {
+    "build": "make build",
     "test": "make test NETWORK=${NETWORK:-local}",
-    "build": "echo 'Warning: No build needed.'",
+    "mocha": "mocha",
     "truffle": "truffle --network ${NETWORK:-local}",
     "migrate": "truffle migrate --network ${NETWORK:-local}",
     "webpack": "webpack"

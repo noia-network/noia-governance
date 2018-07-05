@@ -8,7 +8,7 @@ const LOGS_NUM_BLOCKS_TO_WATCH = 1;
 const {
     signMessage,
     rpcSignMessage
-} = require('../common/web3_utils.js');
+} = require('../../common/web3_utils.js');
 
 inherits(BaseClient, require('events').EventEmitter)
 function BaseClient(options) {

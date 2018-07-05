@@ -14,7 +14,8 @@ const NoiaCertificate = artifacts.require('NoiaCertificateV1');
 const NoiaJobPost = artifacts.require('NoiaJobPostV1');
 
 const {
-    setBeforeAllTimeout,
+    beforeAllTests,
+    afterAllTests,
     setTestTimeout,
 } = require('./test_common.js');
 
@@ -42,7 +43,6 @@ contract('NOIA noia tests: ', function (accounts) {
 
     const acc0 = accounts[0];
     const acc1 = accounts[1];
-    const acc2 = accounts[1];
 
     var noia;
     var businessFactory;
@@ -54,7 +54,7 @@ contract('NOIA noia tests: ', function (accounts) {
     var business0;
 
     before(async function() {
-        setBeforeAllTimeout(this, 2);
+        beforeAllTests(this, 2);
 
         noia = await NoiaNetwork.deployed();
 
@@ -65,7 +65,11 @@ contract('NOIA noia tests: ', function (accounts) {
         jobPostFactory = await NoiaJobPostContractFactory.at(await factories.jobPost.call());
 
         marketplace = NoiaMarketplace.at(await noia.marketplace());
-    });
+    })
+
+    after(function () {
+        afterAllTests(this);
+    })
 
     beforeEach(async function () {
         console.log(`----- Test Starts: ${this.currentTest.title}`);

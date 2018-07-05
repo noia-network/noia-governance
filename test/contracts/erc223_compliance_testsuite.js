@@ -4,7 +4,8 @@ var ERC223WithFallback = artifacts.require('ERC223WithFallback');
 var NoiaNetwork = artifacts.require('NoiaNetwork');
 
 const {
-    setBeforeAllTimeout,
+    beforeAllTests,
+    afterAllTests,
     setTestTimeout
 } = require('./test_common.js');
 
@@ -20,14 +21,17 @@ contract('ERC223 Compliance Test', function (accounts) {
     let tokenContract;
     let acc0 = accounts[0];
     let acc1 = accounts[1];
-    let acc2 = accounts[1];
 
     before(async function () {
-        setBeforeAllTimeout(this);
+        beforeAllTests(this, 0);
 
         let noia = await NoiaNetwork.deployed();
         tokenContract = ERC223Interface.at(await noia.tokenContract.call());
     });
+
+    after(function () {
+        afterAllTests(this);
+    })
 
     it('transfer 100 sample tokens to acc1', async function() {
         setTestTimeout(this, 1);

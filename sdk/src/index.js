@@ -2,7 +2,8 @@
 
 const debug = require('debug');
 const contract = require("truffle-contract");
-const HDWalletProvider = require("@noia-network/truffle-hdwallet-provider");
+const Web3 = require("web3");
+const Web3HDWalletProvider = require("web3-hdwallet-provider");
 
 const BaseClient = require('./base_client.js');
 const NodeClient = require('./node_client.js');
@@ -20,8 +21,9 @@ const {
     recoverAddressFromRpcSignedMessage,
     getTransactionReceiptMined,
     sendTransactionAndWaitForReceiptMined
-} = require('../common/web3_utils.js');
+} = require('../../common/web3_utils.js');
 
+var provider;
 var owner;
 var ownerPrivateKey;
 var contracts;
@@ -59,7 +61,14 @@ module.exports = {
      *  - Using internal provider:
      *    {
      *        web3: {
-     *            provider_url : <provider_url>,
+     *            provider_url : <provider_url>, // only http(s) supported
+     *            provider_options: {
+     *                timeout: ...,
+     *                user: ...,
+     *                password: ...,
+     *                headers: ...
+     *            }
+     *
      *        },
      *        account: {
      *            mnemonic: "xxx yyy zzz"
@@ -77,12 +86,12 @@ module.exports = {
      *    }
      */
     init: async (options) => {
-        let provider;
-
         // web3 and account
         if (typeof options.web3.provider === 'undefined') {
             if (options.web3.provider_url && options.account.mnemonic) {
-                provider = new HDWalletProvider(options.account.mnemonic, options.web3.provider_url);
+                let providerOptions = options.web3.provider_options || {};
+                let httpProvider = new Web3.providers.HttpProvider(options.web3.provider_url);
+                provider = new Web3HDWalletProvider(httpProvider, options.account.mnemonic);
                 owner = provider.addresses[0];
             } else {
                 throw new Error('Neither an external provider nor a pair of (web3.provider_url, account.mnemonic) is not provided');
@@ -93,29 +102,33 @@ module.exports = {
             if (typeof owner === 'undefined') {
                 throw new Error('account.owner must be defined when an external provider is set');
             }
+            // validate provider interface
+            if (!provider.wallets) {
+                throw new Error('provider must have wallets defined');
+            }
         }
 
-        if (!provider.wallets) {
-            throw new Error('provider must have wallets defined');
-        }
         ownerPrivateKey = provider.wallets[owner].getPrivateKey();
+        if (typeof provider.start === 'function') {
+            provider.start();
+        }
 
         // initialize contracts code
         {
             contracts = {};
-            contracts.ERC223Interface = contract(require("./contracts/ERC223Interface.json"));
-            contracts.Owned = contract(require("./contracts/Owned.json"));
-            contracts.NoiaNetwork = contract(require("./contracts/NoiaNetwork.json"));
-            contracts.NoiaRegistry = contract(require("./contracts/NoiaRegistry.json"));
-            contracts.NoiaMarketplace = contract(require("./contracts/NoiaMarketplace.json"));
-            contracts.NoiaContractFactories = contract(require("./contracts/NoiaContractFactoriesV1.json"));
-            contracts.NoiaBusinessContractFactory = contract(require("./contracts/NoiaBusinessContractFactoryV1.json"));
-            contracts.NoiaNodeContractFactory = contract(require("./contracts/NoiaNodeContractFactoryV1.json"));
-            contracts.NoiaCertificateContractFactory = contract(require("./contracts/NoiaCertificateContractFactoryV1.json"));
-            contracts.NoiaJobPostContractFactory = contract(require("./contracts/NoiaJobPostContractFactoryV1.json"));
-            contracts.NoiaNode = contract(require("./contracts/NoiaNodeV1.json"));
-            contracts.NoiaBusiness = contract(require("./contracts/NoiaBusinessV1.json"));
-            contracts.NoiaJobPost = contract(require("./contracts/NoiaJobPostV1.json"));
+            contracts.ERC223Interface = contract(require("../contracts/ERC223Interface.json"));
+            contracts.Owned = contract(require("../contracts/Owned.json"));
+            contracts.NoiaNetwork = contract(require("../contracts/NoiaNetwork.json"));
+            contracts.NoiaRegistry = contract(require("../contracts/NoiaRegistry.json"));
+            contracts.NoiaMarketplace = contract(require("../contracts/NoiaMarketplace.json"));
+            contracts.NoiaContractFactories = contract(require("../contracts/NoiaContractFactoriesV1.json"));
+            contracts.NoiaBusinessContractFactory = contract(require("../contracts/NoiaBusinessContractFactoryV1.json"));
+            contracts.NoiaNodeContractFactory = contract(require("../contracts/NoiaNodeContractFactoryV1.json"));
+            contracts.NoiaCertificateContractFactory = contract(require("../contracts/NoiaCertificateContractFactoryV1.json"));
+            contracts.NoiaJobPostContractFactory = contract(require("../contracts/NoiaJobPostContractFactoryV1.json"));
+            contracts.NoiaNode = contract(require("../contracts/NoiaNodeV1.json"));
+            contracts.NoiaBusiness = contract(require("../contracts/NoiaBusinessV1.json"));
+            contracts.NoiaJobPost = contract(require("../contracts/NoiaJobPostV1.json"));
             for (var i in contracts) contracts[i].setProvider(provider);
         }
 
@@ -174,6 +187,10 @@ module.exports = {
      * Unitialize the sdk and release all resources
      */
     uninit: () => {
+        if (typeof provider.stop === 'function') {
+            provider.stop();
+        }
+        provider = undefined;
         owner = undefined;
         ownerPrivateKey = undefined;
         contracts = undefined;

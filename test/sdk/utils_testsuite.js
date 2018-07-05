@@ -24,9 +24,14 @@ contract('Common utils tests: ', function (accounts) {
     const acc0 = accounts[0];
     const acc1 = accounts[1];
 
-    before(async () => {
+    before(function () {
         TestContract = TruffleContract(require("../../sdk/contracts/Owned.json"));
         TestContract.setProvider(web3.currentProvider);
+        web3.currentProvider.start && web3.currentProvider.start();
+    })
+
+    after(function () {
+        web3.currentProvider.stop && web3.currentProvider.stop();
     })
 
     it('isContract function', async () => {
@@ -60,9 +65,11 @@ contract('Common utils tests: ', function (accounts) {
 
     it('local message signing & validation', async () => {
         let msg = "good weather in vilnius";
-        let pkey = web3.currentProvider.wallets[acc0].getPrivateKey();
+        // taking an example pair from https://github.com/vkobel/ethereum-generate-wallet
+        let acc = '0x5fe3062b24033113fbf52b2b75882890d7d8ca54';
+        let pkey = new Buffer('981679905857953c9a21e1807aab1b897a395ea0c5c96b32794ccb999a3cd781', 'hex');
         let sig = signMessage(msg, pkey);
         console.log(`local signed message with account ${acc0}: ${JSON.stringify(sig)}`);
-        assert.equal(acc0, recoverAddressFromSignedMessage(msg, sig));
+        assert.equal(acc, recoverAddressFromSignedMessage(msg, sig));
     })
 });

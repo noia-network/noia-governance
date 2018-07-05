@@ -37,7 +37,7 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
         await sdk.init(initOptions);
     }
 
-    before(async () => {
+    before(async function () {
         await initSdk(acc0);
         baseClient = await sdk.getBaseClient();
         nodeClient = await sdk.createNodeClient({host : '127.0.0.1'});
@@ -46,7 +46,7 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
         console.log(`Business client created at ${businessClient.address}`);
     })
 
-    after(() => {
+    after(function () {
         sdk.uninit();
     })
 

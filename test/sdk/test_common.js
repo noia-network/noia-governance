@@ -19,7 +19,7 @@ if (typeof global.contract === 'undefined') {
                 const Web3 = require('web3');
                 accounts = web3.eth.accounts;
             }
-            testsuite(accounts, web3);
+            testsuite(accounts);
         });
     };
 }

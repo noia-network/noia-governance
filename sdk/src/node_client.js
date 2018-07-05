@@ -12,7 +12,7 @@ const {
     rpcSignMessage,
     bytesToString,
     sendTransactionAndWaitForReceiptMined
-} = require('../common/web3_utils.js');
+} = require('../../common/web3_utils.js');
 
 inherits(NodeClient, BaseClient)
 function NodeClient(options) {

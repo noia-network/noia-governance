@@ -22,12 +22,12 @@ endif
 test: test-contracts test-sdk
 
 test-contracts:
-	npm run truffle test -- $(CONTRACTS_TESTS)
+	npm run truffle -- test $(CONTRACTS_TESTS)
 
 test-sdk: build-contracts
-	npm run truffle test -- $(SDK_TESTS)
+	npm run truffle -- test $(SDK_TESTS)
 
 test-sdk-e2e: build-contracts
-	npm run mocha test -- $(SDK_TESTS)
+	npm run mocha -- test $(SDK_TESTS)
 
 .PHONY: test test-contracts test-sdk test-sdk-e2e

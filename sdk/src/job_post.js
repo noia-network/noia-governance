@@ -6,7 +6,7 @@ const {
     bytesToString,
     getGasUsedForTransaction,
     sendTransactionAndWaitForReceiptMined
-} = require('../common/web3_utils.js');
+} = require('../../common/web3_utils.js');
 
 function JobPost(contracts, contract, logger, jobPostInfo) {
     let self = this;

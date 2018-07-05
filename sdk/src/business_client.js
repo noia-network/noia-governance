@@ -11,7 +11,7 @@ const {
     waitEventsFromWatcher,
     signMessage,
     sendTransactionAndWaitForReceiptMined
-} = require('../common/web3_utils.js');
+} = require('../../common/web3_utils.js');
 
 inherits(BusinessClient, BaseClient)
 function BusinessClient(options) {

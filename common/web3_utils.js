@@ -195,6 +195,7 @@ async function retryCallOnError(web3, method) {
     // accumulate the block number's here that come in from 'nextBlock' listener
     function nextBlockNumberListener(blockNumber) {
       logger.info(`Got blockNumber: `, blockNumber);
+      if (!blockNumber) { return; }
       blockNumbers.push(blockNumber);
 
       // we try to retry if new blocks are coming in

@@ -28,14 +28,14 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b5060f38061001f6000396000f300608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806373ad6c2d146044575b600080fd5b348015604f57600080fd5b506082600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506084565b005b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a723058205189f55fedbb2fb6b0fd02321e0ddcf7ff6829d47770ee8d1d3f801b7a42dbf90029",
-  "deployedBytecode": "0x608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806373ad6c2d146044575b600080fd5b348015604f57600080fd5b506082600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506084565b005b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a723058205189f55fedbb2fb6b0fd02321e0ddcf7ff6829d47770ee8d1d3f801b7a42dbf90029",
+  "bytecode": "0x608060405234801561001057600080fd5b5060f38061001f6000396000f300608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806373ad6c2d146044575b600080fd5b348015604f57600080fd5b506082600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506084565b005b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a7230582004bab1c5b6c140d52f839ebce312e25f144e186f90cbb36bfc47f2dfb1c13d470029",
+  "deployedBytecode": "0x608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806373ad6c2d146044575b600080fd5b348015604f57600080fd5b506082600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506084565b005b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a7230582004bab1c5b6c140d52f839ebce312e25f144e186f90cbb36bfc47f2dfb1c13d470029",
   "sourceMap": "149:239:15:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;149:239:15;;;;;;;",
   "deployedSourceMap": "149:239:15:-;;;;;;;;;;;;;;;;;;;;;;;;223:104;;8:9:-1;5:2;;;30:1;27;20:12;5:2;223:104:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;308:12;294:11;;:26;;;;;;;;;;;;;;;;;;223:104;:::o",
   "source": "pragma solidity ^0.4.20;\n\nimport './NoiaBusinessV1.sol';\nimport './NoiaNodeV1.sol';\nimport './NoiaCertificateV1.sol';\nimport './NoiaJobPostV1.sol';\n\ncontract NoiaBaseContractFactoryV1 {\n    NoiaMarketplace marketplace;\n    function setMarketplace(NoiaMarketplace marketplace_) public {\n        marketplace = marketplace_;\n    }\n    event NoiaContractV1Created(address contractInstance);\n}\n\ncontract NoiaBusinessContractFactoryV1 is NoiaBaseContractFactoryV1 {\n    function create() public {\n        NoiaBusinessV1 business = new NoiaBusinessV1(this, marketplace);\n        business.changeOwner(msg.sender);\n        marketplace.businessRegistry().addEntry(business);\n        emit NoiaContractV1Created(address(business));\n    }\n}\n\ncontract NoiaNodeContractFactoryV1 is NoiaBaseContractFactoryV1 {\n    function create(bytes32 infoType, bytes infoData) public {\n        NoiaNodeV1 node = new NoiaNodeV1(this, marketplace, infoType, infoData);\n        node.changeOwner(msg.sender);\n        marketplace.nodeRegistry().addEntry(node);\n        emit NoiaContractV1Created(address(node));\n    }\n}\n\ncontract NoiaCertificateContractFactoryV1 is NoiaBaseContractFactoryV1 {\n    function create(bytes32 certificateName, NoiaBusinessV1 issuer, NoiaNodeV1 recipient) public {\n        require(marketplace.businessRegistry().hasEntry(issuer));\n        require(marketplace.nodeRegistry().hasEntry(recipient));\n        NoiaCertificateV1 cert = new NoiaCertificateV1(this, marketplace, certificateName, issuer, recipient);\n        cert.changeOwner(msg.sender);\n        marketplace.certificatesRegistry().addEntry(cert);\n        emit NoiaContractV1Created(address(cert));\n    }\n}\n\ncontract NoiaJobPostContractFactoryV1 is NoiaBaseContractFactoryV1 {\n    function create(NoiaBusinessV1 employer, bytes32 infoType, bytes infoData) public {\n        require(marketplace.businessRegistry().hasEntry(employer));\n        NoiaJobPostV1 jobPost = new NoiaJobPostV1(this, marketplace, employer, infoType, infoData);\n        jobPost.changeOwner(msg.sender);\n        marketplace.jobPostRegistry().addEntry(jobPost);\n        emit NoiaContractV1Created(address(jobPost));\n    }\n}\n\ncontract NoiaContractFactoriesV1 {\n    function NoiaContractFactoriesV1(\n        NoiaMarketplace marketplace,\n        NoiaBusinessContractFactoryV1 business_,\n        NoiaNodeContractFactoryV1 node_,\n        NoiaCertificateContractFactoryV1 certificate_,\n        NoiaJobPostContractFactoryV1 jobPost_) public {\n        business = business_;\n        node = node_;\n        certificate = certificate_;\n        jobPost = jobPost_;\n        business.setMarketplace(marketplace);\n        node.setMarketplace(marketplace);\n        certificate.setMarketplace(marketplace);\n        jobPost.setMarketplace(marketplace);\n    }\n\n    NoiaBusinessContractFactoryV1 public business;\n    NoiaNodeContractFactoryV1 public node;\n    NoiaCertificateContractFactoryV1 public certificate;\n    NoiaJobPostContractFactoryV1 public jobPost;\n}\n",
-  "sourcePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaContractFactoriesV1.sol",
+  "sourcePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaContractFactoriesV1.sol",
   "ast": {
-    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaContractFactoriesV1.sol",
+    "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaContractFactoriesV1.sol",
     "exportedSymbols": {
       "NoiaBaseContractFactoryV1": [
         933
@@ -71,7 +71,7 @@
         "src": "0:24:15"
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaBusinessV1.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaBusinessV1.sol",
         "file": "./NoiaBusinessV1.sol",
         "id": 913,
         "nodeType": "ImportDirective",
@@ -82,7 +82,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaNodeV1.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaNodeV1.sol",
         "file": "./NoiaNodeV1.sol",
         "id": 914,
         "nodeType": "ImportDirective",
@@ -93,7 +93,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaCertificateV1.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaCertificateV1.sol",
         "file": "./NoiaCertificateV1.sol",
         "id": 915,
         "nodeType": "ImportDirective",
@@ -104,7 +104,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaJobPostV1.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaJobPostV1.sol",
         "file": "./NoiaJobPostV1.sol",
         "id": 916,
         "nodeType": "ImportDirective",
@@ -3755,7 +3755,7 @@
     "src": "0:2963:15"
   },
   "legacyAST": {
-    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaContractFactoriesV1.sol",
+    "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaContractFactoriesV1.sol",
     "exportedSymbols": {
       "NoiaBaseContractFactoryV1": [
         933
@@ -3791,7 +3791,7 @@
         "src": "0:24:15"
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaBusinessV1.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaBusinessV1.sol",
         "file": "./NoiaBusinessV1.sol",
         "id": 913,
         "nodeType": "ImportDirective",
@@ -3802,7 +3802,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaNodeV1.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaNodeV1.sol",
         "file": "./NoiaNodeV1.sol",
         "id": 914,
         "nodeType": "ImportDirective",
@@ -3813,7 +3813,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaCertificateV1.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaCertificateV1.sol",
         "file": "./NoiaCertificateV1.sol",
         "id": 915,
         "nodeType": "ImportDirective",
@@ -3824,7 +3824,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaJobPostV1.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaJobPostV1.sol",
         "file": "./NoiaJobPostV1.sol",
         "id": 916,
         "nodeType": "ImportDirective",
@@ -7480,5 +7480,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-06-25T11:50:45.880Z"
+  "updatedAt": "2018-07-09T18:14:19.090Z"
 }

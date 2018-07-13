@@ -29,9 +29,9 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.11;\n\n /**\n * @title Contract that will work with ERC223 tokens.\n */\ncontract ERC223ReceivingContract {\n    /**\n     * @dev Standard ERC223 function that will handle incoming token transfers.\n     *\n     * @param _from  Token sender address.\n     * @param _value Amount of tokens.\n     * @param _data  Transaction metadata.\n     */\n    function tokenFallback(address _from, uint _value, bytes _data) public;\n}\n",
-  "sourcePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/abstracts/ERC223ReceivingContract.sol",
+  "sourcePath": "/srv/work/projects/noia-network/noia-governance/contracts/abstracts/ERC223ReceivingContract.sol",
   "ast": {
-    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/abstracts/ERC223ReceivingContract.sol",
+    "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/abstracts/ERC223ReceivingContract.sol",
     "exportedSymbols": {
       "ERC223ReceivingContract": [
         129
@@ -180,7 +180,7 @@
     "src": "0:430:2"
   },
   "legacyAST": {
-    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/abstracts/ERC223ReceivingContract.sol",
+    "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/abstracts/ERC223ReceivingContract.sol",
     "exportedSymbols": {
       "ERC223ReceivingContract": [
         129
@@ -334,5 +334,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-06-25T11:50:45.864Z"
+  "updatedAt": "2018-07-09T18:14:19.041Z"
 }

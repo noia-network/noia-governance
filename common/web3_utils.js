@@ -13,7 +13,7 @@ logger.info.log = console.info.bind(console);
 logger.warn.log = console.warn.bind(console);
 logger.error.log = console.error.bind(console);
 
-async function waitForConfirmations(resolve, reject, web3, txnHash, receipt, waitForNrConfirmations) {
+function waitForConfirmations(resolve, reject, web3, txnHash, receipt, waitForNrConfirmations) {
   const startBlockNumber = receipt.blockNumber;
   let highestBlockNumber = startBlockNumber;
   let blockNumbers = [];

@@ -13,8 +13,98 @@ logger.info.log = console.info.bind(console);
 logger.warn.log = console.warn.bind(console);
 logger.error.log = console.error.bind(console);
 
- function getTransactionReceiptMined(web3, txnHash, interval) {
-    interval = interval ? interval : 500;
+async function waitForConfirmations(resolve, reject, web3, txnHash, receipt, waitForNrConfirmations) {
+  const startBlockNumber = receipt.blockNumber;
+  let highestBlockNumber = startBlockNumber;
+  let blockNumbers = [];
+  function checkConfirmation() {
+    try {
+      // select the higher block
+      let oldBlockNumber = highestBlockNumber;
+      for (let i=0; i < blockNumbers.length; i++) {
+        const blockNumber = blockNumbers[i];
+        if (blockNumber > highestBlockNumber) {
+          highestBlockNumber = blockNumber;
+        }
+      }
+      // clear the array so that it can start accumulating again
+      blockNumbers = [];
+
+      // nothing to do if not a new block number
+      const steps = highestBlockNumber - startBlockNumber;
+      let stepsToGo = waitForNrConfirmations - steps;
+      stepsToGo = stepsToGo >= 0 ? stepsToGo : 0;
+      console.log(`Waiting confirmations[${stepsToGo}]. startBlockNumber: ${startBlockNumber}, highestBlockNumber: ${highestBlockNumber}`);
+      if (highestBlockNumber <= oldBlockNumber) {
+        // logger.info(`Waiting for next block!`);
+        return;
+      }
+
+      // check if we are done
+      if (steps >= waitForNrConfirmations) {
+        // now check if we still have our transaction receipt in chain - or chain might have diverged
+        web3.eth.getTransactionReceipt(txnHash, function (err, receipt) {
+          if (err) {
+            finish(null, err);
+            return;
+          }
+          if (!receipt || !receipt.blockNumber) {
+            return finish(null, new Error(`No block number in receipt. Transaction with hash: ${txnHash} failed to wait for ${waitForNrConfirmations} confirmations!`));
+          }
+          finish(highestBlockNumber);
+        });
+      }
+    } catch (err) {
+      finish(null, err);
+    }
+  }
+
+  // accumulate the block number's here that come in from 'nextBlock' listener
+  function nextBlockNumberListener(blockNumber) {
+    logger.info(`Got blockNumber: `, blockNumber);
+    if (!blockNumber) { return; }
+    blockNumbers.push(blockNumber);
+
+    // we try to retry if new blocks are coming in
+    checkConfirmation();
+  }
+  function nextBlockListener(nextBlock) {
+    nextBlockNumberListener(ethutils.bufferToInt(nextBlock.number));
+  }
+
+  // provide a method here to clean up on exit
+  let timeoutId;
+  function finish(result, error) {
+    logger.info(`Waiting confirmations. Finishing up! result: ${JSON.stringify(result)}, error: ${JSON.stringify(error)}`);
+    // clear the resources
+    provider.engine.off('block', nextBlockListener);
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+      timeoutId = null;
+    }
+
+    // return result
+    if (error) {
+      return reject(error);
+    }
+    resolve(result);
+  }
+
+  // register block listener
+  const provider = getProvider(web3);
+  // register next block listener immediately
+  provider.engine.on('block', nextBlockListener);
+
+  // start the timer in case the nextBlock's do not come in for some reason or
+  // next blocks come in very slowly
+  const TIMEOUT_PERIOD = 5 * 60 * 1000;  // 5 mins
+  timeoutId = setTimeout(() => {
+    finish(null, new Error(`Timeout ${TIMEOUT_PERIOD / 1000}s. Transaction with hash: ${txnHash} failed to wait for ${waitForNrConfirmations} confirmations!`));
+  }, TIMEOUT_PERIOD);
+}
+
+ function getTransactionReceiptMined(web3, txnHash, interval, waitForNrConfirmations) {
+   interval = interval ? interval : 500;
     let transactionReceiptAsync = function(txnHash, resolve, reject) {
         try {
             web3.eth.getTransactionReceipt(txnHash, function (err, receipt) {
@@ -28,7 +118,12 @@ logger.error.log = console.error.bind(console);
                         transactionReceiptAsync(txnHash, resolve, reject);
                     }, interval);
                 } else {
+                  // check the block number returned is mined into 10 blocks afterwards
+                  if (waitForNrConfirmations && waitForNrConfirmations > 0) {
+                    waitForConfirmations(resolve, reject, web3, txnHash, receipt, waitForNrConfirmations);
+                  } else {
                     resolve(receipt);
+                  }
                 }
             });
         } catch(e) {
@@ -42,18 +137,23 @@ logger.error.log = console.error.bind(console);
 }
 
 async function sendTransactionAndWaitForReceiptMined(web3, method, options) {
-    let args = Array.from(arguments).slice(3);
-    let gasSafetyMargin = 1.05;
-    args.push(options);
-    let gasEstimate = await method.estimateGas.apply(null, args);
-    options.gas = Math.ceil(Number(gasEstimate) * gasSafetyMargin);
-    console.info(`Gas estimated ${gasEstimate}, using ${options.gas}`);
-    const methodWithArgs = method.bind(null, ...args);
-    const tx = await retryCallOnError(web3, methodWithArgs);
-    logger.info(`Waiting for transaction ${tx.receipt.transactionHash} to be mined`);
-    tx.receiptMined = await getTransactionReceiptMined(web3, tx.receipt.transactionHash);
-    logger.info(`Transaction is mined @${tx.receiptMined.blockNumber}`);
-    return tx;
+  // check if confirmations nr is provided, if so then remove it from options before proceeding
+  const waitForNrConfirmations = options.confirmations;
+  if (waitForNrConfirmations) {
+    delete options.confirmations;
+  }
+  let args = Array.from(arguments).slice(3);
+  let gasSafetyMargin = 1.05;
+  args.push(options);
+  let gasEstimate = await method.estimateGas.apply(null, args);
+  options.gas = Math.ceil(Number(gasEstimate) * gasSafetyMargin);
+  console.info(`Gas estimated ${gasEstimate}, using ${options.gas}`);
+  const methodWithArgs = method.bind(null, ...args);
+  const tx = await retryCallOnError(web3, methodWithArgs);
+  logger.info(`Waiting for transaction ${tx.receipt.transactionHash} to be mined. Waiting ${waitForNrConfirmations || 1} confirmations.`);
+  tx.receiptMined = await getTransactionReceiptMined(web3, tx.receipt.transactionHash, undefined, waitForNrConfirmations);
+  logger.info(`Transaction is mined @${tx.receiptMined.blockNumber}`);
+  return tx;
 }
 
 async function callMethodCheckKnownError(method) {
@@ -94,10 +194,14 @@ async function callMethodCheckKnownError(method) {
   };
 }
 
-const MAX_BLOCK_RETRIES = 5;
+function getProvider(web3) {
+  return web3.currentProvider.provider;
+}
+
+const MAX_BLOCK_RETRIES = 12;
 async function retryCallOnError(web3, method) {
   return new Promise(async (resolve, reject) => {
-    const provider = web3.currentProvider.provider;
+    const provider = getProvider(web3);
 
     // initialize current block number if available
     let currentBlockNumber;
@@ -161,7 +265,7 @@ async function retryCallOnError(web3, method) {
           if (blockNumbers.length) {
             retry().catch((err) => {
               // should not happen
-              logger.info(`Retry error!`, err);
+              finish(null, err);
             });
           }
           return;
@@ -176,7 +280,7 @@ async function retryCallOnError(web3, method) {
     // provide a method here to clean up on exit
     let timeoutId;
     function finish(result, error) {
-      logger.info(`Finishing up! result: ${JSON.stringify(result)}, error: ${JSON.stringify(error)}`);
+      logger.info(`Retrying a method. Finishing up! result: ${JSON.stringify(result)}, error: ${JSON.stringify(error)}`);
       // clear the resources
       retriesAllowed = false;
       provider.engine.off('block', nextBlockListener);
@@ -201,7 +305,7 @@ async function retryCallOnError(web3, method) {
       // we try to retry if new blocks are coming in
       retry().catch((err) => {
         // should not happen
-        logger.info(`Retry error!`, err);
+        finish(null, err);
       });
     }
 
@@ -219,11 +323,17 @@ async function retryCallOnError(web3, method) {
         logger.info(`Known error! ${error}, blockNumbers: ${blockNumbers}`);
         retriesAllowed = true;
 
+        // start the timer in case the nextBlock's do not come in for some reason or
+        // next blocks come in very slowly
+        timeoutId = setTimeout(() => {
+          finish(null, new Error('Timeout when calling/retrying a method!'));
+        }, 5 * 60 * 1000); // 5 mins
+
         // trigger retries here if 'nextBlock' events have already accumulated some new blocks
         if (blockNumbers.length) {
           retry().catch((err) => {
             // should not happen
-            logger.info(`Retry error!`, err);
+            finish(null, err);
           });
         } else {
           // just in case, trigger current block fetch in case we missed nextBlock somehow
@@ -231,12 +341,6 @@ async function retryCallOnError(web3, method) {
             nextBlockNumberListener(blockNumber);
           });
         }
-
-        // start the timer in case the nextBlock's do not come in for some reason or
-        // next blocks come in very slowly
-        timeoutId = setTimeout(() => {
-          finish(null, new Error('Timeout when calling/retrying a method!'));
-        }, 5 * 60 * 1000); // 5 mins
         return;
       }
       finish(result);

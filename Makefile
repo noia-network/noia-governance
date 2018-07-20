@@ -6,6 +6,9 @@ build: build-sdk
 build-contracts:
 	npm run truffle -- compile
 
+build-contracts-all:
+	npm run truffle -- compile --all
+
 build-sdk: build-contracts
 	npm run webpack -- --mode $(MODE)
 

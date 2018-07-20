@@ -110,7 +110,7 @@ module.exports = {
 
         ownerPrivateKey = provider.wallets[owner].getPrivateKey();
         if (typeof provider.start === 'function') {
-            provider.start();
+            await provider.start();
         }
 
         // initialize contracts code

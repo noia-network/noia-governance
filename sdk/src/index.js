@@ -87,8 +87,10 @@ module.exports = {
      */
     init: async (options) => {
         const {account, web3: web3Config} = options;
-        let {owner, mnemonic} = account;
-        let {provider, provider_url, provider_options} = web3Config;
+        let {mnemonic} = account;
+        let {provider_url, provider_options} = web3Config;
+        owner = account.owner;
+        provider = web3Config.provider;
 
         // web3 and account
         if (typeof provider === 'undefined') {

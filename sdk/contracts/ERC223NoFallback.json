@@ -1,14 +1,14 @@
 {
   "contractName": "ERC223NoFallback",
   "abi": [],
-  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a72305820ca4eaa5b074e67990c897dea759fe2ffff1c1292bad7018a11f75c4ed169d6800029",
-  "deployedBytecode": "0x6080604052600080fd00a165627a7a72305820ca4eaa5b074e67990c897dea759fe2ffff1c1292bad7018a11f75c4ed169d6800029",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a72305820c7ad8c3847930b0644bbc5ddbac873fce2c6a03f38873cec3099861b1f8585cd0029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a72305820c7ad8c3847930b0644bbc5ddbac873fce2c6a03f38873cec3099861b1f8585cd0029",
   "sourceMap": "70:29:19:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;70:29:19;;;;;;;",
   "deployedSourceMap": "70:29:19:-;;;;;",
   "source": "pragma solidity ^0.4.11;\n\nimport '../abstracts/ERC223Interface.sol';\n\ncontract ERC223NoFallback {\n}\n\ncontract ERC223WithFallback {\n    ERC223Interface tokenContract;\n    address public originator;\n    uint public tokenReceived = 0;\n\n    function ERC223WithFallback(address tokenContract_) public {\n        tokenContract = ERC223Interface(tokenContract_);\n    }\n\n    function tokenFallback(address from, uint value, bytes /*_data*/) public {\n        require(msg.sender == address(tokenContract));\n        originator = from;\n        tokenReceived += value;\n    }\n\n    function requestRefund() public {\n        require(msg.sender == originator);\n        require(tokenReceived > 0);\n        tokenContract.transfer(originator, tokenReceived);\n        tokenReceived = 0;\n    }\n}\n",
-  "sourcePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/test/ERC223TestContracts.sol",
+  "sourcePath": "/srv/work/projects/noia-network/noia-governance/contracts/test/ERC223TestContracts.sol",
   "ast": {
-    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/test/ERC223TestContracts.sol",
+    "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/test/ERC223TestContracts.sol",
     "exportedSymbols": {
       "ERC223NoFallback": [
         1742
@@ -32,7 +32,7 @@
         "src": "0:24:19"
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/abstracts/ERC223Interface.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/abstracts/ERC223Interface.sol",
         "file": "../abstracts/ERC223Interface.sol",
         "id": 1741,
         "nodeType": "ImportDirective",
@@ -1041,7 +1041,7 @@
     "src": "0:773:19"
   },
   "legacyAST": {
-    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/test/ERC223TestContracts.sol",
+    "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/test/ERC223TestContracts.sol",
     "exportedSymbols": {
       "ERC223NoFallback": [
         1742
@@ -1065,7 +1065,7 @@
         "src": "0:24:19"
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/abstracts/ERC223Interface.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/abstracts/ERC223Interface.sol",
         "file": "../abstracts/ERC223Interface.sol",
         "id": 1741,
         "nodeType": "ImportDirective",
@@ -2079,5 +2079,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-06-25T11:50:45.911Z"
+  "updatedAt": "2018-07-23T09:56:08.946Z"
 }

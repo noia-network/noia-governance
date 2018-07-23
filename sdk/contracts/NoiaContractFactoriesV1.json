@@ -85,14 +85,14 @@
       "type": "constructor"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b5060405160a08061074b8339810180604052810190808051906020019092919080519060200190929190805190602001909291908051906020019092919080519060200190929190505050836000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555082600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555081600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555080600360006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166373ad6c2d866040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b15801561021a57600080fd5b505af115801561022e573d6000803e3d6000fd5b50505050600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166373ad6c2d866040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b1580156102ef57600080fd5b505af1158015610303573d6000803e3d6000fd5b50505050600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166373ad6c2d866040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b1580156103c457600080fd5b505af11580156103d8573d6000803e3d6000fd5b50505050600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166373ad6c2d866040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b15801561049957600080fd5b505af11580156104ad573d6000803e3d6000fd5b505050505050505050610286806104c56000396000f300608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632dbf7b981461006757806394566d25146100be578063d70754ec14610115578063e74dc11c1461016c575b600080fd5b34801561007357600080fd5b5061007c6101c3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100ca57600080fd5b506100d36101e9565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561012157600080fd5b5061012a61020f565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561017857600080fd5b50610181610235565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820471398cf73a0ccab22ce6973fe877037e7c4d3462dadae4a35661fb2e037087d0029",
-  "deployedBytecode": "0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632dbf7b981461006757806394566d25146100be578063d70754ec14610115578063e74dc11c1461016c575b600080fd5b34801561007357600080fd5b5061007c6101c3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100ca57600080fd5b506100d36101e9565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561012157600080fd5b5061012a61020f565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561017857600080fd5b50610181610235565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820471398cf73a0ccab22ce6973fe877037e7c4d3462dadae4a35661fb2e037087d0029",
+  "bytecode": "0x608060405234801561001057600080fd5b5060405160a08061074b8339810180604052810190808051906020019092919080519060200190929190805190602001909291908051906020019092919080519060200190929190505050836000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555082600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555081600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555080600360006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166373ad6c2d866040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b15801561021a57600080fd5b505af115801561022e573d6000803e3d6000fd5b50505050600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166373ad6c2d866040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b1580156102ef57600080fd5b505af1158015610303573d6000803e3d6000fd5b50505050600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166373ad6c2d866040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b1580156103c457600080fd5b505af11580156103d8573d6000803e3d6000fd5b50505050600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166373ad6c2d866040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b15801561049957600080fd5b505af11580156104ad573d6000803e3d6000fd5b505050505050505050610286806104c56000396000f300608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632dbf7b981461006757806394566d25146100be578063d70754ec14610115578063e74dc11c1461016c575b600080fd5b34801561007357600080fd5b5061007c6101c3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100ca57600080fd5b506100d36101e9565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561012157600080fd5b5061012a61020f565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561017857600080fd5b50610181610235565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820c08a160f6b5bef174fd50665a943e3aabb14205b018a3217b43c81c33f7ef8e70029",
+  "deployedBytecode": "0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632dbf7b981461006757806394566d25146100be578063d70754ec14610115578063e74dc11c1461016c575b600080fd5b34801561007357600080fd5b5061007c6101c3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100ca57600080fd5b506100d36101e9565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561012157600080fd5b5061012a61020f565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561017857600080fd5b50610181610235565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820c08a160f6b5bef174fd50665a943e3aabb14205b018a3217b43c81c33f7ef8e70029",
   "sourceMap": "2145:817:15:-;;;2184:575;8:9:-1;5:2;;;30:1;27;20:12;5:2;2184:575:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2475:9;2464:8;;:20;;;;;;;;;;;;;;;;;;2501:5;2494:4;;:12;;;;;;;;;;;;;;;;;;2530;2516:11;;:26;;;;;;;;;;;;;;;;;;2562:8;2552:7;;:18;;;;;;;;;;;;;;;;;;2580:8;;;;;;;;;;;:23;;;2604:11;2580:36;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2580:36:15;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;2580:36:15;;;;2626:4;;;;;;;;;;;:19;;;2646:11;2626:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2626:32:15;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;2626:32:15;;;;2668:11;;;;;;;;;;;:26;;;2695:11;2668:39;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2668:39:15;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;2668:39:15;;;;2717:7;;;;;;;;;;;:22;;;2740:11;2717:35;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2717:35:15;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;2717:35:15;;;;2184:575;;;;;2145:817;;;;;;",
   "deployedSourceMap": "2145:817:15:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2859:51;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2859:51:15;;;;;;;;;;;;;;;;;;;;;;;;;;;2916:43;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2916:43:15;;;;;;;;;;;;;;;;;;;;;;;;;;;2816:37;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2816:37:15;;;;;;;;;;;;;;;;;;;;;;;;;;;2765:45;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2765:45:15;;;;;;;;;;;;;;;;;;;;;;;;;;;2859:51;;;;;;;;;;;;;:::o;2916:43::-;;;;;;;;;;;;;:::o;2816:37::-;;;;;;;;;;;;;:::o;2765:45::-;;;;;;;;;;;;;:::o",
   "source": "pragma solidity ^0.4.20;\n\nimport './NoiaBusinessV1.sol';\nimport './NoiaNodeV1.sol';\nimport './NoiaCertificateV1.sol';\nimport './NoiaJobPostV1.sol';\n\ncontract NoiaBaseContractFactoryV1 {\n    NoiaMarketplace marketplace;\n    function setMarketplace(NoiaMarketplace marketplace_) public {\n        marketplace = marketplace_;\n    }\n    event NoiaContractV1Created(address contractInstance);\n}\n\ncontract NoiaBusinessContractFactoryV1 is NoiaBaseContractFactoryV1 {\n    function create() public {\n        NoiaBusinessV1 business = new NoiaBusinessV1(this, marketplace);\n        business.changeOwner(msg.sender);\n        marketplace.businessRegistry().addEntry(business);\n        emit NoiaContractV1Created(address(business));\n    }\n}\n\ncontract NoiaNodeContractFactoryV1 is NoiaBaseContractFactoryV1 {\n    function create(bytes32 infoType, bytes infoData) public {\n        NoiaNodeV1 node = new NoiaNodeV1(this, marketplace, infoType, infoData);\n        node.changeOwner(msg.sender);\n        marketplace.nodeRegistry().addEntry(node);\n        emit NoiaContractV1Created(address(node));\n    }\n}\n\ncontract NoiaCertificateContractFactoryV1 is NoiaBaseContractFactoryV1 {\n    function create(bytes32 certificateName, NoiaBusinessV1 issuer, NoiaNodeV1 recipient) public {\n        require(marketplace.businessRegistry().hasEntry(issuer));\n        require(marketplace.nodeRegistry().hasEntry(recipient));\n        NoiaCertificateV1 cert = new NoiaCertificateV1(this, marketplace, certificateName, issuer, recipient);\n        cert.changeOwner(msg.sender);\n        marketplace.certificatesRegistry().addEntry(cert);\n        emit NoiaContractV1Created(address(cert));\n    }\n}\n\ncontract NoiaJobPostContractFactoryV1 is NoiaBaseContractFactoryV1 {\n    function create(NoiaBusinessV1 employer, bytes32 infoType, bytes infoData) public {\n        require(marketplace.businessRegistry().hasEntry(employer));\n        NoiaJobPostV1 jobPost = new NoiaJobPostV1(this, marketplace, employer, infoType, infoData);\n        jobPost.changeOwner(msg.sender);\n        marketplace.jobPostRegistry().addEntry(jobPost);\n        emit NoiaContractV1Created(address(jobPost));\n    }\n}\n\ncontract NoiaContractFactoriesV1 {\n    function NoiaContractFactoriesV1(\n        NoiaMarketplace marketplace,\n        NoiaBusinessContractFactoryV1 business_,\n        NoiaNodeContractFactoryV1 node_,\n        NoiaCertificateContractFactoryV1 certificate_,\n        NoiaJobPostContractFactoryV1 jobPost_) public {\n        business = business_;\n        node = node_;\n        certificate = certificate_;\n        jobPost = jobPost_;\n        business.setMarketplace(marketplace);\n        node.setMarketplace(marketplace);\n        certificate.setMarketplace(marketplace);\n        jobPost.setMarketplace(marketplace);\n    }\n\n    NoiaBusinessContractFactoryV1 public business;\n    NoiaNodeContractFactoryV1 public node;\n    NoiaCertificateContractFactoryV1 public certificate;\n    NoiaJobPostContractFactoryV1 public jobPost;\n}\n",
-  "sourcePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaContractFactoriesV1.sol",
+  "sourcePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaContractFactoriesV1.sol",
   "ast": {
-    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaContractFactoriesV1.sol",
+    "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaContractFactoriesV1.sol",
     "exportedSymbols": {
       "NoiaBaseContractFactoryV1": [
         933
@@ -128,7 +128,7 @@
         "src": "0:24:15"
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaBusinessV1.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaBusinessV1.sol",
         "file": "./NoiaBusinessV1.sol",
         "id": 913,
         "nodeType": "ImportDirective",
@@ -139,7 +139,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaNodeV1.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaNodeV1.sol",
         "file": "./NoiaNodeV1.sol",
         "id": 914,
         "nodeType": "ImportDirective",
@@ -150,7 +150,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaCertificateV1.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaCertificateV1.sol",
         "file": "./NoiaCertificateV1.sol",
         "id": 915,
         "nodeType": "ImportDirective",
@@ -161,7 +161,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaJobPostV1.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaJobPostV1.sol",
         "file": "./NoiaJobPostV1.sol",
         "id": 916,
         "nodeType": "ImportDirective",
@@ -3812,7 +3812,7 @@
     "src": "0:2963:15"
   },
   "legacyAST": {
-    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaContractFactoriesV1.sol",
+    "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaContractFactoriesV1.sol",
     "exportedSymbols": {
       "NoiaBaseContractFactoryV1": [
         933
@@ -3848,7 +3848,7 @@
         "src": "0:24:15"
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaBusinessV1.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaBusinessV1.sol",
         "file": "./NoiaBusinessV1.sol",
         "id": 913,
         "nodeType": "ImportDirective",
@@ -3859,7 +3859,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaNodeV1.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaNodeV1.sol",
         "file": "./NoiaNodeV1.sol",
         "id": 914,
         "nodeType": "ImportDirective",
@@ -3870,7 +3870,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaCertificateV1.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaCertificateV1.sol",
         "file": "./NoiaCertificateV1.sol",
         "id": 915,
         "nodeType": "ImportDirective",
@@ -3881,7 +3881,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/v1/NoiaJobPostV1.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/v1/NoiaJobPostV1.sol",
         "file": "./NoiaJobPostV1.sol",
         "id": 916,
         "nodeType": "ImportDirective",
@@ -7550,5 +7550,5 @@
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-06-25T11:50:45.894Z"
+  "updatedAt": "2018-07-23T09:56:08.981Z"
 }

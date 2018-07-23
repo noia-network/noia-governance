@@ -86,19 +86,42 @@ module.exports = {
      *    }
      */
     init: async (options) => {
+        const {account, web3: web3Config} = options;
+        let {owner, mnemonic} = account;
+        let {provider, provider_url, provider_options} = web3Config;
+
         // web3 and account
-        if (typeof options.web3.provider === 'undefined') {
-            if (options.web3.provider_url && options.account.mnemonic) {
-                let providerOptions = options.web3.provider_options || {};
-                let httpProvider = new Web3.providers.HttpProvider(options.web3.provider_url);
-                provider = new Web3HDWalletProvider(httpProvider, options.account.mnemonic);
+        if (typeof provider === 'undefined') {
+            if (provider_url && mnemonic) {
+                const providerOptions = provider_options || {};
+                const {headers} = providerOptions;
+
+                // check if http provider headers are provided
+                let httpHeaders;
+                if (headers) {
+                    if (Array.isArray(headers)) {
+                        // headers array coming in
+                        httpHeaders = headers;
+                    } else if (headers.name && headers.value) {
+                        // simple object with just name & value provided in options, convert it to an array
+                        httpHeaders = [headers];
+                    }
+                }
+
+                // setup the provider
+                let httpProvider = new Web3.providers.HttpProvider(
+                    provider_url,
+                    undefined,
+                    undefined,
+                    undefined,
+                    httpHeaders
+                );
+                provider = new Web3HDWalletProvider(httpProvider, mnemonic);
                 owner = provider.addresses[0];
             } else {
                 throw new Error('Neither an external provider nor a pair of (web3.provider_url, account.mnemonic) is not provided');
             }
         } else {
-            provider = options.web3.provider;
-            owner = options.account.owner;
             if (typeof owner === 'undefined') {
                 throw new Error('account.owner must be defined when an external provider is set');
             }
@@ -129,7 +152,7 @@ module.exports = {
             contracts.NoiaNode = contract(require("../contracts/NoiaNodeV1.json"));
             contracts.NoiaBusiness = contract(require("../contracts/NoiaBusinessV1.json"));
             contracts.NoiaJobPost = contract(require("../contracts/NoiaJobPostV1.json"));
-            for (var i in contracts) contracts[i].setProvider(provider);
+            for (let i in contracts) contracts[i].setProvider(provider);
         }
 
         web3 = contracts.NoiaNetwork.web3;

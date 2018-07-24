@@ -72,7 +72,7 @@ BaseClient.prototype.startWatchingNodeEvents = function (options) {
 }
 
 BaseClient.prototype.stopWatchingNodeEvents = function () {
-    this._stopWatchingEvent('node_entry_added')
+    return this._stopWatchingEvent('node_entry_added', true);
 }
 
 BaseClient.prototype.startWatchingJobPostAddedEvents = function (options) {
@@ -86,7 +86,7 @@ BaseClient.prototype.startWatchingJobPostAddedEvents = function (options) {
 }
 
 BaseClient.prototype.stopWatchingJobPostAddedEvents = function () {
-    this._stopWatchingEvent('job_post_added')
+    return this._stopWatchingEvent('job_post_added', true);
 }
 
 BaseClient.prototype._startWatchingEvent = async function (eventName, filterFunc, topics, options_) {
@@ -97,14 +97,16 @@ BaseClient.prototype._startWatchingEvent = async function (eventName, filterFunc
     // TODO: support pubusb if websocket provider is used
     if (!this.eventHandlers[eventName]) {
         let handler = this.eventHandlers[eventName] = {
-            polling: false,
+            disabled: false,
             latestSyncedBlock: fromBlock - LOGS_NUM_BLOCKS_TO_WATCH,
-            receivedLogs: { /* blocknumber : [] */}
+            receivedLogs: { /* blocknumber : [] */},
+            pollingInterval: pollingInterval,
+            pullMode: options.pullMode || false
         };
         let that = this;
-        async function pollEvents () {
-            if (handler.polling) return;
-            handler.polling = true;
+        handler.pollEvents = async function pollEvents () {
+            if (handler.disabled) return;
+            handler.disabled = true;
             try {
                 //console.debug('pollEvents');
                 let latestBlock = await util.promisify(that.web3.eth.getBlockNumber)();
@@ -116,17 +118,52 @@ BaseClient.prototype._startWatchingEvent = async function (eventName, filterFunc
                     topics: topics,
                 });
                 let logs = await util.promisify(filter.get.bind(filter))();
-                logs.forEach(log => {
+                for (let i=0; i < logs.length; i++) {
+                    const log = logs[i];
                     // avoid multiple firing of the same log
                     if (!handler.receivedLogs[log.blockNumber]) {
                         handler.receivedLogs[log.blockNumber] = []
                     }
                     let receivedLogsOfBlock = handler.receivedLogs[log.blockNumber];
                     if (!receivedLogsOfBlock[log.transactionHash]) {
+                        const contractAddress = log.args.baseContract;
                         receivedLogsOfBlock[log.transactionHash] = 1;
-                        that.emit(eventName, log.args.baseContract);
+
+                        // check if we enable userland to pull events one by one instead of pushing them
+                        if (handler.pullMode) {
+                            const doneWatcher = function() {
+                                return new Promise((doneResolve) => {
+                                    const proceedWithNextEvent = function(processNextEvent) {
+                                        doneResolve(processNextEvent);
+                                    };
+                                    that.emit(eventName, async (eventHandler) => {
+                                        const result = eventHandler(proceedWithNextEvent, contractAddress);
+                                        if (result.then === 'function') {
+                                            // we have a async function
+                                            try {
+                                                await result;
+                                            } catch (err) {
+                                                logger.error(`Error while processing async event! Event name: ${eventName}, contractAddress: ${contractAddress}`, err);
+                                            }
+                                        }
+                                    });
+                                });
+                            };
+                            try {
+                                const processNextEvent = await doneWatcher();
+                                if (!processNextEvent) {
+                                    // skip processing the next event(s)
+                                    return;
+                                }
+                            } catch (err) {
+                                // error while waiting for the log event processed
+                                console.log(`Error in processing the event!`, err);
+                            }
+                        } else {
+                            that.emit(eventName, contractAddress);
+                        }
                     }
-                });
+                }
 
                 // LOGS_NUM_BLOCKS_TO_WATCH block before current block is fully synced
                 if (latestBlock - LOGS_NUM_BLOCKS_TO_WATCH > handler.latestSyncedBlock) {
@@ -141,23 +178,35 @@ BaseClient.prototype._startWatchingEvent = async function (eventName, filterFunc
             } catch (error) {
                 that.logger.error(`poll events@${eventName} error`, error);
             }
-            handler.polling = false;
+            handler.disabled = false;
         };
-        pollEvents();
-        handler.intervalId = setInterval(pollEvents, pollingInterval);
+        handler.pollEvents();
+        handler.intervalId = setInterval(handler.pollEvents, handler.pollingInterval);
     } else {
         throw new Error(`Already watching events@${eventName}`);
     }
 }
 
-BaseClient.prototype._stopWatchingEvent = function (eventName) {
+BaseClient.prototype._stopWatchingEvent = function (eventName, removeAllListeners) {
     let handler = this.eventHandlers[eventName];
     if (handler) {
+        handler.disabled = true;
         clearInterval(handler.intervalId);
         delete this.eventHandlers[eventName];
+        if (removeAllListeners) {
+            this.removeAllListeners(eventName);
+        }
     } else {
         throw new Error(`Not watching the events@${eventName}`);
     }
+    // resume watching
+    const resume = () => {
+        this.eventHandlers[eventName] = handler;
+        handler.disabled = false;
+        handler.pollEvents();
+        handler.intervalId = setInterval(handler.pollEvents, handler.pollingInterval);
+    }
+    return resume;
 }
 
 module.exports = BaseClient;

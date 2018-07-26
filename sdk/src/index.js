@@ -459,5 +459,16 @@ module.exports = {
         await sendTransactionAndWaitForReceiptMined(web3,instances.tokenContract.transfer,
             { from : owner },
             to, value);
+    },
+
+    getNetworkId: async () => {
+        return new Promise((resolve, reject) => {
+            web3.version.getNetwork((err, netId) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(netId);
+            });
+        });
     }
 };

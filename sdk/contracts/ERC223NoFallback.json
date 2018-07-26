@@ -1,8 +1,8 @@
 {
   "contractName": "ERC223NoFallback",
   "abi": [],
-  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a72305820b1b6a35d4e3b9d248735be9cdf8cbf17a2efdbf0e38c207f195e7cd95c5d514b0029",
-  "deployedBytecode": "0x6080604052600080fd00a165627a7a72305820b1b6a35d4e3b9d248735be9cdf8cbf17a2efdbf0e38c207f195e7cd95c5d514b0029",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a723058204152ac1c90b5484b41f4cdc7ce69185b91b4f1aaf78d3b43b337ea01f6d9ba600029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a723058204152ac1c90b5484b41f4cdc7ce69185b91b4f1aaf78d3b43b337ea01f6d9ba600029",
   "sourceMap": "70:29:19:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;70:29:19;;;;;;;",
   "deployedSourceMap": "70:29:19:-;;;;;",
   "source": "pragma solidity ^0.4.11;\n\nimport '../abstracts/ERC223Interface.sol';\n\ncontract ERC223NoFallback {\n}\n\ncontract ERC223WithFallback {\n    ERC223Interface tokenContract;\n    address public originator;\n    uint public tokenReceived = 0;\n\n    constructor(address tokenContract_) public {\n        tokenContract = ERC223Interface(tokenContract_);\n    }\n\n    function tokenFallback(address from, uint value, bytes /*_data*/) public {\n        require(msg.sender == address(tokenContract));\n        originator = from;\n        tokenReceived += value;\n    }\n\n    function requestRefund() public {\n        require(msg.sender == originator);\n        require(tokenReceived > 0);\n        tokenContract.transfer(originator, tokenReceived);\n        tokenReceived = 0;\n    }\n}\n",
@@ -2078,6 +2078,6 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-25T16:42:21.826Z"
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-07-26T12:36:39.702Z"
 }

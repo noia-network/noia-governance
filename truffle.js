@@ -26,6 +26,13 @@ module.exports = {
         }
     }, config.networks),
 
+    solc: {
+        optimizer: {
+            enabled: true,
+            runs: 200
+        }
+    },
+
     contracts_build_directory: path.resolve(__dirname, 'sdk', 'contracts'),
     build: "make build"
 };

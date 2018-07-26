@@ -145,6 +145,7 @@ async function sendTransactionAndWaitForReceiptMined(web3, method, options) {
   let args = Array.from(arguments).slice(3);
   let gasSafetyMargin = 1.05;
   args.push(options);
+  console.info(`estimateGas: ${JSON.stringify(args)}`);
   let gasEstimate = await method.estimateGas.apply(null, args);
   options.gas = Math.ceil(Number(gasEstimate) * gasSafetyMargin);
   console.info(`Gas estimated ${gasEstimate}, using ${options.gas}`);

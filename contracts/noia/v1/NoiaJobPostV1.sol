@@ -9,8 +9,7 @@ import './NoiaWorkContractV1.sol';
  * Standard Noia Job Post Contract V1 (Draft)
  *
  */
-contract NoiaJobPostV1
-    is NoiaBaseContractV1 {
+contract NoiaJobPostV1 is NoiaBaseContractV1 {
     NoiaBusinessV1 public employer;
     bytes32 public infoType;
     bytes public infoData;
@@ -18,7 +17,7 @@ contract NoiaJobPostV1
     mapping(address => NoiaWorkContractV1) employerCreatedContracts;
     mapping(address => NoiaWorkContractV1) workerCreatedContracts;
 
-    function NoiaJobPostV1(
+    constructor(
         address factory,
         NoiaMarketplace marketplace,
         NoiaBusinessV1 employer_,

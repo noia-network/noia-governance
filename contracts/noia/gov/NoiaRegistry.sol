@@ -20,7 +20,7 @@ contract NoiaRegistry {
     mapping(address => uint) entries;
     uint nEntries;
 
-    function NoiaRegistry(NoiaRegulation regulation_) public {
+    constructor(NoiaRegulation regulation_) public {
         regulation = regulation_;
     }
 

@@ -20,7 +20,7 @@ contract NoiaMarketplace {
     NoiaRegistry public certificatesRegistry;
     NoiaRegistry public jobPostRegistry;
 
-    function NoiaMarketplace(ERC223Interface tokenContract_, NoiaRegulation regulation) public {
+    constructor(ERC223Interface tokenContract_, NoiaRegulation regulation) public {
         tokenContract = tokenContract_;
         nodeRegistry = new NoiaRegistry(regulation);
         businessRegistry = new NoiaRegistry(regulation);

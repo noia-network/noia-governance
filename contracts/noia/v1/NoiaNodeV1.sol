@@ -14,7 +14,7 @@ contract NoiaNodeV1 is NoiaBaseContractV1 {
     bytes32 public infoType;
     bytes public infoData;
 
-    function NoiaNodeV1(
+    constructor(
         address factory,
         NoiaMarketplace marketplace,
         bytes32 infoType_, bytes infoData_)

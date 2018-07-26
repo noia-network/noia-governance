@@ -20,7 +20,7 @@ contract NoiaWorkContractV1 {
     bool public signedByWorker = false;
     uint public tokenReceived = 0;
 
-    function NoiaWorkContractV1(
+    constructor(
         NoiaJobPostV1 jobPost_,
         Initiator initiator_,
         address workerAddress_) public {

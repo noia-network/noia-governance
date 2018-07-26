@@ -23,7 +23,7 @@ async function asyncForEach(array, callback) {
 }
 
 function isTestNetwork(network) {
-    return network === "local" || network === "dev" || network === "ropsten";
+    return network === "local" || network === "dev" || network === "priv" || network === "ropsten";
 }
 
 module.exports = function (deployer, network, accounts) {
@@ -61,7 +61,7 @@ module.exports = function (deployer, network, accounts) {
                     console.log(`Done, gasUsed ${getGasUsedForTransaction(tx)}`);
                 });
 
-                console.log(`Transfering 1000 token from account0 to account1 ...`);
+                console.log(`Transfering 1000 token from ${accounts[0]} to ${accounts[1]} ...`);
                 tx = await tokenContract.transfer(accounts[1], 1000, { from: accounts[0], gas: 100000 });
                 console.log(`Done, gasUsed ${getGasUsedForTransaction(tx)}`);
             }

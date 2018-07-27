@@ -35,7 +35,7 @@ module.exports = function (deployer, network, accounts) {
         var tx;
 
         console.log(`Deploying Migrations contract...`);
-        let xx = await deployer.deploy(Migrations, { gas: 300000 });
+        let xx = await deployer.deploy(Migrations, { gas: 600000 });
         let migrations = await Migrations.deployed();
         console.log(`Migrations deployed at ${migrations.address}, gasUsed ${await getGasUsedForContractCreation(migrations)}`);
 
@@ -67,7 +67,7 @@ module.exports = function (deployer, network, accounts) {
             }
 
             console.log(`Creating NoiaSimpleRegulation contract...`);
-            regulation = await NoiaSimpleRegulation.new({ gas: 400000 });
+            regulation = await NoiaSimpleRegulation.new({ gas: 600000 });
             console.log(`Created at ${regulation.address}, gasUsed ${await getGasUsedForContractCreation(regulation)}`);
         } else {
             // real token

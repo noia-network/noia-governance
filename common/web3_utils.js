@@ -378,13 +378,19 @@ module.exports = {
 
     getGasUsedForContractCreation : contract => {
         if (contract.constructor.name !== 'TruffleContract') throw Error('invalid input');
-        return new Promise((resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             let web3 = contract.constructor.web3;
             let transactionHash = contract.transactionHash;
             if (!transactionHash) return resolve(-1);
-            web3.eth.getTransactionReceipt(transactionHash, (error, result) => {
-                if (error) reject(error); else resolve(result.gasUsed);
-            })
+            try {
+                const receipt = await getTransactionReceiptMined(web3, transactionHash);
+                return resolve(receipt.gasUsed);
+            } catch (error) {
+                return reject(error);
+            }
+            // web3.eth.getTransactionReceipt(transactionHash, (error, result) => {
+            //     if (error) reject(error); else resolve(result.gasUsed);
+            // })
         });
     },
 

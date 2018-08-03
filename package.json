@@ -20,7 +20,9 @@
   },
   "scripts": {
     "build": "make build",
+    "pretest": "nohup ganache-cli -m 'ill song party come kid carry calm captain state purse weather ozone' -p 7545 --networkId 5777&",
     "test": "make test NETWORK=${NETWORK:-local}",
+    "posttest": "pkill -f ganache-cli",
     "mocha": "mocha",
     "truffle": "truffle --network ${NETWORK:-local}",
     "migrate": "truffle migrate --network ${NETWORK:-local}",

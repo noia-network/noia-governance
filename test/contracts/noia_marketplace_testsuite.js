@@ -114,10 +114,10 @@ contract('NOIA noia tests: ', function (accounts) {
         assert.equal('application/json', bytesToString(await node1.infoType.call()));
         assert.equal('{"host":"test-node.noia.network"}', bytesToString(await node1.infoData.call()));
         assert.equal(nentry + 1, (await nodeRegistry.count.call()).toNumber());
-        let events = await waitEventsFromWatcher(eventWatcher, 1);
+        /*let events = await waitEventsFromWatcher(eventWatcher, 1);
         assert.equal(1, events.length);
         assert.equal(nodeRegistry.address, events[0].address);
-        assert.equal(node1.address, events[0].args.baseContract.valueOf());
+        assert.equal(node1.address, events[0].args.baseContract.valueOf());*/
     });
 
     it('register a new business', async function() {
@@ -141,10 +141,10 @@ contract('NOIA noia tests: ', function (accounts) {
 
         assert.isTrue(await businessRegistry.hasEntry(business1.address));
         assert.equal(nentry + 1, (await businessRegistry.count.call()).toNumber());
-        let events = await waitEventsFromWatcher(eventWatcher, 1);
+        /*let events = await waitEventsFromWatcher(eventWatcher, 1);
         assert.equal(1, events.length);
         assert.equal(businessRegistry.address, events[0].address);
-        assert.equal(business1.address, events[0].args.baseContract.valueOf());
+        assert.equal(business1.address, events[0].args.baseContract.valueOf());*/
     });
 
     it('create, sign, update and revoke a certificate', async function() {

@@ -1,7 +1,14 @@
 const Web3 = require('web3');
 const Web3HDWalletProvider = require("web3-hdwallet-provider");
 const path = require('path');
-const config = require('./config.js');
+let config = {
+    networks: {}
+};
+try {
+    config = require('./config.js');
+} catch (e) {
+    console.warn('config.js not available');
+}
 
 // NOTE! Configure your ganache with the same mnemonic
 const mnemonic = 'ill song party come kid carry calm captain state purse weather ozone';

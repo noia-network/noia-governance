@@ -1,8 +1,11 @@
 'use strict';
 
 require('./test_common.js');
+const { hexRemove0x } = require('../../common/web3_utils.js');
 
+const { NoiaSdk } = require('../../');
 const sdk = require('../../');
+const sdk2 = new NoiaSdk();
 
 const util = require('util');
 const assert = require('chai').assert;
@@ -17,7 +20,7 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
     var nodeClient;
     var businessClient;
 
-    async function initSdk(acc) {
+    async function initSdk(sdk, acc) {
         let noia, factory;
         let initOptions = {
             web3 : {
@@ -38,7 +41,7 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
     }
 
     before(async function () {
-        await initSdk(acc0);
+        await Promise.all([initSdk(sdk, acc0), initSdk(sdk2, acc1)]);
         baseClient = await sdk.getBaseClient();
         nodeClient = await sdk.createNodeClient({host : '127.0.0.1'});
         console.log(`Node client created at ${nodeClient.address}`);
@@ -48,6 +51,7 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
 
     after(function () {
         sdk.uninit();
+        sdk2.uninit();
     })
 
     it('rpc message signing & validation', async () => {
@@ -110,11 +114,11 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
 
     it('node registration with different owner', async () => {
         sdk.uninit();
-        await initSdk(acc1);
+        await initSdk(sdk, acc1);
         let nodeClient2 = await sdk.createNodeClient({host : '127.0.0.1'});
         sdk.uninit();
 
-        await initSdk(acc0);
+        await initSdk(sdk, acc0);
         let nodeClient2_2 = await sdk.getNodeClient(nodeClient2.address);
         assert.equal(acc1, await nodeClient2_2.getOwnerAddress());
     })
@@ -167,17 +171,97 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
 
         assert.isTrue(ethBalanceNewAcc0 < ethBalanceOldAcc0);
         assert.isTrue(ethBalanceNewAcc1 > ethBalanceOldAcc1);
-    })
+    });
 
     it("Transfer noia tokens", async () => {
         let oldBalance = await sdk.getNoiaBalance(acc1);
         await sdk.transferNoiaToken(acc1, 100);
         let newBalance = await sdk.getNoiaBalance(acc1);
         assert.equal(oldBalance + 100, newBalance);
-    })
+    });
 
     it("Transfer too many tokens", async () => {
         let maxBalance = await sdk.getNoiaBalance(acc0);
         await sdk.transferNoiaToken(acc1, maxBalance + 1).should.be.rejected();
-    })
+    });
+
+    it("Work order process", async () => {
+        console.log(`Creating worker ...`);
+        const worker = await sdk.createNodeClient({host : '127.0.0.1'});
+        console.log(`Creating business ...`);
+        const business = await sdk2.createBusinessClient({
+            "node_ip": "127.0.0.1",
+            "node_ws_port": 7677
+        });
+
+        // Business creating a job post
+        console.log(`Creating job post ...`);
+        const jobPost = await business.createJobPost({});
+
+        // NOTE! Nodes will pick up the job posts, find them interesting based on locked in amount
+        // and then connect to businesses to create a work orders
+        // Business creates the work order
+        const workerAddress = worker.address;
+        console.log(`Creating work order ... for worker: ${workerAddress}, worker wallet address: ${worker.accountOwner}`);
+        const workOrder = await jobPost.createWorkOrder(workerAddress);
+
+        // Business funds the contract
+        await sdk2.transferNoiaToken(workOrder.address, 1);
+        const oldWorkerBalance = await sdk.getNoiaBalance(worker.accountOwner);
+        console.log(`Work order funded! Tokens balance: ${await sdk.getNoiaBalance(workOrder.address)}, worker wallet balance: ${oldWorkerBalance}`);
+
+        // Business now timelock's the tokens & releases later for the worker if work is done
+        const currentTimeSec = parseInt(new Date().getTime() / 1000); // in secs
+        const lockedSpanSec = 5; // 5 sec for testing
+        const lockedAmount = 1;
+        const lockUntil = (currentTimeSec + lockedSpanSec);
+        console.log(`Timelock! lockedAmount: ${lockedAmount}, lockUntil: ${lockUntil}, locked time (s): ${lockedSpanSec}`);
+        await workOrder.timelock(lockedAmount, lockUntil);
+        console.log(`Timelock finished!`);
+        console.log(`Timelocks: ${JSON.stringify(await workOrder.getTimelocks())}`);
+
+        // Business proposes it to worker (emits event)
+        // NOTE! Work Order Propose should possible be done in offline, over WS protocol between
+        // the business and a node - Business sending a work order address to the Node
+        // await jobPost.proposeWorkOrder(workerAddress);
+
+        // Business accepts work order
+        console.log(`Business accepting work order ...`);
+        await workOrder.accept();
+
+        // Worker get's it's own work order instance and generates the signed accept request
+        const clientSideWorkOrder = await worker.getWorkOrderAt(workOrder.address);
+        const signedAcceptRequest = await clientSideWorkOrder.generateSignedAcceptRequest();
+        console.log(`Worker signed accept request: ${JSON.stringify(signedAcceptRequest)}`);
+
+        // Business executes the delegated work order "accept request" from worker
+        await workOrder.delegatedAccept(signedAcceptRequest.nonce, signedAcceptRequest.sig);
+        const isAccepted = await workOrder.isAccepted();
+        console.log(`Is accepted: ${isAccepted}`);
+        assert.isTrue(isAccepted);
+
+        // wait for the time locked tokens to be available
+        await new Promise((resolve, reject) => {
+            const waitSec = 7; // secs
+            console.log(`Waiting ${waitSec} (s) to release the tokens! Locked time (s): ${lockedSpanSec}`);
+            setTimeout(() => {
+                resolve();
+            }, waitSec * 1000);
+        });
+
+        // Worker generates the signed release request
+        const signedReleaseRequest = await clientSideWorkOrder.generateSignedReleaseRequest(worker.accountOwner);
+        console.log(`Worker signed release request: ${JSON.stringify(signedReleaseRequest)}`);
+
+        // Business release's the timelocked amount to worker based on a "Release request" from worker
+        await workOrder.delegatedRelease(signedReleaseRequest.beneficiary, signedReleaseRequest.nonce, signedReleaseRequest.sig);
+        console.log(`Funds released!`);
+        const totalVested = await workOrder.totalVested();
+        const newWorkerBalance = await sdk.getNoiaBalance(worker.accountOwner);
+        const workerBalanceDiff = newWorkerBalance - oldWorkerBalance;
+        console.log(`Work order! totalFunds: ${await workOrder.totalFunds()}, totalVested: ${totalVested}, worker wallet balance: ${newWorkerBalance}, balance diff: ${workerBalanceDiff}`);
+        console.log(`Timelocks: ${JSON.stringify(await workOrder.getTimelocks())}`);
+        assert.isTrue(totalVested == 0);
+        assert.isTrue(workerBalanceDiff == lockedAmount);
+    });
 });

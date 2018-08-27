@@ -11,7 +11,7 @@ contract NoiaBaseContract is Owned {
     NoiaMarketplace public marketplace;
     uint16 public version;
 
-    function NoiaBaseContract(
+    constructor(
         address factory_,
         NoiaMarketplace marketplace_,
         uint16 version_) public {

@@ -17,7 +17,7 @@ contract NoiaNetwork {
     NoiaRegulation public regulation;
     NoiaMarketplace public marketplace;
 
-    function NoiaNetwork(
+    constructor(
         ERC223Interface tokenContract_,
         NoiaRegulation regulation_) public {
         tokenContract = tokenContract_;

@@ -14,8 +14,8 @@ contract NoiaBaseContractFactoryV1 {
 }
 
 contract NoiaBusinessContractFactoryV1 is NoiaBaseContractFactoryV1 {
-    function create() public {
-        NoiaBusinessV1 business = new NoiaBusinessV1(this, marketplace);
+    function create(bytes32 infoType, bytes infoData) public {
+        NoiaBusinessV1 business = new NoiaBusinessV1(this, marketplace, infoType, infoData);
         business.changeOwner(msg.sender);
         marketplace.businessRegistry().addEntry(business);
         emit NoiaContractV1Created(address(business));
@@ -53,7 +53,7 @@ contract NoiaJobPostContractFactoryV1 is NoiaBaseContractFactoryV1 {
 }
 
 contract NoiaContractFactoriesV1 {
-    function NoiaContractFactoriesV1(
+    constructor(
         NoiaMarketplace marketplace,
         NoiaBusinessContractFactoryV1 business_,
         NoiaNodeContractFactoryV1 node_,

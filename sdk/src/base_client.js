@@ -2,12 +2,14 @@
 
 const util = require('util');
 const inherits = require('util').inherits;
+const WorkOrder = require('./work_order');
 
 const LOGS_NUM_BLOCKS_TO_WATCH = 1;
 
 const {
     signMessage,
-    rpcSignMessage
+    rpcSignMessage,
+    rpcSignPacked
 } = require('../../common/web3_utils.js');
 
 inherits(BaseClient, require('events').EventEmitter)
@@ -35,12 +37,26 @@ function BaseClient(options) {
     }});
 }
 
+BaseClient.prototype.getWorkOrderAt = async function(workOrderAddress) {
+    return WorkOrder.getInstance(this.logger, this.contracts, this.accountOwner, workOrderAddress);
+}
+
 /**
  * Get owner address of the contract
  * @return address of the owner
  */
 BaseClient.prototype.getOwnerAddress = async function () {
     return await this.contract.owner.call();
+}
+
+/**
+ * [async] Sign message through rpc
+ * @param string msg - msg to sign
+ * @return Signature object
+ */
+BaseClient.prototype.rpcSignPacked = async function (msg) {
+    const params = Array.from(arguments).slice(1);
+    return await rpcSignPacked(this.web3, this.accountOwner, ...params);
 }
 
 /**
@@ -72,7 +88,7 @@ BaseClient.prototype.startWatchingNodeEvents = function (options) {
 }
 
 BaseClient.prototype.stopWatchingNodeEvents = function () {
-    this._stopWatchingEvent('node_entry_added')
+    return this._stopWatchingEvent('node_entry_added', true);
 }
 
 BaseClient.prototype.startWatchingJobPostAddedEvents = function (options) {
@@ -86,7 +102,7 @@ BaseClient.prototype.startWatchingJobPostAddedEvents = function (options) {
 }
 
 BaseClient.prototype.stopWatchingJobPostAddedEvents = function () {
-    this._stopWatchingEvent('job_post_added')
+    return this._stopWatchingEvent('job_post_added', true);
 }
 
 BaseClient.prototype._startWatchingEvent = async function (eventName, filterFunc, topics, options_) {
@@ -97,14 +113,16 @@ BaseClient.prototype._startWatchingEvent = async function (eventName, filterFunc
     // TODO: support pubusb if websocket provider is used
     if (!this.eventHandlers[eventName]) {
         let handler = this.eventHandlers[eventName] = {
-            polling: false,
+            disabled: false,
             latestSyncedBlock: fromBlock - LOGS_NUM_BLOCKS_TO_WATCH,
-            receivedLogs: { /* blocknumber : [] */}
+            receivedLogs: { /* blocknumber : [] */},
+            pollingInterval: pollingInterval,
+            pullMode: options.pullMode || false
         };
         let that = this;
-        async function pollEvents () {
-            if (handler.polling) return;
-            handler.polling = true;
+        handler.pollEvents = async function pollEvents () {
+            if (handler.disabled) return;
+            handler.disabled = true;
             try {
                 //console.debug('pollEvents');
                 let latestBlock = await util.promisify(that.web3.eth.getBlockNumber)();
@@ -116,17 +134,38 @@ BaseClient.prototype._startWatchingEvent = async function (eventName, filterFunc
                     topics: topics,
                 });
                 let logs = await util.promisify(filter.get.bind(filter))();
-                logs.forEach(log => {
+                for (let i=0; i < logs.length; i++) {
+                    const log = logs[i];
                     // avoid multiple firing of the same log
                     if (!handler.receivedLogs[log.blockNumber]) {
                         handler.receivedLogs[log.blockNumber] = []
                     }
                     let receivedLogsOfBlock = handler.receivedLogs[log.blockNumber];
                     if (!receivedLogsOfBlock[log.transactionHash]) {
+                        const contractAddress = log.args.baseContract;
                         receivedLogsOfBlock[log.transactionHash] = 1;
-                        that.emit(eventName, log.args.baseContract);
+
+                        // check if we enable userland to pull events one by one instead of pushing them
+                        if (handler.pullMode) {
+                            try {
+                                const processNextEvent = await new Promise((resolve, reject) => {
+                                    that.emit(eventName, contractAddress, () => {
+                                        resolve(false);
+                                    });
+                                });
+                                if (!processNextEvent) {
+                                    // skip processing the next event(s)
+                                    return;
+                                }
+                            } catch (err) {
+                                // error while waiting for the log event processed
+                                console.log(`Error in processing the event!`, err);
+                            }
+                        } else {
+                            that.emit(eventName, contractAddress);
+                        }
                     }
-                });
+                }
 
                 // LOGS_NUM_BLOCKS_TO_WATCH block before current block is fully synced
                 if (latestBlock - LOGS_NUM_BLOCKS_TO_WATCH > handler.latestSyncedBlock) {
@@ -141,23 +180,35 @@ BaseClient.prototype._startWatchingEvent = async function (eventName, filterFunc
             } catch (error) {
                 that.logger.error(`poll events@${eventName} error`, error);
             }
-            handler.polling = false;
+            handler.disabled = false;
         };
-        pollEvents();
-        handler.intervalId = setInterval(pollEvents, pollingInterval);
+        handler.pollEvents();
+        handler.intervalId = setInterval(handler.pollEvents, handler.pollingInterval);
     } else {
         throw new Error(`Already watching events@${eventName}`);
     }
 }
 
-BaseClient.prototype._stopWatchingEvent = function (eventName) {
+BaseClient.prototype._stopWatchingEvent = function (eventName, removeAllListeners) {
     let handler = this.eventHandlers[eventName];
     if (handler) {
+        handler.disabled = true;
         clearInterval(handler.intervalId);
         delete this.eventHandlers[eventName];
+        if (removeAllListeners) {
+            this.removeAllListeners(eventName);
+        }
     } else {
         throw new Error(`Not watching the events@${eventName}`);
     }
+    // resume watching
+    const resume = () => {
+        this.eventHandlers[eventName] = handler;
+        handler.disabled = false;
+        handler.pollEvents();
+        handler.intervalId = setInterval(handler.pollEvents, handler.pollingInterval);
+    }
+    return resume;
 }
 
 module.exports = BaseClient;

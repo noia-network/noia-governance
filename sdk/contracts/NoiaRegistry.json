@@ -72,24 +72,24 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b506040516020806104bd83398101806040528101908080519060200190929190505050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505061043a806100836000396000f300608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd1461005c578063a25047a214610087578063f15ae568146100e2575b600080fd5b34801561006857600080fd5b50610071610125565b6040518082815260200191505060405180910390f35b34801561009357600080fd5b506100c8600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061012f565b604051808215151515815260200191505060405180910390f35b3480156100ee57600080fd5b50610123600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061017a565b005b6000600254905090565b600080600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054119050919050565b8073ffffffffffffffffffffffffffffffffffffffff1663c45a01556040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b1580156101de57600080fd5b505af11580156101f2573d6000803e3d6000fd5b505050506040513d602081101561020857600080fd5b810190808051906020019092919050505073ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561025257600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16631f94c77c826040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b15801561030e57600080fd5b505af1158015610322573d6000803e3d6000fd5b505050506040513d602081101561033857600080fd5b8101908080519060200190929190505050151561035457600080fd5b60018060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550600260008154600101919050819055507f1d2908a21f62bdc114393352feeaf505a80950de4d81096e75e408f23ffcf1ef81604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a1505600a165627a7a72305820efa30f883d22157966274a399a957c5662c6a7987ad7c9d3d03eacb15751b7cf0029",
-  "deployedBytecode": "0x608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd1461005c578063a25047a214610087578063f15ae568146100e2575b600080fd5b34801561006857600080fd5b50610071610125565b6040518082815260200191505060405180910390f35b34801561009357600080fd5b506100c8600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061012f565b604051808215151515815260200191505060405180910390f35b3480156100ee57600080fd5b50610123600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061017a565b005b6000600254905090565b600080600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054119050919050565b8073ffffffffffffffffffffffffffffffffffffffff1663c45a01556040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b1580156101de57600080fd5b505af11580156101f2573d6000803e3d6000fd5b505050506040513d602081101561020857600080fd5b810190808051906020019092919050505073ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561025257600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16631f94c77c826040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b15801561030e57600080fd5b505af1158015610322573d6000803e3d6000fd5b505050506040513d602081101561033857600080fd5b8101908080519060200190929190505050151561035457600080fd5b60018060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550600260008154600101919050819055507f1d2908a21f62bdc114393352feeaf505a80950de4d81096e75e408f23ffcf1ef81604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a1505600a165627a7a72305820efa30f883d22157966274a399a957c5662c6a7987ad7c9d3d03eacb15751b7cf0029",
-  "sourceMap": "463:869:9:-;;;580:98;8:9:-1;5:2;;;30:1;27;20:12;5:2;580:98:9;;;;;;;;;;;;;;;;;;;;;;;;;;;;;660:11;647:10;;:24;;;;;;;;;;;;;;;;;;580:98;463:869;;;;;;",
-  "deployedSourceMap": "463:869:9:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1188:76;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1188:76:9;;;;;;;;;;;;;;;;;;;;;;;1057:125;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1057:125:9;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;684:367;;8:9:-1;5:2;;;30:1;27;20:12;5:2;684:367:9;;;;;;;;;;;;;;;;;;;;;;;;;;;;1188:76;1226:4;1249:8;;1242:15;;1188:76;:::o;1057:125::-;1118:4;1174:1;1141:7;:30;1157:12;1141:30;;;;;;;;;;;;;;;;:34;1134:41;;1057:125;;;:::o;684:367::-;837:12;:20;;;:22;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;837:22:9;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;837:22:9;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;837:22:9;;;;;;;;;;;;;;;;815:45;;:10;:45;;;807:54;;;;;;;;879:10;;;;;;;;;;;:26;;;906:12;879:40;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;879:40:9;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;879:40:9;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;879:40:9;;;;;;;;;;;;;;;;871:49;;;;;;;;963:1;930:7;:30;946:12;930:30;;;;;;;;;;;;;;;:34;;;;976:8;;974:10;;;;;;;;;;;999:45;1030:12;999:45;;;;;;;;;;;;;;;;;;;;;;684:367;:::o",
-  "source": "pragma solidity ^0.4.11;\n\nimport './NoiaBaseContract.sol';\nimport './NoiaRegulation.sol';\n\n/**\n * Shared Noia Registry\n *\n * Features/Limitations:\n * - can add base contract to entry\n *   - only allow creator of the contract to add it to entries\n *   - only allow contracts passing the regulation to be added\n * - emit NoiaRegistryEntryAdded when adding entry\n * - can query entry existence\n * - count total entries\n * - does not track base contract deletion\n */\ncontract NoiaRegistry {\n    NoiaRegulation regulation;\n    mapping(address => uint) entries;\n    uint nEntries;\n\n    function NoiaRegistry(NoiaRegulation regulation_) public {\n        regulation = regulation_;\n    }\n\n    function addEntry(NoiaBaseContract baseContract) public {\n        // validate that sender is from the same factory\n        require(msg.sender == address(baseContract.factory()));\n        require(regulation.isContractValid(baseContract));\n        entries[address(baseContract)] = 1;\n        ++nEntries;\n        emit NoiaRegistryEntryAdded(address(baseContract));\n    }\n\n    function hasEntry(address baseContract) public view returns (bool) {\n        return entries[address(baseContract)] > 0;\n    }\n\n    function count() public view returns (uint) {\n        return nEntries;\n    }\n\n    event NoiaRegistryEntryAdded(\n        address baseContract);\n}\n",
-  "sourcePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/gov/NoiaRegistry.sol",
+  "bytecode": "0x608060405234801561001057600080fd5b50604051602080610310833981016040525160008054600160a060020a03909216600160a060020a03199092169190911790556102be806100526000396000f3006080604052600436106100565763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166306661abd811461005b578063a25047a214610082578063f15ae568146100b7575b600080fd5b34801561006757600080fd5b506100706100da565b60408051918252519081900360200190f35b34801561008e57600080fd5b506100a3600160a060020a03600435166100e0565b604080519115158252519081900360200190f35b3480156100c357600080fd5b506100d8600160a060020a03600435166100fc565b005b60025490565b600160a060020a03166000908152600160205260408120541190565b80600160a060020a031663c45a01556040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15801561015357600080fd5b505af1158015610167573d6000803e3d6000fd5b505050506040513d602081101561017d57600080fd5b5051600160a060020a0316331461019357600080fd5b60008054604080517f1f94c77c000000000000000000000000000000000000000000000000000000008152600160a060020a03858116600483015291519190921692631f94c77c92602480820193602093909283900390910190829087803b1580156101fe57600080fd5b505af1158015610212573d6000803e3d6000fd5b505050506040513d602081101561022857600080fd5b5051151561023557600080fd5b600160a060020a03811660008181526001602081815260409283902082905560028054909201909155815192835290517f1d2908a21f62bdc114393352feeaf505a80950de4d81096e75e408f23ffcf1ef9281900390910190a1505600a165627a7a7230582082299cb84100a1b8c83a25a04d72955f17821e87e9b75cc2ed3277cb977ffff40029",
+  "deployedBytecode": "0x6080604052600436106100565763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166306661abd811461005b578063a25047a214610082578063f15ae568146100b7575b600080fd5b34801561006757600080fd5b506100706100da565b60408051918252519081900360200190f35b34801561008e57600080fd5b506100a3600160a060020a03600435166100e0565b604080519115158252519081900360200190f35b3480156100c357600080fd5b506100d8600160a060020a03600435166100fc565b005b60025490565b600160a060020a03166000908152600160205260408120541190565b80600160a060020a031663c45a01556040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15801561015357600080fd5b505af1158015610167573d6000803e3d6000fd5b505050506040513d602081101561017d57600080fd5b5051600160a060020a0316331461019357600080fd5b60008054604080517f1f94c77c000000000000000000000000000000000000000000000000000000008152600160a060020a03858116600483015291519190921692631f94c77c92602480820193602093909283900390910190829087803b1580156101fe57600080fd5b505af1158015610212573d6000803e3d6000fd5b505050506040513d602081101561022857600080fd5b5051151561023557600080fd5b600160a060020a03811660008181526001602081815260409283902082905560028054909201909155815192835290517f1d2908a21f62bdc114393352feeaf505a80950de4d81096e75e408f23ffcf1ef9281900390910190a1505600a165627a7a7230582082299cb84100a1b8c83a25a04d72955f17821e87e9b75cc2ed3277cb977ffff40029",
+  "sourceMap": "463:859:9:-;;;580:88;8:9:-1;5:2;;;30:1;27;20:12;5:2;580:88:9;;;;;;;;;;;;;637:10;:24;;-1:-1:-1;;;;;637:24:9;;;-1:-1:-1;;;;;;637:24:9;;;;;;;;;463:859;;;;;;",
+  "deployedSourceMap": "463:859:9:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1178:76;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1178:76:9;;;;;;;;;;;;;;;;;;;;1047:125;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;1047:125:9;;;-1:-1:-1;1047:125:9;;;;;;;;;;;;;;;;;;;;;674:367;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;674:367:9;;;-1:-1:-1;674:367:9;;;;;1178:76;1239:8;;1178:76;:::o;1047:125::-;-1:-1:-1;1131:30:9;1108:4;1131:30;;;-1:-1:-1;1131:30:9;;;;;;:34;;1047:125::o;674:367::-;827:12;-1:-1:-1;;;;;827:20:9;;:22;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;827:22:9;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;827:22:9;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;827:22:9;-1:-1:-1;805:45:9;:10;:45;797:54;;;;;;869:10;;;:40;;;;;;-1:-1:-1;869:40:9;;;;;;;;;:10;;;;;:26;;:40;;;;;;;;;;;;;;;;;;:10;:40;;;5:2:-1;;;;30:1;27;20:12;5:2;869:40:9;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;869:40:9;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;869:40:9;861:49;;;;;;;;-1:-1:-1;920:30:9;;;;;;-1:-1:-1;920:30:9;;;;;;;;;:34;;;-1:-1:-1;964:10:9;;;;;;;;989:45;;;;;;;;;;;;;;;;;674:367;:::o",
+  "source": "pragma solidity ^0.4.11;\n\nimport './NoiaBaseContract.sol';\nimport './NoiaRegulation.sol';\n\n/**\n * Shared Noia Registry\n *\n * Features/Limitations:\n * - can add base contract to entry\n *   - only allow creator of the contract to add it to entries\n *   - only allow contracts passing the regulation to be added\n * - emit NoiaRegistryEntryAdded when adding entry\n * - can query entry existence\n * - count total entries\n * - does not track base contract deletion\n */\ncontract NoiaRegistry {\n    NoiaRegulation regulation;\n    mapping(address => uint) entries;\n    uint nEntries;\n\n    constructor(NoiaRegulation regulation_) public {\n        regulation = regulation_;\n    }\n\n    function addEntry(NoiaBaseContract baseContract) public {\n        // validate that sender is from the same factory\n        require(msg.sender == address(baseContract.factory()));\n        require(regulation.isContractValid(baseContract));\n        entries[address(baseContract)] = 1;\n        ++nEntries;\n        emit NoiaRegistryEntryAdded(address(baseContract));\n    }\n\n    function hasEntry(address baseContract) public view returns (bool) {\n        return entries[address(baseContract)] > 0;\n    }\n\n    function count() public view returns (uint) {\n        return nEntries;\n    }\n\n    event NoiaRegistryEntryAdded(\n        address baseContract);\n}\n",
+  "sourcePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/gov/NoiaRegistry.sol",
   "ast": {
-    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/gov/NoiaRegistry.sol",
+    "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/gov/NoiaRegistry.sol",
     "exportedSymbols": {
       "NoiaRegistry": [
-        574
+        636
       ]
     },
-    "id": 575,
+    "id": 637,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 484,
+        "id": 546,
         "literals": [
           "solidity",
           "^",
@@ -100,23 +100,23 @@
         "src": "0:24:9"
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/gov/NoiaBaseContract.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/gov/NoiaBaseContract.sol",
         "file": "./NoiaBaseContract.sol",
-        "id": 485,
+        "id": 547,
         "nodeType": "ImportDirective",
-        "scope": 575,
-        "sourceUnit": 391,
+        "scope": 637,
+        "sourceUnit": 453,
         "src": "26:32:9",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/gov/NoiaRegulation.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/gov/NoiaRegulation.sol",
         "file": "./NoiaRegulation.sol",
-        "id": 486,
+        "id": 548,
         "nodeType": "ImportDirective",
-        "scope": 575,
-        "sourceUnit": 586,
+        "scope": 637,
+        "sourceUnit": 648,
         "src": "59:30:9",
         "symbolAliases": [],
         "unitAlias": ""
@@ -127,35 +127,35 @@
         "contractKind": "contract",
         "documentation": "Shared Noia Registry\n * Features/Limitations:\n- can add base contract to entry\n  - only allow creator of the contract to add it to entries\n  - only allow contracts passing the regulation to be added\n- emit NoiaRegistryEntryAdded when adding entry\n- can query entry existence\n- count total entries\n- does not track base contract deletion",
         "fullyImplemented": true,
-        "id": 574,
+        "id": 636,
         "linearizedBaseContracts": [
-          574
+          636
         ],
         "name": "NoiaRegistry",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 488,
+            "id": 550,
             "name": "regulation",
             "nodeType": "VariableDeclaration",
-            "scope": 574,
+            "scope": 636,
             "src": "491:25:9",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_NoiaRegulation_$585",
+              "typeIdentifier": "t_contract$_NoiaRegulation_$647",
               "typeString": "contract NoiaRegulation"
             },
             "typeName": {
               "contractScope": null,
-              "id": 487,
+              "id": 549,
               "name": "NoiaRegulation",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 585,
+              "referencedDeclaration": 647,
               "src": "491:14:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_NoiaRegulation_$585",
+                "typeIdentifier": "t_contract$_NoiaRegulation_$647",
                 "typeString": "contract NoiaRegulation"
               }
             },
@@ -164,10 +164,10 @@
           },
           {
             "constant": false,
-            "id": 492,
+            "id": 554,
             "name": "entries",
             "nodeType": "VariableDeclaration",
-            "scope": 574,
+            "scope": 636,
             "src": "522:32:9",
             "stateVariable": true,
             "storageLocation": "default",
@@ -176,9 +176,9 @@
               "typeString": "mapping(address => uint256)"
             },
             "typeName": {
-              "id": 491,
+              "id": 553,
               "keyType": {
-                "id": 489,
+                "id": 551,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "530:7:9",
@@ -194,7 +194,7 @@
                 "typeString": "mapping(address => uint256)"
               },
               "valueType": {
-                "id": 490,
+                "id": 552,
                 "name": "uint",
                 "nodeType": "ElementaryTypeName",
                 "src": "541:4:9",
@@ -209,10 +209,10 @@
           },
           {
             "constant": false,
-            "id": 494,
+            "id": 556,
             "name": "nEntries",
             "nodeType": "VariableDeclaration",
-            "scope": 574,
+            "scope": 636,
             "src": "560:13:9",
             "stateVariable": true,
             "storageLocation": "default",
@@ -221,7 +221,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 493,
+              "id": 555,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "560:4:9",
@@ -235,28 +235,28 @@
           },
           {
             "body": {
-              "id": 503,
+              "id": 565,
               "nodeType": "Block",
-              "src": "637:41:9",
+              "src": "627:41:9",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 501,
+                    "id": 563,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 499,
+                      "id": 561,
                       "name": "regulation",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 488,
-                      "src": "647:10:9",
+                      "referencedDeclaration": 550,
+                      "src": "637:10:9",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegulation_$585",
+                        "typeIdentifier": "t_contract$_NoiaRegulation_$647",
                         "typeString": "contract NoiaRegulation"
                       }
                     },
@@ -264,63 +264,63 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 500,
+                      "id": 562,
                       "name": "regulation_",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 496,
-                      "src": "660:11:9",
+                      "referencedDeclaration": 558,
+                      "src": "650:11:9",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegulation_$585",
+                        "typeIdentifier": "t_contract$_NoiaRegulation_$647",
                         "typeString": "contract NoiaRegulation"
                       }
                     },
-                    "src": "647:24:9",
+                    "src": "637:24:9",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaRegulation_$585",
+                      "typeIdentifier": "t_contract$_NoiaRegulation_$647",
                       "typeString": "contract NoiaRegulation"
                     }
                   },
-                  "id": 502,
+                  "id": 564,
                   "nodeType": "ExpressionStatement",
-                  "src": "647:24:9"
+                  "src": "637:24:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 504,
+            "id": 566,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
             "modifiers": [],
-            "name": "NoiaRegistry",
+            "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 497,
+              "id": 559,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 496,
+                  "id": 558,
                   "name": "regulation_",
                   "nodeType": "VariableDeclaration",
-                  "scope": 504,
-                  "src": "602:26:9",
+                  "scope": 566,
+                  "src": "592:26:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_NoiaRegulation_$585",
+                    "typeIdentifier": "t_contract$_NoiaRegulation_$647",
                     "typeString": "contract NoiaRegulation"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 495,
+                    "id": 557,
                     "name": "NoiaRegulation",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 585,
-                    "src": "602:14:9",
+                    "referencedDeclaration": 647,
+                    "src": "592:14:9",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaRegulation_$585",
+                      "typeIdentifier": "t_contract$_NoiaRegulation_$647",
                       "typeString": "contract NoiaRegulation"
                     }
                   },
@@ -328,26 +328,26 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "601:28:9"
+              "src": "591:28:9"
             },
             "payable": false,
             "returnParameters": {
-              "id": 498,
+              "id": 560,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "637:0:9"
+              "src": "627:0:9"
             },
-            "scope": 574,
-            "src": "580:98:9",
+            "scope": 636,
+            "src": "580:88:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 544,
+              "id": 606,
               "nodeType": "Block",
-              "src": "740:311:9",
+              "src": "730:311:9",
               "statements": [
                 {
                   "expression": {
@@ -359,7 +359,7 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 517,
+                        "id": 579,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -368,18 +368,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 510,
+                            "id": 572,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2019,
-                            "src": "815:3:9",
+                            "referencedDeclaration": 2840,
+                            "src": "805:3:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 511,
+                          "id": 573,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -387,7 +387,7 @@
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "815:10:9",
+                          "src": "805:10:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -405,32 +405,32 @@
                                 "argumentTypes": [],
                                 "expression": {
                                   "argumentTypes": null,
-                                  "id": 513,
+                                  "id": 575,
                                   "name": "baseContract",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 506,
-                                  "src": "837:12:9",
+                                  "referencedDeclaration": 568,
+                                  "src": "827:12:9",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_contract$_NoiaBaseContract_$390",
+                                    "typeIdentifier": "t_contract$_NoiaBaseContract_$452",
                                     "typeString": "contract NoiaBaseContract"
                                   }
                                 },
-                                "id": 514,
+                                "id": 576,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "memberName": "factory",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 356,
-                                "src": "837:20:9",
+                                "referencedDeclaration": 418,
+                                "src": "827:20:9",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_function_external_view$__$returns$_t_address_$",
                                   "typeString": "function () view external returns (address)"
                                 }
                               },
-                              "id": 515,
+                              "id": 577,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -438,7 +438,7 @@
                               "lValueRequested": false,
                               "names": [],
                               "nodeType": "FunctionCall",
-                              "src": "837:22:9",
+                              "src": "827:22:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
                                 "typeString": "address"
@@ -452,20 +452,20 @@
                                 "typeString": "address"
                               }
                             ],
-                            "id": 512,
+                            "id": 574,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "lValueRequested": false,
                             "nodeType": "ElementaryTypeNameExpression",
-                            "src": "829:7:9",
+                            "src": "819:7:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_type$_t_address_$",
                               "typeString": "type(address)"
                             },
                             "typeName": "address"
                           },
-                          "id": 516,
+                          "id": 578,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -473,13 +473,13 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "829:31:9",
+                          "src": "819:31:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
                           }
                         },
-                        "src": "815:45:9",
+                        "src": "805:45:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -493,21 +493,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 509,
+                      "id": 571,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2022,
-                        2023
+                        2843,
+                        2844
                       ],
-                      "referencedDeclaration": 2022,
-                      "src": "807:7:9",
+                      "referencedDeclaration": 2843,
+                      "src": "797:7:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 518,
+                    "id": 580,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -515,15 +515,15 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "807:54:9",
+                    "src": "797:54:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 519,
+                  "id": 581,
                   "nodeType": "ExpressionStatement",
-                  "src": "807:54:9"
+                  "src": "797:54:9"
                 },
                 {
                   "expression": {
@@ -534,14 +534,14 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 523,
+                            "id": 585,
                             "name": "baseContract",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 506,
-                            "src": "906:12:9",
+                            "referencedDeclaration": 568,
+                            "src": "896:12:9",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaBaseContract_$390",
+                              "typeIdentifier": "t_contract$_NoiaBaseContract_$452",
                               "typeString": "contract NoiaBaseContract"
                             }
                           }
@@ -549,38 +549,38 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_contract$_NoiaBaseContract_$390",
+                              "typeIdentifier": "t_contract$_NoiaBaseContract_$452",
                               "typeString": "contract NoiaBaseContract"
                             }
                           ],
                           "expression": {
                             "argumentTypes": null,
-                            "id": 521,
+                            "id": 583,
                             "name": "regulation",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 488,
-                            "src": "879:10:9",
+                            "referencedDeclaration": 550,
+                            "src": "869:10:9",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaRegulation_$585",
+                              "typeIdentifier": "t_contract$_NoiaRegulation_$647",
                               "typeString": "contract NoiaRegulation"
                             }
                           },
-                          "id": 522,
+                          "id": 584,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "isContractValid",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 584,
-                          "src": "879:26:9",
+                          "referencedDeclaration": 646,
+                          "src": "869:26:9",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_function_external_view$_t_contract$_NoiaBaseContract_$390_$returns$_t_bool_$",
+                            "typeIdentifier": "t_function_external_view$_t_contract$_NoiaBaseContract_$452_$returns$_t_bool_$",
                             "typeString": "function (contract NoiaBaseContract) view external returns (bool)"
                           }
                         },
-                        "id": 524,
+                        "id": 586,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -588,7 +588,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "879:40:9",
+                        "src": "869:40:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -602,21 +602,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 520,
+                      "id": 582,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2022,
-                        2023
+                        2843,
+                        2844
                       ],
-                      "referencedDeclaration": 2022,
-                      "src": "871:7:9",
+                      "referencedDeclaration": 2843,
+                      "src": "861:7:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 525,
+                    "id": 587,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -624,20 +624,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "871:49:9",
+                    "src": "861:49:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 526,
+                  "id": 588,
                   "nodeType": "ExpressionStatement",
-                  "src": "871:49:9"
+                  "src": "861:49:9"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 533,
+                    "id": 595,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -646,31 +646,31 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 527,
+                        "id": 589,
                         "name": "entries",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 492,
-                        "src": "930:7:9",
+                        "referencedDeclaration": 554,
+                        "src": "920:7:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 531,
+                      "id": 593,
                       "indexExpression": {
                         "argumentTypes": null,
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 529,
+                            "id": 591,
                             "name": "baseContract",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 506,
-                            "src": "946:12:9",
+                            "referencedDeclaration": 568,
+                            "src": "936:12:9",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaBaseContract_$390",
+                              "typeIdentifier": "t_contract$_NoiaBaseContract_$452",
                               "typeString": "contract NoiaBaseContract"
                             }
                           }
@@ -678,24 +678,24 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_contract$_NoiaBaseContract_$390",
+                              "typeIdentifier": "t_contract$_NoiaBaseContract_$452",
                               "typeString": "contract NoiaBaseContract"
                             }
                           ],
-                          "id": 528,
+                          "id": 590,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "lValueRequested": false,
                           "nodeType": "ElementaryTypeNameExpression",
-                          "src": "938:7:9",
+                          "src": "928:7:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_address_$",
                             "typeString": "type(address)"
                           },
                           "typeName": "address"
                         },
-                        "id": 530,
+                        "id": 592,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -703,7 +703,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "938:21:9",
+                        "src": "928:21:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -714,7 +714,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "930:30:9",
+                      "src": "920:30:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -725,14 +725,14 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "31",
-                      "id": 532,
+                      "id": 594,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "963:1:9",
+                      "src": "953:1:9",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_1_by_1",
@@ -740,20 +740,20 @@
                       },
                       "value": "1"
                     },
-                    "src": "930:34:9",
+                    "src": "920:34:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 534,
+                  "id": 596,
                   "nodeType": "ExpressionStatement",
-                  "src": "930:34:9"
+                  "src": "920:34:9"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 536,
+                    "id": 598,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -761,15 +761,15 @@
                     "nodeType": "UnaryOperation",
                     "operator": "++",
                     "prefix": true,
-                    "src": "974:10:9",
+                    "src": "964:10:9",
                     "subExpression": {
                       "argumentTypes": null,
-                      "id": 535,
+                      "id": 597,
                       "name": "nEntries",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 494,
-                      "src": "976:8:9",
+                      "referencedDeclaration": 556,
+                      "src": "966:8:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -780,9 +780,9 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 537,
+                  "id": 599,
                   "nodeType": "ExpressionStatement",
-                  "src": "974:10:9"
+                  "src": "964:10:9"
                 },
                 {
                   "eventCall": {
@@ -793,14 +793,14 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 540,
+                            "id": 602,
                             "name": "baseContract",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 506,
-                            "src": "1030:12:9",
+                            "referencedDeclaration": 568,
+                            "src": "1020:12:9",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaBaseContract_$390",
+                              "typeIdentifier": "t_contract$_NoiaBaseContract_$452",
                               "typeString": "contract NoiaBaseContract"
                             }
                           }
@@ -808,24 +808,24 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_contract$_NoiaBaseContract_$390",
+                              "typeIdentifier": "t_contract$_NoiaBaseContract_$452",
                               "typeString": "contract NoiaBaseContract"
                             }
                           ],
-                          "id": 539,
+                          "id": 601,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "lValueRequested": false,
                           "nodeType": "ElementaryTypeNameExpression",
-                          "src": "1022:7:9",
+                          "src": "1012:7:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_address_$",
                             "typeString": "type(address)"
                           },
                           "typeName": "address"
                         },
-                        "id": 541,
+                        "id": 603,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -833,7 +833,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "1022:21:9",
+                        "src": "1012:21:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -847,18 +847,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 538,
+                      "id": 600,
                       "name": "NoiaRegistryEntryAdded",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 573,
-                      "src": "999:22:9",
+                      "referencedDeclaration": 635,
+                      "src": "989:22:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
                         "typeString": "function (address)"
                       }
                     },
-                    "id": 542,
+                    "id": 604,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -866,20 +866,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "999:45:9",
+                    "src": "989:45:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 543,
+                  "id": 605,
                   "nodeType": "EmitStatement",
-                  "src": "994:50:9"
+                  "src": "984:50:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 545,
+            "id": 607,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -887,31 +887,31 @@
             "name": "addEntry",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 507,
+              "id": 569,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 506,
+                  "id": 568,
                   "name": "baseContract",
                   "nodeType": "VariableDeclaration",
-                  "scope": 545,
-                  "src": "702:29:9",
+                  "scope": 607,
+                  "src": "692:29:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_NoiaBaseContract_$390",
+                    "typeIdentifier": "t_contract$_NoiaBaseContract_$452",
                     "typeString": "contract NoiaBaseContract"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 505,
+                    "id": 567,
                     "name": "NoiaBaseContract",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 390,
-                    "src": "702:16:9",
+                    "referencedDeclaration": 452,
+                    "src": "692:16:9",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaBaseContract_$390",
+                      "typeIdentifier": "t_contract$_NoiaBaseContract_$452",
                       "typeString": "contract NoiaBaseContract"
                     }
                   },
@@ -919,26 +919,26 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "701:31:9"
+              "src": "691:31:9"
             },
             "payable": false,
             "returnParameters": {
-              "id": 508,
+              "id": 570,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "740:0:9"
+              "src": "730:0:9"
             },
-            "scope": 574,
-            "src": "684:367:9",
+            "scope": 636,
+            "src": "674:367:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 560,
+              "id": 622,
               "nodeType": "Block",
-              "src": "1124:58:9",
+              "src": "1114:58:9",
               "statements": [
                 {
                   "expression": {
@@ -947,7 +947,7 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 558,
+                    "id": 620,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -956,29 +956,29 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 552,
+                        "id": 614,
                         "name": "entries",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 492,
-                        "src": "1141:7:9",
+                        "referencedDeclaration": 554,
+                        "src": "1131:7:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 556,
+                      "id": 618,
                       "indexExpression": {
                         "argumentTypes": null,
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 554,
+                            "id": 616,
                             "name": "baseContract",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 547,
-                            "src": "1157:12:9",
+                            "referencedDeclaration": 609,
+                            "src": "1147:12:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -992,20 +992,20 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 553,
+                          "id": 615,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "lValueRequested": false,
                           "nodeType": "ElementaryTypeNameExpression",
-                          "src": "1149:7:9",
+                          "src": "1139:7:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_address_$",
                             "typeString": "type(address)"
                           },
                           "typeName": "address"
                         },
-                        "id": 555,
+                        "id": 617,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1013,7 +1013,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "1149:21:9",
+                        "src": "1139:21:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1024,7 +1024,7 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "1141:30:9",
+                      "src": "1131:30:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -1035,14 +1035,14 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 557,
+                      "id": 619,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "1174:1:9",
+                      "src": "1164:1:9",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
@@ -1050,21 +1050,21 @@
                       },
                       "value": "0"
                     },
-                    "src": "1141:34:9",
+                    "src": "1131:34:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 551,
-                  "id": 559,
+                  "functionReturnParameters": 613,
+                  "id": 621,
                   "nodeType": "Return",
-                  "src": "1134:41:9"
+                  "src": "1124:41:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 561,
+            "id": 623,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -1072,16 +1072,16 @@
             "name": "hasEntry",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 548,
+              "id": 610,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 547,
+                  "id": 609,
                   "name": "baseContract",
                   "nodeType": "VariableDeclaration",
-                  "scope": 561,
-                  "src": "1075:20:9",
+                  "scope": 623,
+                  "src": "1065:20:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1089,10 +1089,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 546,
+                    "id": 608,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1075:7:9",
+                    "src": "1065:7:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -1102,20 +1102,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1074:22:9"
+              "src": "1064:22:9"
             },
             "payable": false,
             "returnParameters": {
-              "id": 551,
+              "id": 613,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 550,
+                  "id": 612,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 561,
-                  "src": "1118:4:9",
+                  "scope": 623,
+                  "src": "1108:4:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1123,10 +1123,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 549,
+                    "id": 611,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1118:4:9",
+                    "src": "1108:4:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1136,43 +1136,43 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1117:6:9"
+              "src": "1107:6:9"
             },
-            "scope": 574,
-            "src": "1057:125:9",
+            "scope": 636,
+            "src": "1047:125:9",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 568,
+              "id": 630,
               "nodeType": "Block",
-              "src": "1232:32:9",
+              "src": "1222:32:9",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 566,
+                    "id": 628,
                     "name": "nEntries",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 494,
-                    "src": "1249:8:9",
+                    "referencedDeclaration": 556,
+                    "src": "1239:8:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 565,
-                  "id": 567,
+                  "functionReturnParameters": 627,
+                  "id": 629,
                   "nodeType": "Return",
-                  "src": "1242:15:9"
+                  "src": "1232:15:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 569,
+            "id": 631,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -1180,23 +1180,23 @@
             "name": "count",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 562,
+              "id": 624,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1202:2:9"
+              "src": "1192:2:9"
             },
             "payable": false,
             "returnParameters": {
-              "id": 565,
+              "id": 627,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 564,
+                  "id": 626,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 569,
-                  "src": "1226:4:9",
+                  "scope": 631,
+                  "src": "1216:4:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1204,10 +1204,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 563,
+                    "id": 625,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1226:4:9",
+                    "src": "1216:4:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1217,10 +1217,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1225:6:9"
+              "src": "1215:6:9"
             },
-            "scope": 574,
-            "src": "1188:76:9",
+            "scope": 636,
+            "src": "1178:76:9",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
@@ -1228,21 +1228,21 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 573,
+            "id": 635,
             "name": "NoiaRegistryEntryAdded",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 572,
+              "id": 634,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 571,
+                  "id": 633,
                   "indexed": false,
                   "name": "baseContract",
                   "nodeType": "VariableDeclaration",
-                  "scope": 573,
-                  "src": "1308:20:9",
+                  "scope": 635,
+                  "src": "1298:20:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1250,10 +1250,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 570,
+                    "id": 632,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1308:7:9",
+                    "src": "1298:7:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -1263,29 +1263,29 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1298:31:9"
+              "src": "1288:31:9"
             },
-            "src": "1270:60:9"
+            "src": "1260:60:9"
           }
         ],
-        "scope": 575,
-        "src": "463:869:9"
+        "scope": 637,
+        "src": "463:859:9"
       }
     ],
-    "src": "0:1333:9"
+    "src": "0:1323:9"
   },
   "legacyAST": {
-    "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/gov/NoiaRegistry.sol",
+    "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/gov/NoiaRegistry.sol",
     "exportedSymbols": {
       "NoiaRegistry": [
-        574
+        636
       ]
     },
-    "id": 575,
+    "id": 637,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 484,
+        "id": 546,
         "literals": [
           "solidity",
           "^",
@@ -1296,23 +1296,23 @@
         "src": "0:24:9"
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/gov/NoiaBaseContract.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/gov/NoiaBaseContract.sol",
         "file": "./NoiaBaseContract.sol",
-        "id": 485,
+        "id": 547,
         "nodeType": "ImportDirective",
-        "scope": 575,
-        "sourceUnit": 391,
+        "scope": 637,
+        "sourceUnit": 453,
         "src": "26:32:9",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/hellwolf/Projects/noia/noia-governance/contracts/noia/gov/NoiaRegulation.sol",
+        "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/gov/NoiaRegulation.sol",
         "file": "./NoiaRegulation.sol",
-        "id": 486,
+        "id": 548,
         "nodeType": "ImportDirective",
-        "scope": 575,
-        "sourceUnit": 586,
+        "scope": 637,
+        "sourceUnit": 648,
         "src": "59:30:9",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1323,35 +1323,35 @@
         "contractKind": "contract",
         "documentation": "Shared Noia Registry\n * Features/Limitations:\n- can add base contract to entry\n  - only allow creator of the contract to add it to entries\n  - only allow contracts passing the regulation to be added\n- emit NoiaRegistryEntryAdded when adding entry\n- can query entry existence\n- count total entries\n- does not track base contract deletion",
         "fullyImplemented": true,
-        "id": 574,
+        "id": 636,
         "linearizedBaseContracts": [
-          574
+          636
         ],
         "name": "NoiaRegistry",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 488,
+            "id": 550,
             "name": "regulation",
             "nodeType": "VariableDeclaration",
-            "scope": 574,
+            "scope": 636,
             "src": "491:25:9",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_NoiaRegulation_$585",
+              "typeIdentifier": "t_contract$_NoiaRegulation_$647",
               "typeString": "contract NoiaRegulation"
             },
             "typeName": {
               "contractScope": null,
-              "id": 487,
+              "id": 549,
               "name": "NoiaRegulation",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 585,
+              "referencedDeclaration": 647,
               "src": "491:14:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_NoiaRegulation_$585",
+                "typeIdentifier": "t_contract$_NoiaRegulation_$647",
                 "typeString": "contract NoiaRegulation"
               }
             },
@@ -1360,10 +1360,10 @@
           },
           {
             "constant": false,
-            "id": 492,
+            "id": 554,
             "name": "entries",
             "nodeType": "VariableDeclaration",
-            "scope": 574,
+            "scope": 636,
             "src": "522:32:9",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1372,9 +1372,9 @@
               "typeString": "mapping(address => uint256)"
             },
             "typeName": {
-              "id": 491,
+              "id": 553,
               "keyType": {
-                "id": 489,
+                "id": 551,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "530:7:9",
@@ -1390,7 +1390,7 @@
                 "typeString": "mapping(address => uint256)"
               },
               "valueType": {
-                "id": 490,
+                "id": 552,
                 "name": "uint",
                 "nodeType": "ElementaryTypeName",
                 "src": "541:4:9",
@@ -1405,10 +1405,10 @@
           },
           {
             "constant": false,
-            "id": 494,
+            "id": 556,
             "name": "nEntries",
             "nodeType": "VariableDeclaration",
-            "scope": 574,
+            "scope": 636,
             "src": "560:13:9",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1417,7 +1417,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 493,
+              "id": 555,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "560:4:9",
@@ -1431,28 +1431,28 @@
           },
           {
             "body": {
-              "id": 503,
+              "id": 565,
               "nodeType": "Block",
-              "src": "637:41:9",
+              "src": "627:41:9",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 501,
+                    "id": 563,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 499,
+                      "id": 561,
                       "name": "regulation",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 488,
-                      "src": "647:10:9",
+                      "referencedDeclaration": 550,
+                      "src": "637:10:9",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegulation_$585",
+                        "typeIdentifier": "t_contract$_NoiaRegulation_$647",
                         "typeString": "contract NoiaRegulation"
                       }
                     },
@@ -1460,63 +1460,63 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 500,
+                      "id": 562,
                       "name": "regulation_",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 496,
-                      "src": "660:11:9",
+                      "referencedDeclaration": 558,
+                      "src": "650:11:9",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegulation_$585",
+                        "typeIdentifier": "t_contract$_NoiaRegulation_$647",
                         "typeString": "contract NoiaRegulation"
                       }
                     },
-                    "src": "647:24:9",
+                    "src": "637:24:9",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaRegulation_$585",
+                      "typeIdentifier": "t_contract$_NoiaRegulation_$647",
                       "typeString": "contract NoiaRegulation"
                     }
                   },
-                  "id": 502,
+                  "id": 564,
                   "nodeType": "ExpressionStatement",
-                  "src": "647:24:9"
+                  "src": "637:24:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 504,
+            "id": 566,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
             "modifiers": [],
-            "name": "NoiaRegistry",
+            "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 497,
+              "id": 559,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 496,
+                  "id": 558,
                   "name": "regulation_",
                   "nodeType": "VariableDeclaration",
-                  "scope": 504,
-                  "src": "602:26:9",
+                  "scope": 566,
+                  "src": "592:26:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_NoiaRegulation_$585",
+                    "typeIdentifier": "t_contract$_NoiaRegulation_$647",
                     "typeString": "contract NoiaRegulation"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 495,
+                    "id": 557,
                     "name": "NoiaRegulation",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 585,
-                    "src": "602:14:9",
+                    "referencedDeclaration": 647,
+                    "src": "592:14:9",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaRegulation_$585",
+                      "typeIdentifier": "t_contract$_NoiaRegulation_$647",
                       "typeString": "contract NoiaRegulation"
                     }
                   },
@@ -1524,26 +1524,26 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "601:28:9"
+              "src": "591:28:9"
             },
             "payable": false,
             "returnParameters": {
-              "id": 498,
+              "id": 560,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "637:0:9"
+              "src": "627:0:9"
             },
-            "scope": 574,
-            "src": "580:98:9",
+            "scope": 636,
+            "src": "580:88:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 544,
+              "id": 606,
               "nodeType": "Block",
-              "src": "740:311:9",
+              "src": "730:311:9",
               "statements": [
                 {
                   "expression": {
@@ -1555,7 +1555,7 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 517,
+                        "id": 579,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1564,18 +1564,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 510,
+                            "id": 572,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2019,
-                            "src": "815:3:9",
+                            "referencedDeclaration": 2840,
+                            "src": "805:3:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 511,
+                          "id": 573,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1583,7 +1583,7 @@
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "815:10:9",
+                          "src": "805:10:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -1601,32 +1601,32 @@
                                 "argumentTypes": [],
                                 "expression": {
                                   "argumentTypes": null,
-                                  "id": 513,
+                                  "id": 575,
                                   "name": "baseContract",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 506,
-                                  "src": "837:12:9",
+                                  "referencedDeclaration": 568,
+                                  "src": "827:12:9",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_contract$_NoiaBaseContract_$390",
+                                    "typeIdentifier": "t_contract$_NoiaBaseContract_$452",
                                     "typeString": "contract NoiaBaseContract"
                                   }
                                 },
-                                "id": 514,
+                                "id": 576,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "memberName": "factory",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 356,
-                                "src": "837:20:9",
+                                "referencedDeclaration": 418,
+                                "src": "827:20:9",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_function_external_view$__$returns$_t_address_$",
                                   "typeString": "function () view external returns (address)"
                                 }
                               },
-                              "id": 515,
+                              "id": 577,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -1634,7 +1634,7 @@
                               "lValueRequested": false,
                               "names": [],
                               "nodeType": "FunctionCall",
-                              "src": "837:22:9",
+                              "src": "827:22:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
                                 "typeString": "address"
@@ -1648,20 +1648,20 @@
                                 "typeString": "address"
                               }
                             ],
-                            "id": 512,
+                            "id": 574,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "lValueRequested": false,
                             "nodeType": "ElementaryTypeNameExpression",
-                            "src": "829:7:9",
+                            "src": "819:7:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_type$_t_address_$",
                               "typeString": "type(address)"
                             },
                             "typeName": "address"
                           },
-                          "id": 516,
+                          "id": 578,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1669,13 +1669,13 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "829:31:9",
+                          "src": "819:31:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
                           }
                         },
-                        "src": "815:45:9",
+                        "src": "805:45:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -1689,21 +1689,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 509,
+                      "id": 571,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2022,
-                        2023
+                        2843,
+                        2844
                       ],
-                      "referencedDeclaration": 2022,
-                      "src": "807:7:9",
+                      "referencedDeclaration": 2843,
+                      "src": "797:7:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 518,
+                    "id": 580,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1711,15 +1711,15 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "807:54:9",
+                    "src": "797:54:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 519,
+                  "id": 581,
                   "nodeType": "ExpressionStatement",
-                  "src": "807:54:9"
+                  "src": "797:54:9"
                 },
                 {
                   "expression": {
@@ -1730,14 +1730,14 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 523,
+                            "id": 585,
                             "name": "baseContract",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 506,
-                            "src": "906:12:9",
+                            "referencedDeclaration": 568,
+                            "src": "896:12:9",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaBaseContract_$390",
+                              "typeIdentifier": "t_contract$_NoiaBaseContract_$452",
                               "typeString": "contract NoiaBaseContract"
                             }
                           }
@@ -1745,38 +1745,38 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_contract$_NoiaBaseContract_$390",
+                              "typeIdentifier": "t_contract$_NoiaBaseContract_$452",
                               "typeString": "contract NoiaBaseContract"
                             }
                           ],
                           "expression": {
                             "argumentTypes": null,
-                            "id": 521,
+                            "id": 583,
                             "name": "regulation",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 488,
-                            "src": "879:10:9",
+                            "referencedDeclaration": 550,
+                            "src": "869:10:9",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaRegulation_$585",
+                              "typeIdentifier": "t_contract$_NoiaRegulation_$647",
                               "typeString": "contract NoiaRegulation"
                             }
                           },
-                          "id": 522,
+                          "id": 584,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "isContractValid",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 584,
-                          "src": "879:26:9",
+                          "referencedDeclaration": 646,
+                          "src": "869:26:9",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_function_external_view$_t_contract$_NoiaBaseContract_$390_$returns$_t_bool_$",
+                            "typeIdentifier": "t_function_external_view$_t_contract$_NoiaBaseContract_$452_$returns$_t_bool_$",
                             "typeString": "function (contract NoiaBaseContract) view external returns (bool)"
                           }
                         },
-                        "id": 524,
+                        "id": 586,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1784,7 +1784,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "879:40:9",
+                        "src": "869:40:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -1798,21 +1798,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 520,
+                      "id": 582,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2022,
-                        2023
+                        2843,
+                        2844
                       ],
-                      "referencedDeclaration": 2022,
-                      "src": "871:7:9",
+                      "referencedDeclaration": 2843,
+                      "src": "861:7:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 525,
+                    "id": 587,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1820,20 +1820,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "871:49:9",
+                    "src": "861:49:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 526,
+                  "id": 588,
                   "nodeType": "ExpressionStatement",
-                  "src": "871:49:9"
+                  "src": "861:49:9"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 533,
+                    "id": 595,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1842,31 +1842,31 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 527,
+                        "id": 589,
                         "name": "entries",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 492,
-                        "src": "930:7:9",
+                        "referencedDeclaration": 554,
+                        "src": "920:7:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 531,
+                      "id": 593,
                       "indexExpression": {
                         "argumentTypes": null,
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 529,
+                            "id": 591,
                             "name": "baseContract",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 506,
-                            "src": "946:12:9",
+                            "referencedDeclaration": 568,
+                            "src": "936:12:9",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaBaseContract_$390",
+                              "typeIdentifier": "t_contract$_NoiaBaseContract_$452",
                               "typeString": "contract NoiaBaseContract"
                             }
                           }
@@ -1874,24 +1874,24 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_contract$_NoiaBaseContract_$390",
+                              "typeIdentifier": "t_contract$_NoiaBaseContract_$452",
                               "typeString": "contract NoiaBaseContract"
                             }
                           ],
-                          "id": 528,
+                          "id": 590,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "lValueRequested": false,
                           "nodeType": "ElementaryTypeNameExpression",
-                          "src": "938:7:9",
+                          "src": "928:7:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_address_$",
                             "typeString": "type(address)"
                           },
                           "typeName": "address"
                         },
-                        "id": 530,
+                        "id": 592,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1899,7 +1899,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "938:21:9",
+                        "src": "928:21:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1910,7 +1910,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "930:30:9",
+                      "src": "920:30:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -1921,14 +1921,14 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "31",
-                      "id": 532,
+                      "id": 594,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "963:1:9",
+                      "src": "953:1:9",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_1_by_1",
@@ -1936,20 +1936,20 @@
                       },
                       "value": "1"
                     },
-                    "src": "930:34:9",
+                    "src": "920:34:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 534,
+                  "id": 596,
                   "nodeType": "ExpressionStatement",
-                  "src": "930:34:9"
+                  "src": "920:34:9"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 536,
+                    "id": 598,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1957,15 +1957,15 @@
                     "nodeType": "UnaryOperation",
                     "operator": "++",
                     "prefix": true,
-                    "src": "974:10:9",
+                    "src": "964:10:9",
                     "subExpression": {
                       "argumentTypes": null,
-                      "id": 535,
+                      "id": 597,
                       "name": "nEntries",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 494,
-                      "src": "976:8:9",
+                      "referencedDeclaration": 556,
+                      "src": "966:8:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -1976,9 +1976,9 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 537,
+                  "id": 599,
                   "nodeType": "ExpressionStatement",
-                  "src": "974:10:9"
+                  "src": "964:10:9"
                 },
                 {
                   "eventCall": {
@@ -1989,14 +1989,14 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 540,
+                            "id": 602,
                             "name": "baseContract",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 506,
-                            "src": "1030:12:9",
+                            "referencedDeclaration": 568,
+                            "src": "1020:12:9",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_NoiaBaseContract_$390",
+                              "typeIdentifier": "t_contract$_NoiaBaseContract_$452",
                               "typeString": "contract NoiaBaseContract"
                             }
                           }
@@ -2004,24 +2004,24 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_contract$_NoiaBaseContract_$390",
+                              "typeIdentifier": "t_contract$_NoiaBaseContract_$452",
                               "typeString": "contract NoiaBaseContract"
                             }
                           ],
-                          "id": 539,
+                          "id": 601,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "lValueRequested": false,
                           "nodeType": "ElementaryTypeNameExpression",
-                          "src": "1022:7:9",
+                          "src": "1012:7:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_address_$",
                             "typeString": "type(address)"
                           },
                           "typeName": "address"
                         },
-                        "id": 541,
+                        "id": 603,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2029,7 +2029,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "1022:21:9",
+                        "src": "1012:21:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2043,18 +2043,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 538,
+                      "id": 600,
                       "name": "NoiaRegistryEntryAdded",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 573,
-                      "src": "999:22:9",
+                      "referencedDeclaration": 635,
+                      "src": "989:22:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
                         "typeString": "function (address)"
                       }
                     },
-                    "id": 542,
+                    "id": 604,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2062,20 +2062,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "999:45:9",
+                    "src": "989:45:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 543,
+                  "id": 605,
                   "nodeType": "EmitStatement",
-                  "src": "994:50:9"
+                  "src": "984:50:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 545,
+            "id": 607,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -2083,31 +2083,31 @@
             "name": "addEntry",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 507,
+              "id": 569,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 506,
+                  "id": 568,
                   "name": "baseContract",
                   "nodeType": "VariableDeclaration",
-                  "scope": 545,
-                  "src": "702:29:9",
+                  "scope": 607,
+                  "src": "692:29:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_NoiaBaseContract_$390",
+                    "typeIdentifier": "t_contract$_NoiaBaseContract_$452",
                     "typeString": "contract NoiaBaseContract"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 505,
+                    "id": 567,
                     "name": "NoiaBaseContract",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 390,
-                    "src": "702:16:9",
+                    "referencedDeclaration": 452,
+                    "src": "692:16:9",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaBaseContract_$390",
+                      "typeIdentifier": "t_contract$_NoiaBaseContract_$452",
                       "typeString": "contract NoiaBaseContract"
                     }
                   },
@@ -2115,26 +2115,26 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "701:31:9"
+              "src": "691:31:9"
             },
             "payable": false,
             "returnParameters": {
-              "id": 508,
+              "id": 570,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "740:0:9"
+              "src": "730:0:9"
             },
-            "scope": 574,
-            "src": "684:367:9",
+            "scope": 636,
+            "src": "674:367:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 560,
+              "id": 622,
               "nodeType": "Block",
-              "src": "1124:58:9",
+              "src": "1114:58:9",
               "statements": [
                 {
                   "expression": {
@@ -2143,7 +2143,7 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 558,
+                    "id": 620,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2152,29 +2152,29 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 552,
+                        "id": 614,
                         "name": "entries",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 492,
-                        "src": "1141:7:9",
+                        "referencedDeclaration": 554,
+                        "src": "1131:7:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 556,
+                      "id": 618,
                       "indexExpression": {
                         "argumentTypes": null,
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 554,
+                            "id": 616,
                             "name": "baseContract",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 547,
-                            "src": "1157:12:9",
+                            "referencedDeclaration": 609,
+                            "src": "1147:12:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -2188,20 +2188,20 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 553,
+                          "id": 615,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "lValueRequested": false,
                           "nodeType": "ElementaryTypeNameExpression",
-                          "src": "1149:7:9",
+                          "src": "1139:7:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_address_$",
                             "typeString": "type(address)"
                           },
                           "typeName": "address"
                         },
-                        "id": 555,
+                        "id": 617,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2209,7 +2209,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "1149:21:9",
+                        "src": "1139:21:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2220,7 +2220,7 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "1141:30:9",
+                      "src": "1131:30:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -2231,14 +2231,14 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 557,
+                      "id": 619,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "1174:1:9",
+                      "src": "1164:1:9",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
@@ -2246,21 +2246,21 @@
                       },
                       "value": "0"
                     },
-                    "src": "1141:34:9",
+                    "src": "1131:34:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 551,
-                  "id": 559,
+                  "functionReturnParameters": 613,
+                  "id": 621,
                   "nodeType": "Return",
-                  "src": "1134:41:9"
+                  "src": "1124:41:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 561,
+            "id": 623,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -2268,16 +2268,16 @@
             "name": "hasEntry",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 548,
+              "id": 610,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 547,
+                  "id": 609,
                   "name": "baseContract",
                   "nodeType": "VariableDeclaration",
-                  "scope": 561,
-                  "src": "1075:20:9",
+                  "scope": 623,
+                  "src": "1065:20:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2285,10 +2285,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 546,
+                    "id": 608,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1075:7:9",
+                    "src": "1065:7:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -2298,20 +2298,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1074:22:9"
+              "src": "1064:22:9"
             },
             "payable": false,
             "returnParameters": {
-              "id": 551,
+              "id": 613,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 550,
+                  "id": 612,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 561,
-                  "src": "1118:4:9",
+                  "scope": 623,
+                  "src": "1108:4:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2319,10 +2319,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 549,
+                    "id": 611,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1118:4:9",
+                    "src": "1108:4:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -2332,43 +2332,43 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1117:6:9"
+              "src": "1107:6:9"
             },
-            "scope": 574,
-            "src": "1057:125:9",
+            "scope": 636,
+            "src": "1047:125:9",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 568,
+              "id": 630,
               "nodeType": "Block",
-              "src": "1232:32:9",
+              "src": "1222:32:9",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 566,
+                    "id": 628,
                     "name": "nEntries",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 494,
-                    "src": "1249:8:9",
+                    "referencedDeclaration": 556,
+                    "src": "1239:8:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 565,
-                  "id": 567,
+                  "functionReturnParameters": 627,
+                  "id": 629,
                   "nodeType": "Return",
-                  "src": "1242:15:9"
+                  "src": "1232:15:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 569,
+            "id": 631,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -2376,23 +2376,23 @@
             "name": "count",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 562,
+              "id": 624,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1202:2:9"
+              "src": "1192:2:9"
             },
             "payable": false,
             "returnParameters": {
-              "id": 565,
+              "id": 627,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 564,
+                  "id": 626,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 569,
-                  "src": "1226:4:9",
+                  "scope": 631,
+                  "src": "1216:4:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2400,10 +2400,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 563,
+                    "id": 625,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1226:4:9",
+                    "src": "1216:4:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2413,10 +2413,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1225:6:9"
+              "src": "1215:6:9"
             },
-            "scope": 574,
-            "src": "1188:76:9",
+            "scope": 636,
+            "src": "1178:76:9",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
@@ -2424,21 +2424,21 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 573,
+            "id": 635,
             "name": "NoiaRegistryEntryAdded",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 572,
+              "id": 634,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 571,
+                  "id": 633,
                   "indexed": false,
                   "name": "baseContract",
                   "nodeType": "VariableDeclaration",
-                  "scope": 573,
-                  "src": "1308:20:9",
+                  "scope": 635,
+                  "src": "1298:20:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2446,10 +2446,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 570,
+                    "id": 632,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1308:7:9",
+                    "src": "1298:7:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -2459,16 +2459,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1298:31:9"
+              "src": "1288:31:9"
             },
-            "src": "1270:60:9"
+            "src": "1260:60:9"
           }
         ],
-        "scope": 575,
-        "src": "463:869:9"
+        "scope": 637,
+        "src": "463:859:9"
       }
     ],
-    "src": "0:1333:9"
+    "src": "0:1323:9"
   },
   "compiler": {
     "name": "solc",
@@ -2476,5 +2476,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-06-25T11:50:45.873Z"
+  "updatedAt": "2018-08-26T12:23:56.185Z"
 }

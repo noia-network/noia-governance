@@ -6,8 +6,7 @@ import './NoiaRegulation.sol';
 /**
  * Noia Regulation Rules
  */
-contract NoiaSimpleRegulation
-    is NoiaRegulation, Owned {
+contract NoiaSimpleRegulation is NoiaRegulation, Owned {
     mapping(address => bool) approvedContractFactory;
 
     function addApprovedFactory(address contractFactory) onlyOwner public {

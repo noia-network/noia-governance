@@ -8,8 +8,20 @@ import './NoiaCertificateV1.sol';
  * Standard Noia Business Contract V1 (Draft)
  */
 contract NoiaBusinessV1 is NoiaBaseContractV1 {
-    function NoiaBusinessV1(address factory, NoiaMarketplace marketplace)
+    bytes32 public infoType;
+    bytes public infoData;
+
+    constructor(address factory,
+        NoiaMarketplace marketplace,
+        bytes32 infoType_, bytes infoData_)
         NoiaBaseContractV1(factory, marketplace) public {
+        infoType = infoType_;
+        infoData = infoData_;
+    }
+
+    function setInfo(bytes32 infoType_, bytes infoData_) public {
+        infoType = infoType_;
+        infoData = infoData_;
     }
 
     function signCertificate(address certificateAddress) onlyOwner public {

@@ -8,7 +8,7 @@ import '../gov/NoiaBaseContract.sol';
 contract NoiaBaseContractV1 is NoiaBaseContract {
     uint16 private constant CURRENT_VERSION = 1;
 
-    function NoiaBaseContractV1(address factory, NoiaMarketplace marketplace)
+    constructor(address factory, NoiaMarketplace marketplace)
         NoiaBaseContract(factory, marketplace, CURRENT_VERSION) public {
     }
 }

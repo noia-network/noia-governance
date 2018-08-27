@@ -23,15 +23,18 @@ const {
     sendTransactionAndWaitForReceiptMined
 } = require('../../common/web3_utils.js');
 
-var provider;
-var owner;
-var ownerPrivateKey;
-var contracts;
-var web3;
-var instances;
-var logger;
 
-module.exports = {
+class NoiaSdk {
+    constructor() {
+        this.provider = undefined;
+        this.owner = undefined;
+        this.ownerPrivateKey = null;
+        this.contracts = null;
+        this.instances = null;
+        this.logger = null;
+        this.web3 = null;
+    }
+
     /**
      * Initialize the SDK
      *
@@ -85,37 +88,62 @@ module.exports = {
      *        error: [func],
      *    }
      */
-    init: async (options) => {
+    async init(options) {
+        const {account, web3: web3Config} = options;
+        let {mnemonic} = account;
+        let {provider_url, provider_options} = web3Config;
+        this.owner = account.owner;
+        this.provider = web3Config.provider;
+
         // web3 and account
-        if (typeof options.web3.provider === 'undefined') {
-            if (options.web3.provider_url && options.account.mnemonic) {
-                let providerOptions = options.web3.provider_options || {};
-                let httpProvider = new Web3.providers.HttpProvider(options.web3.provider_url);
-                provider = new Web3HDWalletProvider(httpProvider, options.account.mnemonic);
-                owner = provider.addresses[0];
+        if (typeof this.provider === 'undefined') {
+            if (provider_url && mnemonic) {
+                const providerOptions = provider_options || {};
+                const {headers} = providerOptions;
+
+                // check if http provider headers are provided
+                let httpHeaders;
+                if (headers) {
+                    if (Array.isArray(headers)) {
+                        // headers array coming in
+                        httpHeaders = headers;
+                    } else if (headers.name && headers.value) {
+                        // simple object with just name & value provided in options, convert it to an array
+                        httpHeaders = [headers];
+                    }
+                }
+
+                // setup the provider
+                let httpProvider = new Web3.providers.HttpProvider(
+                    provider_url,
+                    undefined,
+                    undefined,
+                    undefined,
+                    httpHeaders
+                );
+                this.provider = new Web3HDWalletProvider(httpProvider, mnemonic);
+                this.owner = this.provider.addresses[0];
             } else {
                 throw new Error('Neither an external provider nor a pair of (web3.provider_url, account.mnemonic) is not provided');
             }
         } else {
-            provider = options.web3.provider;
-            owner = options.account.owner;
-            if (typeof owner === 'undefined') {
+            if (typeof this.owner === 'undefined') {
                 throw new Error('account.owner must be defined when an external provider is set');
             }
             // validate provider interface
-            if (!provider.wallets) {
+            if (!this.provider.wallets) {
                 throw new Error('provider must have wallets defined');
             }
         }
 
-        ownerPrivateKey = provider.wallets[owner].getPrivateKey();
-        if (typeof provider.start === 'function') {
-            await provider.start();
+        this.ownerPrivateKey = this.provider.wallets[this.owner].getPrivateKey();
+        if (typeof this.provider.start === 'function') {
+            await this.provider.start();
         }
 
         // initialize contracts code
+        const contracts = this.contracts = {};
         {
-            contracts = {};
             contracts.ERC223Interface = contract(require("../contracts/ERC223Interface.json"));
             contracts.Owned = contract(require("../contracts/Owned.json"));
             contracts.NoiaNetwork = contract(require("../contracts/NoiaNetwork.json"));
@@ -129,14 +157,15 @@ module.exports = {
             contracts.NoiaNode = contract(require("../contracts/NoiaNodeV1.json"));
             contracts.NoiaBusiness = contract(require("../contracts/NoiaBusinessV1.json"));
             contracts.NoiaJobPost = contract(require("../contracts/NoiaJobPostV1.json"));
-            for (var i in contracts) contracts[i].setProvider(provider);
+            contracts.NoiaWorkOrder = contract(require("../contracts/NoiaWorkOrderV1.json"));
+            for (let i in contracts) contracts[i].setProvider(this.provider);
         }
 
-        web3 = contracts.NoiaNetwork.web3;
+        this.web3 = contracts.NoiaNetwork.web3;
 
         // intialize contract instances
+        const instances = this.instances = {};
         {
-            instances = {};
             if (typeof options.deployed_contracts === 'undefined') {
                 options.deployed_contracts = {};
             }
@@ -169,9 +198,9 @@ module.exports = {
                 typeof options.logger.error !== 'function') {
                 throw new Error('invalid logger option');
             }
-            logger = options.logger;
+            this.logger = options.logger;
         } else {
-            logger =  {
+            const logger = this.logger =  {
                 info : debug('noiagov:info'),
                 warn : debug('noiagov:warn'),
                 error : debug('noiagov:error')
@@ -180,31 +209,30 @@ module.exports = {
             logger.warn.log = console.warn.bind(console);
             logger.error.log = console.error.bind(console);
         }
-
-    },
+    }
 
     /**
      * Unitialize the sdk and release all resources
      */
-    uninit: () => {
-        if (typeof provider.stop === 'function') {
-            provider.stop();
+    uninit() {
+        if (typeof this.provider.stop === 'function') {
+            this.provider.stop();
         }
-        provider = undefined;
-        owner = undefined;
-        ownerPrivateKey = undefined;
-        contracts = undefined;
-        web3 = undefined;
-        instances = undefined;
-        logger = undefined;
-    },
+        this.provider = undefined;
+        this.owner = undefined;
+        this.ownerPrivateKey = undefined;
+        this.contracts = undefined;
+        this.web3 = undefined;
+        this.instances = undefined;
+        this.logger = undefined;
+    }
 
     /**
      * Return owner address used for all transactions
      */
-    getOwnerAddress: () => {
-        return owner;
-    },
+    getOwnerAddress() {
+        return this.owner;
+    }
 
     /**
      * [async] Get a base client
@@ -214,18 +242,18 @@ module.exports = {
      *
      * @return the base client
      */
-    getBaseClient: async () => {
+    async getBaseClient() {
         return await new BaseClient({
-            logger: logger,
-            web3: web3,
+            logger: this.logger,
+            web3: this.web3,
             account: {
-                owner: owner,
-                ownerPrivateKey: ownerPrivateKey
+                owner: this.owner,
+                ownerPrivateKey: this.ownerPrivateKey
             },
-            contracts: contracts,
-            instances: instances
+            contracts: this.contracts,
+            instances: this.instances
         });
-    },
+    }
 
     /**
      * [async] Create new business client contract
@@ -233,19 +261,19 @@ module.exports = {
      * @param businessInfo - meta info about the business
      * @return new client created
      */
-    createBusinessClient: async businessInfo => {
+    async createBusinessClient(businessInfo) {
         return await new BusinessClient({
-            logger: logger,
-            web3: web3,
+            logger: this.logger,
+            web3: this.web3,
             account: {
-                owner: owner,
-                ownerPrivateKey: ownerPrivateKey
+                owner: this.owner,
+                ownerPrivateKey: this.ownerPrivateKey
             },
-            contracts: contracts,
-            instances: instances,
+            contracts: this.contracts,
+            instances: this.instances,
             info: businessInfo
         });
-    },
+    }
 
     /**
      * [async] Get the business client contract at the address
@@ -253,19 +281,19 @@ module.exports = {
      * @param businessAddress - address of the business client contract
      * @return the business client
      */
-    getBusinessClient: async businessAddress => {
+    async getBusinessClient(businessAddress) {
         return await new BusinessClient({
-            logger: logger,
-            web3: web3,
+            logger: this.logger,
+            web3: this.web3,
             account: {
-                owner: owner,
-                ownerPrivateKey: ownerPrivateKey
+                owner: this.owner,
+                ownerPrivateKey: this.ownerPrivateKey
             },
-            contracts: contracts,
-            instances: instances,
+            contracts: this.contracts,
+            instances: this.instances,
             at: businessAddress
         });
-    },
+    }
 
 
     /**
@@ -273,19 +301,19 @@ module.exports = {
      *
      * @param nodeInfo - meta info about the node
      */
-    createNodeClient: async nodeInfo => {
+    async createNodeClient(nodeInfo) {
         return await new NodeClient({
-            logger: logger,
-            web3: web3,
+            logger: this.logger,
+            web3: this.web3,
             account: {
-                owner: owner,
-                ownerPrivateKey: ownerPrivateKey
+                owner: this.owner,
+                ownerPrivateKey: this.ownerPrivateKey
             },
-            contracts: contracts,
-            instances: instances,
+            contracts: this.contracts,
+            instances: this.instances,
             info: nodeInfo
         });
-    },
+    }
 
     /**
      * [async] Get the node client contract at the address
@@ -293,23 +321,23 @@ module.exports = {
      * @param nodeAddress - address of the node client contract
      * @return the node client
      */
-    getNodeClient: async nodeAddress => {
+    async getNodeClient(nodeAddress) {
         return await new NodeClient({
-            logger: logger,
-            web3: web3,
+            logger: this.logger,
+            web3: this.web3,
             account: {
-                owner: owner,
-                ownerPrivateKey: ownerPrivateKey
+                owner: this.owner,
+                ownerPrivateKey: this.ownerPrivateKey
             },
-            contracts: contracts,
-            instances: instances,
+            contracts: this.contracts,
+            instances: this.instances,
             at: nodeAddress
         });
-    },
+    }
 
-    isAddress: address => {
-        return web3.isAddress(address);
-    },
+    isAddress(address) {
+        return this.web3.isAddress(address);
+    }
 
     /**
      * [async] Get the job post contract at the address
@@ -317,9 +345,9 @@ module.exports = {
      * @param nodeAddress - address of job post contract
      * @return the job post
      */
-    getJobPost: async jobPostAddress => {
-        return await JobPost.getInstance(contracts, jobPostAddress, logger);
-    },
+    async getJobPost(jobPostAddress) {
+        return await JobPost.getInstance(this.owner, this.contracts, jobPostAddress, this.logger);
+    }
 
     /**
      * [async] Check if there is a business client contract at the address
@@ -327,9 +355,9 @@ module.exports = {
      * @param nodeAddress - address of the business client contract
      * @return true/false
      */
-    isBusinessRegistered: async businessAddress => {
-        return await instances.businessRegistry.hasEntry.call(businessAddress);
-    },
+    async isBusinessRegistered(businessAddress) {
+        return await this.instances.businessRegistry.hasEntry.call(businessAddress);
+    }
 
     /**
      * [async] Check if there is a node client contract at the address
@@ -337,9 +365,9 @@ module.exports = {
      * @param nodeAddress - address of the node client contract
      * @return true/false
      */
-    isNodeRegistered: async nodeAddress => {
-        return await instances.nodeRegistry.hasEntry.call(nodeAddress);
-    },
+    async isNodeRegistered(nodeAddress) {
+        return await this.instances.nodeRegistry.hasEntry.call(nodeAddress);
+    }
 
     /**
      * [async] Get the owner at a Owner contract
@@ -347,10 +375,10 @@ module.exports = {
      * @param address - The Owner contract's address
      * @return owner address of the Owner contract
      */
-    getOwnerOfContract: async address => {
-        let owned = await contracts.Owned.at(address);
+    async getOwnerOfContract(address) {
+        let owned = await this.contracts.Owned.at(address);
         return await owned.owner();
-    },
+    }
 
     /**
      * Recover address of the signer who signed the message with its private key
@@ -359,9 +387,9 @@ module.exports = {
      * @param Signature sgn - signature object returned by client.signMessage
      * @return address of the signer
      */
-    recoverAddressFromSignedMessage: (msg, sgn) => {
+    recoverAddressFromSignedMessage(msg, sgn) {
         return recoverAddressFromSignedMessage(msg, sgn);
-    },
+    }
 
     /**
      * Recover address of the signer who signed the message through rpc call
@@ -370,23 +398,24 @@ module.exports = {
      * @param Signature sgn - signature object returned by client.rpcSignMessage
      * @return address of the signer
      */
-    recoverAddressFromRpcSignedMessage: (msg, sgn) => {
+    recoverAddressFromRpcSignedMessage(msg, sgn) {
         return recoverAddressFromRpcSignedMessage(msg, sgn);
-    },
+    }
 
     /**
      * [async] Get ethereum coin balance of anyone
      *
      * @return Number with unit in ether
      */
-    getEtherBalance: async who => {
+    async getEtherBalance(who) {
+        const web3 = this.web3;
         return await new Promise(function (resolve, reject) {
             web3.eth.getBalance(who, function (err, result) {
                 if (err) reject(err);
                 else resolve(web3.fromWei(result, 'ether').toNumber());
             });
         })
-    },
+    }
 
     /**
      * [async] Transfer ethereum coin from owner to others
@@ -394,7 +423,9 @@ module.exports = {
      * @param to - transfer ether to this account
      * @param value - amount of ethereum coin to be transferred, in unit of ether
      */
-    transferEther: async (to, value) => {
+    async transferEther(to, value) {
+        const web3 = this.web3;
+        const owner = this.owner;
         return await new Promise(function (resolve, reject) {
             let valueInWei = web3.toWei(value, 'ether');
             web3.eth.sendTransaction({
@@ -413,16 +444,16 @@ module.exports = {
                 }
             });
         });
-    },
+    }
 
     /**
      * [async] Get Noia token balance of anyone
      *
      * @return Number with floating point
      */
-    getNoiaBalance: async who => {
-        return (await instances.tokenContract.balanceOf.call(who)).toNumber();
-    },
+    async getNoiaBalance(who) {
+        return (await this.instances.tokenContract.balanceOf.call(who)).toNumber();
+    }
 
     /**
      * [async] Transfer noia token from owner to others
@@ -430,9 +461,40 @@ module.exports = {
      * @param to - transfer ether to this account
      * @param value - amount of noia token to be transferred
      */
-    transferNoiaToken: async (to, value) => {
-        await sendTransactionAndWaitForReceiptMined(web3,instances.tokenContract.transfer,
-            { from : owner },
+    async transferNoiaToken(to, value) {
+        return await sendTransactionAndWaitForReceiptMined(this.web3, this.instances.tokenContract.transfer,
+            { from : this.owner },
             to, value);
     }
+
+    async getNetworkId() {
+        return new Promise((resolve, reject) => {
+            this.web3.version.getNetwork((err, netId) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(netId);
+            });
+        });
+    }
+}
+
+const sdk = new NoiaSdk();
+const api = {
+    NoiaSdk: NoiaSdk
 };
+
+// export all the functions and bind the default sdk instance to them
+const ownProps = Object.getOwnPropertyNames(NoiaSdk.prototype);
+for (let i=0; i < ownProps.length; i++) {
+    const propName = ownProps[i];
+    const propValue = sdk[propName];
+    // console.log(`Prop type: ${typeof propValue}`);
+    if (typeof propValue === "function") {
+        if (propName === "constructor") { continue; }
+        console.log(`Exporting the sdk function: ${propName} and binding default sdk instance to it!`);
+        api[propName] = propValue.bind(sdk);
+    }
+}
+
+module.exports = api;

@@ -9,7 +9,7 @@ contract Owned {
 
     address public owner;
 
-    function Owned() public { owner = msg.sender;}
+    constructor() public { owner = msg.sender;}
 
     function changeOwner(address _newOwner) onlyOwner public {
         owner = _newOwner;

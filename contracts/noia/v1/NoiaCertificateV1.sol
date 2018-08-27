@@ -16,7 +16,7 @@ contract NoiaCertificateV1
     bytes32 public payloadType;
     bytes public payloadData;
 
-    function NoiaCertificateV1(
+    constructor(
         address factory,
         NoiaMarketplace marketplace,
         bytes32 certificateName_,

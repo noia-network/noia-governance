@@ -10,7 +10,7 @@ contract ERC223WithFallback {
     address public originator;
     uint public tokenReceived = 0;
 
-    function ERC223WithFallback(address tokenContract_) public {
+    constructor(address tokenContract_) public {
         tokenContract = ERC223Interface(tokenContract_);
     }
 

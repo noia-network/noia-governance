@@ -23,7 +23,7 @@ async function asyncForEach(array, callback) {
 }
 
 function isTestNetwork(network) {
-    return network === "local" || network === "dev" || network === "ropsten";
+    return network === "local" || network === "dev" || network === "priv" || network === "ropsten";
 }
 
 module.exports = function (deployer, network, accounts) {
@@ -35,7 +35,7 @@ module.exports = function (deployer, network, accounts) {
         var tx;
 
         console.log(`Deploying Migrations contract...`);
-        let xx = await deployer.deploy(Migrations, { gas: 300000 });
+        let xx = await deployer.deploy(Migrations, { gas: 600000 });
         let migrations = await Migrations.deployed();
         console.log(`Migrations deployed at ${migrations.address}, gasUsed ${await getGasUsedForContractCreation(migrations)}`);
 
@@ -61,13 +61,13 @@ module.exports = function (deployer, network, accounts) {
                     console.log(`Done, gasUsed ${getGasUsedForTransaction(tx)}`);
                 });
 
-                console.log(`Transfering 1000 token from account0 to account1 ...`);
+                console.log(`Transfering 1000 token from ${accounts[0]} to ${accounts[1]} ...`);
                 tx = await tokenContract.transfer(accounts[1], 1000, { from: accounts[0], gas: 100000 });
                 console.log(`Done, gasUsed ${getGasUsedForTransaction(tx)}`);
             }
 
             console.log(`Creating NoiaSimpleRegulation contract...`);
-            regulation = await NoiaSimpleRegulation.new({ gas: 400000 });
+            regulation = await NoiaSimpleRegulation.new({ gas: 600000 });
             console.log(`Created at ${regulation.address}, gasUsed ${await getGasUsedForContractCreation(regulation)}`);
         } else {
             // real token
@@ -91,7 +91,7 @@ module.exports = function (deployer, network, accounts) {
             let certificateFactory = await NoiaCertificateContractFactoryV1.new({gas: 2000000});
             console.log(`NoiaCertificateContractFactoryV1 deployed at ${certificateFactory.address}, gasUsed ${await getGasUsedForContractCreation(certificateFactory)}`);
             console.log(`Deploying NoiaJobPostContractFactoryV1 contract...`);
-            let jobPostFactory = await NoiaJobPostContractFactoryV1.new({gas: 2500000});
+            let jobPostFactory = await NoiaJobPostContractFactoryV1.new({gas: 2700000});
             console.log(`NoiaJobPostContractFactoryV1 deployed at ${jobPostFactory.address}, gasUsed ${await getGasUsedForContractCreation(jobPostFactory)}`);
             console.log(`Deploying NoiaContractFactoriesV1 contract...`);
             await deployer.deploy(NoiaContractFactoriesV1,

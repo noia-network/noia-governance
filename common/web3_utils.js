@@ -171,7 +171,7 @@ async function sendTransactionAndWaitForReceiptMined(web3, contractFn, txParams)
 async function calculateActualGas(web3, estimatedGas) {
     //const blockLimit = await getBlockGasLimit();
     const blockLimit = Number.MAX_SAFE_INTEGER;
-    
+
     let gasToUse = parseInt(estimatedGas * GAS_MULTIPLIER);
     // Ganache has a bug (https://github.com/trufflesuite/ganache-core/issues/26) that causes gas
     // refunds to be included in the gas estimation; but the transaction needs to send the total
@@ -339,7 +339,7 @@ async function retryCallOnError(web3, method) {
             logger.info(`Retrying a method. Finishing up! result: ${JSON.stringify(result)}, error: ${JSON.stringify(error)}`);
             // clear the resources
             retriesAllowed = false;
-            provider.engine.off('block', nextBlockListener);
+            provider.engine.removeListener('block', nextBlockListener);
             if (timeoutId) {
                 clearTimeout(timeoutId);
                 timeoutId = null;

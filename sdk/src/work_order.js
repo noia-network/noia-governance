@@ -77,7 +77,38 @@ class WorkOrder {
     }
 
     async getTimelocks() {
-        return await this.contract.getTimelocks.call();
+        const timelocks = await this.contract.getTimelocks.call();
+        const amounts = timelocks[0];
+        const untils = timelocks[1];
+        const results = [];
+        for (let i=0; i < amounts.length; i++) {
+            const amount = amounts[i];
+            const until = untils[i];
+            if (until <= 0) { continue; }
+            results.push({
+                amount: amount.toNumber(),
+                until: until.toNumber()
+            });
+        }
+        return results;
+    }
+
+    async hasTimelockedTokens() {
+        const timelocks = await this.getTimelocks();
+        return timelocks.length > 0;
+    }
+
+    async getTimelockedEarliest() {
+        const timelocks = await this.getTimelocks();
+        let earliest;
+        for (let i=0; i < timelocks.length; i++) {
+            const tl = timelocks[i];
+            if (!earliest) { earliest = tl;}
+            if (tl.until < earliest.until) {
+                earliest = tl;
+            }
+        }
+        return earliest;
     }
 
     async delegatedRelease(beneficiary, nonce, sig) {
@@ -123,17 +154,29 @@ class WorkOrder {
         return await this.contract.totalFunds.call();
     }
 
+    getJobPost() {
+        return this.jobPost;
+    }
+
     static async getInstance(logger, contracts, owner, workOrderAddress) {
         const workOrderContract = await contracts.NoiaWorkOrder.at(workOrderAddress);
-        return await new WorkOrderConstructor(owner, contracts, workOrderContract, logger);
+        const jobPostAddress = await workOrderContract.jobPost.call();
+        const jobPost = await contracts.NoiaJobPost.at(jobPostAddress);
+        return await new WorkOrderConstructor(owner, contracts, workOrderContract, jobPost, logger);
     }
 }
 
 // just because we can call: `await new WorkOrder()` when using it
-function WorkOrderConstructor() {
-    return new Promise((resolve, reject) => {
-        const workOrder = new WorkOrder(...Array.from(arguments));
-        resolve(workOrder);
+function WorkOrderConstructor(owner, contracts, workOrderContract, jobPostContract, logger) {
+    const JobPost = require('./job_post.js');
+    return new Promise(async (resolve, reject) => {
+        try {
+            const jobPost = await JobPost.getInstance(owner, contracts, jobPostContract.address, logger);
+            const workOrder = new WorkOrder(owner, contracts, workOrderContract, jobPost, logger);
+            resolve(workOrder);
+        } catch (err) {
+            reject(err);
+        }
     });
 }
 WorkOrderConstructor.getInstance = WorkOrder.getInstance;

@@ -136,11 +136,12 @@ BaseClient.prototype._startWatchingEvent = async function (eventName, filterFunc
                 let logs = await util.promisify(filter.get.bind(filter))();
                 for (let i=0; i < logs.length; i++) {
                     const log = logs[i];
+                    const logBlockNumber = log.blockNumber;
                     // avoid multiple firing of the same log
-                    if (!handler.receivedLogs[log.blockNumber]) {
-                        handler.receivedLogs[log.blockNumber] = []
+                    if (!handler.receivedLogs[logBlockNumber]) {
+                        handler.receivedLogs[logBlockNumber] = []
                     }
-                    let receivedLogsOfBlock = handler.receivedLogs[log.blockNumber];
+                    let receivedLogsOfBlock = handler.receivedLogs[logBlockNumber];
                     if (!receivedLogsOfBlock[log.transactionHash]) {
                         const contractAddress = log.args.baseContract;
                         receivedLogsOfBlock[log.transactionHash] = 1;
@@ -148,12 +149,16 @@ BaseClient.prototype._startWatchingEvent = async function (eventName, filterFunc
                         // check if we enable userland to pull events one by one instead of pushing them
                         if (handler.pullMode) {
                             try {
-                                const processNextEvent = await new Promise((resolve, reject) => {
-                                    that.emit(eventName, contractAddress, () => {
-                                        resolve(false);
+                                const skipNextEvent = await new Promise((resolve, reject) => {
+                                    that.emit(eventName, contractAddress, logBlockNumber, i, (cont) => {
+                                        let skip = true;
+                                        if (cont === true) {
+                                            skip = false;
+                                        }
+                                        resolve(skip);
                                     });
                                 });
-                                if (!processNextEvent) {
+                                if (skipNextEvent) {
                                     // skip processing the next event(s)
                                     return;
                                 }
@@ -162,7 +167,7 @@ BaseClient.prototype._startWatchingEvent = async function (eventName, filterFunc
                                 console.log(`Error in processing the event!`, err);
                             }
                         } else {
-                            that.emit(eventName, contractAddress);
+                            that.emit(eventName, contractAddress, logBlockNumber, i);
                         }
                     }
                 }

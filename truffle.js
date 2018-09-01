@@ -7,7 +7,7 @@ let config = {
 try {
     config = require('./config.js');
 } catch (e) {
-    console.warn('config.js not available');
+    console.warn('config.js not available or returned error', e);
 }
 
 // NOTE! Configure your ganache with the same mnemonic

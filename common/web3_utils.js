@@ -141,27 +141,41 @@ function getTransactionReceiptMined(web3, txnHash, interval, waitForNrConfirmati
 // and ZeppelinOS uses 1.2)
 const GAS_MULTIPLIER = 1.2; // previously - 1.05
 
+// set default confirmations
+let CONFIRMATIONS_DEFAULT = 1; // default for all networks
+if (process && process.env && process.env.NETWORK === 'local') {
+    CONFIRMATIONS_DEFAULT = 0; // for local testing
+}
+
 async function sendTransactionAndWaitForReceiptMined(web3, contractFn, txParams) {
-    // check if confirmations nr is provided, if so then remove it from options before proceeding
-    const waitForNrConfirmations = txParams.confirmations;
+    // check if confirmations nr is provided
+    const params = Object.assign({}, txParams || {});
+    console.log(`Confirmation! txParams.confirmations: ${params.confirmations}, CONFIRMATIONS_DEFAULT: ${CONFIRMATIONS_DEFAULT}`);
+    let waitForNrConfirmations = params.confirmations;
+    if (waitForNrConfirmations == undefined) {
+        waitForNrConfirmations = CONFIRMATIONS_DEFAULT;
+    }
+    delete params.confirmations;
+
+    // append the contract function params and then transaction params as the last one
     let args = Array.from(arguments).slice(3);
-    args.push(txParams);
+    args.push(params);
 
     // if gas is not set explicitly then estimate gas for the transaction
-    if (!txParams.gas) {
+    if (!params.gas) {
         console.info(`Contract function estimateGas: ${JSON.stringify(args)}`);
         const gasEstimate = await contractFn.estimateGas.apply(null, args);
         const gasToUse = await calculateActualGas(web3, gasEstimate);
-        txParams.gas = gasToUse;
-        console.info(`Gas estimated ${gasEstimate}, using gas: ${txParams.gas}, with args: ${JSON.stringify(args)}`);
+        params.gas = gasToUse;
+        console.info(`Gas estimated ${gasEstimate}, using gas: ${params.gas}, with args: ${JSON.stringify(args)}`);
     } else {
-        console.info(`Gas explicitly set! using gas: ${txParams.gas}, with args: ${JSON.stringify(args)}`);
+        console.info(`Gas explicitly set! using gas: ${params.gas}, with args: ${JSON.stringify(args)}`);
     }
 
     // call a contract function
     const methodWithArgs = contractFn.bind(null, ...args);
     const tx = await retryCallOnError(web3, methodWithArgs);
-    logger.info(`Waiting for transaction ${tx.receipt.transactionHash} to be mined. Waiting ${waitForNrConfirmations || 1} confirmations.`);
+    logger.info(`Waiting for transaction ${tx.receipt.transactionHash} to be mined. Waiting ${waitForNrConfirmations} confirmations.`);
     tx.receiptMined = await getTransactionReceiptMined(web3, tx.receipt.transactionHash, undefined, waitForNrConfirmations);
     logger.info(`Transaction is mined @${tx.receiptMined.blockNumber}`);
     return tx;
@@ -251,7 +265,16 @@ async function callMethodCheckKnownError(method) {
 }
 
 function getProvider(web3) {
-    return web3.currentProvider.provider;
+    let provider = web3.currentProvider;
+    // unpeel nested providers
+    while (provider.provider) {
+        provider = provider.provider;
+    }
+    if (provider.constructor && provider.constructor.name === 'Web3HDWalletProvider') {
+        return provider;
+    } else {
+        throw new Error('Only Web3HDWalletProvider supported');
+    }
 }
 
 const MAX_BLOCK_RETRIES = 12;

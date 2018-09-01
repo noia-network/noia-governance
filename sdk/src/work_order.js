@@ -117,7 +117,7 @@ class WorkOrder {
         const owner = this.accountOwner;
         logger.info(`Releasing funds (delegated) from work order! Beneficiary: ${beneficiary}, nonce: ${nonce}, signature: ${sig} ... from wallet address: ${owner}`);
         let tx = await sendTransactionAndWaitForReceiptMined(web3, this.contract.delegatedRelease,
-            { from: owner, gasLimit: 192594 },
+            { from: owner },
             beneficiary, nonce, sig);
         return tx;
     }

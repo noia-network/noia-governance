@@ -84,7 +84,7 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
 
     function timelock(uint256 _amount, uint256 _lockUntil) public {
         require(msg.sender == employer.owner()); // allow only employer to timelock the funds
-        require(_lockUntil > now);
+//        require(_lockUntil > now);
         require(token.balanceOf(address(this)) >= totalVested.add(_amount));
         totalVested = totalVested.add(_amount);
 

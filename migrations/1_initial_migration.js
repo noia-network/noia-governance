@@ -1,3 +1,6 @@
+const truffleConfig = require('../truffle.js');
+const Web3 = require('web3');
+
 const Migrations = artifacts.require("Migrations");
 const NoiaNetwork = artifacts.require("NoiaNetwork");
 const NoiaBusinessContractFactoryV1 = artifacts.require("NoiaBusinessContractFactoryV1");
@@ -11,10 +14,9 @@ const NoiaSimpleRegulation = artifacts.require("NoiaSimpleRegulation");
 
 const {
     getGasUsedForContractCreation,
-    getGasUsedForTransaction
+    getGasUsedForTransaction,
+    sendTransactionAndWaitForReceiptMined
 } = require('../common/web3_utils.js');
-
-const Web3 = require('web3');
 
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
@@ -27,15 +29,17 @@ function isTestNetwork(network) {
 }
 
 module.exports = function (deployer, network, accounts) {
-    const web3 = new Web3(deployer.provider);
-
     console.log(`accounts: ${accounts}`);
+
+    const provider = truffleConfig.networks[network].provider();
+    const web3 = new Web3();
+    web3.setProvider(provider);
 
     deployer.then(async () => {
         var tx;
 
         console.log(`Deploying Migrations contract...`);
-        let xx = await deployer.deploy(Migrations, { gas: 600000 });
+        await deployer.deploy(Migrations, { gas: 600000 });
         let migrations = await Migrations.deployed();
         console.log(`Migrations deployed at ${migrations.address}, gasUsed ${await getGasUsedForContractCreation(migrations)}`);
 
@@ -105,14 +109,24 @@ module.exports = function (deployer, network, accounts) {
             console.log(`Deployed at ${factories.address}`);
 
             if (isTestNetwork(network)) {
-                console.log(`Adding factories to regulation whitelist...`);
-                tx = await regulation.addApprovedFactory(businessFactory.address);
+                console.log(`Adding businessFactory to regulation whitelist...`);
+                tx = await sendTransactionAndWaitForReceiptMined(web3, regulation.addApprovedFactory, {},
+                    businessFactory.address);
                 console.log(`Added businessFactory, gasUsed ${await getGasUsedForTransaction(tx)}`);
-                tx = await regulation.addApprovedFactory(nodeFactory.address);
+
+                console.log(`Adding nodeFactory to regulation whitelist...`);
+                tx = await sendTransactionAndWaitForReceiptMined(web3, regulation.addApprovedFactory, {},
+                    nodeFactory.address);
                 console.log(`Added nodeFactory, gasUsed ${await getGasUsedForTransaction(tx)}`);
-                tx = await regulation.addApprovedFactory(certificateFactory.address);
+
+                console.log(`Adding certificateFactory to regulation whitelist...`);
+                tx = await sendTransactionAndWaitForReceiptMined(web3, regulation.addApprovedFactory, {},
+                    certificateFactory.address);
                 console.log(`Added certificateFactory, gasUsed ${await getGasUsedForTransaction(tx)}`);
-                tx = await regulation.addApprovedFactory(jobPostFactory.address);
+
+                console.log(`Adding jobPostFactory to regulation whitelist...`);
+                tx = await sendTransactionAndWaitForReceiptMined(web3,regulation.addApprovedFactory, {},
+                    jobPostFactory.address);
                 console.log(`Added jobPostFactory, gasUsed ${await getGasUsedForTransaction(tx)}`);
             }
         }

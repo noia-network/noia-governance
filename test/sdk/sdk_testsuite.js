@@ -16,6 +16,9 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
     const acc0 = accounts[0];
     const acc1 = accounts[1];
 
+    console.log("account 1", acc0);
+    console.log("account 2", acc1);
+
     var baseClient;
     var nodeClient;
     var businessClient;
@@ -212,7 +215,7 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
 
         // Business now timelock's the tokens & releases later for the worker if work is done
         const currentTimeSec = parseInt(new Date().getTime() / 1000); // in secs
-        const lockedSpanSec = 5; // 5 sec for testing
+        const lockedSpanSec = 5; // 5 sec for Ganache testing
         const lockedAmount = 1;
         const lockUntil = (currentTimeSec + lockedSpanSec);
         console.log(`Timelock! lockedAmount: ${lockedAmount}, lockUntil: ${lockUntil}, locked time (s): ${lockedSpanSec}`);
@@ -250,10 +253,12 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
         });
 
         // Worker generates the signed release request
+        console.log(`Generating signed release request!`);
         const signedReleaseRequest = await clientSideWorkOrder.generateSignedReleaseRequest(worker.accountOwner);
         console.log(`Worker signed release request: ${JSON.stringify(signedReleaseRequest)}`);
 
         // Business release's the timelocked amount to worker based on a "Release request" from worker
+        console.log(`Releasing tokens!`);
         await workOrder.delegatedRelease(signedReleaseRequest.beneficiary, signedReleaseRequest.nonce, signedReleaseRequest.sig);
         console.log(`Funds released!`);
         const totalVested = await workOrder.totalVested();

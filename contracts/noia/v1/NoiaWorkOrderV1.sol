@@ -17,7 +17,7 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
     Initiator initiator;
     ERC223Interface token;
     Owned public employer;
-    Owned public worker;
+    address public workerOwner;
     mapping(bytes => bool) private signatures;
 
     struct Timelock {
@@ -31,13 +31,13 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
     bool public acceptedByEmployer = false;
     bool public acceptedByWorker = false;
 
-    constructor(NoiaJobPostV1 _jobPost, Initiator _initiator, address _worker) public {
+    constructor(NoiaJobPostV1 _jobPost, Initiator _initiator, address _workerOwner) public {
         require(msg.sender == address(_jobPost)); // can be created by a job post only
-        require(_worker != address(0));
+        require(_workerOwner != address(0));
         token = ERC223Interface(address(_jobPost.marketplace().tokenContract()));
         initiator = _initiator;
         employer = _jobPost.employer();
-        worker = Owned(_worker);
+        workerOwner = _workerOwner;
         jobPost = address(_jobPost);
     }
 
@@ -57,7 +57,7 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
     }
 
     function doAccept(address signer) private {
-        bool isWorker = signer == worker.owner();
+        bool isWorker = signer == workerOwner;
         bool isEmployer = signer == employer.owner();
         require(isWorker || isEmployer, "Signer must be a worker or employee!");
 
@@ -70,7 +70,7 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
             acceptedByEmployer = true;
         }
         if (oldStatus == false && isAccepted()) {
-            emit Accepted(employer, worker);
+            emit Accepted(employer, workerOwner);
         }
     }
 
@@ -115,7 +115,7 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
         bytes memory msgPacked = abi.encodePacked(address(this), "release", beneficiary, _nonce);
         address signer = keccak256(msgPacked).toEthSignedMessageHash().recover(_sig);
         require(signer != address(0));
-        require(signer == worker.owner()); // we only allow the signer to be a worker owner
+        require(signer == workerOwner); // we only allow the signer to be a worker owner
 
         // release the ones that can be released
         address to = beneficiary;

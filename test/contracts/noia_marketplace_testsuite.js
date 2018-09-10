@@ -321,13 +321,20 @@ contract('NOIA noia tests: ', function (accounts) {
     });
 
     it('Work order process', async () => {
+        // owners
+        const businessOwner = await business0.owner.call();
+        const workerOwner = await worker0.owner.call();
+        console.log(`Business owner address: ${businessOwner}, Worker owner address: ${workerOwner}`);
+
+        //
         console.log(`Creating job post for work order ...`);
         let tx = await jobPostFactory.create(business0.address, 'application/json', '{"period":"1 week"}', { gas: NEW_JOBPOST_GAS });
         let jobPost = await NoiaJobPost.at(tx.logs[0].args.contractInstance);
         console.log(`Created job post at ${jobPost.address}, gas used ${await getGasUsedForTransaction(tx)}`);
-        tx = await jobPost.createWorkOrder(worker0.address, { gas: NEW_JOBPOST_GAS });
-        tx = await jobPost.proposeWorkOrder(worker0.address, { gas: NEW_JOBPOST_GAS });
-        const workOrderAddress = tx.logs[0].args.workOrderAddress;
+
+        // create a work order
+        tx = await jobPost.createWorkOrder(workerOwner, { gas: NEW_JOBPOST_GAS });
+        const workOrderAddress = tx.logs[0].args.contractInstance;
         const workOrder = await NoiaWorkOrder.at(workOrderAddress);
         console.log(`Work order created and proposed to node! workOrderAddress: ${workOrder.address}`);
 
@@ -336,7 +343,7 @@ contract('NOIA noia tests: ', function (accounts) {
         console.log(`Business work order accept!`);
         await workOrder.accept();
         // node accept
-        let sig = await rpcSignPacked(web3, acc1, // sign with acc1 - which created worker0
+        let sig = await rpcSignPacked(web3, workerOwner, // sign with acc1 - which created worker0
             {t: "address", v: workOrder.address.slice(2)}, // "69a6df83fdfa5f75d9e631bc1d36c7573b5fa52e"
             {t: "string", v: "accept"},
             {t: "uint256", v: 1});
@@ -344,8 +351,8 @@ contract('NOIA noia tests: ', function (accounts) {
             {t: "address", v: workOrder.address.slice(2)},
             {t: "string", v: "accept"},
             {t: "uint256", v: 1});
-        console.log(`Worker work order delegated accept! workOrder.address: ${workOrder.address}, sig: ${sig}, acc1: ${acc1}, recoveredAddress: ${recoveredAddress}`);
-        await workOrder.delegatedAccept(1, sig, { from: acc0, gas: NEW_JOBPOST_GAS }); // business calls it with acc0
+        console.log(`Worker work order delegated accept! workOrder.address: ${workOrder.address}, sig: ${sig}, workerOwner: ${workerOwner}, recoveredAddress: ${recoveredAddress}`);
+        await workOrder.delegatedAccept(1, sig, { from: businessOwner, gas: NEW_JOBPOST_GAS });
         const isAccepted = await workOrder.isAccepted();
         console.log(`Is accepted: ${isAccepted}`);
         assert.isTrue(isAccepted);
@@ -353,9 +360,9 @@ contract('NOIA noia tests: ', function (accounts) {
         // fund the contract and check it's funded
         const marketplace = await NoiaMarketplace.at(await jobPost.marketplace());
         const token = await ERC223Interface.at(await marketplace.tokenContract());
-        console.log(`Work order initial tokens balance: ${await token.balanceOf(workOrder.address)}, acc0 balance: ${await token.balanceOf(acc0)}`);
-        await token.transfer(workOrder.address, 1, {from: acc0}); // funded by acc0 - business
-        const oldWorkerBalance = await token.balanceOf(acc1);
+        console.log(`Work order initial tokens balance: ${await token.balanceOf(workOrder.address)}, businessOwner balance: ${await token.balanceOf(businessOwner)}`);
+        await token.transfer(workOrder.address, 1, {from: businessOwner}); // funded by business
+        const oldWorkerBalance = await token.balanceOf(workerOwner);
         console.log(`Work order funded! Tokens balance: ${await token.balanceOf(workOrder.address)}, worker wallet balance: ${oldWorkerBalance}`);
 
         // now timelock the tokens & release
@@ -376,14 +383,14 @@ contract('NOIA noia tests: ', function (accounts) {
                 resolve();
             }, waitSec * 1000);
         });
-        sig = await rpcSignPacked(web3, acc1, // sign with acc1 - which created worker0
+        sig = await rpcSignPacked(web3, workerOwner, // sign with acc1 - which created worker0
             {t: "address", v: workOrder.address.slice(2)}, // "69a6df83fdfa5f75d9e631bc1d36c7573b5fa52e"
             {t: "string", v: "release"},
-            {t: "address", v: acc1.slice(2)},
+            {t: "address", v: workerOwner.slice(2)},
             {t: "uint256", v: 1});
-        await workOrder.delegatedRelease(acc1, 1, sig, { from: acc0 });
+        await workOrder.delegatedRelease(workerOwner, 1, sig, { from: businessOwner });
         const totalVested = await workOrder.totalVested();
-        const newWorkerBalance = await token.balanceOf(acc1);
+        const newWorkerBalance = await token.balanceOf(workerOwner);
         const workerBalanceDiff = newWorkerBalance - oldWorkerBalance;
         console.log(`Work order! totalFunds: ${await workOrder.totalFunds()}, totalVested: ${totalVested}, worker wallet balance: ${newWorkerBalance}, balance diff: ${workerBalanceDiff}`);
         console.log(`Timelocks: ${JSON.stringify(await workOrder.getTimelocks())}`);

@@ -204,9 +204,10 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
         // NOTE! Nodes will pick up the job posts, find them interesting based on locked in amount
         // and then connect to businesses to create a work orders
         // Business creates the work order
-        const workerAddress = worker.address;
-        console.log(`Creating work order ... for worker: ${workerAddress}, worker wallet address: ${worker.accountOwner}`);
-        const workOrder = await jobPost.createWorkOrder(workerAddress);
+
+        //const workerAddress = worker.address;
+        console.log(`Creating work order ... for worker owner (wallet address): ${worker.accountOwner}`);
+        const workOrder = await jobPost.createWorkOrder(worker.accountOwner);
 
         // Business funds the contract
         await sdk2.transferNoiaToken(workOrder.address, 1);
@@ -222,11 +223,6 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
         await workOrder.timelock(lockedAmount, lockUntil);
         console.log(`Timelock finished!`);
         console.log(`Timelocks: ${JSON.stringify(await workOrder.getTimelocks())}`);
-
-        // Business proposes it to worker (emits event)
-        // NOTE! Work Order Propose should possible be done in offline, over WS protocol between
-        // the business and a node - Business sending a work order address to the Node
-        // await jobPost.proposeWorkOrder(workerAddress);
 
         // Business accepts work order
         console.log(`Business accepting work order ...`);

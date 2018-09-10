@@ -31,14 +31,14 @@
     "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/gov/NoiaRegulation.sol",
     "exportedSymbols": {
       "NoiaRegulation": [
-        391
+        666
       ]
     },
-    "id": 392,
+    "id": 667,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 382,
+        "id": 657,
         "literals": [
           "solidity",
           "^",
@@ -46,16 +46,16 @@
           ".11"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:7"
+        "src": "0:24:11"
       },
       {
         "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/gov/NoiaBaseContract.sol",
         "file": "./NoiaBaseContract.sol",
-        "id": 383,
+        "id": 658,
         "nodeType": "ImportDirective",
-        "scope": 392,
-        "sourceUnit": 233,
-        "src": "26:32:7",
+        "scope": 667,
+        "sourceUnit": 472,
+        "src": "26:32:11",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -65,9 +65,9 @@
         "contractKind": "contract",
         "documentation": "Noia Regulation Rules",
         "fullyImplemented": false,
-        "id": 391,
+        "id": 666,
         "linearizedBaseContracts": [
-          391
+          666
         ],
         "name": "NoiaRegulation",
         "nodeType": "ContractDefinition",
@@ -75,7 +75,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 390,
+            "id": 665,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -83,31 +83,31 @@
             "name": "isContractValid",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 386,
+              "id": 661,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 385,
+                  "id": 660,
                   "name": "baseContract",
                   "nodeType": "VariableDeclaration",
-                  "scope": 390,
-                  "src": "148:29:7",
+                  "scope": 665,
+                  "src": "148:29:11",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_NoiaBaseContract_$232",
+                    "typeIdentifier": "t_contract$_NoiaBaseContract_$471",
                     "typeString": "contract NoiaBaseContract"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 384,
+                    "id": 659,
                     "name": "NoiaBaseContract",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 232,
-                    "src": "148:16:7",
+                    "referencedDeclaration": 471,
+                    "src": "148:16:11",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaBaseContract_$232",
+                      "typeIdentifier": "t_contract$_NoiaBaseContract_$471",
                       "typeString": "contract NoiaBaseContract"
                     }
                   },
@@ -115,20 +115,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "147:31:7"
+              "src": "147:31:11"
             },
             "payable": false,
             "returnParameters": {
-              "id": 389,
+              "id": 664,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 388,
+                  "id": 663,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 390,
-                  "src": "200:4:7",
+                  "scope": 665,
+                  "src": "200:4:11",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -136,10 +136,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 387,
+                    "id": 662,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "200:4:7",
+                    "src": "200:4:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -149,33 +149,33 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "199:6:7"
+              "src": "199:6:11"
             },
-            "scope": 391,
-            "src": "123:83:7",
+            "scope": 666,
+            "src": "123:83:11",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 392,
-        "src": "93:115:7"
+        "scope": 667,
+        "src": "93:115:11"
       }
     ],
-    "src": "0:209:7"
+    "src": "0:209:11"
   },
   "legacyAST": {
     "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/gov/NoiaRegulation.sol",
     "exportedSymbols": {
       "NoiaRegulation": [
-        391
+        666
       ]
     },
-    "id": 392,
+    "id": 667,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 382,
+        "id": 657,
         "literals": [
           "solidity",
           "^",
@@ -183,16 +183,16 @@
           ".11"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:7"
+        "src": "0:24:11"
       },
       {
         "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/gov/NoiaBaseContract.sol",
         "file": "./NoiaBaseContract.sol",
-        "id": 383,
+        "id": 658,
         "nodeType": "ImportDirective",
-        "scope": 392,
-        "sourceUnit": 233,
-        "src": "26:32:7",
+        "scope": 667,
+        "sourceUnit": 472,
+        "src": "26:32:11",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -202,9 +202,9 @@
         "contractKind": "contract",
         "documentation": "Noia Regulation Rules",
         "fullyImplemented": false,
-        "id": 391,
+        "id": 666,
         "linearizedBaseContracts": [
-          391
+          666
         ],
         "name": "NoiaRegulation",
         "nodeType": "ContractDefinition",
@@ -212,7 +212,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 390,
+            "id": 665,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -220,31 +220,31 @@
             "name": "isContractValid",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 386,
+              "id": 661,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 385,
+                  "id": 660,
                   "name": "baseContract",
                   "nodeType": "VariableDeclaration",
-                  "scope": 390,
-                  "src": "148:29:7",
+                  "scope": 665,
+                  "src": "148:29:11",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_NoiaBaseContract_$232",
+                    "typeIdentifier": "t_contract$_NoiaBaseContract_$471",
                     "typeString": "contract NoiaBaseContract"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 384,
+                    "id": 659,
                     "name": "NoiaBaseContract",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 232,
-                    "src": "148:16:7",
+                    "referencedDeclaration": 471,
+                    "src": "148:16:11",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaBaseContract_$232",
+                      "typeIdentifier": "t_contract$_NoiaBaseContract_$471",
                       "typeString": "contract NoiaBaseContract"
                     }
                   },
@@ -252,20 +252,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "147:31:7"
+              "src": "147:31:11"
             },
             "payable": false,
             "returnParameters": {
-              "id": 389,
+              "id": 664,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 388,
+                  "id": 663,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 390,
-                  "src": "200:4:7",
+                  "scope": 665,
+                  "src": "200:4:11",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -273,10 +273,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 387,
+                    "id": 662,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "200:4:7",
+                    "src": "200:4:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -286,20 +286,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "199:6:7"
+              "src": "199:6:11"
             },
-            "scope": 391,
-            "src": "123:83:7",
+            "scope": 666,
+            "src": "123:83:11",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 392,
-        "src": "93:115:7"
+        "scope": 667,
+        "src": "93:115:11"
       }
     ],
-    "src": "0:209:7"
+    "src": "0:209:11"
   },
   "compiler": {
     "name": "solc",
@@ -307,5 +307,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-08-31T14:24:12.816Z"
+  "updatedAt": "2018-09-06T13:50:11.487Z"
 }

@@ -25,29 +25,17 @@ class JobPost {
         return await this.contract.employer.call();
     }
 
-    async createWorkOrder(toWorkerAddress) {
+    async createWorkOrder(toWorkerOwnerAddress) {
         const logger = this.logger;
         const web3 = this.web3;
         const owner = this.accountOwner;
-        logger.info(`Creating new work order... from wallet address: ${owner}`);
+        logger.info(`Creating new work order... from wallet address: ${owner}, to worker owner: ${toWorkerOwnerAddress}`);
         let tx = await sendTransactionAndWaitForReceiptMined(web3, this.contract.createWorkOrder,
             { from: owner },
-            toWorkerAddress);
+            toWorkerOwnerAddress);
         const workOrderAddress = tx.logs[0].args.contractInstance;
         const workOrderContract = await this.contracts.NoiaWorkOrder.at(workOrderAddress);
         return await new WorkOrder(owner, this.contracts, workOrderContract, this.contract, logger);
-    }
-
-    async proposeWorkOrder(toWorkerAddress) {
-        const logger = this.logger;
-        const web3 = this.web3;
-        const owner = this.accountOwner;
-        logger.info(`Proposing work order... from wallet address: ${owner}`);
-        let tx = await sendTransactionAndWaitForReceiptMined(web3, this.contract.proposeWorkOrder,
-            { from: owner },
-            toWorkerAddress);
-        const workOrderAddress = tx.logs[0].args.workOrderAddress;
-        return workOrderAddress;
     }
 
     static async createInstance(owner, contracts, factory, employerAddress, jobPostInfo, logger) {

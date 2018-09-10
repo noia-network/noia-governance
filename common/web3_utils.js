@@ -78,7 +78,7 @@ function waitForConfirmations(resolve, reject, web3, txnHash, receipt, waitForNr
     function finish(result, error) {
         logger.info(`Waiting confirmations. Finishing up! result: ${JSON.stringify(result)}, error: ${JSON.stringify(error)}`);
         // clear the resources
-        provider.engine.off('block', nextBlockListener);
+        provider.engine.removeListener('block', nextBlockListener);
         if (timeoutId) {
             clearTimeout(timeoutId);
             timeoutId = null;

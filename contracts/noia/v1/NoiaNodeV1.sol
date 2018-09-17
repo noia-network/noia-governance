@@ -1,7 +1,7 @@
 pragma solidity ^0.4.11;
 
-import './NoiaBaseContractV1.sol';
-import './NoiaCertificateV1.sol';
+import "./NoiaBaseContractV1.sol";
+import "./NoiaCertificateV1.sol";
 
 /**
  * Standard Noia Node Contract V1 (Draft)
@@ -14,10 +14,7 @@ contract NoiaNodeV1 is NoiaBaseContractV1 {
     bytes32 public infoType;
     bytes public infoData;
 
-    constructor(
-        address factory,
-        NoiaMarketplace marketplace,
-        bytes32 infoType_, bytes infoData_)
+    constructor(address factory, NoiaMarketplace marketplace, bytes32 infoType_, bytes infoData_)
         NoiaBaseContractV1(factory, marketplace) public {
         infoType = infoType_;
         infoData = infoData_;
@@ -35,25 +32,22 @@ contract NoiaNodeV1 is NoiaBaseContractV1 {
     // Certificate Callback Functions
     //
     modifier fromCertificateV1(address certificateAddress) {
-        require (msg.sender == certificateAddress);
-        require(isContract(certificateAddress));
-        require(NoiaBaseContract(certificateAddress).version() == 1);
+        require (msg.sender == certificateAddress, "Only a certificate can call 'fromCertificateV1'");
+        require(isContract(certificateAddress), "Only a contract can call 'fromCertificateV1'");
+        require(NoiaBaseContract(certificateAddress).version() == 1, "Contract must have version 1");
         _;
     }
 
-    function acceptIssuedCertificate(address certificateAddress)
-        fromCertificateV1(certificateAddress) public {
+    function acceptIssuedCertificate(address certificateAddress) public fromCertificateV1(certificateAddress) {
         certificates.push(certificateAddress);
         ++certificatesCount;
     }
 
-    function acceptCertificateUpdate(address certificateAddress)
-        fromCertificateV1(certificateAddress) public view {
+    function acceptCertificateUpdate(address certificateAddress) public view fromCertificateV1(certificateAddress) {
         // ignoring the data update callback
     }
 
-    function receiveCertificateRevokeNotice(address certificateAddress)
-        fromCertificateV1(certificateAddress) public {
+    function receiveCertificateRevokeNotice(address certificateAddress) public fromCertificateV1(certificateAddress) {
         --certificatesCount;
     }
 
@@ -67,9 +61,7 @@ contract NoiaNodeV1 is NoiaBaseContractV1 {
             address cert = certificates[i];
             if (isContract(cert)) certs[n++] = cert;
         }
-        if (n < certificatesCount) {
-            // shouldn't happen, but some business forgot to call sendCertificateRevokeNotice
-        }
+        // if (n < certificatesCount) { // shouldn't happen, but some business forgot to call sendCertificateRevokeNotice }
         return certs;
     }
 
@@ -80,8 +72,8 @@ contract NoiaNodeV1 is NoiaBaseContractV1 {
     // TODO, link misc library
     //
     function isContract(address addr) private view returns (bool) {
-      uint size;
-      assembly { size := extcodesize(addr) }
-      return size > 0;
+        uint size;
+        assembly { size := extcodesize(addr) }
+        return size > 0;
     }
 }

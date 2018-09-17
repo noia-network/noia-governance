@@ -32,8 +32,8 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
     bool public acceptedByWorker = false;
 
     constructor(NoiaJobPostV1 _jobPost, Initiator _initiator, address _workerOwner) public {
-        require(msg.sender == address(_jobPost)); // can be created by a job post only
-        require(_workerOwner != address(0));
+        require(msg.sender == address(_jobPost), "Only a job post can create a work order");
+        require(_workerOwner != address(0), "Worker address is 0");
         token = ERC223Interface(address(_jobPost.marketplace().tokenContract()));
         initiator = _initiator;
         employer = _jobPost.employer();
@@ -83,9 +83,9 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
     }
 
     function timelock(uint256 _amount, uint256 _lockUntil) public {
-        require(msg.sender == employer.owner()); // allow only employer to timelock the funds
+        require(msg.sender == employer.owner(), "Only an employer can timelock the funds");
 //        require(_lockUntil > now);
-        require(token.balanceOf(address(this)) >= totalVested.add(_amount));
+        require(token.balanceOf(address(this)) >= totalVested.add(_amount), "Total vested cannot be lower than total funds in work order");
         totalVested = totalVested.add(_amount);
 
         timelocks.push(Timelock({until: _lockUntil, amount: _amount}));
@@ -106,23 +106,23 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
 
     // have a signature (from a worker wallet) and saying there to release funds to this beneficiary address
     function delegatedRelease(address beneficiary, uint256 _nonce, bytes _sig) public {
-        require(isAccepted());
-        require(beneficiary != address(0));
+        require(isAccepted(), "Cannot release funds before work order is accepted");
+        require(beneficiary != address(0), "Beneficiary address is 0");
 
-        require(signatures[_sig] == false);
+        require(signatures[_sig] == false, "Multiple use of the same delegated message is not allowed");
         signatures[_sig] = true;
 
         bytes memory msgPacked = abi.encodePacked(address(this), "release", beneficiary, _nonce);
         address signer = keccak256(msgPacked).toEthSignedMessageHash().recover(_sig);
-        require(signer != address(0));
-        require(signer == workerOwner); // we only allow the signer to be a worker owner
+        require(signer != address(0), "Delegated release message signer is not recognized");
+        require(signer == workerOwner, "Delegated release message signer must be a worker of the work order");
 
         // release the ones that can be released
         address to = beneficiary;
         uint256 tokens = 0;
         uint256 until;
         uint256 n = timelocks.length;
-        uint256 timestamp = now;
+        uint256 timestamp = block.timestamp;
         for (uint256 i = 0; i < n; i++) {
             Timelock storage tl = timelocks[i];
             until = tl.until;
@@ -140,7 +140,7 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
     }
 
     function tokenFallback(address /*_from*/, uint /*_value*/, bytes /*_data*/) public {
-        require(msg.sender == address(token));
+        require(msg.sender == address(token), "We only accept token transfers from our token contract");
     }
 
     event Accepted(address employer, address worker);

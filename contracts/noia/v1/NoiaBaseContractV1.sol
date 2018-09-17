@@ -1,6 +1,6 @@
 pragma solidity ^0.4.11;
 
-import '../gov/NoiaBaseContract.sol';
+import "../gov/NoiaBaseContract.sol";
 
 /**
  * Base contract for Noia Contracts

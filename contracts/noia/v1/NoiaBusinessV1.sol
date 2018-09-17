@@ -1,8 +1,8 @@
 pragma solidity ^0.4.11;
 
-import '../gov/NoiaMarketplace.sol';
-import './NoiaBaseContractV1.sol';
-import './NoiaCertificateV1.sol';
+import "../gov/NoiaMarketplace.sol";
+import "./NoiaBaseContractV1.sol";
+import "./NoiaCertificateV1.sol";
 
 /**
  * Standard Noia Business Contract V1 (Draft)
@@ -24,9 +24,9 @@ contract NoiaBusinessV1 is NoiaBaseContractV1 {
         infoData = infoData_;
     }
 
-    function signCertificate(address certificateAddress) onlyOwner public {
-        require(marketplace.certificatesRegistry().hasEntry(certificateAddress));
-        require(NoiaBaseContract(certificateAddress).version() == 1);
+    function signCertificate(address certificateAddress) public onlyOwner {
+        require(marketplace.certificatesRegistry().hasEntry(certificateAddress), "Provided certificate address is not in marketplace registry");
+        require(NoiaBaseContract(certificateAddress).version() == 1, "Provided certificate must have version 1");
         NoiaCertificateV1(certificateAddress).sign();
     }
 }

@@ -1,8 +1,8 @@
 pragma solidity ^0.4.11;
 
-import '../../abstracts/ERC223Interface.sol';
-import './NoiaRegistry.sol';
-import './NoiaMarketplace.sol';
+import "../../abstracts/ERC223Interface.sol";
+import "./NoiaRegistry.sol";
+import "./NoiaMarketplace.sol";
 
 /**
  * Entrypoint of the Noia Network, including:

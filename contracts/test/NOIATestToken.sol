@@ -9,9 +9,9 @@ contract NOIATestToken is ERC223Interface {
 
     mapping(address => uint) balances; // List of user balances.
 
-    function name() constant public returns (string) { return "NOIA Test Token"; }
-    function symbol() constant public returns (string) { return "NOIA_TEST"; }
-    function decimals() constant public returns (uint) { return 0; }
+    function name() public view returns (string) { return "NOIA Test Token"; }
+    function symbol() public view returns (string) { return "NOIA_TEST"; }
+    function decimals() public view returns (uint) { return 0; }
 
     /**
     * @dev Transfer the specified amount of tokens to the specified address.
@@ -55,7 +55,7 @@ contract NOIATestToken is ERC223Interface {
     * @param _owner   The address whose balance will be returned.
     * @return balance Balance of the `_owner`.
     */
-    function balanceOf(address _owner) constant public returns (uint balance) {
+    function balanceOf(address _owner) public view returns (uint balance) {
         return balances[_owner];
     }
 

@@ -1,7 +1,7 @@
 pragma solidity ^0.4.11;
 
-import '../../abstracts/Owned.sol';
-import './NoiaRegulation.sol';
+import "../../abstracts/Owned.sol";
+import "./NoiaRegulation.sol";
 
 /**
  * Noia Regulation Rules
@@ -9,7 +9,7 @@ import './NoiaRegulation.sol';
 contract NoiaSimpleRegulation is NoiaRegulation, Owned {
     mapping(address => bool) approvedContractFactory;
 
-    function addApprovedFactory(address contractFactory) onlyOwner public {
+    function addApprovedFactory(address contractFactory) public onlyOwner {
         approvedContractFactory[contractFactory] = true;
     }
 

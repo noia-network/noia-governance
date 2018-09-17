@@ -87,24 +87,24 @@
       "type": "constructor"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b5060405160408061069283398101604052805160209091015160008054600160a060020a031916600160a060020a0384161790558061004d6101a8565b600160a060020a03909116815260405190819003602001906000f08015801561007a573d6000803e3d6000fd5b5060018054600160a060020a031916600160a060020a0392909216919091179055806100a46101a8565b600160a060020a03909116815260405190819003602001906000f0801580156100d1573d6000803e3d6000fd5b5060028054600160a060020a031916600160a060020a0392909216919091179055806100fb6101a8565b600160a060020a03909116815260405190819003602001906000f080158015610128573d6000803e3d6000fd5b5060038054600160a060020a031916600160a060020a0392909216919091179055806101526101a8565b600160a060020a03909116815260405190819003602001906000f08015801561017f573d6000803e3d6000fd5b5060048054600160a060020a031916600160a060020a0392909216919091179055506101b89050565b6040516103108061038283390190565b6101bb806101c76000396000f30060806040526004361061006c5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633dfc32f6811461007157806355a373d6146100af578063ba9bb76d146100c4578063d9b5c4a5146100d9578063e4f7dd63146100ee575b600080fd5b34801561007d57600080fd5b50610086610103565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b3480156100bb57600080fd5b5061008661011f565b3480156100d057600080fd5b5061008661013b565b3480156100e557600080fd5b50610086610157565b3480156100fa57600080fd5b50610086610173565b60025473ffffffffffffffffffffffffffffffffffffffff1681565b60005473ffffffffffffffffffffffffffffffffffffffff1681565b60035473ffffffffffffffffffffffffffffffffffffffff1681565b60015473ffffffffffffffffffffffffffffffffffffffff1681565b60045473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a723058201e1d054c8c21b6783cac9e8bb5ffa740bbc60e50f84c31f8e77478b1890f14db0029608060405234801561001057600080fd5b50604051602080610310833981016040525160008054600160a060020a03909216600160a060020a03199092169190911790556102be806100526000396000f3006080604052600436106100565763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166306661abd811461005b578063a25047a214610082578063f15ae568146100b7575b600080fd5b34801561006757600080fd5b506100706100da565b60408051918252519081900360200190f35b34801561008e57600080fd5b506100a3600160a060020a03600435166100e0565b604080519115158252519081900360200190f35b3480156100c357600080fd5b506100d8600160a060020a03600435166100fc565b005b60025490565b600160a060020a03166000908152600160205260408120541190565b80600160a060020a031663c45a01556040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15801561015357600080fd5b505af1158015610167573d6000803e3d6000fd5b505050506040513d602081101561017d57600080fd5b5051600160a060020a0316331461019357600080fd5b60008054604080517f1f94c77c000000000000000000000000000000000000000000000000000000008152600160a060020a03858116600483015291519190921692631f94c77c92602480820193602093909283900390910190829087803b1580156101fe57600080fd5b505af1158015610212573d6000803e3d6000fd5b505050506040513d602081101561022857600080fd5b5051151561023557600080fd5b600160a060020a03811660008181526001602081815260409283902082905560028054909201909155815192835290517f1d2908a21f62bdc114393352feeaf505a80950de4d81096e75e408f23ffcf1ef9281900390910190a1505600a165627a7a7230582082299cb84100a1b8c83a25a04d72955f17821e87e9b75cc2ed3277cb977ffff40029",
-  "deployedBytecode": "0x60806040526004361061006c5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633dfc32f6811461007157806355a373d6146100af578063ba9bb76d146100c4578063d9b5c4a5146100d9578063e4f7dd63146100ee575b600080fd5b34801561007d57600080fd5b50610086610103565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b3480156100bb57600080fd5b5061008661011f565b3480156100d057600080fd5b5061008661013b565b3480156100e557600080fd5b50610086610157565b3480156100fa57600080fd5b50610086610173565b60025473ffffffffffffffffffffffffffffffffffffffff1681565b60005473ffffffffffffffffffffffffffffffffffffffff1681565b60035473ffffffffffffffffffffffffffffffffffffffff1681565b60015473ffffffffffffffffffffffffffffffffffffffff1681565b60045473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a723058201e1d054c8c21b6783cac9e8bb5ffa740bbc60e50f84c31f8e77478b1890f14db0029",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516040806107a283398101604052805160209091015160008054600160a060020a031916600160a060020a0384161790558061004d6101a8565b600160a060020a03909116815260405190819003602001906000f08015801561007a573d6000803e3d6000fd5b5060018054600160a060020a031916600160a060020a0392909216919091179055806100a46101a8565b600160a060020a03909116815260405190819003602001906000f0801580156100d1573d6000803e3d6000fd5b5060028054600160a060020a031916600160a060020a0392909216919091179055806100fb6101a8565b600160a060020a03909116815260405190819003602001906000f080158015610128573d6000803e3d6000fd5b5060038054600160a060020a031916600160a060020a0392909216919091179055806101526101a8565b600160a060020a03909116815260405190819003602001906000f08015801561017f573d6000803e3d6000fd5b5060048054600160a060020a031916600160a060020a0392909216919091179055506101b89050565b6040516104208061038283390190565b6101bb806101c76000396000f30060806040526004361061006c5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633dfc32f6811461007157806355a373d6146100af578063ba9bb76d146100c4578063d9b5c4a5146100d9578063e4f7dd63146100ee575b600080fd5b34801561007d57600080fd5b50610086610103565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b3480156100bb57600080fd5b5061008661011f565b3480156100d057600080fd5b5061008661013b565b3480156100e557600080fd5b50610086610157565b3480156100fa57600080fd5b50610086610173565b60025473ffffffffffffffffffffffffffffffffffffffff1681565b60005473ffffffffffffffffffffffffffffffffffffffff1681565b60035473ffffffffffffffffffffffffffffffffffffffff1681565b60015473ffffffffffffffffffffffffffffffffffffffff1681565b60045473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820dc914e73d923238234da7803e6199d59efd79a8aceb56be07162ac6dc10e71de0029608060405234801561001057600080fd5b50604051602080610420833981016040525160008054600160a060020a03909216600160a060020a03199092169190911790556103ce806100526000396000f3006080604052600436106100565763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166306661abd811461005b578063a25047a214610082578063f15ae568146100b7575b600080fd5b34801561006757600080fd5b506100706100da565b60408051918252519081900360200190f35b34801561008e57600080fd5b506100a3600160a060020a03600435166100e0565b604080519115158252519081900360200190f35b3480156100c357600080fd5b506100d8600160a060020a03600435166100fc565b005b60025490565b600160a060020a03166000908152600160205260408120541190565b80600160a060020a031663c45a01556040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15801561015357600080fd5b505af1158015610167573d6000803e3d6000fd5b505050506040513d602081101561017d57600080fd5b5051600160a060020a0316331461021b57604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152603660248201527f616464456e7472792829206661696c65642e2053656e646572206973206e6f7460448201527f2066726f6d207468652073616d6520666163746f727900000000000000000000606482015290519081900360840190fd5b60008054604080517f1f94c77c000000000000000000000000000000000000000000000000000000008152600160a060020a03858116600483015291519190921692631f94c77c92602480820193602093909283900390910190829087803b15801561028657600080fd5b505af115801561029a573d6000803e3d6000fd5b505050506040513d60208110156102b057600080fd5b5051151561034557604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152602481018290527f616464456e7472792829206661696c65642e20436f6e7472616374206973206e60448201527f6f742076616c6964206163636f7264696e6720746f20726567756c6174696f6e606482015290519081900360840190fd5b600160a060020a03811660008181526001602081815260409283902082905560028054909201909155815192835290517f1d2908a21f62bdc114393352feeaf505a80950de4d81096e75e408f23ffcf1ef9281900390910190a1505600a165627a7a72305820d32ce557563160716a6eb578216e45d1a5fa8609945fc86fdb052ebd09f2d6da0029",
+  "deployedBytecode": "0x60806040526004361061006c5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633dfc32f6811461007157806355a373d6146100af578063ba9bb76d146100c4578063d9b5c4a5146100d9578063e4f7dd63146100ee575b600080fd5b34801561007d57600080fd5b50610086610103565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b3480156100bb57600080fd5b5061008661011f565b3480156100d057600080fd5b5061008661013b565b3480156100e557600080fd5b50610086610157565b3480156100fa57600080fd5b50610086610173565b60025473ffffffffffffffffffffffffffffffffffffffff1681565b60005473ffffffffffffffffffffffffffffffffffffffff1681565b60035473ffffffffffffffffffffffffffffffffffffffff1681565b60015473ffffffffffffffffffffffffffffffffffffffff1681565b60045473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820dc914e73d923238234da7803e6199d59efd79a8aceb56be07162ac6dc10e71de0029",
   "sourceMap": "243:596:8:-;;;485:352;8:9:-1;5:2;;;30:1;27;20:12;5:2;485:352:8;;;;;;;;;;;;;;;;;;;573:13;:30;;-1:-1:-1;;;;;;573:30:8;-1:-1:-1;;;;;573:30:8;;;;;485:352;628:28;;:::i;:::-;-1:-1:-1;;;;;628:28:8;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;-1:-1;613:12:8;:43;;-1:-1:-1;;;;;;613:43:8;-1:-1:-1;;;;;613:43:8;;;;;;;;;;702:10;685:28;;:::i;:::-;-1:-1:-1;;;;;685:28:8;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;-1:-1;666:16:8;:47;;-1:-1:-1;;;;;;666:47:8;-1:-1:-1;;;;;666:47:8;;;;;;;;;;763:10;746:28;;:::i;:::-;-1:-1:-1;;;;;746:28:8;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;-1:-1;723:20:8;:51;;-1:-1:-1;;;;;;723:51:8;-1:-1:-1;;;;;723:51:8;;;;;;;;;;819:10;802:28;;:::i;:::-;-1:-1:-1;;;;;802:28:8;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;-1:-1;784:15:8;:46;;-1:-1:-1;;;;;;784:46:8;-1:-1:-1;;;;;784:46:8;;;;;;;;;;-1:-1:-1;243:596:8;;-1:-1:-1;243:596:8;;;;;;;;;;;:::o;:::-;;;;;;;",
   "deployedSourceMap": "243:596:8:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;355:36;;8:9:-1;5:2;;;30:1;27;20:12;5:2;355:36:8;;;;;;;;;;;;;;;;;;;;;;;274;;8:9:-1;5:2;;;30:1;27;20:12;5:2;274:36:8;;;;397:40;;8:9:-1;5:2;;;30:1;27;20:12;5:2;397:40:8;;;;317:32;;8:9:-1;5:2;;;30:1;27;20:12;5:2;317:32:8;;;;443:35;;8:9:-1;5:2;;;30:1;27;20:12;5:2;443:35:8;;;;355:36;;;;;;:::o;274:::-;;;;;;:::o;397:40::-;;;;;;:::o;317:32::-;;;;;;:::o;443:35::-;;;;;;:::o",
-  "source": "pragma solidity ^0.4.11;\n\nimport '../../abstracts/ERC223Interface.sol';\nimport './NoiaRegulation.sol';\nimport './NoiaRegistry.sol';\n\n/**\n * Noia Marketplace\n *\n * Including:\n * - node registry\n * - business registry\n * - job post registry\n */\ncontract NoiaMarketplace {\n    ERC223Interface public tokenContract;\n\n    NoiaRegistry public nodeRegistry;\n    NoiaRegistry public businessRegistry;\n    NoiaRegistry public certificatesRegistry;\n    NoiaRegistry public jobPostRegistry;\n\n    constructor(ERC223Interface tokenContract_, NoiaRegulation regulation) public {\n        tokenContract = tokenContract_;\n        nodeRegistry = new NoiaRegistry(regulation);\n        businessRegistry = new NoiaRegistry(regulation);\n        certificatesRegistry = new NoiaRegistry(regulation);\n        jobPostRegistry = new NoiaRegistry(regulation);\n    }\n}\n",
+  "source": "pragma solidity ^0.4.11;\n\nimport \"../../abstracts/ERC223Interface.sol\";\nimport \"./NoiaRegulation.sol\";\nimport \"./NoiaRegistry.sol\";\n\n/**\n * Noia Marketplace\n *\n * Including:\n * - node registry\n * - business registry\n * - job post registry\n */\ncontract NoiaMarketplace {\n    ERC223Interface public tokenContract;\n\n    NoiaRegistry public nodeRegistry;\n    NoiaRegistry public businessRegistry;\n    NoiaRegistry public certificatesRegistry;\n    NoiaRegistry public jobPostRegistry;\n\n    constructor(ERC223Interface tokenContract_, NoiaRegulation regulation) public {\n        tokenContract = tokenContract_;\n        nodeRegistry = new NoiaRegistry(regulation);\n        businessRegistry = new NoiaRegistry(regulation);\n        certificatesRegistry = new NoiaRegistry(regulation);\n        jobPostRegistry = new NoiaRegistry(regulation);\n    }\n}\n",
   "sourcePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/gov/NoiaMarketplace.sol",
   "ast": {
     "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/gov/NoiaMarketplace.sol",
     "exportedSymbols": {
       "NoiaMarketplace": [
-        527
+        529
       ]
     },
-    "id": 528,
+    "id": 530,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 473,
+        "id": 475,
         "literals": [
           "solidity",
           "^",
@@ -117,9 +117,9 @@
       {
         "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/abstracts/ERC223Interface.sol",
         "file": "../../abstracts/ERC223Interface.sol",
-        "id": 474,
+        "id": 476,
         "nodeType": "ImportDirective",
-        "scope": 528,
+        "scope": 530,
         "sourceUnit": 118,
         "src": "26:45:8",
         "symbolAliases": [],
@@ -128,10 +128,10 @@
       {
         "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/gov/NoiaRegulation.sol",
         "file": "./NoiaRegulation.sol",
-        "id": 475,
+        "id": 477,
         "nodeType": "ImportDirective",
-        "scope": 528,
-        "sourceUnit": 667,
+        "scope": 530,
+        "sourceUnit": 671,
         "src": "72:30:8",
         "symbolAliases": [],
         "unitAlias": ""
@@ -139,10 +139,10 @@
       {
         "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/gov/NoiaRegistry.sol",
         "file": "./NoiaRegistry.sol",
-        "id": 476,
+        "id": 478,
         "nodeType": "ImportDirective",
-        "scope": 528,
-        "sourceUnit": 656,
+        "scope": 530,
+        "sourceUnit": 660,
         "src": "103:28:8",
         "symbolAliases": [],
         "unitAlias": ""
@@ -150,24 +150,24 @@
       {
         "baseContracts": [],
         "contractDependencies": [
-          655
+          659
         ],
         "contractKind": "contract",
         "documentation": "Noia Marketplace\n * Including:\n- node registry\n- business registry\n- job post registry",
         "fullyImplemented": true,
-        "id": 527,
+        "id": 529,
         "linearizedBaseContracts": [
-          527
+          529
         ],
         "name": "NoiaMarketplace",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 478,
+            "id": 480,
             "name": "tokenContract",
             "nodeType": "VariableDeclaration",
-            "scope": 527,
+            "scope": 529,
             "src": "274:36:8",
             "stateVariable": true,
             "storageLocation": "default",
@@ -177,7 +177,7 @@
             },
             "typeName": {
               "contractScope": null,
-              "id": 477,
+              "id": 479,
               "name": "ERC223Interface",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 117,
@@ -192,43 +192,15 @@
           },
           {
             "constant": false,
-            "id": 480,
+            "id": 482,
             "name": "nodeRegistry",
             "nodeType": "VariableDeclaration",
-            "scope": 527,
+            "scope": 529,
             "src": "317:32:8",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_NoiaRegistry_$655",
-              "typeString": "contract NoiaRegistry"
-            },
-            "typeName": {
-              "contractScope": null,
-              "id": 479,
-              "name": "NoiaRegistry",
-              "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 655,
-              "src": "317:12:8",
-              "typeDescriptions": {
-                "typeIdentifier": "t_contract$_NoiaRegistry_$655",
-                "typeString": "contract NoiaRegistry"
-              }
-            },
-            "value": null,
-            "visibility": "public"
-          },
-          {
-            "constant": false,
-            "id": 482,
-            "name": "businessRegistry",
-            "nodeType": "VariableDeclaration",
-            "scope": 527,
-            "src": "355:36:8",
-            "stateVariable": true,
-            "storageLocation": "default",
-            "typeDescriptions": {
-              "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+              "typeIdentifier": "t_contract$_NoiaRegistry_$659",
               "typeString": "contract NoiaRegistry"
             },
             "typeName": {
@@ -236,10 +208,10 @@
               "id": 481,
               "name": "NoiaRegistry",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 655,
-              "src": "355:12:8",
+              "referencedDeclaration": 659,
+              "src": "317:12:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                 "typeString": "contract NoiaRegistry"
               }
             },
@@ -249,14 +221,14 @@
           {
             "constant": false,
             "id": 484,
-            "name": "certificatesRegistry",
+            "name": "businessRegistry",
             "nodeType": "VariableDeclaration",
-            "scope": 527,
-            "src": "397:40:8",
+            "scope": 529,
+            "src": "355:36:8",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+              "typeIdentifier": "t_contract$_NoiaRegistry_$659",
               "typeString": "contract NoiaRegistry"
             },
             "typeName": {
@@ -264,10 +236,10 @@
               "id": 483,
               "name": "NoiaRegistry",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 655,
-              "src": "397:12:8",
+              "referencedDeclaration": 659,
+              "src": "355:12:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                 "typeString": "contract NoiaRegistry"
               }
             },
@@ -277,14 +249,14 @@
           {
             "constant": false,
             "id": 486,
-            "name": "jobPostRegistry",
+            "name": "certificatesRegistry",
             "nodeType": "VariableDeclaration",
-            "scope": 527,
-            "src": "443:35:8",
+            "scope": 529,
+            "src": "397:40:8",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+              "typeIdentifier": "t_contract$_NoiaRegistry_$659",
               "typeString": "contract NoiaRegistry"
             },
             "typeName": {
@@ -292,10 +264,38 @@
               "id": 485,
               "name": "NoiaRegistry",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 655,
+              "referencedDeclaration": 659,
+              "src": "397:12:8",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_NoiaRegistry_$659",
+                "typeString": "contract NoiaRegistry"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 488,
+            "name": "jobPostRegistry",
+            "nodeType": "VariableDeclaration",
+            "scope": 529,
+            "src": "443:35:8",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_NoiaRegistry_$659",
+              "typeString": "contract NoiaRegistry"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 487,
+              "name": "NoiaRegistry",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 659,
               "src": "443:12:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                 "typeString": "contract NoiaRegistry"
               }
             },
@@ -304,25 +304,25 @@
           },
           {
             "body": {
-              "id": 525,
+              "id": 527,
               "nodeType": "Block",
               "src": "563:274:8",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 495,
+                    "id": 497,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 493,
+                      "id": 495,
                       "name": "tokenContract",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 478,
+                      "referencedDeclaration": 480,
                       "src": "573:13:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_ERC223Interface_$117",
@@ -333,11 +333,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 494,
+                      "id": 496,
                       "name": "tokenContract_",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 488,
+                      "referencedDeclaration": 490,
                       "src": "589:14:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_ERC223Interface_$117",
@@ -350,28 +350,28 @@
                       "typeString": "contract ERC223Interface"
                     }
                   },
-                  "id": 496,
+                  "id": 498,
                   "nodeType": "ExpressionStatement",
                   "src": "573:30:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 502,
+                    "id": 504,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 497,
+                      "id": 499,
                       "name": "nodeRegistry",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 480,
+                      "referencedDeclaration": 482,
                       "src": "613:12:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                        "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                         "typeString": "contract NoiaRegistry"
                       }
                     },
@@ -382,14 +382,14 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 500,
+                          "id": 502,
                           "name": "regulation",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 490,
+                          "referencedDeclaration": 492,
                           "src": "645:10:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                             "typeString": "contract NoiaRegulation"
                           }
                         }
@@ -397,11 +397,11 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                             "typeString": "contract NoiaRegulation"
                           }
                         ],
-                        "id": 499,
+                        "id": 501,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -409,23 +409,23 @@
                         "nodeType": "NewExpression",
                         "src": "628:16:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaRegulation_$666_$returns$_t_contract$_NoiaRegistry_$655_$",
+                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaRegulation_$670_$returns$_t_contract$_NoiaRegistry_$659_$",
                           "typeString": "function (contract NoiaRegulation) returns (contract NoiaRegistry)"
                         },
                         "typeName": {
                           "contractScope": null,
-                          "id": 498,
+                          "id": 500,
                           "name": "NoiaRegistry",
                           "nodeType": "UserDefinedTypeName",
-                          "referencedDeclaration": 655,
+                          "referencedDeclaration": 659,
                           "src": "632:12:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                            "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                             "typeString": "contract NoiaRegistry"
                           }
                         }
                       },
-                      "id": 501,
+                      "id": 503,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -435,38 +435,38 @@
                       "nodeType": "FunctionCall",
                       "src": "628:28:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                        "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                         "typeString": "contract NoiaRegistry"
                       }
                     },
                     "src": "613:43:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                      "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                       "typeString": "contract NoiaRegistry"
                     }
                   },
-                  "id": 503,
+                  "id": 505,
                   "nodeType": "ExpressionStatement",
                   "src": "613:43:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 509,
+                    "id": 511,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 504,
+                      "id": 506,
                       "name": "businessRegistry",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 482,
+                      "referencedDeclaration": 484,
                       "src": "666:16:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                        "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                         "typeString": "contract NoiaRegistry"
                       }
                     },
@@ -477,14 +477,14 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 507,
+                          "id": 509,
                           "name": "regulation",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 490,
+                          "referencedDeclaration": 492,
                           "src": "702:10:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                             "typeString": "contract NoiaRegulation"
                           }
                         }
@@ -492,11 +492,11 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                             "typeString": "contract NoiaRegulation"
                           }
                         ],
-                        "id": 506,
+                        "id": 508,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -504,23 +504,23 @@
                         "nodeType": "NewExpression",
                         "src": "685:16:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaRegulation_$666_$returns$_t_contract$_NoiaRegistry_$655_$",
+                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaRegulation_$670_$returns$_t_contract$_NoiaRegistry_$659_$",
                           "typeString": "function (contract NoiaRegulation) returns (contract NoiaRegistry)"
                         },
                         "typeName": {
                           "contractScope": null,
-                          "id": 505,
+                          "id": 507,
                           "name": "NoiaRegistry",
                           "nodeType": "UserDefinedTypeName",
-                          "referencedDeclaration": 655,
+                          "referencedDeclaration": 659,
                           "src": "689:12:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                            "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                             "typeString": "contract NoiaRegistry"
                           }
                         }
                       },
-                      "id": 508,
+                      "id": 510,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -530,38 +530,38 @@
                       "nodeType": "FunctionCall",
                       "src": "685:28:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                        "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                         "typeString": "contract NoiaRegistry"
                       }
                     },
                     "src": "666:47:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                      "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                       "typeString": "contract NoiaRegistry"
                     }
                   },
-                  "id": 510,
+                  "id": 512,
                   "nodeType": "ExpressionStatement",
                   "src": "666:47:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 516,
+                    "id": 518,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 511,
+                      "id": 513,
                       "name": "certificatesRegistry",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 484,
+                      "referencedDeclaration": 486,
                       "src": "723:20:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                        "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                         "typeString": "contract NoiaRegistry"
                       }
                     },
@@ -572,14 +572,14 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 514,
+                          "id": 516,
                           "name": "regulation",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 490,
+                          "referencedDeclaration": 492,
                           "src": "763:10:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                             "typeString": "contract NoiaRegulation"
                           }
                         }
@@ -587,11 +587,11 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                             "typeString": "contract NoiaRegulation"
                           }
                         ],
-                        "id": 513,
+                        "id": 515,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -599,23 +599,23 @@
                         "nodeType": "NewExpression",
                         "src": "746:16:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaRegulation_$666_$returns$_t_contract$_NoiaRegistry_$655_$",
+                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaRegulation_$670_$returns$_t_contract$_NoiaRegistry_$659_$",
                           "typeString": "function (contract NoiaRegulation) returns (contract NoiaRegistry)"
                         },
                         "typeName": {
                           "contractScope": null,
-                          "id": 512,
+                          "id": 514,
                           "name": "NoiaRegistry",
                           "nodeType": "UserDefinedTypeName",
-                          "referencedDeclaration": 655,
+                          "referencedDeclaration": 659,
                           "src": "750:12:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                            "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                             "typeString": "contract NoiaRegistry"
                           }
                         }
                       },
-                      "id": 515,
+                      "id": 517,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -625,38 +625,38 @@
                       "nodeType": "FunctionCall",
                       "src": "746:28:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                        "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                         "typeString": "contract NoiaRegistry"
                       }
                     },
                     "src": "723:51:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                      "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                       "typeString": "contract NoiaRegistry"
                     }
                   },
-                  "id": 517,
+                  "id": 519,
                   "nodeType": "ExpressionStatement",
                   "src": "723:51:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 523,
+                    "id": 525,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 518,
+                      "id": 520,
                       "name": "jobPostRegistry",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 486,
+                      "referencedDeclaration": 488,
                       "src": "784:15:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                        "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                         "typeString": "contract NoiaRegistry"
                       }
                     },
@@ -667,14 +667,14 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 521,
+                          "id": 523,
                           "name": "regulation",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 490,
+                          "referencedDeclaration": 492,
                           "src": "819:10:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                             "typeString": "contract NoiaRegulation"
                           }
                         }
@@ -682,11 +682,11 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                             "typeString": "contract NoiaRegulation"
                           }
                         ],
-                        "id": 520,
+                        "id": 522,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -694,23 +694,23 @@
                         "nodeType": "NewExpression",
                         "src": "802:16:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaRegulation_$666_$returns$_t_contract$_NoiaRegistry_$655_$",
+                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaRegulation_$670_$returns$_t_contract$_NoiaRegistry_$659_$",
                           "typeString": "function (contract NoiaRegulation) returns (contract NoiaRegistry)"
                         },
                         "typeName": {
                           "contractScope": null,
-                          "id": 519,
+                          "id": 521,
                           "name": "NoiaRegistry",
                           "nodeType": "UserDefinedTypeName",
-                          "referencedDeclaration": 655,
+                          "referencedDeclaration": 659,
                           "src": "806:12:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                            "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                             "typeString": "contract NoiaRegistry"
                           }
                         }
                       },
-                      "id": 522,
+                      "id": 524,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -720,24 +720,24 @@
                       "nodeType": "FunctionCall",
                       "src": "802:28:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                        "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                         "typeString": "contract NoiaRegistry"
                       }
                     },
                     "src": "784:46:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                      "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                       "typeString": "contract NoiaRegistry"
                     }
                   },
-                  "id": 524,
+                  "id": 526,
                   "nodeType": "ExpressionStatement",
                   "src": "784:46:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 526,
+            "id": 528,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -745,15 +745,15 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 491,
+              "id": 493,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 488,
+                  "id": 490,
                   "name": "tokenContract_",
                   "nodeType": "VariableDeclaration",
-                  "scope": 526,
+                  "scope": 528,
                   "src": "497:30:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -763,7 +763,7 @@
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 487,
+                    "id": 489,
                     "name": "ERC223Interface",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 117,
@@ -778,26 +778,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 490,
+                  "id": 492,
                   "name": "regulation",
                   "nodeType": "VariableDeclaration",
-                  "scope": 526,
+                  "scope": 528,
                   "src": "529:25:8",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                    "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                     "typeString": "contract NoiaRegulation"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 489,
+                    "id": 491,
                     "name": "NoiaRegulation",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 666,
+                    "referencedDeclaration": 670,
                     "src": "529:14:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                      "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                       "typeString": "contract NoiaRegulation"
                     }
                   },
@@ -809,19 +809,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 492,
+              "id": 494,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "563:0:8"
             },
-            "scope": 527,
+            "scope": 529,
             "src": "485:352:8",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 528,
+        "scope": 530,
         "src": "243:596:8"
       }
     ],
@@ -831,14 +831,14 @@
     "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/gov/NoiaMarketplace.sol",
     "exportedSymbols": {
       "NoiaMarketplace": [
-        527
+        529
       ]
     },
-    "id": 528,
+    "id": 530,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 473,
+        "id": 475,
         "literals": [
           "solidity",
           "^",
@@ -851,9 +851,9 @@
       {
         "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/abstracts/ERC223Interface.sol",
         "file": "../../abstracts/ERC223Interface.sol",
-        "id": 474,
+        "id": 476,
         "nodeType": "ImportDirective",
-        "scope": 528,
+        "scope": 530,
         "sourceUnit": 118,
         "src": "26:45:8",
         "symbolAliases": [],
@@ -862,10 +862,10 @@
       {
         "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/gov/NoiaRegulation.sol",
         "file": "./NoiaRegulation.sol",
-        "id": 475,
+        "id": 477,
         "nodeType": "ImportDirective",
-        "scope": 528,
-        "sourceUnit": 667,
+        "scope": 530,
+        "sourceUnit": 671,
         "src": "72:30:8",
         "symbolAliases": [],
         "unitAlias": ""
@@ -873,10 +873,10 @@
       {
         "absolutePath": "/srv/work/projects/noia-network/noia-governance/contracts/noia/gov/NoiaRegistry.sol",
         "file": "./NoiaRegistry.sol",
-        "id": 476,
+        "id": 478,
         "nodeType": "ImportDirective",
-        "scope": 528,
-        "sourceUnit": 656,
+        "scope": 530,
+        "sourceUnit": 660,
         "src": "103:28:8",
         "symbolAliases": [],
         "unitAlias": ""
@@ -884,24 +884,24 @@
       {
         "baseContracts": [],
         "contractDependencies": [
-          655
+          659
         ],
         "contractKind": "contract",
         "documentation": "Noia Marketplace\n * Including:\n- node registry\n- business registry\n- job post registry",
         "fullyImplemented": true,
-        "id": 527,
+        "id": 529,
         "linearizedBaseContracts": [
-          527
+          529
         ],
         "name": "NoiaMarketplace",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 478,
+            "id": 480,
             "name": "tokenContract",
             "nodeType": "VariableDeclaration",
-            "scope": 527,
+            "scope": 529,
             "src": "274:36:8",
             "stateVariable": true,
             "storageLocation": "default",
@@ -911,7 +911,7 @@
             },
             "typeName": {
               "contractScope": null,
-              "id": 477,
+              "id": 479,
               "name": "ERC223Interface",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 117,
@@ -926,43 +926,15 @@
           },
           {
             "constant": false,
-            "id": 480,
+            "id": 482,
             "name": "nodeRegistry",
             "nodeType": "VariableDeclaration",
-            "scope": 527,
+            "scope": 529,
             "src": "317:32:8",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_NoiaRegistry_$655",
-              "typeString": "contract NoiaRegistry"
-            },
-            "typeName": {
-              "contractScope": null,
-              "id": 479,
-              "name": "NoiaRegistry",
-              "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 655,
-              "src": "317:12:8",
-              "typeDescriptions": {
-                "typeIdentifier": "t_contract$_NoiaRegistry_$655",
-                "typeString": "contract NoiaRegistry"
-              }
-            },
-            "value": null,
-            "visibility": "public"
-          },
-          {
-            "constant": false,
-            "id": 482,
-            "name": "businessRegistry",
-            "nodeType": "VariableDeclaration",
-            "scope": 527,
-            "src": "355:36:8",
-            "stateVariable": true,
-            "storageLocation": "default",
-            "typeDescriptions": {
-              "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+              "typeIdentifier": "t_contract$_NoiaRegistry_$659",
               "typeString": "contract NoiaRegistry"
             },
             "typeName": {
@@ -970,10 +942,10 @@
               "id": 481,
               "name": "NoiaRegistry",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 655,
-              "src": "355:12:8",
+              "referencedDeclaration": 659,
+              "src": "317:12:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                 "typeString": "contract NoiaRegistry"
               }
             },
@@ -983,14 +955,14 @@
           {
             "constant": false,
             "id": 484,
-            "name": "certificatesRegistry",
+            "name": "businessRegistry",
             "nodeType": "VariableDeclaration",
-            "scope": 527,
-            "src": "397:40:8",
+            "scope": 529,
+            "src": "355:36:8",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+              "typeIdentifier": "t_contract$_NoiaRegistry_$659",
               "typeString": "contract NoiaRegistry"
             },
             "typeName": {
@@ -998,10 +970,10 @@
               "id": 483,
               "name": "NoiaRegistry",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 655,
-              "src": "397:12:8",
+              "referencedDeclaration": 659,
+              "src": "355:12:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                 "typeString": "contract NoiaRegistry"
               }
             },
@@ -1011,14 +983,14 @@
           {
             "constant": false,
             "id": 486,
-            "name": "jobPostRegistry",
+            "name": "certificatesRegistry",
             "nodeType": "VariableDeclaration",
-            "scope": 527,
-            "src": "443:35:8",
+            "scope": 529,
+            "src": "397:40:8",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+              "typeIdentifier": "t_contract$_NoiaRegistry_$659",
               "typeString": "contract NoiaRegistry"
             },
             "typeName": {
@@ -1026,10 +998,38 @@
               "id": 485,
               "name": "NoiaRegistry",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 655,
+              "referencedDeclaration": 659,
+              "src": "397:12:8",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_NoiaRegistry_$659",
+                "typeString": "contract NoiaRegistry"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 488,
+            "name": "jobPostRegistry",
+            "nodeType": "VariableDeclaration",
+            "scope": 529,
+            "src": "443:35:8",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_NoiaRegistry_$659",
+              "typeString": "contract NoiaRegistry"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 487,
+              "name": "NoiaRegistry",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 659,
               "src": "443:12:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                 "typeString": "contract NoiaRegistry"
               }
             },
@@ -1038,25 +1038,25 @@
           },
           {
             "body": {
-              "id": 525,
+              "id": 527,
               "nodeType": "Block",
               "src": "563:274:8",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 495,
+                    "id": 497,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 493,
+                      "id": 495,
                       "name": "tokenContract",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 478,
+                      "referencedDeclaration": 480,
                       "src": "573:13:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_ERC223Interface_$117",
@@ -1067,11 +1067,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 494,
+                      "id": 496,
                       "name": "tokenContract_",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 488,
+                      "referencedDeclaration": 490,
                       "src": "589:14:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_ERC223Interface_$117",
@@ -1084,28 +1084,28 @@
                       "typeString": "contract ERC223Interface"
                     }
                   },
-                  "id": 496,
+                  "id": 498,
                   "nodeType": "ExpressionStatement",
                   "src": "573:30:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 502,
+                    "id": 504,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 497,
+                      "id": 499,
                       "name": "nodeRegistry",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 480,
+                      "referencedDeclaration": 482,
                       "src": "613:12:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                        "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                         "typeString": "contract NoiaRegistry"
                       }
                     },
@@ -1116,14 +1116,14 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 500,
+                          "id": 502,
                           "name": "regulation",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 490,
+                          "referencedDeclaration": 492,
                           "src": "645:10:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                             "typeString": "contract NoiaRegulation"
                           }
                         }
@@ -1131,11 +1131,11 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                             "typeString": "contract NoiaRegulation"
                           }
                         ],
-                        "id": 499,
+                        "id": 501,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1143,23 +1143,23 @@
                         "nodeType": "NewExpression",
                         "src": "628:16:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaRegulation_$666_$returns$_t_contract$_NoiaRegistry_$655_$",
+                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaRegulation_$670_$returns$_t_contract$_NoiaRegistry_$659_$",
                           "typeString": "function (contract NoiaRegulation) returns (contract NoiaRegistry)"
                         },
                         "typeName": {
                           "contractScope": null,
-                          "id": 498,
+                          "id": 500,
                           "name": "NoiaRegistry",
                           "nodeType": "UserDefinedTypeName",
-                          "referencedDeclaration": 655,
+                          "referencedDeclaration": 659,
                           "src": "632:12:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                            "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                             "typeString": "contract NoiaRegistry"
                           }
                         }
                       },
-                      "id": 501,
+                      "id": 503,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1169,38 +1169,38 @@
                       "nodeType": "FunctionCall",
                       "src": "628:28:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                        "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                         "typeString": "contract NoiaRegistry"
                       }
                     },
                     "src": "613:43:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                      "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                       "typeString": "contract NoiaRegistry"
                     }
                   },
-                  "id": 503,
+                  "id": 505,
                   "nodeType": "ExpressionStatement",
                   "src": "613:43:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 509,
+                    "id": 511,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 504,
+                      "id": 506,
                       "name": "businessRegistry",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 482,
+                      "referencedDeclaration": 484,
                       "src": "666:16:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                        "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                         "typeString": "contract NoiaRegistry"
                       }
                     },
@@ -1211,14 +1211,14 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 507,
+                          "id": 509,
                           "name": "regulation",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 490,
+                          "referencedDeclaration": 492,
                           "src": "702:10:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                             "typeString": "contract NoiaRegulation"
                           }
                         }
@@ -1226,11 +1226,11 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                             "typeString": "contract NoiaRegulation"
                           }
                         ],
-                        "id": 506,
+                        "id": 508,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1238,23 +1238,23 @@
                         "nodeType": "NewExpression",
                         "src": "685:16:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaRegulation_$666_$returns$_t_contract$_NoiaRegistry_$655_$",
+                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaRegulation_$670_$returns$_t_contract$_NoiaRegistry_$659_$",
                           "typeString": "function (contract NoiaRegulation) returns (contract NoiaRegistry)"
                         },
                         "typeName": {
                           "contractScope": null,
-                          "id": 505,
+                          "id": 507,
                           "name": "NoiaRegistry",
                           "nodeType": "UserDefinedTypeName",
-                          "referencedDeclaration": 655,
+                          "referencedDeclaration": 659,
                           "src": "689:12:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                            "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                             "typeString": "contract NoiaRegistry"
                           }
                         }
                       },
-                      "id": 508,
+                      "id": 510,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1264,38 +1264,38 @@
                       "nodeType": "FunctionCall",
                       "src": "685:28:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                        "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                         "typeString": "contract NoiaRegistry"
                       }
                     },
                     "src": "666:47:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                      "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                       "typeString": "contract NoiaRegistry"
                     }
                   },
-                  "id": 510,
+                  "id": 512,
                   "nodeType": "ExpressionStatement",
                   "src": "666:47:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 516,
+                    "id": 518,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 511,
+                      "id": 513,
                       "name": "certificatesRegistry",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 484,
+                      "referencedDeclaration": 486,
                       "src": "723:20:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                        "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                         "typeString": "contract NoiaRegistry"
                       }
                     },
@@ -1306,14 +1306,14 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 514,
+                          "id": 516,
                           "name": "regulation",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 490,
+                          "referencedDeclaration": 492,
                           "src": "763:10:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                             "typeString": "contract NoiaRegulation"
                           }
                         }
@@ -1321,11 +1321,11 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                             "typeString": "contract NoiaRegulation"
                           }
                         ],
-                        "id": 513,
+                        "id": 515,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1333,23 +1333,23 @@
                         "nodeType": "NewExpression",
                         "src": "746:16:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaRegulation_$666_$returns$_t_contract$_NoiaRegistry_$655_$",
+                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaRegulation_$670_$returns$_t_contract$_NoiaRegistry_$659_$",
                           "typeString": "function (contract NoiaRegulation) returns (contract NoiaRegistry)"
                         },
                         "typeName": {
                           "contractScope": null,
-                          "id": 512,
+                          "id": 514,
                           "name": "NoiaRegistry",
                           "nodeType": "UserDefinedTypeName",
-                          "referencedDeclaration": 655,
+                          "referencedDeclaration": 659,
                           "src": "750:12:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                            "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                             "typeString": "contract NoiaRegistry"
                           }
                         }
                       },
-                      "id": 515,
+                      "id": 517,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1359,38 +1359,38 @@
                       "nodeType": "FunctionCall",
                       "src": "746:28:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                        "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                         "typeString": "contract NoiaRegistry"
                       }
                     },
                     "src": "723:51:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                      "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                       "typeString": "contract NoiaRegistry"
                     }
                   },
-                  "id": 517,
+                  "id": 519,
                   "nodeType": "ExpressionStatement",
                   "src": "723:51:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 523,
+                    "id": 525,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 518,
+                      "id": 520,
                       "name": "jobPostRegistry",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 486,
+                      "referencedDeclaration": 488,
                       "src": "784:15:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                        "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                         "typeString": "contract NoiaRegistry"
                       }
                     },
@@ -1401,14 +1401,14 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 521,
+                          "id": 523,
                           "name": "regulation",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 490,
+                          "referencedDeclaration": 492,
                           "src": "819:10:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                             "typeString": "contract NoiaRegulation"
                           }
                         }
@@ -1416,11 +1416,11 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                            "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                             "typeString": "contract NoiaRegulation"
                           }
                         ],
-                        "id": 520,
+                        "id": 522,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1428,23 +1428,23 @@
                         "nodeType": "NewExpression",
                         "src": "802:16:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaRegulation_$666_$returns$_t_contract$_NoiaRegistry_$655_$",
+                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_NoiaRegulation_$670_$returns$_t_contract$_NoiaRegistry_$659_$",
                           "typeString": "function (contract NoiaRegulation) returns (contract NoiaRegistry)"
                         },
                         "typeName": {
                           "contractScope": null,
-                          "id": 519,
+                          "id": 521,
                           "name": "NoiaRegistry",
                           "nodeType": "UserDefinedTypeName",
-                          "referencedDeclaration": 655,
+                          "referencedDeclaration": 659,
                           "src": "806:12:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                            "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                             "typeString": "contract NoiaRegistry"
                           }
                         }
                       },
-                      "id": 522,
+                      "id": 524,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1454,24 +1454,24 @@
                       "nodeType": "FunctionCall",
                       "src": "802:28:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                        "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                         "typeString": "contract NoiaRegistry"
                       }
                     },
                     "src": "784:46:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaRegistry_$655",
+                      "typeIdentifier": "t_contract$_NoiaRegistry_$659",
                       "typeString": "contract NoiaRegistry"
                     }
                   },
-                  "id": 524,
+                  "id": 526,
                   "nodeType": "ExpressionStatement",
                   "src": "784:46:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 526,
+            "id": 528,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -1479,15 +1479,15 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 491,
+              "id": 493,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 488,
+                  "id": 490,
                   "name": "tokenContract_",
                   "nodeType": "VariableDeclaration",
-                  "scope": 526,
+                  "scope": 528,
                   "src": "497:30:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1497,7 +1497,7 @@
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 487,
+                    "id": 489,
                     "name": "ERC223Interface",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 117,
@@ -1512,26 +1512,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 490,
+                  "id": 492,
                   "name": "regulation",
                   "nodeType": "VariableDeclaration",
-                  "scope": 526,
+                  "scope": 528,
                   "src": "529:25:8",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                    "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                     "typeString": "contract NoiaRegulation"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 489,
+                    "id": 491,
                     "name": "NoiaRegulation",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 666,
+                    "referencedDeclaration": 670,
                     "src": "529:14:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_NoiaRegulation_$666",
+                      "typeIdentifier": "t_contract$_NoiaRegulation_$670",
                       "typeString": "contract NoiaRegulation"
                     }
                   },
@@ -1543,19 +1543,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 492,
+              "id": 494,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "563:0:8"
             },
-            "scope": 527,
+            "scope": 529,
             "src": "485:352:8",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 528,
+        "scope": 530,
         "src": "243:596:8"
       }
     ],
@@ -1567,5 +1567,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-09-10T14:17:13.934Z"
+  "updatedAt": "2018-09-17T14:55:18.689Z"
 }

@@ -1,9 +1,9 @@
 pragma solidity ^0.4.20;
 
-import './NoiaBusinessV1.sol';
-import './NoiaNodeV1.sol';
-import './NoiaCertificateV1.sol';
-import './NoiaJobPostV1.sol';
+import "./NoiaBusinessV1.sol";
+import "./NoiaNodeV1.sol";
+import "./NoiaCertificateV1.sol";
+import "./NoiaJobPostV1.sol";
 
 contract NoiaBaseContractFactoryV1 {
     NoiaMarketplace marketplace;
@@ -33,8 +33,8 @@ contract NoiaNodeContractFactoryV1 is NoiaBaseContractFactoryV1 {
 
 contract NoiaCertificateContractFactoryV1 is NoiaBaseContractFactoryV1 {
     function create(bytes32 certificateName, NoiaBusinessV1 issuer, NoiaNodeV1 recipient) public {
-        require(marketplace.businessRegistry().hasEntry(issuer));
-        require(marketplace.nodeRegistry().hasEntry(recipient));
+        require(marketplace.businessRegistry().hasEntry(issuer), "Marketplace does not have provided issuer in business registry");
+        require(marketplace.nodeRegistry().hasEntry(recipient), "Marketplace does not have provided recipient in node's registry");
         NoiaCertificateV1 cert = new NoiaCertificateV1(this, marketplace, certificateName, issuer, recipient);
         cert.changeOwner(msg.sender);
         marketplace.certificatesRegistry().addEntry(cert);
@@ -44,7 +44,7 @@ contract NoiaCertificateContractFactoryV1 is NoiaBaseContractFactoryV1 {
 
 contract NoiaJobPostContractFactoryV1 is NoiaBaseContractFactoryV1 {
     function create(NoiaBusinessV1 employer, bytes32 infoType, bytes infoData) public {
-        require(marketplace.businessRegistry().hasEntry(employer));
+        require(marketplace.businessRegistry().hasEntry(employer), "Marketplace does not have employer in business registry");
         NoiaJobPostV1 jobPost = new NoiaJobPostV1(this, marketplace, employer, infoType, infoData);
         jobPost.changeOwner(msg.sender);
         marketplace.jobPostRegistry().addEntry(jobPost);

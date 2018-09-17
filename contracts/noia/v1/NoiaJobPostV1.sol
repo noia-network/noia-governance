@@ -1,7 +1,7 @@
 pragma solidity ^0.4.24;
 
-import { NoiaBaseContractV1 } from './NoiaBaseContractV1.sol';
-import { NoiaBusinessV1 } from './NoiaBusinessV1.sol';
+import { NoiaBaseContractV1 } from "./NoiaBaseContractV1.sol";
+import { NoiaBusinessV1 } from "./NoiaBusinessV1.sol";
 import { NoiaWorkOrderV1 } from "./NoiaWorkOrderV1.sol";
 import { NoiaMarketplace } from "../gov/NoiaMarketplace.sol";
 import { Owned } from "../../abstracts/Owned.sol";
@@ -36,7 +36,7 @@ contract NoiaJobPostV1 is NoiaBaseContractV1 {
             workOrder = new NoiaWorkOrderV1(this, initiator, _workerOwner);
             employerCreatedOrders[_workerOwner] = workOrder;
         } else {
-            require(false);
+            require(false, "Only a job post owner/employer can create a work order");
         }
         emit NoiaContractV1Created(workOrder);
     }

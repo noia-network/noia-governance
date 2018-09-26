@@ -13,18 +13,21 @@
     "webpack": "^4.12.1"
   },
   "dependencies": {
+    "bignumber.js": "^2.0.7",
     "debug": "^3.1.0",
+    "eip820": "0.0.20",
     "ethereumjs-util": "^5.2.0",
+    "noia-token": "^1.0.3",
     "openzeppelin-solidity": "^1.11.0",
     "truffle-contract": "^3.0.6",
     "web3": "^0.20.6",
-    "web3-hdwallet-provider": "^0.1.1",
+    "web3-hdwallet-provider": "^0.1.4",
     "web3-utils": "^1.0.0-beta.35"
   },
   "scripts": {
     "build": "make build",
     "pretest": "nohup ganache-cli -m 'ill song party come kid carry calm captain state purse weather ozone' -p 7545 --networkId 5777&",
-    "test": "make test NETWORK=${NETWORK:-local}",
+    "test": "make test NETWORK=${NETWORK:-local} 1>&2",
     "posttest": "pkill -f ganache-cli",
     "mocha": "mocha",
     "truffle": "truffle --network ${NETWORK:-local}",

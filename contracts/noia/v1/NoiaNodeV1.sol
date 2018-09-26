@@ -23,7 +23,7 @@ contract NoiaNodeV1 is NoiaBaseContractV1 {
     //
     // Node Info
     //
-    function setInfo(bytes32 infoType_, bytes infoData_) public {
+    function setInfo(bytes32 infoType_, bytes infoData_) public onlyOwner {
         infoType = infoType_;
         infoData = infoData_;
     }

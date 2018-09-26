@@ -1,13 +1,14 @@
 pragma solidity ^0.4.24;
 
 import { NoiaJobPostV1} from "./NoiaJobPostV1.sol";
-import { ERC223ReceivingContract } from "../../abstracts/ERC223ReceivingContract.sol";
-import { ERC223Interface } from "../../abstracts/ERC223Interface.sol";
+import { ERC777Token } from "noia-token/contracts/erc777/contracts/ERC777Token.sol";
+import { ERC777TokensRecipient } from "noia-token/contracts/erc777/contracts/ERC777TokensRecipient.sol";
+import { ERC820Implementer } from "noia-token/contracts/eip820/contracts/ERC820Implementer.sol";
 import { ECRecovery } from "../../lib/ECRecovery.sol";
 import { SafeMath } from "openzeppelin-solidity/contracts/math/SafeMath.sol";
 import { Owned } from "../../abstracts/Owned.sol";
 
-contract NoiaWorkOrderV1 is ERC223ReceivingContract {
+contract NoiaWorkOrderV1 is ERC820Implementer, ERC777TokensRecipient {
     using SafeMath for uint256;
     using ECRecovery for bytes32;
 
@@ -15,7 +16,7 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
 
     address public jobPost;
     Initiator initiator;
-    ERC223Interface token;
+    ERC777Token token;
     Owned public employer;
     address public workerOwner;
     mapping(bytes => bool) private signatures;
@@ -34,7 +35,12 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
     constructor(NoiaJobPostV1 _jobPost, Initiator _initiator, address _workerOwner) public {
         require(msg.sender == address(_jobPost), "Only a job post can create a work order");
         require(_workerOwner != address(0), "Worker address is 0");
-        token = ERC223Interface(address(_jobPost.marketplace().tokenContract()));
+
+        setInterfaceImplementation("ERC777TokensRecipient", this);
+        address tokenAddress = interfaceAddr(address(_jobPost.marketplace().tokenContract()), "ERC777Token");
+        require(tokenAddress != address(0), "Marketplace Token is not an ERC777Token");
+        token = ERC777Token(tokenAddress);
+
         initiator = _initiator;
         employer = _jobPost.employer();
         workerOwner = _workerOwner;
@@ -134,12 +140,13 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
         }
         if (tokens > 0) {
             totalVested = totalVested.sub(tokens);
-            token.transfer(to, tokens);
+            token.send(to, tokens, "");
             emit Released(to, tokens);
         }
     }
 
-    function tokenFallback(address /*_from*/, uint /*_value*/, bytes /*_data*/) public {
+    function tokensReceived(address /*operator*/, address /*from*/, address /*to*/, uint /*amount*/, bytes /*userData*/, bytes /*operatorData*/)
+        public {
         require(msg.sender == address(token), "We only accept token transfers from our token contract");
     }
 

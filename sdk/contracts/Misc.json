@@ -85,20 +85,20 @@
                 {
                   "externalReferences": [
                     {
-                      "size": {
-                        "declaration": 258,
-                        "isOffset": false,
-                        "isSlot": false,
-                        "src": "147:4:5",
-                        "valueSize": 1
-                      }
-                    },
-                    {
                       "addr": {
                         "declaration": 252,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "167:4:5",
+                        "valueSize": 1
+                      }
+                    },
+                    {
+                      "size": {
+                        "declaration": 258,
+                        "isOffset": false,
+                        "isSlot": false,
+                        "src": "147:4:5",
                         "valueSize": 1
                       }
                     }
@@ -332,20 +332,20 @@
                 {
                   "externalReferences": [
                     {
-                      "size": {
-                        "declaration": 258,
-                        "isOffset": false,
-                        "isSlot": false,
-                        "src": "147:4:5",
-                        "valueSize": 1
-                      }
-                    },
-                    {
                       "addr": {
                         "declaration": 252,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "167:4:5",
+                        "valueSize": 1
+                      }
+                    },
+                    {
+                      "size": {
+                        "declaration": 258,
+                        "isOffset": false,
+                        "isSlot": false,
+                        "src": "147:4:5",
                         "valueSize": 1
                       }
                     }
@@ -506,6 +506,6 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "2.0.0",
-  "updatedAt": "2018-09-17T14:55:18.674Z"
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-09-26T12:05:52.837Z"
 }

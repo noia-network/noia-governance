@@ -264,8 +264,9 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
     await workOrder.accept();
 
     // Worker get's it's own work order instance and generates the signed accept request
+    const nonce = Date.now();
     const clientSideWorkOrder = await worker.getWorkOrderAt(workOrder.address);
-    const signedAcceptRequest = await clientSideWorkOrder.generateSignedAcceptRequest();
+    const signedAcceptRequest = await clientSideWorkOrder.generateSignedAcceptRequest(nonce);
     console.log(`Worker signed accept request: ${JSON.stringify(signedAcceptRequest)}`);
 
     // Business executes the delegated work order "accept request" from worker
@@ -285,7 +286,7 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
 
     // Worker generates the signed release request
     console.log(`Generating signed release request!`);
-    const signedReleaseRequest = await clientSideWorkOrder.generateSignedReleaseRequest(worker.accountOwner);
+    const signedReleaseRequest = await clientSideWorkOrder.generateSignedReleaseRequest(worker.accountOwner, nonce);
     console.log(`Worker signed release request: ${JSON.stringify(signedReleaseRequest)}`);
 
     // Business release's the timelocked amount to worker based on a "Release request" from worker

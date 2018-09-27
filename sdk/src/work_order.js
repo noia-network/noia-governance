@@ -40,14 +40,17 @@ class WorkOrder {
     return tx;
   }
 
-  async generateSignedAcceptRequest() {
+  async generateSignedAcceptRequest(_nonce) {
     const logger = this.logger;
     const method = "accept";
     const web3 = this.web3;
     const owner = this.accountOwner;
-    let nonce = this.nonces[method];
-    if (!nonce) { nonce = 0; }
-    this.nonces[method] = ++nonce;
+    let nonce = _nonce;
+    if (nonce == undefined) {
+      nonce = this.nonces[method];
+      if (!nonce) { nonce = 0; }
+      this.nonces[method] = ++nonce;
+    }
     // console.log(`signAcceptRequest! For wallet owner: ${owner}, work order address: ${this.address}`);
     const sig = await rpcSignPacked(web3, owner, // sign with acc1 - which created worker0
                                     {t: "address", v: hexRemove0x(this.address)}, // "69a6df83fdfa5f75d9e631bc1d36c7573b5fa52e"
@@ -58,7 +61,7 @@ class WorkOrder {
       owner: owner,
       nonce: nonce,
       sig: sig
-    }
+    };
   }
 
   async isAccepted() {
@@ -122,15 +125,18 @@ class WorkOrder {
     return tx;
   }
 
-  async generateSignedReleaseRequest(beneficiary) {
+  async generateSignedReleaseRequest(beneficiary, _nonce) {
     const logger = this.logger;
     const method = "release";
     const web3 = this.web3;
     // TODO! Check if beneficiary is provided then if it is a contract address then if it is ERC332 compliant contract
     const owner = beneficiary || this.accountOwner;
-    let nonce = this.nonces[method];
-    if (!nonce) { nonce = 0; }
-    this.nonces[method] = ++nonce;
+    let nonce = _nonce;
+    if (nonce == undefined) {
+      nonce = this.nonces[method];
+      if (!nonce) { nonce = 0; }
+      this.nonces[method] = ++nonce;
+    }
     // console.log(`signReleaseRequest! For wallet owner: ${owner}, work order address: ${this.address}`);
     const sig = await rpcSignPacked(web3, owner, // sign with acc1 - which created worker0
                                     {t: "address", v: hexRemove0x(this.address)}, // "69a6df83fdfa5f75d9e631bc1d36c7573b5fa52e"
@@ -143,7 +149,7 @@ class WorkOrder {
       beneficiary: beneficiary,
       nonce: nonce,
       sig: sig
-    }
+    };
   }
 
   async totalVested() {

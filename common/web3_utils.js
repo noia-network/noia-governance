@@ -36,7 +36,7 @@ function waitForConfirmations(resolve, reject, web3, txnHash, receipt, waitForNr
       const steps = highestBlockNumber - startBlockNumber;
       let stepsToGo = waitForNrConfirmations - steps;
       stepsToGo = stepsToGo >= 0 ? stepsToGo : 0;
-      console.log(`Waiting confirmations[${stepsToGo}]. startBlockNumber: ${startBlockNumber}, highestBlockNumber: ${highestBlockNumber}`);
+      logger.info(`Waiting confirmations[${stepsToGo}]. startBlockNumber: ${startBlockNumber}, highestBlockNumber: ${highestBlockNumber}`);
       if (highestBlockNumber <= oldBlockNumber) {
         // logger.info(`Waiting for next block!`);
         return;
@@ -151,7 +151,7 @@ if (process && process.env && process.env.NETWORK === 'local') {
 async function sendTransactionAndWaitForReceiptMined(web3, contractFn, txParams) {
   // check if confirmations nr is provided
   const params = Object.assign({}, txParams || {});
-  console.log(`Confirmation! txParams.confirmations: ${params.confirmations}, CONFIRMATIONS_DEFAULT: ${CONFIRMATIONS_DEFAULT}`);
+  logger.info(`Confirmation! txParams.confirmations: ${params.confirmations}, CONFIRMATIONS_DEFAULT: ${CONFIRMATIONS_DEFAULT}`);
   let waitForNrConfirmations = params.confirmations;
   if (waitForNrConfirmations == undefined) {
     waitForNrConfirmations = CONFIRMATIONS_DEFAULT;
@@ -164,13 +164,13 @@ async function sendTransactionAndWaitForReceiptMined(web3, contractFn, txParams)
 
   // if gas is not set explicitly then estimate gas for the transaction
   if (!params.gas) {
-    console.info(`Contract function estimateGas: ${JSON.stringify(args)}`);
+    logger.info(`Contract function estimateGas: ${JSON.stringify(args)}`);
     const gasEstimate = await contractFn.estimateGas.apply(null, args);
     const gasToUse = await calculateActualGas(web3, gasEstimate);
     params.gas = gasToUse;
-    console.info(`Gas estimated ${gasEstimate}, using gas: ${params.gas}, with args: ${JSON.stringify(args)}`);
+    logger.info(`Gas estimated ${gasEstimate}, using gas: ${params.gas}, with args: ${JSON.stringify(args)}`);
   } else {
-    console.info(`Gas explicitly set! using gas: ${params.gas}, with args: ${JSON.stringify(args)}`);
+    logger.info(`Gas explicitly set! using gas: ${params.gas}, with args: ${JSON.stringify(args)}`);
   }
 
   // call a contract function

@@ -164,7 +164,7 @@ BaseClient.prototype._startWatchingEvent = async function (eventName, filterFunc
                 }
               } catch (err) {
                 // error while waiting for the log event processed
-                console.log(`Error in processing the event!`, err);
+                that.logger.error(`Error in processing the event!`, err);
               }
             } else {
               that.emit(eventName, contractAddress, logBlockNumber, i);

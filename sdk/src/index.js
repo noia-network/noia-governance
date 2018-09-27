@@ -510,7 +510,7 @@ for (let i=0; i < ownProps.length; i++) {
   // console.log(`Prop type: ${typeof propValue}`);
   if (typeof propValue === "function") {
     if (propName === "constructor") { continue; }
-    console.log(`Exporting the sdk function: ${propName} and binding default sdk instance to it!`);
+    // console.log(`Exporting the sdk function: ${propName} and binding default sdk instance to it!`);
     api[propName] = propValue.bind(sdk);
   }
 }

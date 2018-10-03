@@ -5,12 +5,11 @@ if (typeof global.contract === 'undefined') {
 
     global.contract = function (name, testsuite) {
         describe(name, function (done) {
-            this.timeout(300000);
+            this.timeout(600000);
             // NOTE! configure your network.provider as a function
-            let network = truffleConfig.networks[process.env.NETWORK];
-            let provider = network.provider();
+            let provider = truffleConfig.networks[process.env.NETWORK].provider();
             global.web3 = new Web3();
-            web3.setProvider(network.provider());
+            web3.setProvider(provider);
             if (provider.addresses) {
                 // hd wallet
                 accounts = provider.addresses;

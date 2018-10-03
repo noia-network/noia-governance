@@ -1,13 +1,14 @@
 pragma solidity ^0.4.24;
 
 import { NoiaJobPostV1} from "./NoiaJobPostV1.sol";
-import { ERC223ReceivingContract } from "../../abstracts/ERC223ReceivingContract.sol";
-import { ERC223Interface } from "../../abstracts/ERC223Interface.sol";
+import { ERC777Token } from "noia-token/contracts/erc777/contracts/ERC777Token.sol";
+import { ERC777TokensRecipient } from "noia-token/contracts/erc777/contracts/ERC777TokensRecipient.sol";
+import { ERC820Implementer } from "noia-token/contracts/eip820/contracts/ERC820Implementer.sol";
 import { ECRecovery } from "../../lib/ECRecovery.sol";
 import { SafeMath } from "openzeppelin-solidity/contracts/math/SafeMath.sol";
 import { Owned } from "../../abstracts/Owned.sol";
 
-contract NoiaWorkOrderV1 is ERC223ReceivingContract {
+contract NoiaWorkOrderV1 is ERC820Implementer, ERC777TokensRecipient {
     using SafeMath for uint256;
     using ECRecovery for bytes32;
 
@@ -15,9 +16,9 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
 
     address public jobPost;
     Initiator initiator;
-    ERC223Interface token;
+    ERC777Token token;
     Owned public employer;
-    Owned public worker;
+    address public workerOwner;
     mapping(bytes => bool) private signatures;
 
     struct Timelock {
@@ -31,13 +32,18 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
     bool public acceptedByEmployer = false;
     bool public acceptedByWorker = false;
 
-    constructor(NoiaJobPostV1 _jobPost, Initiator _initiator, address _worker) public {
-        require(msg.sender == address(_jobPost)); // can be created by a job post only
-        require(_worker != address(0));
-        token = ERC223Interface(address(_jobPost.marketplace().tokenContract()));
+    constructor(NoiaJobPostV1 _jobPost, Initiator _initiator, address _workerOwner) public {
+        require(msg.sender == address(_jobPost), "Only a job post can create a work order");
+        require(_workerOwner != address(0), "Worker address is 0");
+
+        setInterfaceImplementation("ERC777TokensRecipient", this);
+        address tokenAddress = interfaceAddr(address(_jobPost.marketplace().tokenContract()), "ERC777Token");
+        require(tokenAddress != address(0), "Marketplace Token is not an ERC777Token");
+        token = ERC777Token(tokenAddress);
+
         initiator = _initiator;
         employer = _jobPost.employer();
-        worker = Owned(_worker);
+        workerOwner = _workerOwner;
         jobPost = address(_jobPost);
     }
 
@@ -57,7 +63,7 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
     }
 
     function doAccept(address signer) private {
-        bool isWorker = signer == worker.owner();
+        bool isWorker = signer == workerOwner;
         bool isEmployer = signer == employer.owner();
         require(isWorker || isEmployer, "Signer must be a worker or employee!");
 
@@ -70,7 +76,7 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
             acceptedByEmployer = true;
         }
         if (oldStatus == false && isAccepted()) {
-            emit Accepted(employer, worker);
+            emit Accepted(employer, workerOwner);
         }
     }
 
@@ -83,9 +89,9 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
     }
 
     function timelock(uint256 _amount, uint256 _lockUntil) public {
-        require(msg.sender == employer.owner()); // allow only employer to timelock the funds
-        require(_lockUntil > now);
-        require(token.balanceOf(address(this)) >= totalVested.add(_amount));
+        require(msg.sender == employer.owner(), "Only an employer can timelock the funds");
+//        require(_lockUntil > now);
+        require(token.balanceOf(address(this)) >= totalVested.add(_amount), "Total vested cannot be lower than total funds in work order");
         totalVested = totalVested.add(_amount);
 
         timelocks.push(Timelock({until: _lockUntil, amount: _amount}));
@@ -106,23 +112,23 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
 
     // have a signature (from a worker wallet) and saying there to release funds to this beneficiary address
     function delegatedRelease(address beneficiary, uint256 _nonce, bytes _sig) public {
-        require(isAccepted());
-        require(beneficiary != address(0));
+        require(isAccepted(), "Cannot release funds before work order is accepted");
+        require(beneficiary != address(0), "Beneficiary address is 0");
 
-        require(signatures[_sig] == false);
+        require(signatures[_sig] == false, "Multiple use of the same delegated message is not allowed");
         signatures[_sig] = true;
 
         bytes memory msgPacked = abi.encodePacked(address(this), "release", beneficiary, _nonce);
         address signer = keccak256(msgPacked).toEthSignedMessageHash().recover(_sig);
-        require(signer != address(0));
-        require(signer == worker.owner()); // we only allow the signer to be a worker owner
+        require(signer != address(0), "Delegated release message signer is not recognized");
+        require(signer == workerOwner, "Delegated release message signer must be a worker of the work order");
 
         // release the ones that can be released
         address to = beneficiary;
         uint256 tokens = 0;
         uint256 until;
         uint256 n = timelocks.length;
-        uint256 timestamp = now;
+        uint256 timestamp = block.timestamp;
         for (uint256 i = 0; i < n; i++) {
             Timelock storage tl = timelocks[i];
             until = tl.until;
@@ -134,13 +140,14 @@ contract NoiaWorkOrderV1 is ERC223ReceivingContract {
         }
         if (tokens > 0) {
             totalVested = totalVested.sub(tokens);
-            token.transfer(to, tokens);
+            token.send(to, tokens, "");
             emit Released(to, tokens);
         }
     }
 
-    function tokenFallback(address /*_from*/, uint /*_value*/, bytes /*_data*/) public {
-        require(msg.sender == address(token));
+    function tokensReceived(address /*operator*/, address /*from*/, address /*to*/, uint /*amount*/, bytes /*userData*/, bytes /*operatorData*/)
+        public {
+        require(msg.sender == address(token), "We only accept token transfers from our token contract");
     }
 
     event Accepted(address employer, address worker);

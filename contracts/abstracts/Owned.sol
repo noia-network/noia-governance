@@ -3,7 +3,7 @@ pragma solidity ^0.4.0;
 contract Owned {
     /// Allows only the owner to call a function
     modifier onlyOwner {
-        require (msg.sender == owner);
+        require (msg.sender == owner, "Sender is not an owner");
         _;
     }
 
@@ -11,7 +11,7 @@ contract Owned {
 
     constructor() public { owner = msg.sender;}
 
-    function changeOwner(address _newOwner) onlyOwner public {
+    function changeOwner(address _newOwner) public onlyOwner {
         owner = _newOwner;
     }
 }

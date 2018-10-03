@@ -1,6 +1,6 @@
 pragma solidity ^0.4.11;
 
-import './NoiaBaseContract.sol';
+import "./NoiaBaseContract.sol";
 
 /**
  * Noia Regulation Rules

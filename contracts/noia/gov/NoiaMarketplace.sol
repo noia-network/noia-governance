@@ -1,8 +1,8 @@
 pragma solidity ^0.4.11;
 
-import '../../abstracts/ERC223Interface.sol';
-import './NoiaRegulation.sol';
-import './NoiaRegistry.sol';
+import { ERC777Token } from "noia-token/contracts/erc777/contracts/ERC777Token.sol";
+import "./NoiaRegulation.sol";
+import "./NoiaRegistry.sol";
 
 /**
  * Noia Marketplace
@@ -13,14 +13,14 @@ import './NoiaRegistry.sol';
  * - job post registry
  */
 contract NoiaMarketplace {
-    ERC223Interface public tokenContract;
+    ERC777Token public tokenContract;
 
     NoiaRegistry public nodeRegistry;
     NoiaRegistry public businessRegistry;
     NoiaRegistry public certificatesRegistry;
     NoiaRegistry public jobPostRegistry;
 
-    constructor(ERC223Interface tokenContract_, NoiaRegulation regulation) public {
+    constructor(ERC777Token tokenContract_, NoiaRegulation regulation) public {
         tokenContract = tokenContract_;
         nodeRegistry = new NoiaRegistry(regulation);
         businessRegistry = new NoiaRegistry(regulation);

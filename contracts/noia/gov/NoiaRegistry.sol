@@ -1,7 +1,7 @@
 pragma solidity ^0.4.11;
 
-import './NoiaBaseContract.sol';
-import './NoiaRegulation.sol';
+import "./NoiaBaseContract.sol";
+import "./NoiaRegulation.sol";
 
 /**
  * Shared Noia Registry
@@ -26,8 +26,8 @@ contract NoiaRegistry {
 
     function addEntry(NoiaBaseContract baseContract) public {
         // validate that sender is from the same factory
-        require(msg.sender == address(baseContract.factory()));
-        require(regulation.isContractValid(baseContract));
+        require(msg.sender == address(baseContract.factory()), "addEntry() failed. Sender is not from the same factory");
+        require(regulation.isContractValid(baseContract), "addEntry() failed. Contract is not valid according to regulation");
         entries[address(baseContract)] = 1;
         ++nEntries;
         emit NoiaRegistryEntryAdded(address(baseContract));
@@ -41,6 +41,5 @@ contract NoiaRegistry {
         return nEntries;
     }
 
-    event NoiaRegistryEntryAdded(
-        address baseContract);
+    event NoiaRegistryEntryAdded(address baseContract);
 }

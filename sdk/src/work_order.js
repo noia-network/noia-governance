@@ -160,12 +160,16 @@ class WorkOrder {
     return await this.contract.totalFunds.call();
   }
 
+  async getWorkerOwner() {
+    return await this.contract.workerOwner.call();
+  }
+
   getJobPost() {
     return this.jobPost;
   }
 
   static async getInstance(logger, contracts, owner, workOrderAddress) {
-    const workOrderContract = await contracts.NoiaWorkOrder.at(workOrderAddress);
+    const workOrderContract = await contracts.NoiaWorkOrder.at(workOrderAddress).then(i => i);
     const jobPostAddress = await workOrderContract.jobPost.call();
     const jobPost = await contracts.NoiaJobPost.at(jobPostAddress);
     return await new WorkOrderConstructor(owner, contracts, workOrderContract, jobPost, logger);

@@ -232,6 +232,7 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
     //const workerAddress = worker.address;
     console.log(`Creating work order ... for worker owner (wallet address): ${worker.accountOwner}`);
     const workOrder = await jobPost.createWorkOrder(worker.accountOwner);
+    console.log(`Worker owner: ${await workOrder.getWorkerOwner()}`);
 
     // console.log(`Getting work order. Address: ${workOrder.address}`);
     // let wo = await jobPost.getWorkOrderAt(workOrder.address);
@@ -302,5 +303,16 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
     console.log(`Timelocks: ${JSON.stringify(await workOrder.getTimelocks())}, workerBalanceDiff: ${workerBalanceDiff}, `);
     assert.isTrue(totalVested == 0);
     assert.isTrue(workerBalanceDiff == lockedAmountFloat);
+  });
+
+  it("WorkOrder. No code at address should fail", async () => {
+    const workOrderAddress = "0x045b075752c42255a183f9a854f97590e0766894";
+    try {
+      const wo = await baseClient.getWorkOrderAt(workOrderAddress);
+      assert.isTrue(false);
+    } catch (err) {
+      // console.log(`Error while calling getWorkOrderAt.`, err);
+      assert.isTrue(true);
+    }
   });
 });

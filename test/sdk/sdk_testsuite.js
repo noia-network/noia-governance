@@ -26,7 +26,7 @@ async function getBalance(acc) {
   });
 }
 
-contract('NOIA Governance SDK functional tests: ', function (accounts) {
+contract('NOIA Governance SDK functional tests: ', function (accounts, config) {
   const acc0 = accounts[0];
   const acc1 = accounts[1];
 
@@ -78,6 +78,54 @@ contract('NOIA Governance SDK functional tests: ', function (accounts) {
   after(function () {
     sdk.uninit();
     sdk2.uninit();
+  });
+
+  it('Testing external provider', async () => {
+    const initOptions = {
+      web3 : {
+        provider: web3.currentProvider,
+      },
+      account: {
+        owner: acc0,
+      }
+    };
+    const sdk = new NoiaSdk();
+    await sdk.init(initOptions);
+    const ethBalance = await sdk.getEtherBalance(acc0);
+    assert.isTrue(ethBalance > 0);
+  });
+
+  it('Testing internal hdwallet with mnemonic', async () => {
+    const {providerUrl} = config;
+    const mnemonic = 'ill song party come kid carry calm captain state purse weather ozone';
+    const initOptions = {
+      web3 : {
+        provider_url: providerUrl,
+      },
+      account : {
+        mnemonic: mnemonic,
+      }
+    };
+    const sdk = new NoiaSdk();
+    await sdk.init(initOptions);
+    const ethBalance = await sdk.getEtherBalance(acc0);
+    assert.isTrue(ethBalance > 0);
+  });
+
+  it('Testing internal http provider with owner address', async () => {
+    const {providerUrl} = config;
+    const initOptions = {
+      web3 : {
+        provider_url: providerUrl,
+      },
+      account : {
+        owner: acc0,
+      }
+    };
+    const sdk = new NoiaSdk();
+    await sdk.init(initOptions);
+    const ethBalance = await sdk.getEtherBalance(acc0);
+    assert.isTrue(ethBalance > 0);
   });
 
   it('rpc message signing & validation', async () => {

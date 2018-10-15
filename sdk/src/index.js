@@ -61,7 +61,7 @@ class NoiaSdk {
    *        }
    *    }
    *
-   *  - Using internal provider:
+   *  - Using internal hdwallet provider with mnemonic:
    *    {
    *        web3: {
    *            provider_url : <provider_url>, // only http(s) supported
@@ -75,6 +75,23 @@ class NoiaSdk {
    *        },
    *        account: {
    *            mnemonic: "xxx yyy zzz"
+   *        }
+   *    }
+   *
+   *  - Using internal http provider with owner address:
+   *    {
+   *        web3: {
+   *            provider_url : <provider_url>, // only http(s) supported
+   *            provider_options: {
+   *                timeout: ...,
+   *                user: ...,
+   *                password: ...,
+   *                headers: ...
+   *            }
+   *
+   *        },
+   *        account: {
+   *            owner: <account address>
    *        }
    *    }
    *
@@ -97,7 +114,7 @@ class NoiaSdk {
 
     // web3 and account
     if (typeof this.provider === 'undefined') {
-      if (provider_url && mnemonic) {
+      if (provider_url) {
         const providerOptions = provider_options || {};
         const {headers} = providerOptions;
 
@@ -121,8 +138,15 @@ class NoiaSdk {
           undefined,
           httpHeaders
         );
-        this.provider = new Web3HDWalletProvider(httpProvider, mnemonic);
-        this.owner = this.provider.addresses[0];
+        if (mnemonic) {
+          this.provider = new Web3HDWalletProvider(httpProvider, mnemonic);
+          this.owner = this.provider.addresses[0];
+        } else if (account.owner) {
+          this.provider = httpProvider;
+          this.owner = account.owner;
+        } else {
+          throw new Error(`web3.provider_url without account.mnemonic or account.owner!`);
+        }
       } else {
         throw new Error('Neither an external provider nor a pair of (web3.provider_url, account.mnemonic) is not provided');
       }
@@ -136,7 +160,10 @@ class NoiaSdk {
       }
     }
 
-    this.ownerPrivateKey = this.provider.wallets[this.owner].getPrivateKey();
+    if (this.provider.wallets) {
+      this.ownerPrivateKey = this.provider.wallets[this.owner].getPrivateKey();
+    }
+
     if (typeof this.provider.start === 'function') {
       await this.provider.start();
     }

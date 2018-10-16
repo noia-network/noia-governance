@@ -28,7 +28,7 @@ async function asyncForEach(array, callback) {
 }
 
 function isTestNetwork(network) {
-  return network === "local" || network === "dev" || network === "priv" || network === "ropsten";
+  return network === "local" || network === "dev" || network === "priv" || network === "ropsten" || network === "rinkeby";
 }
 
 module.exports = function (deployer, network, accounts) {
@@ -61,6 +61,9 @@ module.exports = function (deployer, network, accounts) {
         // ERC777 NOIAToken - https://ropsten.etherscan.io/address/0x045b075752c42255a183f9a854f97590e0766894
         // tokenContract = await ERC777Token.at('0x045b075752c42255a183f9a854f97590e0766894');
         tokenContract = await NOIAToken.at('0x045b075752c42255a183f9a854f97590e0766894');
+      } else if (network == "rinkeby") {
+        // ERC777 NOIAToken - https://rinkeby.etherscan.io/address/0x89ca167e4f0c7ce7a4d6a10ab629c35f86be98db
+        tokenContract = await NOIAToken.at('0x89ca167e4f0c7ce7a4d6a10ab629c35f86be98db');
       } else {
         // EIP820 Registry is required by ERC777 NOIAToken implementation before deployment
         const Web3Latest = require("noia-token/node_modules/web3");
@@ -76,7 +79,7 @@ module.exports = function (deployer, network, accounts) {
       }
       console.log(`NOIAToken state: ${await tokenContract.state.call()}`);
 
-      if (network != "ropsten") {
+      if (network != "ropsten" && network != "rinkeby") {
         console.log(`Creating tokens for ${accounts.length} accounts`);
         await asyncForEach(accounts, async account => {
           console.log(`Creating 100000 token for account ${account} ...`);
